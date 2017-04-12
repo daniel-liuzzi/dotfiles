@@ -5,14 +5,26 @@
 [alias]
 	# http://stackoverflow.com/a/7149602
 	addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+
+	# https://github.com/so-fancy/diff-so-fancy#raw-patches
 	patch = !git --no-pager diff --no-color
+
+[color "diff"]
+	whitespace = red reverse
+
+[push]
+	# Allows pushing for the first time with just `git push` instead of `git push -u origin HEAD`
+	default = current
 
 [core]
 	editor = 'C:/Program Files/Sublime Text 3/subl.exe' --new-window --wait
+
+	# https://github.com/so-fancy/diff-so-fancy#usage
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
 	tool = winmerge-v2
+
 	# http://blog.deveo.com/whats-new-in-git-2-11/#experimentalheuristicsgitdiff
 	indentHeuristic = on
 
@@ -30,14 +42,8 @@
 	trustExitCode = false
 
 [mergetool "winmerge-v2"]
+	# WinMerge w/ 3-way merge support (https://github.com/sdottaka/winmerge-v2/releases)
 	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -u -wl -wr -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
-
-[color "diff"]
-	whitespace = red reverse
-
-[push]
-	# Allows pushing for the first time with just `git push` instead of `git push -u origin HEAD`
-	default = current
 
 [filter "lfs"]
 	required = true
