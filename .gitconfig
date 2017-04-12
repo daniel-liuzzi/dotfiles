@@ -1,0 +1,62 @@
+[user]
+	name = Daniel Liuzzi
+	email = dliuzzi@gmail.com
+
+[alias]
+	# http://stackoverflow.com/a/7149602
+	addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+	patch = !git --no-pager diff --no-color
+
+[core]
+	# editor = atom --wait
+	editor = 'C:/Program Files/Sublime Text 3/subl.exe' --new-window --wait
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[diff]
+	tool = winmerge-v2
+	### http://blog.deveo.com/whats-new-in-git-2-9-2/#diffs
+	##compactionHeuristic = true
+	# http://blog.deveo.com/whats-new-in-git-2-11/#experimentalheuristicsgitdiff
+	indentHeuristic = on
+
+[difftool]
+	prompt = false
+
+[difftool "winmerge-v2"]
+	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -r -e -u -wl -fr "$LOCAL" "$REMOTE"
+
+[merge]
+	tool = winmerge-v2
+
+[mergetool]
+	keepBackup = false
+	trustExitCode = false
+
+[mergetool "winmerge-v2"]
+	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -u -wl -wr -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
+
+##[color "diff"]
+##	commit = cyan
+##	meta = black bold
+##	frag = ""
+##	old = red bold
+##	new = green bold
+##
+##[color "diff-highlight"]
+##	oldNormal = red bold
+##	oldHighlight = red reverse
+##	newNormal = green bold
+##	newHighlight = green reverse
+
+[color "diff"]
+	whitespace = red reverse
+
+[push]
+	# Allows pushing for the first time with just `git push` instead of `git push -u origin HEAD`
+	default = current
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
