@@ -12,5 +12,11 @@ trim_trailing_whitespace = true
 end_of_line = lf
 indent_style = tab
 
+# Hyper creates a default config file in this style
+[.hyper.js]
+end_of_line = lf
+indent_size = 4
+indent_style = space
+
 [*.md]
 trim_trailing_whitespace = false

@@ -1,5 +1,10 @@
-if (Test-Path ~\.gitconfig) {
-    Move-Item -Path ~\.gitconfig -Destination ~\.gitconfig.bak -Force
+function New-Link ($source, $target) {
+  if (Test-Path $source) {
+    Move-Item -Path $source -Destination "$source.bak" -Force
+  }
+
+  New-Item -ItemType SymbolicLink -Path $source -Target $target
 }
 
-New-Item -ItemType SymbolicLink -Path ~\.gitconfig -Target .\.gitconfig
+New-Link ~\.gitconfig .\.gitconfig
+New-Link ~\.hyper.js .\.hyper.js
