@@ -13,7 +13,7 @@
 	whitespace = red reverse
 
 [push]
-	# Allows pushing for the first time with just `git push` instead of `git push -u origin HEAD`
+	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
 	default = current
 
 [core]
