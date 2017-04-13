@@ -7,12 +7,10 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# `git config` uses Unix-style newlines and Tab indentation
 [.gitconfig]
 end_of_line = lf
 indent_style = tab
 
-# Hyper creates a default config file in this style
 [.hyper.js]
 end_of_line = lf
 indent_size = 4

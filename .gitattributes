@@ -1,5 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-# `git config` uses Unix-style newlines
 .gitconfig text eol=lf
+.hyper.js text eol=lf
