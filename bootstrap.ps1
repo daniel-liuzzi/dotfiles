@@ -8,3 +8,4 @@ function New-Link ($source, $target) {
 
 New-Link ~\.gitconfig .\.gitconfig
 New-Link ~\.hyper.js .\.hyper.js
+New-Link ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 .\Microsoft.PowerShell_profile.ps1
