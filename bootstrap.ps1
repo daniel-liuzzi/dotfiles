@@ -1,4 +1,4 @@
-function New-Link ($source, $target) {
+﻿function New-Link ($source, $target) {
   if (Test-Path $source) {
     Move-Item -Path $source -Destination "$source.bak" -Force
   }
