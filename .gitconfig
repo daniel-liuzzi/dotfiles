@@ -19,8 +19,9 @@
 [core]
 	editor = 'C:/Program Files/Sublime Text 3/subl.exe' --new-window --wait
 
-	# https://github.com/so-fancy/diff-so-fancy#usage
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	# below commented out as `git diff` became extremely slow; investigate
+	### https://github.com/so-fancy/diff-so-fancy#usage
+	##pager = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
 	tool = winmerge-v2
