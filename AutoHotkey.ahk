@@ -1,4 +1,4 @@
-SetTitleMatchMode, RegEx
+﻿SetTitleMatchMode, RegEx
 
 ; ================================================================================
 ; Map Caps Lock to Alt-Tab
