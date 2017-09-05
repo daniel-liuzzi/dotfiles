@@ -31,6 +31,7 @@ function dt { git difftool @args } # allows "Alt+Right", but diff one file at a 
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
 function gr { git recent @args }
 function gri { git rebase --interactive @args }
+function grim { git rebase --interactive master @args }
 function mt { git mergetool @args }
 
 function lg {
