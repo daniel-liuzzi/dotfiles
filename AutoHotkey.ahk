@@ -27,13 +27,13 @@
     ; Ctrl+Shift+/  Uncomment selection
     +^/::Send ^k^u
 
+    ; Map Ctrl+W to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
+    ^q::Send !{f4}
+
+    ; Map Ctrl+W to Ctrl+F4 (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
+    ^w::Send ^{f4}
+
 #If
-
-; Map Ctrl+W to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
-^q::Send !{f4}
-
-; Map Ctrl+W to Ctrl+F4 (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
-^w::Send ^{f4}
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
