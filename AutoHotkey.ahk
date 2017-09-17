@@ -9,6 +9,14 @@
 ; Return
 
 ; ================================================================================
+; Volume control
+; https://www.reddit.com/r/MechanicalKeyboards/comments/42do4w/can_autohotkey_be_used_to_enable_volume_controls/czai5ct/
+
+^#!PgUp::Send {Volume_Up}     ; Ctrl+Win+Alt+PgUp
+^#!PgDn::Send {Volume_Down}   ; Ctrl+Win+Alt+PgDn
+^#!End::Send {Volume_Mute}    ; Ctrl+Win+Alt+End
+
+; ================================================================================
 ; Sublime-style shortcuts in Visual Studio, LINQPad, SSMS
 
 #IfWinActive, ahk_exe (devenv|LINQPad|Ssms)\.exe
