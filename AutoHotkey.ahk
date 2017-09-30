@@ -32,7 +32,7 @@
 
 #If
 
-#IfWinNotActive, ahk_exe (devenv)\.exe
+#IfWinNotActive, ahk_exe devenv\.exe
 
     ; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
     ^q::Send !{f4}
