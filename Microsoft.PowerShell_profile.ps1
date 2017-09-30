@@ -16,9 +16,9 @@ Set-Alias po popd
 Set-Alias pu pushd
 
 # Utilities
-Set-Alias wm winmerge
-Set-Alias edit subl
 Set-Alias e edit
+Set-Alias edit subl
+Set-Alias wm winmerge
 
 # Git
 function a { git add @args }
