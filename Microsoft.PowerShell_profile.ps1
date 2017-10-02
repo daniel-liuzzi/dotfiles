@@ -6,8 +6,7 @@ Import-Module PSColor
 . (Resolve-Path "$env:github_posh_git\profile.example.ps1")
 
 $GitPromptSettings.EnableWindowTitle = ' '
-$GitPromptSettings.DefaultPromptSuffix = '
-> '
+$GitPromptSettings.DefaultPromptSuffix = "`r`n> "
 
 # Aliases (autocomplete-friendly)
 Set-Alias g git
