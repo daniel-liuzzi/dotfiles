@@ -17,6 +17,7 @@ Set-Alias pu pushd
 # Utilities
 Set-Alias e edit
 Set-Alias edit subl
+Set-Alias o open
 Set-Alias wm winmerge
 
 # Git
@@ -72,7 +73,7 @@ function ........... { cd ..\..\..\..\..\..\..\..\..\.. }
 # Miscellaneous
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
-function o { if ($args) { start @args } else { start . } }
+function open { if ($args) { start @args } else { start . } }
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
