@@ -6,8 +6,7 @@ Import-Module PSColor
 . (Resolve-Path "$env:github_posh_git\profile.example.ps1")
 
 $GitPromptSettings.EnableWindowTitle = ' '
-$GitPromptSettings.DefaultPromptSuffix = '
-> '
+$GitPromptSettings.DefaultPromptSuffix = "`r`n> "
 
 # Aliases (autocomplete-friendly)
 Set-Alias g git
@@ -18,6 +17,7 @@ Set-Alias pu pushd
 # Utilities
 Set-Alias e edit
 Set-Alias edit subl
+Set-Alias o open
 Set-Alias wm winmerge
 
 # Git
@@ -73,7 +73,7 @@ function ........... { cd ..\..\..\..\..\..\..\..\..\.. }
 # Miscellaneous
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
-function o { if ($args) { start @args } else { start . } }
+function open { if ($args) { start @args } else { start . } }
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
