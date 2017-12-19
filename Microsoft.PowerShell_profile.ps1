@@ -32,6 +32,7 @@ function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Ri
 function gr { git recent @args }
 function gri { git rebase --interactive @args }
 function grim { git rebase --interactive master @args }
+function grm { git rebase master @args }
 function mt { git mergetool @args }
 
 function lg {
