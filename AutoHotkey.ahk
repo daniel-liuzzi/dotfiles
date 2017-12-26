@@ -150,4 +150,8 @@ FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
 SendInput %CurrentDateTime%
 return
 
+; Code-related
+:O:cl::console.log(){left}
+:O:cw::Console.WriteLine(){left}
+
 ; #Include C:\Users\Daniel\Projects\dliuzzi\autohotkey\index.ahk
