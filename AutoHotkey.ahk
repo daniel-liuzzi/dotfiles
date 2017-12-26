@@ -127,7 +127,6 @@
 :?:...::…
 :*?:=/=::≠
 ::TM::™
-::x::×
 
 ; Hotstrings
 ; https://autohotkey.com/docs/Hotstrings.htm
