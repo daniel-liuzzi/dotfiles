@@ -98,7 +98,7 @@
 ; Text expansions
 ; http://plaintext-productivity.net/4-04-autocorrection-and-text-expansion-with-autohotkey.html
 ; http://unicode-search.net/unicode-namesearch.pl?term=vulgar+fraction
-; :*:--::–  ; Interferes with bash-style command swithces (ie. git --help)
+; :*:--::–  ; Interferes with bash-style command switches (ie. git --help)
 :*:->::→
 ::0/3::↉
 ::1/10::⅒
