@@ -33,6 +33,14 @@
 #If
 
 ; ================================================================================
+; Sublime-style shortcuts in Visual Studio
+
+#IfWinActive, ahk_exe devenv\.exe
+    ^p::^, ; Ctrl+P (Goto Anything) → Ctrl+, (Go to All)
+    ^+p::^q ; Ctrl+Shift+P (Command Palette) → Ctrl+Q (Quick Launch)
+#If
+
+; ================================================================================
 ; macOS-style quit app (except VS, where Ctrl+Q = Quick Launch)
 
 #IfWinNotActive, ahk_exe devenv\.exe
