@@ -41,14 +41,10 @@
 #If
 
 ; ================================================================================
-; macOS-style quit app (except VS, where Ctrl+Q = Quick Launch)
+; macOS-style quit app
 
-#IfWinNotActive, ahk_exe devenv\.exe
-
-    ; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
-    ^q::Send !{f4}
-
-#If
+; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
+^q::Send !{f4}
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
