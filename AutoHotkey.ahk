@@ -32,6 +32,9 @@
 
 #If
 
+; ================================================================================
+; macOS-style quit app (except VS, where Ctrl+Q = Quick Launch)
+
 #IfWinNotActive, ahk_exe devenv\.exe
 
     ; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
