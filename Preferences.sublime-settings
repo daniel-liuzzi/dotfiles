@@ -1,0 +1,14 @@
+{
+	"close_windows_when_empty": true,
+	"font_face": "Fira Code",
+	"font_size": 13,
+	"highlight_line": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_encoding": true,
+	"translate_tabs_to_spaces": true,
+	"word_wrap": false
+}
