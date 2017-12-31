@@ -1,4 +1,4 @@
-﻿function New-Link ($source, $target) {
+﻿function New-Link ($target, $source) {
   if (Test-Path $source) {
     Move-Item -Path $source -Destination "$source.bak" -Force
   }
@@ -6,9 +6,9 @@
   New-Item -ItemType SymbolicLink -Path $source -Target $target
 }
 
-New-Link ~\.gitconfig .\.gitconfig
-New-Link ~\.hyper.js .\.hyper.js
-New-Link ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 .\Microsoft.PowerShell_profile.ps1
-New-Link ~\Documents\AutoHotkey.ahk .\AutoHotkey.ahk
-New-Link $env:APPDATA\Code\User\settings.json .\vscode.json
-New-Link "$env:APPDATA\Sublime Text 3\Packages\User\Preferences.sublime-settings" .\Preferences.sublime-settings
+New-Link ".\.gitconfig" "~\.gitconfig"
+New-Link ".\.hyper.js" "~\.hyper.js"
+New-Link ".\AutoHotkey.ahk" "~\Documents\AutoHotkey.ahk"
+New-Link ".\Microsoft.PowerShell_profile.ps1" "~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+New-Link ".\Preferences.sublime-settings" "$env:APPDATA\Sublime Text 3\Packages\User\Preferences.sublime-settings"
+New-Link ".\vscode.json" "$env:APPDATA\Code\User\settings.json"
