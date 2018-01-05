@@ -2,4 +2,4 @@
 * text=auto
 
 *.gitconfig text eol=lf
-*.sublime-settings eol=lf
+*.sublime-settings text eol=lf
