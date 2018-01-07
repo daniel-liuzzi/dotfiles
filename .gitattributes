@@ -3,3 +3,4 @@
 
 *.gitconfig text eol=lf
 *.sublime-settings text eol=lf
+vscode.json text eol=lf
