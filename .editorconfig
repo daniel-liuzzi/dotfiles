@@ -11,10 +11,6 @@ trim_trailing_whitespace = true
 end_of_line = lf
 indent_style = tab
 
-[.hyper.js]
-indent_size = 4
-indent_style = space
-
 [Preferences.sublime-settings]
 end_of_line = lf
 indent_style = tab
