@@ -126,7 +126,43 @@ module.exports = {
   localPlugins: [],
 
   keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
+    'window:devtools': 'ctrl+shift+i',
+    'window:reload': 'ctrl+r',
+    'window:reloadFull': 'ctrl+shift+r',
+    'window:preferences': 'ctrl+,',
+    'zoom:reset': 'ctrl+0',
+    'zoom:in': 'ctrl+plus',
+    'zoom:out': 'ctrl+-',
+    'window:new': 'ctrl+n',
+    'window:minimize': '',
+    'window:zoom': '',
+    'window:toggleFullScreen': 'f11',
+    'window:close': 'alt+f4',
+    'tab:new': 'ctrl+t',
+    'tab:next': 'ctrl+tab',
+    'tab:prev': 'ctrl+shift+tab',
+    'tab:jump:prefix': 'ctrl',
+    'pane:next': 'alt+pageup',
+    'pane:prev': 'alt+pagedown',
+    'pane:splitVertical': 'ctrl+shift+d',
+    'pane:splitHorizontal': 'ctrl+shift+e',
+    'pane:close': 'ctrl+w',
+    'editor:undo': 'alt+z', // alt = ctrl
+    'editor:redo': 'alt+y', // alt = ctrl; broken (doesn't do anything)
+    'editor:cut': 'alt+x', // alt = ctrl
+    'editor:copy': 'alt+c', // alt = ctrl; broken (conflicts w/ editor:break)
+    'editor:paste': 'alt+v', // alt = ctrl
+    'editor:selectAll': 'alt+a', // alt = ctrl
+    'editor:movePreviousWord': 'alt+left', // alt = ctrl
+    'editor:moveNextWord': 'alt+right', // alt = ctrl
+    'editor:moveBeginningLine': 'home',
+    'editor:moveEndLine': 'end',
+    'editor:deletePreviousWord': 'alt+backspace', // alt = ctrl; broken (deletes previous char)
+    'editor:deleteNextWord': 'alt+del', // alt = ctrl
+    'editor:deleteBeginningLine': 'alt+home', // alt = ctrl
+    'editor:deleteEndLine': 'alt+end', // alt = ctrl
+    'editor:clearBuffer': 'ctrl+k',
+    'editor:break': 'ctrl+c',
+    'plugins:update': 'ctrl+shift+u',
   },
 };
