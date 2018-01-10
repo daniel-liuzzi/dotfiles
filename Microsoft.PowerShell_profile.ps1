@@ -78,6 +78,9 @@ function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
 function open { if ($args) { start @args } else { start . } }
 
+# Add path/ to the system path
+$env:path += ";$(Resolve-Path .\path\)"
+
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {

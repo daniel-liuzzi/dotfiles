@@ -1,0 +1,1 @@
+@"%ProgramFiles%\WinMerge\WinMergeU.exe" %*
