@@ -162,7 +162,7 @@ module.exports = {
     'editor:deleteBeginningLine': 'alt+home', // alt = ctrl
     'editor:deleteEndLine': 'alt+end', // alt = ctrl
     'editor:clearBuffer': 'ctrl+k',
-    'editor:break': 'ctrl+c',
+    // 'editor:break': 'ctrl+c', // broken (can't exit Node.js)
     'plugins:update': 'ctrl+shift+u',
   },
 };
