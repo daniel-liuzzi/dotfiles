@@ -155,8 +155,8 @@ module.exports = {
     'editor:selectAll': 'alt+a', // alt = ctrl
     'editor:movePreviousWord': 'alt+left', // alt = ctrl
     'editor:moveNextWord': 'alt+right', // alt = ctrl
-    'editor:moveBeginningLine': 'home',
-    'editor:moveEndLine': 'end',
+    // 'editor:moveBeginningLine': 'home', // broken (doesn't do anything)
+    // 'editor:moveEndLine': 'end', // broken (doesn't do anything)
     'editor:deletePreviousWord': 'alt+backspace', // alt = ctrl; broken (deletes previous char)
     'editor:deleteNextWord': 'alt+del', // alt = ctrl
     'editor:deleteBeginningLine': 'alt+home', // alt = ctrl
