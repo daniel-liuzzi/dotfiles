@@ -79,7 +79,7 @@ function mcd { mkdir @args >$null; cd @args }
 function open { if ($args) { start @args } else { start . } }
 
 # Add bin/ to the system path
-$env:path += ";$(Resolve-Path ~\bin\)"
+$env:path += ";$env:USERPROFILE\bin\"
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
