@@ -26,7 +26,7 @@ function b { git branch @args }
 function c { git commit @args }
 function co { git checkout @args }
 function d { git diff @args }
-function dm { git diff master @args }
+function dm { git diff master...HEAD @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
