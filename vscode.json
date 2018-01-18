@@ -1,6 +1,7 @@
 {
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 16,
+    "editor.formatOnSave": true,
     "explorer.confirmDelete": false,
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Oceanic Next",
