@@ -15,7 +15,7 @@ module.exports = {
     fontFamily: '"Fira Code Light", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.8)',
+    cursorColor: '#97979b',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'BLOCK',
@@ -24,13 +24,13 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: '#eff0eb',
 
     // terminal background color
-    backgroundColor: '#000',
+    backgroundColor: '#282a36',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: '#222430',
 
     // custom css to embed in the main window
     css: '',
@@ -55,22 +55,22 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#000000',
-      red: '#ff0000',
-      green: '#33ff00',
-      yellow: '#ffff00',
-      blue: '#0066ff',
-      magenta: '#cc00ff',
-      cyan: '#00ffff',
-      white: '#d0d0d0',
-      lightBlack: '#808080',
-      lightRed: '#ff0000',
-      lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
-      lightBlue: '#0066ff',
-      lightMagenta: '#cc00ff',
-      lightCyan: '#00ffff',
-      lightWhite: '#ffffff',
+      black: '#282a36',
+      red: '#ff5c57',
+      green: '#5af78e',
+      yellow: '#f3f99d',
+      blue: '#57c7ff',
+      magenta: '#ff6ac1',
+      cyan: '#9aedfe',
+      white: '#f1f1f0',
+      lightBlack: '#686868',
+      lightRed: '#ff5c57',
+      lightGreen: '#5af78e',
+      lightYellow: '#f3f99d',
+      lightBlue: '#57c7ff',
+      lightMagenta: '#ff6ac1',
+      lightCyan: '#9aedfe',
+      lightWhite: '#eff0eb',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -116,9 +116,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-    'hyper-snazzy'
-  ],
+  plugins: [],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
