@@ -3,6 +3,8 @@
     "editor.fontSize": 16,
     "editor.formatOnSave": true,
     "explorer.confirmDelete": false,
+    "prettier.eslintIntegration": true,
+    "prettier.stylelintIntegration": true,
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Oceanic Next",
 }
