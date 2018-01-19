@@ -6,5 +6,5 @@
     "prettier.eslintIntegration": true,
     "prettier.stylelintIntegration": true,
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Oceanic Next",
+    "workbench.colorTheme": "Oceanic Next"
 }
