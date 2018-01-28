@@ -36,6 +36,7 @@ function gri { git rebase --interactive @args }
 function grim { git rebase --interactive master @args }
 function grm { git rebase master @args }
 function mt { git mergetool @args }
+function sw { git show @args }
 
 function lg {
     git log `
