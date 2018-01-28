@@ -63,15 +63,6 @@ function show { git show @args }
 function \ { cd \ }
 function ~ { cd ~ }
 function .. { cd .. }
-function ... { cd ..\.. }
-function .... { cd ..\..\.. }
-function ..... { cd ..\..\..\.. }
-function ...... { cd ..\..\..\..\.. }
-function ....... { cd ..\..\..\..\..\.. }
-function ........ { cd ..\..\..\..\..\..\.. }
-function ......... { cd ..\..\..\..\..\..\..\.. }
-function .......... { cd ..\..\..\..\..\..\..\..\.. }
-function ........... { cd ..\..\..\..\..\..\..\..\..\.. }
 
 # Miscellaneous
 function la { ls -force @args }
