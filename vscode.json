@@ -3,6 +3,15 @@
     "editor.fontSize": 16,
     "editor.formatOnSave": true,
     "explorer.confirmDelete": false,
+    "mssql.connections": [
+        {
+            "server": ".\\SQLEXPRESS",
+            "database": "Crs",
+            "authenticationType": "Integrated",
+            "profileName": ".\\SQLEXPRESS - Crs",
+            "password": ""
+        }
+    ],
     "prettier.eslintIntegration": true,
     "prettier.requireConfig": true,
     "prettier.stylelintIntegration": true,
