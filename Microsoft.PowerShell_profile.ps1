@@ -36,6 +36,7 @@ function gri { git rebase --interactive @args }
 function grim { git rebase --interactive master @args }
 function grm { git rebase master @args }
 function mt { git mergetool @args }
+function sw { git show @args }
 
 function lg {
     git log `
@@ -63,15 +64,6 @@ function show { git show @args }
 function \ { cd \ }
 function ~ { cd ~ }
 function .. { cd .. }
-function ... { cd ..\.. }
-function .... { cd ..\..\.. }
-function ..... { cd ..\..\..\.. }
-function ...... { cd ..\..\..\..\.. }
-function ....... { cd ..\..\..\..\..\.. }
-function ........ { cd ..\..\..\..\..\..\.. }
-function ......... { cd ..\..\..\..\..\..\..\.. }
-function .......... { cd ..\..\..\..\..\..\..\..\.. }
-function ........... { cd ..\..\..\..\..\..\..\..\..\.. }
 
 # Miscellaneous
 function la { ls -force @args }
