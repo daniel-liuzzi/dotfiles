@@ -18,7 +18,7 @@ indent_style = tab
 # BOM necessary for Unicode characters
 # - https://stackoverflow.com/a/14482588
 # - https://autohotkey.com/board/topic/91711-unicode-bom/?p=578486
-[*.{ahk,ps1}]
+[*.{ahk,ahk.sample,ps1}]
 charset = utf-8-bom
 
 [*.md]
