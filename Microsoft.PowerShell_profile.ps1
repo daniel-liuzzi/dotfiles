@@ -1,12 +1,9 @@
-﻿# http://stackoverflow.com/a/30788506
-Import-Module PSColor
+﻿Import-Module posh-git
+Import-Module PSColor # http://stackoverflow.com/a/30788506
 
-# http://haacked.com/archive/2015/10/29/git-shell/
-. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
-. (Resolve-Path "$env:github_posh_git\profile.example.ps1")
-
+$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+$GitPromptSettings.DefaultPromptSuffix.Text = '`n' + $GitPromptSettings.DefaultPromptSuffix.Text
 $GitPromptSettings.EnableWindowTitle = ' '
-$GitPromptSettings.DefaultPromptSuffix = "`r`n> "
 
 # Aliases (autocomplete-friendly)
 Set-Alias g git
