@@ -2,7 +2,7 @@
 Import-Module PSColor # http://stackoverflow.com/a/30788506
 
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-$GitPromptSettings.DefaultPromptSuffix.Text = '`n' + $GitPromptSettings.DefaultPromptSuffix.Text
+$GitPromptSettings.DefaultPromptSuffix = '`n' + $GitPromptSettings.DefaultPromptSuffix
 $GitPromptSettings.EnableWindowTitle = ' '
 
 # Aliases (autocomplete-friendly)
