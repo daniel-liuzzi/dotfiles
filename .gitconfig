@@ -17,7 +17,7 @@
 	default = current
 
 [core]
-	editor = 'C:/Program Files/Sublime Text 3/subl.exe' --new-window --wait
+	editor = subl --new-window --wait
 
 	# Note: diff-so-fancy seems to make `git diff` extremely slow; investigate
 	# https://github.com/so-fancy/diff-so-fancy#usage
