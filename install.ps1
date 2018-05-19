@@ -8,8 +8,8 @@
 
 New-Link ".\.gitconfig" "~\.gitconfig"
 New-Link ".\.hyper.js" "~\.hyper.js"
-New-Link ".\AutoHotkey.ahk" "~\Documents\AutoHotkey.ahk"
-New-Link ".\AutoHotkey.custom.ahk" "~\Documents\AutoHotkey.custom.ahk"
+New-Link ".\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
+New-Link ".\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost
 New-Link ".\bin\" "~\bin\"
 New-Link ".\Preferences.sublime-settings" "$env:APPDATA\Sublime Text 3\Packages\User\Preferences.sublime-settings"
