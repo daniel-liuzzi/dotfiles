@@ -28,6 +28,7 @@ function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
 function gr { git recent @args }
+function gra { git rebase --abort @args }
 function grc { git rebase --continue @args }
 function gri { git rebase --interactive @args }
 function grim { git rebase --interactive master @args }
