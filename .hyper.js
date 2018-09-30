@@ -144,7 +144,7 @@ module.exports = {
     'window:reloadFull': 'ctrl+shift+r',
     'window:preferences': 'ctrl+,',
     'zoom:reset': 'ctrl+0',
-    'zoom:in': 'ctrl+plus',
+    'zoom:in': 'ctrl+=',
     'zoom:out': 'ctrl+-',
     'window:new': 'ctrl+n',
     'window:minimize': '',
