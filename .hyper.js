@@ -160,20 +160,20 @@ module.exports = {
     'pane:splitVertical': 'ctrl+shift+d',
     'pane:splitHorizontal': 'ctrl+shift+e',
     'pane:close': 'ctrl+w',
-    'editor:undo': 'alt+z', // alt = ctrl
-    'editor:redo': 'alt+y', // alt = ctrl; broken (doesn't do anything)
-    'editor:cut': 'alt+x', // alt = ctrl
-    'editor:copy': 'alt+c', // alt = ctrl; broken (conflicts w/ editor:break)
-    'editor:paste': 'alt+v', // alt = ctrl
-    'editor:selectAll': 'alt+a', // alt = ctrl
-    'editor:movePreviousWord': 'alt+left', // alt = ctrl
-    'editor:moveNextWord': 'alt+right', // alt = ctrl
+    'editor:undo': 'alt+z', // ctrl+z
+    'editor:redo': 'alt+y', // ctrl+y; broken (doesn't do anything)
+    'editor:cut': 'alt+x', // ctrl+x
+    'editor:copy': 'alt+c', // ctrl+c; broken (conflicts w/ editor:break)
+    'editor:paste': 'alt+v', // ctrl+v
+    'editor:selectAll': 'alt+a', // ctrl+a
+    'editor:movePreviousWord': 'alt+left', // ctrl+left
+    'editor:moveNextWord': 'alt+right', // ctrl+right
     'editor:moveBeginningLine': 'home',
     'editor:moveEndLine': 'end',
-    'editor:deletePreviousWord': 'alt+backspace', // alt = ctrl; broken (deletes previous char)
-    'editor:deleteNextWord': 'alt+del', // alt = ctrl
-    'editor:deleteBeginningLine': 'alt+home', // alt = ctrl
-    'editor:deleteEndLine': 'alt+end', // alt = ctrl
+    'editor:deletePreviousWord': 'alt+backspace', // ctrl+backspace; broken (deletes previous char)
+    'editor:deleteNextWord': 'alt+del', // ctrl+del
+    'editor:deleteBeginningLine': 'alt+home', // ctrl+home
+    'editor:deleteEndLine': 'alt+end', // ctrl+end
     'editor:clearBuffer': 'ctrl+k',
     'editor:break': 'ctrl+c',
     'plugins:update': 'ctrl+shift+u',
