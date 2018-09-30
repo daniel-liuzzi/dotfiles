@@ -155,10 +155,10 @@ module.exports = {
     'tab:next': 'ctrl+tab',
     'tab:prev': 'ctrl+shift+tab',
     'tab:jump:prefix': 'ctrl',
-    'pane:next': 'alt+pageup',
-    'pane:prev': 'alt+pagedown',
-    'pane:splitVertical': 'ctrl+shift+d',
-    'pane:splitHorizontal': 'ctrl+shift+e',
+    'pane:next': [ 'f6', 'alt+pageup'  ],
+    'pane:prev': [ 'shift+f6', 'alt+pagedown' ],
+    'pane:splitVertical': [ 'ctrl+shift+v', 'ctrl+shift+d' ],
+    'pane:splitHorizontal': [ 'ctrl+shift+h', 'ctrl+shift+e' ],
     'pane:close': 'ctrl+w',
     'editor:undo': 'alt+z', // ctrl+z
     'editor:redo': 'alt+y', // ctrl+y; broken (doesn't do anything)
