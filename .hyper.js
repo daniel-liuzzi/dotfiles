@@ -150,7 +150,7 @@ module.exports = {
     'window:minimize': '',
     'window:zoom': '',
     'window:toggleFullScreen': 'f11',
-    'window:close': 'alt+f4',
+    'window:close': [ 'ctrl+q', 'alt+f4' ],
     'tab:new': 'ctrl+t',
     'tab:next': 'ctrl+tab',
     'tab:prev': 'ctrl+shift+tab',
