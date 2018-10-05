@@ -21,6 +21,7 @@ Set-Alias wm winmerge
 function a { git add @args }
 function b { git branch @args }
 function c { git commit @args }
+function clone { git clone @args }
 function co { git checkout @args }
 function d { git diff @args }
 function dm { git diff master...HEAD @args }
