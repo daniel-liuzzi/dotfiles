@@ -6,6 +6,7 @@ $GitPromptSettings.DefaultPromptSuffix = '`n' + $GitPromptSettings.DefaultPrompt
 $GitPromptSettings.EnableWindowTitle = ' '
 
 # Aliases (autocomplete-friendly)
+Set-Alias git hub
 Set-Alias g git
 Set-Alias l ls
 Set-Alias po popd
