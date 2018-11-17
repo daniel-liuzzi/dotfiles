@@ -1,7 +1,6 @@
 {
 	"close_windows_when_empty": true,
 	"color_scheme": "Packages/Oceanic Next Color Scheme/Oceanic Next.tmTheme",
-	"font_face": "Fira Code",
 	"font_size": 13,
 	"highlight_line": true,
 	"hot_exit": false,
@@ -10,7 +9,7 @@
 		"Vintage"
 	],
 	"show_encoding": true,
-	"theme": "Oceanic Next.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_wrap": false
 }
