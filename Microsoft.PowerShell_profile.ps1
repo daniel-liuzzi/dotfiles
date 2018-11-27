@@ -30,6 +30,22 @@ function dm { git diff master...HEAD @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
+function gh {
+  git ls-files | % {
+    New-Object psobject -Property ([ordered]@{
+      Path = $_
+
+      # https://stackoverflow.com/a/11729072/88709
+      Commits = (git log --oneline -- $_ | measure).Count
+
+      # https://stackoverflow.com/a/13598028/88709
+      Oldest = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" --diff-filter=A -- $_))
+
+      # https://stackoverflow.com/a/4784629/88709
+      Newest = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" -- $_))
+    })
+  }
+}
 function gr { git recent @args }
 function gra { git rebase --abort @args }
 function grc { git rebase --continue @args }
