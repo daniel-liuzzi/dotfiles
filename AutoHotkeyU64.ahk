@@ -177,7 +177,7 @@ return
 SELECT TOP(100) *
 
 ORDER BY 1 DESC;
-{Up}{Up}FROM Crs.dbo.
+{Up}{Up}FROM dbo.
 )
 
 ; Development
