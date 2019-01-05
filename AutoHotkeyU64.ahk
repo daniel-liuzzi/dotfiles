@@ -21,12 +21,17 @@
 ; Requires Ctrl+Tab MRU extension
 ; https://chrome.google.com/webstore/detail/ctrl+tab-mru/ialfjajikhdldpgcfglgndennidgkhik
 ; Setup chrome://extensions/shortcuts as follows:
-; - Switch to older tab: Ctrl + Page Up, In Chrome
-; - Switch to newer tab: Ctrl + Page Down, In Chrome
+; - Switch to older tab: Ctrl + Page Down, In Chrome
+; - Switch to newer tab: Ctrl + Page Up, In Chrome
 
 #IfWinActive, ahk_exe chrome\.exe
-    ^Tab::Send ^{PgUp}
-    +^Tab::Send ^{PgDn}
+    ; Swap Ctrl+Tab and Ctrl+PgDn
+    ^Tab::Send ^{PgDn}
+    ^PgDn::Send ^{Tab}
+
+    ; Swap Ctrl+Shift+Tab and Ctrl+PgUp
+    ^+Tab::Send ^{PgUp}
+    ^PgUp::Send ^+{Tab}
 #If
 
 ; ================================================================================
