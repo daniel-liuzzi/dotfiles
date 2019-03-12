@@ -18,7 +18,7 @@ Set-Alias pu pushd
 
 # Utilities
 Set-Alias e edit
-Set-Alias edit subl
+Set-Alias edit code
 Set-Alias o open
 Set-Alias wm winmerge
 
