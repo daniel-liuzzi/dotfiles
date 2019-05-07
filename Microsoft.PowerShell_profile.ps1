@@ -2,7 +2,6 @@
 Import-Module PSColor # http://stackoverflow.com/a/30788506
 
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-$GitPromptSettings.DefaultPromptSuffix = '`n' + $GitPromptSettings.DefaultPromptSuffix
 $GitPromptSettings.EnableWindowTitle = ' '
 
 # Hack to fix pink background problem after Windows October update
