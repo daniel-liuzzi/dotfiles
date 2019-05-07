@@ -7,7 +7,7 @@
 }
 
 New-Link ".\.gitconfig" "~\.gitconfig"
-New-Link ".\.hyper.js" "~\.hyper.js"
+New-Link ".\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
 New-Link ".\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost

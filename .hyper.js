@@ -122,6 +122,10 @@ module.exports = {
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
+    // Whether to use the WebGL renderer. Set it to false to use canvas-based
+    // rendering (slower, but supports transparent backgrounds)
+    webGLRenderer: true,
+
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
 
@@ -168,8 +172,8 @@ module.exports = {
     'editor:selectAll': 'alt+a', // ctrl+a
     'editor:movePreviousWord': 'alt+left', // ctrl+left
     'editor:moveNextWord': 'alt+right', // ctrl+right
-    'editor:moveBeginningLine': 'home',
-    'editor:moveEndLine': 'end',
+    ////'editor:moveBeginningLine': 'home', // doesn't seem to work on Hyper 3, but not needed
+    ////'editor:moveEndLine': 'end', // doesn't seem to work on Hyper 3, but not needed
     'editor:deletePreviousWord': 'alt+backspace', // ctrl+backspace; broken (deletes previous char)
     'editor:deleteNextWord': 'alt+del', // ctrl+del
     'editor:deleteBeginningLine': 'alt+home', // ctrl+home
