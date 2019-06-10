@@ -4,9 +4,6 @@ Import-Module PSColor # http://stackoverflow.com/a/30788506
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 $GitPromptSettings.EnableWindowTitle = ' '
 
-# Hack to fix pink background problem after Windows October update
-~\bin\ColorTool\ColorTool --quiet cmd-legacy
-
 # Aliases (autocomplete-friendly)
 Set-Alias dn dotnet
 Set-Alias g git
