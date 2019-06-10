@@ -16,7 +16,7 @@ Set-Alias pu pushd
 Set-Alias e edit
 Set-Alias edit code
 Set-Alias o open
-Set-Alias wm winmerge
+Set-Alias wm winmergeu
 
 # Git
 function a { git add @args }

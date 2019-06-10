@@ -28,7 +28,7 @@
 	whitespace = cr-at-eol
 
 [diff]
-	tool = winmerge-v2
+	tool = winmerge
 
 	# http://blog.deveo.com/whats-new-in-git-2-11/#experimentalheuristicsgitdiff
 	indentHeuristic = on
@@ -36,19 +36,19 @@
 [difftool]
 	prompt = false
 
-[difftool "winmerge-v2"]
-	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -r -e -u -wl -fr "$LOCAL" "$REMOTE"
+[difftool "winmerge"]
+	cmd = winmergeu -r -e -u -wl -fr "$LOCAL" "$REMOTE"
 
 [merge]
-	tool = winmerge-v2
+	tool = winmerge
 
 [mergetool]
 	keepBackup = false
 	trustExitCode = false
 
-[mergetool "winmerge-v2"]
-	# WinMerge w/ 3-way merge support (https://github.com/sdottaka/winmerge-v2/releases)
-	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -u -wl -wr -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
+[mergetool "winmerge"]
+	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
+	cmd = winmergeu -e -u -wl -wr -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
 
 [filter "lfs"]
 	required = true
