@@ -89,10 +89,4 @@ function open { if ($args) { start @args } else { start . } }
 # Add bin/ to the system path
 $env:path += ";$env:USERPROFILE\bin\"
 
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
-
 cd ~
