@@ -1,0 +1,1 @@
+sudo net stop MSSQLSERVER
