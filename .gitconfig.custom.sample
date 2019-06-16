@@ -1,0 +1,9 @@
+[user]
+	name = Daniel Liuzzi
+	email = dliuzzi@gmail.com
+
+# [includeIf "gitdir/i:~/Projects/foo/"]
+# 	path = ~/Projects/foo/.gitconfig
+#
+# [includeIf "gitdir/i:~/Projects/bar/"]
+# 	path = ~/Projects/bar/.gitconfig

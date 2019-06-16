@@ -1,6 +1,5 @@
-[user]
-	name = Daniel Liuzzi
-	email = dliuzzi@gmail.com
+[include]
+    path = .gitconfig.custom
 
 [alias]
 	# http://stackoverflow.com/a/7149602

@@ -7,6 +7,7 @@
 }
 
 New-Link ".\.gitconfig" "~\.gitconfig"
+New-Link ".\.gitconfig.custom" "~\.gitconfig.custom"
 New-Link ".\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
 New-Link ".\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
