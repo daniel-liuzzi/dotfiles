@@ -1,1 +1,1 @@
-sudo net stop MSSQLSERVER
+sudo net stop SQLSERVERAGENT & sudo net stop MSSQLSERVER
