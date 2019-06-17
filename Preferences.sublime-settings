@@ -1,6 +1,5 @@
 {
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Oceanic Next Color Scheme/Oceanic Next.tmTheme",
 	"font_size": 13,
 	"highlight_line": true,
 	"hot_exit": false,
@@ -9,7 +8,7 @@
 		"Vintage"
 	],
 	"show_encoding": true,
-	"theme": "Adaptive.sublime-theme",
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_wrap": false
 }
