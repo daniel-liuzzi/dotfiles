@@ -37,9 +37,9 @@
 	# https://github.com/so-fancy/diff-so-fancy#usage
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
-	# Hide ^M (Carriage Return) in diffs
-	# https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/
-	whitespace = cr-at-eol
+	# # Hide ^M (Carriage Return) in diffs
+	# # https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/
+	# whitespace = cr-at-eol
 
 [diff]
 	tool = winmerge
