@@ -8,8 +8,23 @@
 	# https://github.com/so-fancy/diff-so-fancy#raw-patches
 	patch = !git --no-pager diff --no-color
 
+[color]
+	ui = true
+
 [color "diff"]
 	whitespace = red reverse
+	meta = yellow
+	frag = magenta bold
+	func = black bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+
+# [color "diff-highlight"]
+# 	oldNormal = red bold
+# 	oldHighlight = red reverse
+# 	newNormal = green bold
+# 	newHighlight = green reverse
 
 [push]
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
