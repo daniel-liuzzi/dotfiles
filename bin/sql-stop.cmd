@@ -1,1 +1,1 @@
-sudo net stop SQLSERVERAGENT & sudo net stop MSSQLSERVER
+@sudo powershell -command 'net stop SQLSERVERAGENT; net stop MSSQLSERVER;'
