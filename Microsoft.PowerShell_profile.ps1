@@ -46,7 +46,7 @@ function gh {
     })
   }
 }
-function gr { git recent -n5 @args }
+function gr { git recent @args }
 function gra { git rebase --abort @args }
 function grc { git rebase --continue @args }
 function gri { git rebase --interactive @args }
