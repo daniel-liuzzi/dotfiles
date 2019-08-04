@@ -24,6 +24,6 @@ charset = utf-8-bom
 [*.md]
 trim_trailing_whitespace = false
 
-[vscode.json]
+[{vscode,profiles}.json]
 end_of_line = lf
 indent_size = 4
