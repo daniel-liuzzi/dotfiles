@@ -44,9 +44,6 @@
 [diff]
 	tool = winmerge
 
-	# http://blog.deveo.com/whats-new-in-git-2-11/#experimentalheuristicsgitdiff
-	indentHeuristic = on
-
 [difftool]
 	prompt = false
 
