@@ -1,5 +1,9 @@
 ﻿Import-Module posh-git
+Import-Module oh-my-posh
 Import-Module PSColor # http://stackoverflow.com/a/30788506
+
+Set-Theme Paradox
+$DefaultUser = 'Daniel' # Hide username@domain when not in a VM
 
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 $GitPromptSettings.EnableWindowTitle = ' '
