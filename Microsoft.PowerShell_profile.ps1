@@ -2,8 +2,9 @@
 Import-Module oh-my-posh
 Import-Module PSColor # http://stackoverflow.com/a/30788506
 
-Set-Theme Paradox
 $DefaultUser = 'Daniel' # Hide username@domain when not in a VM
+Set-Theme Paradox
+Set-PSReadlineOption -ExtraPromptLineCount 1
 
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 $GitPromptSettings.EnableWindowTitle = ' '
