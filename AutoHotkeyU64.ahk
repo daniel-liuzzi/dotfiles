@@ -38,7 +38,7 @@ SetTitleMatchMode, RegEx
 ; ================================================================================
 ; Sublime-style shortcuts in Visual Studio, LINQPad, SSMS
 
-#IfWinActive, ahk_exe (devenv|LINQPad|Ssms)\.exe
+#IfWinActive, ahk_exe (devenv|LINQPad.*|Ssms)\.exe
 
     ; Ctrl+/        Comment selection
     ^/::Send ^k^c
