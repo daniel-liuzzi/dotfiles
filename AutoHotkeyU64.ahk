@@ -180,10 +180,12 @@ return
 ; SQL
 :*OR0:select`t::
 (
-SELECT TOP(100) *
+SELECT *
 
-ORDER BY 1 DESC;
-{Up}{Up}FROM dbo.
+ORDER BY 1 DESC
+OFFSET 0 ROWS
+FETCH NEXT 100 ROWS ONLY;
+{Up}{Up}{Up}{Up}FROM{Space}
 )
 
 ; Development
