@@ -93,6 +93,9 @@ function push { git push @args }
 function s { git status @args }
 function show { git show @args }
 
+# Visual Studio
+function sln { start (ls *.sln -file -recurse) }
+
 # Navigation
 function \ { cd \ }
 function ~ { cd ~ }
