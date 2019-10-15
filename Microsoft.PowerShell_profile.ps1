@@ -1,13 +1,16 @@
-﻿Import-Module posh-git
-Import-Module oh-my-posh
-Import-Module PSColor # http://stackoverflow.com/a/30788506
+﻿Import-Module PSColor # http://stackoverflow.com/a/30788506
 
-$DefaultUser = 'Daniel' # Hide username@domain when not in a VM
-Set-Theme Paradox
-Set-PSReadlineOption -ExtraPromptLineCount 1
-
+Import-Module posh-git
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-$GitPromptSettings.EnableWindowTitle = ' '
+$GitPromptSettings.EnableWindowTitle = $true
+
+# # Below commented out as it breaks window titles. See:
+# # - https://github.com/dahlbyk/posh-git/issues/685#issuecomment-511713469
+# # - https://github.com/JanDeDobbeleer/oh-my-posh/issues/159
+# Import-Module oh-my-posh
+# $DefaultUser = 'Daniel' # Hide username@domain when not in a VM
+# Set-Theme Paradox
+# Set-PSReadlineOption -ExtraPromptLineCount 1
 
 # Aliases (autocomplete-friendly)
 Set-Alias dn dotnet
