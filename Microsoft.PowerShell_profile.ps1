@@ -2,7 +2,9 @@
 
 Import-Module posh-git
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+$GitPromptSettings.DefaultPromptSuffix = '`n' + $GitPromptSettings.DefaultPromptSuffix
 $GitPromptSettings.EnableWindowTitle = $true
+Set-PSReadlineOption -ExtraPromptLineCount 1
 
 # # Below commented out as it breaks window titles. See:
 # # - https://github.com/dahlbyk/posh-git/issues/685#issuecomment-511713469
