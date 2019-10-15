@@ -114,5 +114,3 @@ $env:COLUMNS = 170
 
 # Add bin/ to the system path
 $env:path += ";$env:USERPROFILE\bin\"
-
-cd ~
