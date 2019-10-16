@@ -40,6 +40,17 @@ function dm { git diff master...HEAD @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
+
+# git-flow
+function gf { git flow @args }
+function gff { git flow feature @args }
+function gffd { git flow feature delete @args }
+function gfff { git flow feature finish @args }
+function gffp { git flow feature publish @args }
+function gffs { git flow feature start @args }
+function gfft { git flow feature track @args }
+function gfid { git flow init -d }
+
 function gh {
   git ls-files | % {
     New-Object psobject -Property ([ordered]@{
