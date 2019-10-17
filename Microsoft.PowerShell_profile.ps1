@@ -127,3 +127,5 @@ $env:COLUMNS = 170
 
 # Add bin/ to the system path
 $env:path += ";$env:USERPROFILE\bin\"
+
+. '.\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.custom.ps1'
