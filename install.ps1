@@ -6,6 +6,8 @@
   New-Item -ItemType SymbolicLink -Path $source -Target $target
 }
 
+# TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
+
 New-Link ".\.gitconfig" "~\.gitconfig"
 New-Link ".\.gitconfig.custom" "~\.gitconfig.custom"
 New-Link ".\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
