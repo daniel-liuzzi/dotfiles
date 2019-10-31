@@ -2,7 +2,7 @@
 
 Import-Module posh-git
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-$GitPromptSettings.DefaultPromptSuffix = '`n' + $GitPromptSettings.DefaultPromptSuffix
+$GitPromptSettings.DefaultPromptSuffix = '`n' + $('>' * ($nestedPromptLevel + 1))
 $GitPromptSettings.EnableWindowTitle = $true
 Set-PSReadlineOption -ExtraPromptLineCount 1
 
