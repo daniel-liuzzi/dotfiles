@@ -7,6 +7,9 @@
 
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
 
+    // Better double-click selection for branch names and file paths
+    "wordDelimiters": " ",
+
     "profiles":
     [
         {
