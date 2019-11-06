@@ -7,7 +7,7 @@ if (!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]
 function New-Link ($target, $source) {
   if (Test-Path $source) {
     if ((Get-Item $source).LinkType -eq 'SymbolicLink') {
-      return # symlinks already exists, skip
+      return # symlink already exists, skip
     }
 
     Move-Item -Path $source -Destination "$source.bak" -Force
