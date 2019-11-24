@@ -32,6 +32,8 @@ Set-Alias wm winmergeu
 function a { git add @args }
 function b { git branch @args }
 function c { git commit @args }
+function ca { git commit --amend @args }
+function can { git commit --amend --no-edit @args }
 function clone { git clone @args }
 function co { git checkout @args }
 function d { git diff @args }
