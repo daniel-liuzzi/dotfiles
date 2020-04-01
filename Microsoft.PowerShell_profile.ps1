@@ -115,6 +115,7 @@ function show { git show @args }
 function sln { start (ls *.sln -file -recurse) }
 
 # Navigation
+function / { cd / }
 function \ { cd \ }
 function ~ { cd ~ }
 function .. { cd .. }
