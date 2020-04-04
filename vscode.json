@@ -2,6 +2,7 @@
     "editor.fontFamily": "FuraCode NF",
     "editor.fontSize": 16,
     "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
     "explorer.confirmDelete": false,
     "mssql.connections": [
         {
