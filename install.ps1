@@ -13,7 +13,7 @@ function New-Link ($target, $source) {
     Move-Item -Path $source -Destination "$source.bak" -Force
   }
 
-  New-Item -ItemType SymbolicLink -Path $source -Target $target
+  New-Item -ItemType SymbolicLink -Path $source -Target (Resolve-Path $target)
 }
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
