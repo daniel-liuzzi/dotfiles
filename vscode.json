@@ -16,4 +16,7 @@
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Oceanic Next",
     "workbench.startupEditor": "newUntitledFile",
+    "remote.SSH.remotePlatform": {
+        "web7.lan.mlginc.com": "windows",
+    },
 }
