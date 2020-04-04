@@ -42,6 +42,16 @@
             "hidden": false,
             "name": "Azure Cloud Shell",
             "source": "Windows.Terminal.Azure"
+        },
+        {
+            "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+            "hidden": false,
+            "colorScheme": "AlienBlood",
+            "fontFace": "Meslo LG M for Powerline", // https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf
+            "fontSize": 11,
+            "padding": "16, 16, 16, 16",
+            "name": "PowerShell",
+            "source": "Windows.Terminal.PowershellCore"
         }
     ],
 
