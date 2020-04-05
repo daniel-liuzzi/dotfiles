@@ -1,0 +1,1 @@
+& '~\scoop\apps\git\current\bin\sh.exe'
