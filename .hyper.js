@@ -37,7 +37,7 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#282a36',
+    backgroundColor: '#0f1610',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
@@ -67,22 +67,23 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#282a36',
-      red: '#ff5c57',
-      green: '#5af78e',
-      yellow: '#f3f99d',
-      blue: '#57c7ff',
-      magenta: '#ff6ac1',
-      cyan: '#9aedfe',
-      white: '#f1f1f0',
-      lightBlack: '#454962',
-      lightRed: '#ff5c57',
-      lightGreen: '#5af78e',
-      lightYellow: '#f3f99d',
-      lightBlue: '#57c7ff',
-      lightMagenta: '#ff6ac1',
-      lightCyan: '#9aedfe',
-      lightWhite: '#eff0eb',
+      // AlienBlood theme from https://atomcorp.github.io/themes/
+      black: '#112616',
+      red: '#7f2b27',
+      green: '#2f7e25',
+      yellow: '#717f24',
+      blue: '#2f6a7f',
+      magenta: '#47587f',
+      cyan: '#327f77',
+      white: '#647d75',
+      lightBlack: '#3c4812',
+      lightRed: '#e08009',
+      lightGreen: '#18e000',
+      lightYellow: '#bde000',
+      lightBlue: '#00aae0',
+      lightMagenta: '#0058e0',
+      lightCyan: '#00e0c4',
+      lightWhite: '#73fa91',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
