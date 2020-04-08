@@ -112,6 +112,7 @@ function s { git status @args }
 function show { git show @args }
 
 # Visual Studio
+function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
 function sln { start (ls *.sln -file -recurse) }
 
 # Navigation
