@@ -5,6 +5,10 @@
 	# http://stackoverflow.com/a/7149602
 	addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
 
+	# git branch archive/unarchive
+	branch-archive = !git tag archive/$1 $1 && git branch -D $1 && :
+	branch-unarchive = !git branch $1 archive/$1 && git tag -d archive/$1 && :
+
 	# https://github.com/so-fancy/diff-so-fancy#raw-patches
 	patch = !git --no-pager diff --no-color
 
