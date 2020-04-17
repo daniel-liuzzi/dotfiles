@@ -54,6 +54,9 @@
 [difftool "winmerge"]
 	cmd = winmergeu -r -e -u -wl -fr "$LOCAL" "$REMOTE"
 
+[log]
+	follow = true
+
 [merge]
 	tool = winmerge
 
