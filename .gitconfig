@@ -30,6 +30,9 @@
 # 	newNormal = green bold
 # 	newHighlight = green reverse
 
+[credential]
+	helper = wincred
+
 [push]
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
 	default = current
@@ -73,6 +76,3 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-
-[credential]
-	helper = manager
