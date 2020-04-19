@@ -23,4 +23,5 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.formatOnType": true,
+    "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
 }
