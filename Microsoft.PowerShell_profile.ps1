@@ -34,7 +34,15 @@ function b { git branch @args }
 function c { git commit @args }
 function ca { git commit --amend @args }
 function can { git commit --amend --no-edit @args }
-function clone { git clone @args }
+
+function clone($repository) {
+  # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
+  if ($repository -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
+  $directory = $Matches.path -replace '/', '_' # flatten path
+  git clone -- $repository $directory
+  Set-Location $directory
+}
+
 function co { git checkout @args }
 function d { git diff @args }
 function dd { git diff develop...HEAD @args }
