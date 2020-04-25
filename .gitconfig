@@ -30,6 +30,9 @@
 # 	newNormal = green bold
 # 	newHighlight = green reverse
 
+[commit]
+	verbose = true
+
 [credential]
 	helper = wincred
 
