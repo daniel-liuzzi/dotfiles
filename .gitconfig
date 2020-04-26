@@ -11,6 +11,7 @@
 
 	# https://github.com/so-fancy/diff-so-fancy#raw-patches
 	patch = !git --no-pager diff --no-color
+	sh = !sh
 
 [color]
 	ui = true
