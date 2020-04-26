@@ -51,6 +51,7 @@
 	# whitespace = cr-at-eol
 
 [diff]
+	renameLimit = 9999
 	tool = winmerge
 
 [difftool]
