@@ -14,7 +14,7 @@
         },
     ],
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Oceanic Next",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.startupEditor": "newUntitledFile",
     "remote.SSH.remotePlatform": {
         "web7.lan.mlginc.com": "windows",
