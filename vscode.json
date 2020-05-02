@@ -1,6 +1,7 @@
 {
-    "editor.fontFamily": "FuraCode NF",
+    "editor.fontFamily": "Cascadia Code",
     "editor.fontSize": 16,
+    "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.renderWhitespace": "all",
     "explorer.confirmDelete": false,
