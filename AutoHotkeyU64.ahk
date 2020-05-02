@@ -7,16 +7,16 @@ SetTitleMatchMode, RegEx
 ; http://superuser.com/a/7144
 ; https://autohotkey.com/board/topic/96714-alt-tab-binding-possible-autohotkey/?p=609135
 
-; CapsLock::Send !{tab}
+; CapsLock::SendInput !{tab}
 ; Return
 
 ; ================================================================================
 ; Volume control
 ; https://www.reddit.com/r/MechanicalKeyboards/comments/42do4w/can_autohotkey_be_used_to_enable_volume_controls/czai5ct/
 
-^#!PgUp::Send {Volume_Up}     ; Ctrl+Win+Alt+PgUp
-^#!PgDn::Send {Volume_Down}   ; Ctrl+Win+Alt+PgDn
-^#!End::Send {Volume_Mute}    ; Ctrl+Win+Alt+End
+^#!PgUp::SendInput {Volume_Up}     ; Ctrl+Win+Alt+PgUp
+^#!PgDn::SendInput {Volume_Down}   ; Ctrl+Win+Alt+PgDn
+^#!End::SendInput {Volume_Mute}    ; Ctrl+Win+Alt+End
 
 ; ================================================================================
 ; Sublime-style shortcuts in Visual Studio, LINQPad, SSMS
@@ -24,13 +24,13 @@ SetTitleMatchMode, RegEx
 #IfWinActive, ahk_exe (devenv|LINQPad.*|Ssms)\.exe
 
     ; Ctrl+/        Comment selection
-    ^/::Send ^k^c
+    ^/::SendInput ^k^c
 
     ; Ctrl+Shift+/  Uncomment selection
-    +^/::Send ^k^u
+    +^/::SendInput ^k^u
 
     ; Map Ctrl+W to Ctrl+F4 (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
-    ^w::Send ^{f4}
+    ^w::SendInput ^{f4}
 
 #If
 
@@ -40,14 +40,14 @@ SetTitleMatchMode, RegEx
 #IfWinActive, ahk_exe devenv\.exe
     ^,::return ; Disable Ctrl+, to get used to Ctrl+P
     ^p::^, ; Ctrl+P (Goto Anything) -> Ctrl+, (Go to All)
-    ^+p::Send ^q ; Ctrl+Shift+P (Command Palette) -> Ctrl+Q (Quick Launch)
+    ^+p::SendInput ^q ; Ctrl+Shift+P (Command Palette) -> Ctrl+Q (Quick Launch)
 #If
 
 ; ================================================================================
 ; macOS-style quit app
 
 ; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
-^q::Send !{f4}
+^q::SendInput !{f4}
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
@@ -194,6 +194,6 @@ return
 
 ; ================================================================================
 ; Misc.
-+^space::     Send {U+00A0}   ; Shift+Ctrl+Space  Word-style nonbreaking space
++^space::SendInput {U+00A0} ; Shift+Ctrl+Space -> Word-style nonbreaking space
 
 #Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
