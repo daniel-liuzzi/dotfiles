@@ -56,17 +56,17 @@ function gfid { git flow init -d }
 function gh {
   git ls-files | % {
     New-Object psobject -Property ([ordered]@{
-      Path = $_
+        Path    = $_
 
-      # https://stackoverflow.com/a/11729072/88709
-      Commits = (git log --oneline -- $_ | measure).Count
+        # https://stackoverflow.com/a/11729072/88709
+        Commits = (git log --oneline -- $_ | measure).Count
 
-      # https://stackoverflow.com/a/13598028/88709
-      Oldest = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" --diff-filter=A -- $_))
+        # https://stackoverflow.com/a/13598028/88709
+        Oldest  = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" --diff-filter=A -- $_))
 
-      # https://stackoverflow.com/a/4784629/88709
-      Newest = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" -- $_))
-    })
+        # https://stackoverflow.com/a/4784629/88709
+        Newest  = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" -- $_))
+      })
   }
 }
 function gr { git recent @args }
@@ -81,7 +81,7 @@ function mt { git mergetool @args }
 function sw { git show @args }
 
 function lg {
-    git log `
+  git log `
     --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
     --date=format-local:'%a, %d %b %Y, %H:%M' `
     --graph `
@@ -89,7 +89,7 @@ function lg {
 }
 
 function lgm($rev) {
-    git log `
+  git log `
     --reverse `
     --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
     --date=format-local:'%a, %d %b %Y, %H:%M' `
@@ -98,7 +98,7 @@ function lgm($rev) {
 }
 
 function lgd($rev) {
-    git log `
+  git log `
     --reverse `
     --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
     --date=format-local:'%a, %d %b %Y, %H:%M' `
