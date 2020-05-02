@@ -6,7 +6,9 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
+    "diffEditor.renderSideBySide": false,
     "mssql.connections": [
         {
             "server": ".\\SQLEXPRESS",
@@ -16,14 +18,11 @@
             "password": "",
         },
     ],
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.startupEditor": "newUntitledFile",
     "remote.SSH.remotePlatform": {
         "web7.lan.mlginc.com": "windows",
     },
-    "diffEditor.renderSideBySide": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+    "workbench.iconTheme": "material-icon-theme",
 }
