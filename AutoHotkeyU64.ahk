@@ -19,35 +19,34 @@ SetTitleMatchMode, RegEx
 ^#!End::SendInput {Volume_Mute}    ; Ctrl+Win+Alt+End
 
 ; ================================================================================
-; Sublime-style shortcuts in Visual Studio, LINQPad, SSMS
+; Better shortcuts
 
+; VSCode-style shortcuts (Visual Studio, LINQPad, SSMS)
 #IfWinActive, ahk_exe (devenv|LINQPad.*|Ssms)\.exe
-
-    ; Ctrl+/        Comment selection
-    ^/::SendInput ^k^c
-
-    ; Ctrl+Shift+/  Uncomment selection
-    +^/::SendInput ^k^u
-
-    ; Map Ctrl+W to Ctrl+F4 (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
-    ^w::SendInput ^{f4}
-
+    ^/::SendInput ^k^c              ; Ctrl+/            -> Comment selection
+    ^+/::SendInput ^k^u             ; Ctrl+Shift+/      -> Uncomment selection
+    ^w::SendInput ^{f4}             ; Ctrl+W            -> Close editor (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
 #If
 
-; ================================================================================
-; Sublime-style shortcuts in Visual Studio
-
+; VSCode-style shortcuts (Visual Studio only)
 #IfWinActive, ahk_exe devenv\.exe
-    ^,::return ; Disable Ctrl+, to get used to Ctrl+P
-    ^p::^, ; Ctrl+P (Goto Anything) -> Ctrl+, (Go to All)
-    ^+p::SendInput ^q ; Ctrl+Shift+P (Command Palette) -> Ctrl+Q (Quick Launch)
+    ^,::SendInput !to               ; Ctrl+,            -> User Settings
+    ^p::SendInput ^,                ; Ctrl+P            -> Quick Open, Go to File...
+    ^+p::SendInput ^q               ; Ctrl+Shift+P      -> Show Command Palette
+    !Left::SendInput ^-             ; Alt+Left          -> Go back
+    !Right::SendInput ^+-           ; Alt+Right         -> Go forward
+    ^=::SendInput ^+.               ; Ctrl+=            -> Zoom in
+    ^-::SendInput ^+,               ; Ctrl+-            -> Zoom out
+    ^+l::SendInput !+;              ; Ctrl+Shift+L      -> Select all occurrences of current selection
+    ^d::SendInput !+.               ; Ctrl+D            -> Add selection to next Find match
+    +!Right::SendInput +!=          ; Shift+Alt+Right   -> Expand selection
+    +!Left::SendInput +!-           ; Shift+Alt+Left    -> Shrink selection
+    +!f::SendInput ^ed              ; Shift+Alt+F       -> Format document
+    !LButton::SendInput ^!{LButton} ; Ctrl+Click        -> Insert cursor
 #If
 
-; ================================================================================
-; macOS-style quit app
-
-; Map Ctrl+Q to Alt+F4 (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
-^q::SendInput !{f4}
+; macOS-style shortcuts
+^q::SendInput !{f4}                 ; Ctrl+Q -> quit app (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
