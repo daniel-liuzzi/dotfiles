@@ -68,109 +68,21 @@ SetTitleMatchMode, RegEx
     Return
 
 ; ================================================================================
-; Text expansions
+; Hotstrings, text expansions
 ; http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit
 ; http://plaintext-productivity.net/4-04-autocorrection-and-text-expansion-with-autohotkey.html
 ; http://unicode-search.net/unicode-namesearch.pl?term=vulgar+fraction
-
-; :*:--::–  ; Interferes with bash-style command switches (ie. git --help)
-:*:->::→
-::0/3::↉
-::1/10::⅒
-::1/2::½
-::1/3::⅓
-::1/4::¼
-::1/5::⅕
-::1/6::⅙
-::1/7::⅐
-::1/8::⅛
-::1/9::⅑
-::2/3::⅔
-::2/5::⅖
-::3/4::¾
-::3/5::⅗
-::3/8::⅜
-::4/5::⅘
-::5/6::⅚
-::5/8::⅝
-::7/8::⅞
-:*:<-::←
-:*:~=::≈
-:*?:(c)::©
-:*?:(r)::®
-; :*?:...::…  ; Interferes with git diff (ie. git diff master...some-branch)
-:?:...::…
-:*?:=/=::≠
-::TM::™
-
-; Hotstrings
 ; https://autohotkey.com/docs/Hotstrings.htm
 ; https://medium.com/@zholmquist/textexpander-abbreviations-b8e094526bfd#.b9fwif36q
 ; https://smilesoftware.com/textexpander/entry/12-great-ways-to-choose-textexpander-abbreviations
 
-::;nws::
-(
-This is a multi-line snippet.
-It is inserted when I type ;nws and hit the tab key.
-try it!
-)
-
-#Hotstring EndChars `t ; Only Tab triggers hotstring expansions
-
-; Punctuation
-:O?:...::…  ; HORIZONTAL ELLIPSIS
-:O?:---::—  ; EM DASH
-:O?:--::–   ; EN DASH
-
-; Arrows
-:O:^|::↑   ; UPWARDS ARROW
-:O:->::→   ; RIGHTWARDS ARROW
-:O:|v::↓   ; DOWNWARDS ARROW
-:O:<-::←   ; LEFTWARDS ARROW
-
-; Algebra
-:O:x::×    ; MULTIPLICATION SIGN
-:O:/::÷    ; DIVISION SIGN
-:O:~=::≈   ; ALMOST EQUAL TO
-:O:=/=::≠  ; NOT EQUAL TO
-
-; Fractions - Halves, Fourths, and Eights
-:O:1/8::⅛  ; VULGAR FRACTION ONE EIGHTH
-:O:1/4::¼  ; VULGAR FRACTION ONE QUARTER
-:O:3/8::⅜  ; VULGAR FRACTION ONE QUARTER
-:O:1/2::½  ; VULGAR FRACTION ONE HALF
-:O:5/8::⅝  ; VULGAR FRACTION FIVE EIGHTHS
-:O:3/4::¾  ; VULGAR FRACTION THREE QUARTERS
-:O:7/8::⅞  ; VULGAR FRACTION SEVEN EIGHTHS
-
-; Fractions - Thirds and Sixths
-:O:0/3::↉  ; VULGAR FRACTION ZERO THIRDS
-:O:1/6::⅙  ; VULGAR FRACTION ONE SIXTH
-:O:1/3::⅓  ; VULGAR FRACTION ONE THIRD
-:O:2/3::⅔  ; VULGAR FRACTION TWO THIRDS
-:O:5/6::⅚  ; VULGAR FRACTION FIVE SIXTHS
-
-; Fractions - Fifths
-:O:1/5::⅕  ; VULGAR FRACTION ONE FIFTH
-:O:2/5::⅖  ; VULGAR FRACTION TWO FIFTHS
-:O:3/5::⅗  ; VULGAR FRACTION THREE FIFTHS
-:O:4/5::⅘  ; VULGAR FRACTION FOUR FIFTHS
-
-; Fractions - Other
-:O:1/7::⅐  ; VULGAR FRACTION ONE SEVENTH
-:O:1/9::⅑  ; VULGAR FRACTION ONE NINTH
-:O:1/10::⅒ ; VULGAR FRACTION ONE TENTH
-
-; Legal / Other
-:O?:(c)::© ; COPYRIGHT SIGN
-:O?:(r)::® ; REGISTERED SIGN
-:O?:TM::™  ; TRADE MARK SIGN
-; :O?:o::°    ; DEGREE SIGN ; o<tab> is too common and triggered too many false positives
+#Hotstring EndChars \ ; Only the backslash (\) triggers hotstring expansions
+#Hotstring O ? ; Omit the ending character, trigger even when inside another word
 
 ; Development
-:O:constr::trusted_connection=true;
-:O:lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-:OR0:select::
+::constr::trusted_connection=true;
+::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:R0:select::
 (
 SELECT *
 
@@ -181,16 +93,66 @@ FETCH NEXT 100 ROWS ONLY;
 )
 
 ; Timestamp - ISO 8601 format
-:O:now.iso::
+::now.iso::
 FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
 SendInput %CurrentDateTime%
 return
 
 ; Timestamp - yyyyMMddHHmmss format
-:O:now.ts::
+::now.ts::
 FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
 SendInput %CurrentDateTime%
 return
+
+; Punctuation
+::...::…  ; HORIZONTAL ELLIPSIS
+::---::—  ; EM DASH
+::--::–   ; EN DASH
+
+; Arrows
+::^|::↑   ; UPWARDS ARROW
+::->::→   ; RIGHTWARDS ARROW
+::|v::↓   ; DOWNWARDS ARROW
+::<-::←   ; LEFTWARDS ARROW
+
+; Algebra
+::x::×    ; MULTIPLICATION SIGN
+::/::÷    ; DIVISION SIGN
+::~=::≈   ; ALMOST EQUAL TO
+::=/=::≠  ; NOT EQUAL TO
+
+; Fractions - Halves, Fourths, and Eights
+::1/8::⅛  ; VULGAR FRACTION ONE EIGHTH
+::1/4::¼  ; VULGAR FRACTION ONE QUARTER
+::3/8::⅜  ; VULGAR FRACTION ONE QUARTER
+::1/2::½  ; VULGAR FRACTION ONE HALF
+::5/8::⅝  ; VULGAR FRACTION FIVE EIGHTHS
+::3/4::¾  ; VULGAR FRACTION THREE QUARTERS
+::7/8::⅞  ; VULGAR FRACTION SEVEN EIGHTHS
+
+; Fractions - Thirds and Sixths
+::0/3::↉  ; VULGAR FRACTION ZERO THIRDS
+::1/6::⅙  ; VULGAR FRACTION ONE SIXTH
+::1/3::⅓  ; VULGAR FRACTION ONE THIRD
+::2/3::⅔  ; VULGAR FRACTION TWO THIRDS
+::5/6::⅚  ; VULGAR FRACTION FIVE SIXTHS
+
+; Fractions - Fifths
+::1/5::⅕  ; VULGAR FRACTION ONE FIFTH
+::2/5::⅖  ; VULGAR FRACTION TWO FIFTHS
+::3/5::⅗  ; VULGAR FRACTION THREE FIFTHS
+::4/5::⅘  ; VULGAR FRACTION FOUR FIFTHS
+
+; Fractions - Other
+::1/7::⅐  ; VULGAR FRACTION ONE SEVENTH
+::1/9::⅑  ; VULGAR FRACTION ONE NINTH
+::1/10::⅒ ; VULGAR FRACTION ONE TENTH
+
+; Legal / Other
+::(c)::©  ; COPYRIGHT SIGN
+::(r)::®  ; REGISTERED SIGN
+::TM::™   ; TRADE MARK SIGN
+::o::°    ; DEGREE SIGN
 
 ; ================================================================================
 ; Misc.
