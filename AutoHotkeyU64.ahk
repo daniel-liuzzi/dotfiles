@@ -1,4 +1,5 @@
 ﻿#SingleInstance, Ignore
+#UseHook
 SetTitleMatchMode, RegEx
 
 ; ================================================================================
@@ -39,7 +40,7 @@ SetTitleMatchMode, RegEx
 #IfWinActive, ahk_exe devenv\.exe
     ^,::return ; Disable Ctrl+, to get used to Ctrl+P
     ^p::^, ; Ctrl+P (Goto Anything) → Ctrl+, (Go to All)
-    ^+p::^q ; Ctrl+Shift+P (Command Palette) → Ctrl+Q (Quick Launch)
+    ^+p::Send ^q ; Ctrl+Shift+P (Command Palette) → Ctrl+Q (Quick Launch)
 #If
 
 ; ================================================================================
