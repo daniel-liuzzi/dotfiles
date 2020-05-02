@@ -56,15 +56,15 @@ SetTitleMatchMode, RegEx
 ; Win+\
 #\::
     Sleep 1000
-    SendMessage 0x112, 0xF140, 0, , Program Manager  ; Start screensaver
-    SendMessage 0x112, 0xF170, 2, , Program Manager  ; Monitor off
+    SendMessage 0x112, 0xF140, 0,, Program Manager  ; Start screensaver
+    SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
     Return
 
 ; Win+Shift+\
 #+\::
-    Run rundll32.exe user32.dll`,LockWorkStation     ; Lock PC
+    Run rundll32.exe user32.dll`,LockWorkStation    ; Lock PC
     Sleep 1000
-    SendMessage 0x112, 0xF170, 2, , Program Manager  ; Monitor off
+    SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
     Return
 
 ; ================================================================================
