@@ -165,7 +165,7 @@ try it!
 :O?:(c)::© ; COPYRIGHT SIGN
 :O?:(r)::® ; REGISTERED SIGN
 :O?:TM::™  ; TRADE MARK SIGN
-:O?:o::°    ; DEGREE SIGN
+; :O?:o::°    ; DEGREE SIGN ; o<tab> is too common and triggered too many false positives
 
 ; Development
 :O:constr::trusted_connection=true;
