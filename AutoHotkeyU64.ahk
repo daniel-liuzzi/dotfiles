@@ -11,42 +11,51 @@ SetTitleMatchMode, RegEx
 ; Return
 
 ; ================================================================================
-; Volume control
-; https://www.reddit.com/r/MechanicalKeyboards/comments/42do4w/can_autohotkey_be_used_to_enable_volume_controls/czai5ct/
+; Better shortcuts (^ = Ctrl; + = Shift; ! = Alt; # = Win)
 
-^#!PgUp::SendInput {Volume_Up}     ; Ctrl+Win+Alt+PgUp
-^#!PgDn::SendInput {Volume_Down}   ; Ctrl+Win+Alt+PgDn
-^#!End::SendInput {Volume_Mute}    ; Ctrl+Win+Alt+End
-
-; ================================================================================
-; Better shortcuts
-
-; VSCode-style shortcuts (Visual Studio, LINQPad, SSMS)
-#IfWinActive, ahk_exe (devenv|LINQPad.*|Ssms)\.exe
-    ^/::SendInput ^k^c              ; Ctrl+/            -> Comment selection
-    ^+/::SendInput ^k^u             ; Ctrl+Shift+/      -> Uncomment selection
-    ^w::SendInput ^{f4}             ; Ctrl+W            -> Close editor (http://forum.voidtools.com/viewtopic.php?f=4&t=315#p568)
+; VSCode-style shortcuts in Visual Studio
+#IfWinActive, ahk_exe devenv\.exe
+    ^w::        SendInput ^{F4}         ; Close window/tab
+    ^/::        SendInput ^k^c          ; Comment selection
+    ^+/::       SendInput ^k^u          ; Uncomment selection
+    ^,::        SendInput !to           ; User Settings
+    ^p::        SendInput ^,            ; Quick Open, Go to File...
+    ^+p::       SendInput ^q            ; Show Command Palette
+    !Left::     SendInput ^-            ; Go back
+    !Right::    SendInput ^+-           ; Go forward
+    ^=::        SendInput ^+.           ; Zoom in
+    ^-::        SendInput ^+,           ; Zoom out
+    ^+l::       SendInput !+;           ; Select all occurrences of current selection
+    ^d::        SendInput !+.           ; Add selection to next Find match
+    +!Right::   SendInput +!=           ; Expand selection
+    +!Left::    SendInput +!-           ; Shrink selection
+    +!f::       SendInput ^ed           ; Format document
+    !LButton::  SendInput ^!{LButton}   ; Insert cursor
 #If
 
-; VSCode-style shortcuts (Visual Studio only)
-#IfWinActive, ahk_exe devenv\.exe
-    ^,::SendInput !to               ; Ctrl+,            -> User Settings
-    ^p::SendInput ^,                ; Ctrl+P            -> Quick Open, Go to File...
-    ^+p::SendInput ^q               ; Ctrl+Shift+P      -> Show Command Palette
-    !Left::SendInput ^-             ; Alt+Left          -> Go back
-    !Right::SendInput ^+-           ; Alt+Right         -> Go forward
-    ^=::SendInput ^+.               ; Ctrl+=            -> Zoom in
-    ^-::SendInput ^+,               ; Ctrl+-            -> Zoom out
-    ^+l::SendInput !+;              ; Ctrl+Shift+L      -> Select all occurrences of current selection
-    ^d::SendInput !+.               ; Ctrl+D            -> Add selection to next Find match
-    +!Right::SendInput +!=          ; Shift+Alt+Right   -> Expand selection
-    +!Left::SendInput +!-           ; Shift+Alt+Left    -> Shrink selection
-    +!f::SendInput ^ed              ; Shift+Alt+F       -> Format document
-    !LButton::SendInput ^!{LButton} ; Ctrl+Click        -> Insert cursor
+; VSCode-style shortcuts in SQL Server Management Studio
+#IfWinActive, ahk_exe Ssms\.exe
+    ^w::        SendInput ^{F4}         ; Close window/tab
+    ^/::        SendInput ^k^c          ; Comment selection
+    ^+/::       SendInput ^k^u          ; Uncomment selection
+#If
+
+; VSCode-style shortcuts in LINQPad
+#IfWinActive, ahk_exe LINQPad\d*\.exe
+    ^/::        SendInput ^k^c          ; Comment selection
+    ^+/::       SendInput ^k^u          ; Uncomment selection
+    ^,::        SendInput !en           ; User Settings
+    ^p::        SendInput ^,            ; Quick Open, Go to File...
+    +!f::       SendInput ^ed           ; Format document
 #If
 
 ; macOS-style shortcuts
-^q::SendInput !{f4}                 ; Ctrl+Q -> quit app (modified from https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows/)
+^q::            SendInput !{F4}         ; Quit app
+
+; Volume control
+^#!PgUp::       SendInput {Volume_Up}   ; Increase volume
+^#!PgDn::       SendInput {Volume_Down} ; Decrease volume
+^#!End::        SendInput {Volume_Mute} ; Toggle mute
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
@@ -57,14 +66,14 @@ SetTitleMatchMode, RegEx
     Sleep 1000
     SendMessage 0x112, 0xF140, 0,, Program Manager  ; Start screensaver
     SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
-    Return
+    return
 
 ; Win+Shift+\
 #+\::
     Run rundll32.exe user32.dll`,LockWorkStation    ; Lock PC
     Sleep 1000
     SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
-    Return
+    return
 
 ; ================================================================================
 ; Hotstrings, text expansions
@@ -93,15 +102,15 @@ FETCH NEXT 100 ROWS ONLY;
 
 ; Timestamp - ISO 8601 format
 ::now.iso::
-FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
-SendInput %CurrentDateTime%
-return
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
+    SendInput %CurrentDateTime%
+    return
 
 ; Timestamp - yyyyMMddHHmmss format
-::now.ts::
-FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
-SendInput %CurrentDateTime%
-return
+    ::now.ts::
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
+    SendInput %CurrentDateTime%
+    return
 
 ; Punctuation
 ::...::…  ; HORIZONTAL ELLIPSIS
