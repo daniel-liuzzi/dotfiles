@@ -1,5 +1,6 @@
 ::me.name::John Smith
-::me.fname::John
-::me.lname::Smith
+::me.namef::John
+::me.namel::Smith
 ::me.email::jsmith@exanoke.com
+::me.emailw::jsmith@acme.com
 ::me.phone::555-555-5555
