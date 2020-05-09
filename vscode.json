@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Cascadia Code",
+    "editor.fontFamily": "Cascadia Code PL",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.formatOnPaste": true,
@@ -21,7 +21,6 @@
     "remote.SSH.remotePlatform": {
         "web7.lan.mlginc.com": "windows",
     },
-    "terminal.integrated.fontFamily": "\"FuraCode NF Regular\"",
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
