@@ -19,7 +19,7 @@ function New-Link ($target, $source) {
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 echo '- Installing Powershell modules...'
-Install-Module posh-git, PSColor
+Install-Module PSColor, posh-git, oh-my-posh
 
 echo '- Creating symlinks...'
 New-Link ".\.gitconfig" "~\.gitconfig"
