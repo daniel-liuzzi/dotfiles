@@ -47,7 +47,7 @@
             "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
             "hidden": false,
             "colorScheme": "AlienBlood",
-            "fontFace": "Cascadia Code PL",
+            "fontFace": "Victor Mono",
             "fontSize": 11,
             "padding": "16, 16, 16, 16",
             "name": "PowerShell",
