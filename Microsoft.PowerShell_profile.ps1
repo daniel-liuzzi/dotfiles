@@ -122,6 +122,12 @@ function ~ { cd ~ }
 function .. { cd .. }
 
 # Miscellaneous
+function archive {
+  $date = Get-Date -Format 'yyyy-MM-dd'
+  $dest = Join-Path '~/!Archive' $date
+  New-Item -Path $dest -ItemType Directory
+  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $dest
+}
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
 function open { if ($args) { start @args } else { start . } }
