@@ -95,11 +95,11 @@ SetTitleMatchMode, RegEx
 :R0:select::
 (
 SELECT *
-
+FROM
 ORDER BY 1 DESC
 OFFSET 0 ROWS
 FETCH NEXT 100 ROWS ONLY;
-{Up}{Up}{Up}{Up}FROM{Space}
+{Up}{Up}{Up}{Up}{End}{Space}
 )
 
 ; Timestamp - ISO 8601 format
