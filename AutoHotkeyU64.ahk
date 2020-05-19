@@ -99,7 +99,7 @@ FROM
 ORDER BY 1 DESC
 OFFSET 0 ROWS
 FETCH NEXT 100 ROWS ONLY;
-{Up}{Up}{Up}{Up}{End}{Space}
+{Up}{Up}{Up}{Up}{End}{Space}^{Space}
 )
 
 ; Timestamp - ISO 8601 format
