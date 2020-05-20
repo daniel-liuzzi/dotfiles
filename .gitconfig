@@ -70,6 +70,9 @@
 	keepBackup = false
 	trustExitCode = false
 
+[mergetool "code"]
+	cmd = code --wait $MERGED
+
 [mergetool "winmerge"]
 	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
 	cmd = winmergeu -e -u -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
