@@ -68,13 +68,13 @@
 
 [merge]
 	conflictStyle = diff3
-	tool = winmerge
+	tool = vscode
 
 [mergetool]
 	keepBackup = false
 	trustExitCode = false
 
-[mergetool "code"]
+[mergetool "vscode"]
 	cmd = code --wait $MERGED
 
 [mergetool "winmerge"]
