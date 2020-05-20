@@ -64,6 +64,7 @@
 	follow = true
 
 [merge]
+	conflictStyle = diff3
 	tool = winmerge
 
 [mergetool]
