@@ -37,6 +37,9 @@
 [credential]
 	helper = manager
 
+[pull]
+	rebase = true
+
 [push]
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
 	default = current
