@@ -14,22 +14,9 @@ SetTitleMatchMode, RegEx
 ; Better shortcuts (^ = Ctrl; + = Shift; ! = Alt; # = Win)
 
 ; VSCode-style shortcuts in Visual Studio
+; (for the rest, go to Tools > Options > Environment > Keyboard and select 'Visual Studio Code')
 #IfWinActive, ahk_exe devenv\.exe
-    ^w::        SendInput ^{F4}         ; Close window/tab
-    ^/::        SendInput ^k^c          ; Comment selection
-    ^+/::       SendInput ^k^u          ; Uncomment selection
-    ^,::        SendInput !to           ; User Settings
-    ^p::        SendInput ^,            ; Quick Open, Go to File...
-    ^+p::       SendInput ^q            ; Show Command Palette
-    !Left::     SendInput ^-            ; Go back
-    !Right::    SendInput ^+-           ; Go forward
-    ^=::        SendInput ^+.           ; Zoom in
-    ^-::        SendInput ^+,           ; Zoom out
     ^+l::       SendInput !+;           ; Select all occurrences of current selection
-    ^d::        SendInput !+.           ; Add selection to next Find match
-    +!Right::   SendInput +!=           ; Expand selection
-    +!Left::    SendInput +!-           ; Shrink selection
-    +!f::       SendInput ^ed           ; Format document
     !LButton::  SendInput ^!{LButton}   ; Insert cursor
 #If
 
