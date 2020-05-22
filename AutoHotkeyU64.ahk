@@ -16,6 +16,8 @@ SetTitleMatchMode, RegEx
 ; VSCode-style shortcuts in Visual Studio
 ; (for the rest, go to Tools > Options > Environment > Keyboard and select 'Visual Studio Code')
 #IfWinActive, ahk_exe devenv\.exe
+    ^/::        SendInput ^k^c          ; Comment selection (SA1005-style comments)
+    ^+/::       SendInput ^k^u          ; Uncomment selection
     ^+l::       SendInput !+;           ; Select all occurrences of current selection
     !LButton::  SendInput ^!{LButton}   ; Insert cursor
 #If
