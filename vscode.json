@@ -25,4 +25,5 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
 }
