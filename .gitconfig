@@ -37,6 +37,9 @@
 [credential]
 	helper = manager
 
+[fetch]
+	prune = true
+
 [pull]
 	rebase = true
 
