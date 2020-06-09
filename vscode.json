@@ -20,7 +20,7 @@
     },
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "SynthWave '84",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
 }
