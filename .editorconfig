@@ -23,6 +23,6 @@ charset = utf-8-bom
 [*.md]
 trim_trailing_whitespace = false
 
-[{vscode,profiles}.json]
+[{vscode,WindowsTerminal}.json]
 end_of_line = lf
 indent_size = 4
