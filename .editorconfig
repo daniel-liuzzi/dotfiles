@@ -20,10 +20,6 @@ indent_size = 4
 [Microsoft.PowerShell_profile.*]
 charset = utf-8-bom
 
-[Preferences.sublime-settings]
-end_of_line = lf
-indent_style = tab
-
 [*.md]
 trim_trailing_whitespace = false
 
