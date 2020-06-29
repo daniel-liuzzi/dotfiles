@@ -3,6 +3,8 @@
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.renderWhitespace": "all",
+    "editor.scrollbar.vertical": "visible", // https://github.com/microsoft/vscode/issues/35454
+    "editor.scrollbar.horizontal": "visible", // https://github.com/microsoft/vscode/issues/35454
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "diffEditor.renderSideBySide": false,
