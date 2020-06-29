@@ -52,6 +52,18 @@
             "padding": "16, 16, 16, 16",
             "name": "PowerShell",
             "source": "Windows.Terminal.PowershellCore"
+        },
+        {
+            "guid": "{00c28a41-eef2-5c79-9b43-10425025fecb}",
+            "hidden": false,
+            "name": "PerfectDistro",
+            "source": "Windows.Terminal.Wsl"
+        },
+        {
+            "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+            "hidden": false,
+            "name": "kali-linux",
+            "source": "Windows.Terminal.Wsl"
         }
     ],
 
