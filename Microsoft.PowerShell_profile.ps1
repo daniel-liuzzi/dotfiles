@@ -36,10 +36,10 @@ function clone($repository) {
 }
 
 function co { git checkout @args }
-function d { git diff --relative @args }
-function dd { git diff --relative develop...HEAD @args }
-function dm { git diff --relative master...HEAD @args }
-function ds { git diff --relative --staged @args }
+function d { git diff @args }
+function dd { git diff develop...HEAD @args }
+function dm { git diff master...HEAD @args }
+function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
 
