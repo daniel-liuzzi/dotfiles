@@ -8,6 +8,9 @@
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "diffEditor.renderSideBySide": false,
+    "[html]": {
+        "editor.renameOnType": true,
+    },
     "mssql.connections": [
         {
             "server": ".\\SQLEXPRESS",
