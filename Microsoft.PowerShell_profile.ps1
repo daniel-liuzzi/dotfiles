@@ -16,7 +16,7 @@ Set-Alias pu pushd
 
 # Utilities
 Set-Alias e edit
-Set-Alias edit code
+Set-Alias edit code-insiders
 Set-Alias o open
 Set-Alias wm winmergeu
 
