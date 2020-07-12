@@ -44,7 +44,7 @@
         "terminal.ansiRed": "#7f2b27",
         "terminal.ansiWhite": "#647d75",
         "terminal.ansiYellow": "#717f24",
-        "terminal.background": "#0f1610",
+        // "terminal.background": "#0f1610",
     },
     "workbench.colorTheme": "SynthWave '84",
     "workbench.iconTheme": "material-icon-theme",
