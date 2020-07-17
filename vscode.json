@@ -2,7 +2,7 @@
     "[html]": {
         "editor.renameOnType": true,
     },
-    "editor.fontFamily": "Victor Mono",
+    "editor.fontFamily": "Cascadia Code PL",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.renderWhitespace": "all",
