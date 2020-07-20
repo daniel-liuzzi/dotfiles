@@ -11,6 +11,7 @@
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "diffEditor.renderSideBySide": false,
+    "git.autofetch": true,
     "mssql.connections": [
         {
             "server": ".\\SQLEXPRESS",
