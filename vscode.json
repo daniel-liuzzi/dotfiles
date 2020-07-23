@@ -2,6 +2,7 @@
     "[html]": {
         "editor.renameOnType": true,
     },
+    "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Cascadia Code PL",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
