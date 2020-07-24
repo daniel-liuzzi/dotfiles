@@ -134,7 +134,7 @@ function open { if ($args) { start @args } else { start . } }
 
 # Make git diff --stat show full file path - https://stackoverflow.com/a/16733338
 $env:COLUMNS = 170
-$env:EDITOR = 'code --wait' # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
+$env:EDITOR = 'code-insiders --wait' # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
 
 # Add bin/ to the system path
 $env:path += ";$env:USERPROFILE\bin\"
