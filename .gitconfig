@@ -1,6 +1,3 @@
-[include]
-	path = .gitconfig.custom
-
 [alias]
 	# http://stackoverflow.com/a/7149602
 	addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
@@ -17,43 +14,22 @@
 	ui = true
 
 [color "diff"]
-	whitespace = red reverse
-	meta = yellow
+	commit = yellow bold
 	frag = magenta bold
 	func = black bold
-	commit = yellow bold
-	old = red bold
+	meta = yellow
 	new = green bold
+	old = red bold
+	whitespace = red reverse
 
 # [color "diff-highlight"]
-# 	oldNormal = red bold
-# 	oldHighlight = red reverse
-# 	newNormal = green bold
 # 	newHighlight = green reverse
+# 	newNormal = green bold
+# 	oldHighlight = red reverse
+# 	oldNormal = red bold
 
 [commit]
 	verbose = true
-
-[credential]
-	helper = manager
-
-[fetch]
-	prune = true
-
-[init]
-	defaultBranch = main
-
-[pull]
-	rebase = true
-
-[push]
-	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
-	default = current
-
-[rebase]
-	# Automatically stash and pop uncommitted changes with git pull --rebase
-	# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
-	autostash = true
 
 [core]
 	# Note: diff-so-fancy seems to make `git diff` extremely slow; investigate
@@ -64,6 +40,9 @@
 	# # https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/
 	# whitespace = cr-at-eol
 
+[credential]
+	helper = manager
+
 [diff]
 	renameLimit = 9999
 	tool = winmerge
@@ -73,6 +52,18 @@
 
 [difftool "winmerge"]
 	cmd = winmergeu -r -e -u -wl -fr "$LOCAL" "$REMOTE"
+
+[fetch]
+	prune = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
 
 [log]
 	follow = true
@@ -92,8 +83,18 @@
 	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
 	cmd = winmergeu -e -u -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
 
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+[pull]
+	rebase = true
+
+[push]
+	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
+	default = current
+
+[rebase]
+	# Automatically stash and pop uncommitted changes with git pull --rebase
+	# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
+	autostash = true
+
+# Keep this section last so it can override settings above
+[include]
+	path = .gitconfig.custom
