@@ -50,6 +50,11 @@
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
 	default = current
 
+[rebase]
+	# Automatically stash and pop uncommitted changes with git pull --rebase
+	# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
+	autostash = true
+
 [core]
 	# Note: diff-so-fancy seems to make `git diff` extremely slow; investigate
 	# https://github.com/so-fancy/diff-so-fancy#usage
