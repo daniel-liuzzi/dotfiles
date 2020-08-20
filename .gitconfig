@@ -10,6 +10,10 @@
 	patch = !git --no-pager diff --no-color
 	sh = !sh
 
+	# Git prev & next (Example) - https://coderwall.com/p/ok-iyg/git-prev-next
+	prev = checkout HEAD^1
+	next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+
 [color]
 	ui = true
 
