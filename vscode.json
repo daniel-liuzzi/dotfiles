@@ -51,7 +51,7 @@
         "terminal.ansiYellow": "#717f24",
         // "terminal.background": "#0f1610",
     },
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Moonlight II Italic",
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
