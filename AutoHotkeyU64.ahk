@@ -78,9 +78,9 @@ SetTitleMatchMode, RegEx
 #Hotstring O ; Omit the ending character
 
 ; Development
-::cl::console.log();{Left}{Left}
-::ct::console.table();{Left}{Left}
-::cw::Console.WriteLine();{Left}{Left}
+::cl::console.log();{Left 2}
+::ct::console.table();{Left 2}
+::cw::Console.WriteLine();{Left 2}
 ::constr::trusted_connection=true;
 ::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 :R0:select::
@@ -90,7 +90,7 @@ FROM
 ORDER BY 1 DESC
 OFFSET 0 ROWS
 FETCH NEXT 100 ROWS ONLY;
-{Up}{Up}{Up}{Up}{End}{Space}^{Space}
+{Up 4}{End}{Space}^{Space}
 )
 
 ; Timestamp - ISO 8601 format
