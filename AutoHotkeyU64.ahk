@@ -75,7 +75,7 @@ SetTitleMatchMode, RegEx
 ; https://smilesoftware.com/textexpander/entry/12-great-ways-to-choose-textexpander-abbreviations
 
 #Hotstring EndChars \ ; Only the backslash (\) triggers hotstring expansions
-#Hotstring O ? ; Omit the ending character, trigger even when inside another word
+#Hotstring O ; Omit the ending character
 
 ; Development
 ::cl::console.log();{Left}{Left}
@@ -105,11 +105,6 @@ FETCH NEXT 100 ROWS ONLY;
     SendInput %CurrentDateTime%
     return
 
-; Punctuation
-::...::…  ; HORIZONTAL ELLIPSIS
-::---::—  ; EM DASH
-::--::–   ; EN DASH
-
 ; Arrows
 ::^|::↑   ; UPWARDS ARROW
 ::->::→   ; RIGHTWARDS ARROW
@@ -121,6 +116,14 @@ FETCH NEXT 100 ROWS ONLY;
 ::/::÷    ; DIVISION SIGN
 ::~=::≈   ; ALMOST EQUAL TO
 ::=/=::≠  ; NOT EQUAL TO
+
+; Hotstrings below trigger even when inside another word
+#Hotstring ?
+
+; Punctuation
+::...::…  ; HORIZONTAL ELLIPSIS
+::---::—  ; EM DASH
+::--::–   ; EN DASH
 
 ; Fractions - Halves, Fourths, and Eights
 ::1/8::⅛  ; VULGAR FRACTION ONE EIGHTH
