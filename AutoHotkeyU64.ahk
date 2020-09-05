@@ -83,6 +83,19 @@ SetTitleMatchMode, RegEx
 ::cw::Console.WriteLine();{Left 2}
 ::constr::trusted_connection=true;
 ::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:R0:merge::
+(
++{Home}MERGE INTO target t
++{Home}USING source s ON t.key = s.key
++{Home}WHEN MATCHED THEN
++{Home}    UPDATE SET
++{Home}        col1 = s.col1,
++{Home}        col2 = s.col2
++{Home}WHEN NOT MATCHED THEN
++{Home}    INSERT (col1, col2)
++{Home}    VALUES (s.col1, s.col2);
++{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
+)
 :R0:select::
 (
 SELECT *
