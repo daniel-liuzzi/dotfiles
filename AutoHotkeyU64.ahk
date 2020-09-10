@@ -171,6 +171,18 @@ FETCH NEXT 100 ROWS ONLY;
 ::TM::™   ; TRADE MARK SIGN
 ::o::°    ; DEGREE SIGN
 
+; Superscript digits
+::0::⁰    ; SUPERSCRIPT ZERO
+::1::¹    ; SUPERSCRIPT ONE
+::2::²    ; SUPERSCRIPT TWO
+::3::³    ; SUPERSCRIPT THREE
+::4::⁴    ; SUPERSCRIPT FOUR
+::5::⁵    ; SUPERSCRIPT FIVE
+::6::⁶    ; SUPERSCRIPT SIX
+::7::⁷    ; SUPERSCRIPT SEVEN
+::8::⁸    ; SUPERSCRIPT EIGHT
+::9::⁹    ; SUPERSCRIPT NINE
+
 ; ================================================================================
 ; Misc.
 +^space::SendInput {U+00A0} ; Shift+Ctrl+Space -> Word-style nonbreaking space
