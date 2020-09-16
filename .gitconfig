@@ -34,8 +34,10 @@
 
 [delta]
 	line-numbers = true
-	minus-style = syntax "#220000"
-	plus-style = syntax "#002200"
+	minus-style = "#999999" "#330000"
+	minus-emph-style = "#cccccc" "#660000"
+	plus-style = "#999999" "#003300"
+	plus-emph-style = "#cccccc" "#006600"
 	syntax-theme = TwoDark
 
 [diff]
