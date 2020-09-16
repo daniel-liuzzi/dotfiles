@@ -14,38 +14,21 @@
 	prev = checkout HEAD^1
 	next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
 
-[color]
-	ui = true
-
-[color "diff"]
-	commit = yellow bold
-	frag = magenta bold
-	func = black bold
-	meta = yellow
-	new = green bold
-	old = red bold
-	whitespace = red reverse
-
-# [color "diff-highlight"]
-# 	newHighlight = green reverse
-# 	newNormal = green bold
-# 	oldHighlight = red reverse
-# 	oldNormal = red bold
-
 [commit]
 	verbose = true
 
 [core]
-	# Note: diff-so-fancy seems to make `git diff` extremely slow; investigate
-	# https://github.com/so-fancy/diff-so-fancy#usage
-	pager = diff-so-fancy | less --tabs=4 -RFX
-
-	# # Hide ^M (Carriage Return) in diffs
-	# # https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/
-	# whitespace = cr-at-eol
+	# https://github.com/dandavison/delta#configuration
+	pager = delta
 
 [credential]
 	helper = manager
+
+[delta]
+	line-numbers = true
+	minus-style = syntax "#220000"
+	plus-style = syntax "#002200"
+	syntax-theme = TwoDark
 
 [diff]
 	renameLimit = 9999
