@@ -68,22 +68,24 @@ module.exports = {
     // an array here instead of a color map object
     colors: {
       // AlienBlood theme from https://atomcorp.github.io/themes/
+      // Note: red, green, white, lightGreen, lightGreen, lightWhite tweaked to
+      // improve delta on Hyper
       black: '#112616',
-      red: '#7f2b27',
-      green: '#2f7e25',
+      red: '#660000',
+      green: '#006600',
       yellow: '#717f24',
       blue: '#2f6a7f',
       magenta: '#47587f',
       cyan: '#327f77',
-      white: '#647d75',
+      white: '#999999',
       lightBlack: '#3c4812',
-      lightRed: '#e08009',
-      lightGreen: '#18e000',
+      lightRed: '#cc0000',
+      lightGreen: '#009900',
       lightYellow: '#bde000',
       lightBlue: '#00aae0',
       lightMagenta: '#0058e0',
       lightCyan: '#00e0c4',
-      lightWhite: '#73fa91',
+      lightWhite: '#ffffff',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
