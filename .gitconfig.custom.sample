@@ -2,8 +2,8 @@
 	name = Daniel Liuzzi
 	email = dliuzzi@gmail.com
 
-# [includeIf "gitdir/i:~/Projects/foo/"]
-# 	path = ~/Projects/foo/.gitconfig
+# [includeIf "gitdir/i:~/code/foo/"]
+# 	path = ~/code/foo/.gitconfig
 #
-# [includeIf "gitdir/i:~/Projects/bar/"]
-# 	path = ~/Projects/bar/.gitconfig
+# [includeIf "gitdir/i:~/code/bar/"]
+# 	path = ~/code/bar/.gitconfig
