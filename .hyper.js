@@ -68,9 +68,9 @@ module.exports = {
     // an array here instead of a color map object
     colors: {
       // AlienBlood theme from https://atomcorp.github.io/themes/
-      // Note: red, green, white, lightGreen, lightGreen, lightWhite tweaked to
-      // improve delta on Hyper
-      black: '#112616',
+      // Note: black, red, green, white, lightBlack, lightGreen, lightGreen,
+      // lightWhite tweaked to improve delta on Hyper
+      black: '#000000',
       red: '#660000',
       green: '#006600',
       yellow: '#717f24',
@@ -78,7 +78,7 @@ module.exports = {
       magenta: '#47587f',
       cyan: '#327f77',
       white: '#999999',
-      lightBlack: '#3c4812',
+      lightBlack: '#333333',
       lightRed: '#cc0000',
       lightGreen: '#009900',
       lightYellow: '#bde000',
