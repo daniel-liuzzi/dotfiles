@@ -125,10 +125,18 @@ FETCH NEXT 100 ROWS ONLY;
 ::<-::←   ; LEFTWARDS ARROW
 
 ; Algebra
+::+-::±   ; PLUS-MINUS SIGN
+::-::−    ; MINUS SIGN
 ::x::×    ; MULTIPLICATION SIGN
 ::/::÷    ; DIVISION SIGN
 ::~=::≈   ; ALMOST EQUAL TO
-::=/=::≠  ; NOT EQUAL TO
+::!=::≠   ; NOT EQUAL TO
+::<<<::⋘   ; VERY MUCH LESS-THAN
+::<<::≪   ; MUCH LESS-THAN
+::<=::≤   ; LESS-THAN OR EQUAL TO
+::>>>::⋙   ; VERY MUCH GREATER-THAN
+::>>::≫   ; MUCH GREATER-THAN
+::>=::≥   ; GREATER-THAN OR EQUAL TO
 
 ; Hotstrings below trigger even when inside another word
 #Hotstring ?
@@ -165,11 +173,71 @@ FETCH NEXT 100 ROWS ONLY;
 ::1/9::⅑  ; VULGAR FRACTION ONE NINTH
 ::1/10::⅒ ; VULGAR FRACTION ONE TENTH
 
+; Currency
+::eur::€    ; EURO SIGN
+::gbp::£    ; POUND SIGN
+::jpy::¥    ; YEN SIGN
+
 ; Legal / Other
 ::(c)::©  ; COPYRIGHT SIGN
 ::(r)::®  ; REGISTERED SIGN
-::TM::™   ; TRADE MARK SIGN
-::o::°    ; DEGREE SIGN
+::tm::™   ; TRADE MARK SIGN
+::deg::°  ; DEGREE SIGN
+
+; International characters, based on Windows US International keyboard layout
+; https://support.microsoft.com/en-us/help/306560/how-to-use-the-united-states-international-keyboard-layout-in-windows
+::'a::á
+::'A::Á
+::'c::ç
+::'C::Ç
+::'e::é
+::'E::É
+::'i::í
+::'I::Í
+::'o::ó
+::'O::Ó
+::'u::ú
+::'U::Ú
+::'y::ý
+::'Y::Ý
+::"a::ä
+::"A::Ä
+::"e::ë
+::"E::Ë
+::"i::ï
+::"I::Ï
+::"o::ö
+::"O::Ö
+::"u::ü
+::"U::Ü
+::"y::ÿ
+::"Y::Ÿ
+::`a::à
+::`A::À
+::`e::è
+::`E::È
+::`i::ì
+::`I::Ì
+::`o::ò
+::`O::Ò
+::`u::ù
+::`U::Ù
+::^a::â
+::^A::Â
+::^e::ê
+::^E::Ê
+::^i::î
+::^I::Î
+::^o::ô
+::^O::Ô
+::^u::û
+::^U::Û
+::~a::ã
+::~A::Ã
+::~n::ñ
+::~N::Ñ
+::~o::õ
+::~O::Õ
 
 ; Superscript digits
 ::0::⁰    ; SUPERSCRIPT ZERO
