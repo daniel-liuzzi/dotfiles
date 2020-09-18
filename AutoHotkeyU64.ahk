@@ -77,67 +77,6 @@ SetTitleMatchMode, RegEx
 #Hotstring EndChars \ ; Only the backslash (\) triggers hotstring expansions
 #Hotstring O ; Omit the ending character
 
-; Development
-::cl::console.log();{Left 2}
-::ct::console.table();{Left 2}
-::cw::Console.WriteLine();{Left 2}
-::constr::trusted_connection=true;
-::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-:R0:merge::
-(
-+{Home}MERGE INTO target t
-+{Home}USING source s ON t.key = s.key
-+{Home}WHEN MATCHED THEN
-+{Home}    UPDATE SET
-+{Home}        col1 = s.col1,
-+{Home}        col2 = s.col2
-+{Home}WHEN NOT MATCHED THEN
-+{Home}    INSERT (col1, col2)
-+{Home}    VALUES (s.col1, s.col2);
-+{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
-)
-:R0:select::
-(
-SELECT *
-FROM
-ORDER BY 1 DESC
-OFFSET 0 ROWS
-FETCH NEXT 100 ROWS ONLY;
-{Up 4}{End}{Space}^{Space}
-)
-
-; Timestamp - ISO 8601 format
-::now.iso::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
-    SendInput %CurrentDateTime%
-    return
-
-; Timestamp - yyyyMMddHHmmss format
-    ::now.ts::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
-    SendInput %CurrentDateTime%
-    return
-
-; Arrows
-::^|::↑   ; UPWARDS ARROW
-::->::→   ; RIGHTWARDS ARROW
-::|v::↓   ; DOWNWARDS ARROW
-::<-::←   ; LEFTWARDS ARROW
-
-; Algebra
-::+-::±   ; PLUS-MINUS SIGN
-::-::−    ; MINUS SIGN
-::x::×    ; MULTIPLICATION SIGN
-::/::÷    ; DIVISION SIGN
-::~=::≈   ; ALMOST EQUAL TO
-::!=::≠   ; NOT EQUAL TO
-::<<<::⋘   ; VERY MUCH LESS-THAN
-::<<::≪   ; MUCH LESS-THAN
-::<=::≤   ; LESS-THAN OR EQUAL TO
-::>>>::⋙   ; VERY MUCH GREATER-THAN
-::>>::≫   ; MUCH GREATER-THAN
-::>=::≥   ; GREATER-THAN OR EQUAL TO
-
 ; Hotstrings below trigger even when inside another word
 #Hotstring ?
 
@@ -250,6 +189,70 @@ FETCH NEXT 100 ROWS ONLY;
 ::7::⁷    ; SUPERSCRIPT SEVEN
 ::8::⁸    ; SUPERSCRIPT EIGHT
 ::9::⁹    ; SUPERSCRIPT NINE
+
+; Hotstrings below don't trigger when inside another word
+#Hotstring ?0
+
+; Development
+:R0:merge::
+(
++{Home}MERGE INTO target t
++{Home}USING source s ON t.key = s.key
++{Home}WHEN MATCHED THEN
++{Home}    UPDATE SET
++{Home}        col1 = s.col1,
++{Home}        col2 = s.col2
++{Home}WHEN NOT MATCHED THEN
++{Home}    INSERT (col1, col2)
++{Home}    VALUES (s.col1, s.col2);
++{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
+)
+:R0:select::
+(
+SELECT *
+FROM
+ORDER BY 1 DESC
+OFFSET 0 ROWS
+FETCH NEXT 100 ROWS ONLY;
+{Up 4}{End}{Space}^{Space}
+)
+::constr::trusted_connection=true;
+::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+::cl::console.log();{Left 2}
+::ct::console.table();{Left 2}
+::cw::Console.WriteLine();{Left 2}
+
+; Timestamp - ISO 8601 format
+::now.iso::
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
+    SendInput %CurrentDateTime%
+    return
+
+; Timestamp - yyyyMMddHHmmss format
+    ::now.ts::
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
+    SendInput %CurrentDateTime%
+    return
+
+; Arrows
+::^|::↑   ; UPWARDS ARROW
+::->::→   ; RIGHTWARDS ARROW
+::|v::↓   ; DOWNWARDS ARROW
+::<-::←   ; LEFTWARDS ARROW
+
+; Algebra
+::+-::±   ; PLUS-MINUS SIGN
+::-::−    ; MINUS SIGN
+::x::×    ; MULTIPLICATION SIGN
+::/::÷    ; DIVISION SIGN
+::~=::≈   ; ALMOST EQUAL TO
+::!=::≠   ; NOT EQUAL TO
+::<<<::⋘   ; VERY MUCH LESS-THAN
+::<<::≪   ; MUCH LESS-THAN
+::<=::≤   ; LESS-THAN OR EQUAL TO
+::>>>::⋙   ; VERY MUCH GREATER-THAN
+::>>::≫   ; MUCH GREATER-THAN
+::>=::≥   ; GREATER-THAN OR EQUAL TO
 
 ; ================================================================================
 ; Misc.
