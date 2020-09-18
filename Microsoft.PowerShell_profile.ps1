@@ -5,6 +5,9 @@ Import-Module oh-my-posh
 $DefaultUser = $env:USERNAME # Hide username@domain when not in a VM
 Set-Theme Paradox
 Set-PSReadlineOption -ExtraPromptLineCount 1
+$ThemeSettings.Colors.GitForegroundColor = [ConsoleColor]::White
+$ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
+$ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::Gray
 
 # Aliases (autocomplete-friendly)
 Set-Alias dn dotnet
