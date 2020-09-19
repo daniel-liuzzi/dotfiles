@@ -29,7 +29,7 @@ New-Link ".\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost
 New-Link ".\Microsoft.PowerShell_profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
-New-Link ".\bin\" "~\bin\"
+New-Link ".\bin" "~\bin"
 New-Link ".\WindowsTerminal.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 New-Link ".\WindowsTerminal.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"
 New-Link ".\vscode.json" "$env:APPDATA\Code\User\settings.json"
