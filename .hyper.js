@@ -69,7 +69,7 @@ module.exports = {
     colors: {
       // AlienBlood theme from https://atomcorp.github.io/themes/
       // Note: black, red, green, white, lightBlack, lightGreen, lightGreen,
-      // lightWhite tweaked to improve delta on Hyper
+      // lightWhite tweaked to improve oh-my-posh and delta
       black: '#0f1610',
       red: '#660000',
       green: '#006600',

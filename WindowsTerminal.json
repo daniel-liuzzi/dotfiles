@@ -93,25 +93,28 @@
         },
         {
             // https://atomcorp.github.io/themes/
+            // Note: black, red, green, white, brightBlack, brightRed,
+            // brightGreen, brightWhite, foreground tweaked to improve
+            // oh-my-posh and delta
             "name": "AlienBlood",
-            "black": "#112616",
-            "red": "#7f2b27",
-            "green": "#2f7e25",
+            "black": "#0f1610",
+            "red": "#660000",
+            "green": "#006600",
             "yellow": "#717f24",
             "blue": "#2f6a7f",
             "purple": "#47587f",
             "cyan": "#327f77",
-            "white": "#647d75",
-            "brightBlack": "#3c4812",
-            "brightRed": "#e08009",
-            "brightGreen": "#18e000",
+            "white": "#999999",
+            "brightBlack": "#333333",
+            "brightRed": "#cc0000",
+            "brightGreen": "#009900",
             "brightYellow": "#bde000",
             "brightBlue": "#00aae0",
             "brightPurple": "#0058e0",
             "brightCyan": "#00e0c4",
-            "brightWhite": "#73fa91",
+            "brightWhite": "#ffffff",
             "background": "#0f1610",
-            "foreground": "#637d75"
+            "foreground": "#eff0eb",
         }
     ],
 

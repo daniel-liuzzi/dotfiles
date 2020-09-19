@@ -34,7 +34,7 @@
         // AlienBlood - https://atomcorp.github.io/themes/
         // Note: ansiBlack, ansiBrightBlack, ansiBrightGreen, ansiBrightRed,
         // ansiBrightWhite, ansiGreen, ansiRed, ansiWhite tweaked to improve
-        // delta on Hyper
+        // oh-my-posh and delta
         "terminal.ansiBlack": "#0f1610",
         "terminal.ansiBlue": "#2f6a7f",
         "terminal.ansiBrightBlack": "#333333",
