@@ -113,9 +113,14 @@ SetTitleMatchMode, RegEx
 ::1/10::⅒ ; VULGAR FRACTION ONE TENTH
 
 ; Currency
-::eur::€    ; EURO SIGN
-::gbp::£    ; POUND SIGN
-::jpy::¥    ; YEN SIGN
+::btc::₿    ; Bitcoin
+::cny::¥    ; Chinese yuan
+::eur::€    ; Euro
+::gbp::£    ; Pound sterling
+::inr::₹    ; Indian rupee
+::jpy::¥    ; Japanese yen
+::php::₱    ; Philippine peso
+::rub::₽    ; Russian ruble
 
 ; Legal / Other
 ::(c)::©  ; COPYRIGHT SIGN
