@@ -262,5 +262,6 @@ FETCH NEXT 100 ROWS ONLY;
 ; ================================================================================
 ; Misc.
 +^space::SendInput {U+00A0} ; Shift+Ctrl+Space -> Word-style nonbreaking space
+!=::SendInput ^{NumpadAdd}  ; Alt+= -> Size all columns to fit in listview controls
 
 #Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
