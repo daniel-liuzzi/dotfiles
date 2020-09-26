@@ -37,7 +37,7 @@
         // oh-my-posh and delta
         "terminal.ansiBlack": "#0f1610",
         "terminal.ansiBlue": "#2f6a7f",
-        "terminal.ansiBrightBlack": "#333333",
+        "terminal.ansiBrightBlack": "#666666",
         "terminal.ansiBrightBlue": "#00aae0",
         "terminal.ansiBrightCyan": "#00e0c4",
         "terminal.ansiBrightGreen": "#009900",

@@ -32,7 +32,7 @@
 [delta]
 	line-numbers = true
 	line-numbers-minus-style = "#660000"
-	line-numbers-zero-style = "#333333"
+	line-numbers-zero-style = "#666666"
 	line-numbers-plus-style = "#006600"
 	minus-style = "#999999" "#330000"
 	plus-style = "#999999" "#003300"
