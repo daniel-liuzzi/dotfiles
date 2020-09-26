@@ -46,7 +46,7 @@
         {
             "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
             "hidden": false,
-            "colorScheme": "AlienBlood",
+            "colorScheme": "Basic",
             "fontFace": "Cascadia Code PL",
             "fontSize": 11,
             "padding": "16, 16, 16, 16",
@@ -92,25 +92,21 @@
             "foreground": "#d0d0d0"
         },
         {
-            // https://atomcorp.github.io/themes/
-            // Note: black, red, green, white, brightBlack, brightRed,
-            // brightGreen, brightWhite, foreground tweaked to improve
-            // oh-my-posh and delta
-            "name": "AlienBlood",
+            "name": "Basic",
             "black": "#0f1610",
             "red": "#660000",
             "green": "#006600",
-            "yellow": "#717f24",
-            "blue": "#2f6a7f",
-            "purple": "#47587f",
-            "cyan": "#327f77",
+            "yellow": "#666600",
+            "blue": "#000066",
+            "purple": "#660066",
+            "cyan": "#006666",
             "white": "#999999",
             "brightBlack": "#666666",
             "brightRed": "#cc0000",
             "brightGreen": "#009900",
             "brightYellow": "#bde000",
             "brightBlue": "#00aae0",
-            "brightPurple": "#0058e0",
+            "brightPurple": "#ff00ff",
             "brightCyan": "#00e0c4",
             "brightWhite": "#ffffff",
             "background": "#0f1610",

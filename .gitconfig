@@ -14,6 +14,10 @@
 	prev = checkout HEAD^1
 	next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
 
+[color "diff"]
+	oldMoved = magenta
+	newMoved = cyan
+
 [color "status"]
 	added = green bold
 	changed = red bold
@@ -41,6 +45,8 @@
 	syntax-theme = TwoDark
 
 [diff]
+	colorMoved = blocks
+	colorMovedWS = allow-indentation-change
 	renameLimit = 9999
 	tool = winmerge
 

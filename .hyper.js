@@ -67,23 +67,20 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      // AlienBlood theme from https://atomcorp.github.io/themes/
-      // Note: black, red, green, white, lightBlack, lightGreen, lightGreen,
-      // lightWhite tweaked to improve oh-my-posh and delta
       black: '#0f1610',
       red: '#660000',
       green: '#006600',
-      yellow: '#717f24',
-      blue: '#2f6a7f',
-      magenta: '#47587f',
-      cyan: '#327f77',
+      yellow: '#666600',
+      blue: '#000066',
+      magenta: '#660066',
+      cyan: '#006666',
       white: '#999999',
       lightBlack: '#666666',
       lightRed: '#cc0000',
       lightGreen: '#009900',
       lightYellow: '#bde000',
       lightBlue: '#00aae0',
-      lightMagenta: '#0058e0',
+      lightMagenta: '#ff00ff',
       lightCyan: '#00e0c4',
       lightWhite: '#ffffff',
     },
