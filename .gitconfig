@@ -34,6 +34,9 @@
 	helper = manager
 
 [delta]
+	file-style = "#ffffff"
+	file-decoration-style = "#333333" ul box
+	hunk-header-decoration-style = none
 	line-numbers = true
 	line-numbers-minus-style = "#993333"
 	line-numbers-zero-style = "#666666"
