@@ -47,7 +47,7 @@
 	plus-style = "#999999" "#003300"
 	minus-emph-style = "#cccccc" "#660000"
 	plus-emph-style = "#cccccc" "#006600"
-	syntax-theme = TwoDark
+	syntax-theme = Dracula
 
 [diff]
 	colorMoved = blocks
