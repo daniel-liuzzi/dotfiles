@@ -1,0 +1,4 @@
+# BOM necessary for Unicode characters - https://autohotkey.com/board/topic/91711-unicode-bom/?p=578486
+[*]
+charset = utf-8-bom
+indent_size = 4

@@ -7,22 +7,5 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[.gitconfig]
-end_of_line = lf
-indent_style = tab
-
-# BOM necessary for Unicode characters - https://autohotkey.com/board/topic/91711-unicode-bom/?p=578486
-[AutoHotkeyU64.*]
-charset = utf-8-bom
-indent_size = 4
-
-# BOM necessary for Unicode characters - https://stackoverflow.com/a/14482588
-[Microsoft.PowerShell_profile.*]
-charset = utf-8-bom
-
 [*.md]
 trim_trailing_whitespace = false
-
-[{vscode,WindowsTerminal}.json]
-end_of_line = lf
-indent_size = 4

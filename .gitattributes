@@ -1,6 +1,1 @@
 * text=auto
-
-.gitconfig text eol=lf
-Preferences.sublime-settings text eol=lf
-profiles.json text eol=lf
-vscode.json text eol=lf

@@ -7,10 +7,11 @@ if (!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]
 function New-Link ($target, $source) {
   if (Test-Path $source) {
     if ((Get-Item $source).LinkType -eq 'SymbolicLink') {
-      return # symlink already exists, skip
+      Remove-Item $source
     }
-
-    Move-Item -Path $source -Destination "$source.bak" -Force
+    else {
+      Move-Item -Path $source -Destination "$source.bak" -Force
+    }
   }
 
   New-Item -ItemType SymbolicLink -Path $source -Target (Resolve-Path $target)
@@ -22,18 +23,18 @@ echo '- Installing Powershell modules...'
 Install-Module PSColor, posh-git, oh-my-posh
 
 echo '- Creating symlinks...'
-New-Link ".\.gitconfig" "~\.gitconfig"
-New-Link ".\.gitconfig.custom" "~\.gitconfig.custom"
-New-Link ".\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
-New-Link ".\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
-New-Link ".\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
-New-Link ".\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost
-New-Link ".\Microsoft.PowerShell_profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
+New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
+New-Link ".\ahk\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\bin" "~\bin"
-New-Link ".\WindowsTerminal.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-New-Link ".\WindowsTerminal.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"
-New-Link ".\vscode.json" "$env:APPDATA\Code\User\settings.json"
-New-Link ".\vscode.json" "$env:APPDATA\Code - Insiders\User\settings.json"
+New-Link ".\git\.gitconfig" "~\.gitconfig"
+New-Link ".\git\.gitconfig.custom" "~\.gitconfig.custom"
+New-Link ".\hyper\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
+New-Link ".\powershell\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost
+New-Link ".\powershell\Microsoft.PowerShell_profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
+New-Link ".\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
+New-Link ".\vscode\settings.json" "$env:APPDATA\Code - Insiders\User\settings.json"
+New-Link ".\windows-terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+New-Link ".\windows-terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"
 
 echo '- Done.'
 echo ''
