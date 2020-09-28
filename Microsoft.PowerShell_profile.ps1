@@ -7,7 +7,7 @@ Set-Theme Paradox
 Set-PSReadlineOption -ExtraPromptLineCount 1
 $ThemeSettings.Colors.GitForegroundColor = [ConsoleColor]::White
 $ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
-$ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::Gray
+$ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
 
 # Aliases (autocomplete-friendly)
 Set-Alias dn dotnet
