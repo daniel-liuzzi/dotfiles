@@ -141,9 +141,11 @@ function .. { cd .. }
 # Miscellaneous
 function archive {
   $date = Get-Date -Format 'yyyy-MM-dd'
-  $dest = Join-Path '~/!Archive' $date
-  New-Item -Path $dest -ItemType Directory
-  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $dest
+  $path = Join-Path '~/!Archive' $date
+  New-Item -Path $path -ItemType Directory -Force | Out-Null
+  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $path | Out-Null
+  Write-Output "Desktop archived successfully."
+  Start-Process -FilePath (Resolve-Path $path)
 }
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
