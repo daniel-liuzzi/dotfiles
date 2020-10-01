@@ -29,8 +29,8 @@ New-Link ".\bin" "~\bin"
 New-Link ".\git\.gitconfig" "~\.gitconfig"
 New-Link ".\git\.gitconfig.custom" "~\.gitconfig.custom"
 New-Link ".\hyper\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
-New-Link ".\powershell\Microsoft.PowerShell_profile.ps1" $PROFILE.CurrentUserCurrentHost
-New-Link ".\powershell\Microsoft.PowerShell_profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
+New-Link ".\powershell\profile.ps1" $PROFILE.CurrentUserCurrentHost
+New-Link ".\powershell\profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
 New-Link ".\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
 New-Link ".\vscode\settings.json" "$env:APPDATA\Code - Insiders\User\settings.json"
 New-Link ".\windows-terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
