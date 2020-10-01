@@ -130,7 +130,17 @@ function show { git show @args }
 
 # Visual Studio
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
-function sln { start (ls *.sln -file -recurse) }
+
+function sln {
+  $path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
+  if ($path) {
+    Write-Output "Starting $path"
+    Start-Process $path
+  }
+  else {
+    Write-Error 'Solution file not found'
+  }
+}
 
 # Navigation
 function / { cd / }
