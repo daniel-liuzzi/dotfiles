@@ -12,7 +12,6 @@ $ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
 # Aliases (autocomplete-friendly)
 Set-Alias dn dotnet
 Set-Alias g git
-Set-Alias git hub
 Set-Alias l ls
 Set-Alias po popd
 Set-Alias pu pushd
