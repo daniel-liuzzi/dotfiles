@@ -37,6 +37,7 @@
 	file-style = "#ffffff"
 	file-decoration-style = "#333333" ul box
 	hunk-header-decoration-style = none
+	hyperlinks = true
 	line-numbers = true
 	line-numbers-minus-style = "#993333"
 	line-numbers-zero-style = "#666666"

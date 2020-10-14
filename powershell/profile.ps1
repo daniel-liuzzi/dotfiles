@@ -166,6 +166,9 @@ $env:COLORTERM = 'truecolor'
 # Make git diff --stat show full file path - https://stackoverflow.com/a/16733338
 $env:COLUMNS = 170
 
+# Fix delta hyperlinks - https://github.com/dandavison/delta/issues/332#issuecomment-703149304
+$env:DELTA_PAGER = 'less -rFX'
+
 # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
 $env:EDITOR = 'code-insiders --wait'
 
