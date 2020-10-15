@@ -19,10 +19,10 @@ function New-Link ($target, $source) {
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
-echo '- Installing Powershell modules...'
+Write-Output '- Installing Powershell modules...'
 Install-Module PSColor, posh-git, oh-my-posh
 
-echo '- Creating symlinks...'
+Write-Output '- Creating symlinks...'
 New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\ahk\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\bin" "~\bin"
@@ -36,9 +36,9 @@ New-Link ".\terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.Window
 New-Link ".\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
 New-Link ".\vscode\settings.json" "$env:APPDATA\Code - Insiders\User\settings.json"
 
-echo '- Done.'
-echo ''
-echo 'Close PowerShell and reopen it for changes to take effect.'
-echo ''
+Write-Output '- Done.'
+Write-Output ''
+Write-Output 'Close PowerShell and reopen it for changes to take effect.'
+Write-Output ''
 
 pause
