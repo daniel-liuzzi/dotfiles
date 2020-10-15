@@ -1,6 +1,12 @@
+using namespace System.Security.Principal
+
 # Self-elevate
-if (!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-  Start-Process powershell -Verb RunAs -ArgumentList ("& '" + $MyInvocation.MyCommand.Definition + "'") -Wait
+if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuiltInRole]::Administrator)) {
+  Start-Process `
+    -FilePath (Get-Process -Id $PID).Path `
+    -ArgumentList @('-NoProfile', '-File', "`"$($MyInvocation.MyCommand.Path)`"") `
+    -Verb RunAs `
+    -Wait
   return
 }
 
