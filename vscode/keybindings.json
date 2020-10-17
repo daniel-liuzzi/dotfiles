@@ -1,1 +1,11 @@
 // Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+k ctrl+tab",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+shift+tab",
+        "command": "workbench.action.focusNextGroup"
+    }
+]
