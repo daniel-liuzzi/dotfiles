@@ -175,7 +175,8 @@ $env:EDITOR = 'code-insiders --wait'
 # Enable Hyperlinks - https://github.com/microsoft/terminal/pull/7251#issuecomment-692953180
 $ESC = "`e"
 
-# Add bin/ to the system path
-$env:path += ";$env:USERPROFILE\bin\"
+# Add bin/ to the system path (if not already present)
+$bin = "$env:USERPROFILE\bin\"
+if (!$env:Path.Contains($bin)) { $env:Path += ";$bin" }
 
 . "$PSScriptRoot\Microsoft.PowerShell_profile.custom.ps1"
