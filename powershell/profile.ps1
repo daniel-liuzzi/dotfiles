@@ -177,6 +177,6 @@ $ESC = "`e"
 
 # Add bin/ to the system path (if not already present)
 $bin = "$env:USERPROFILE\bin\"
-if (!$env:Path.Contains($bin)) { $env:Path += ";$bin" }
+if (!$env:Path.Contains($bin)) { $env:Path = "$bin;$env:Path" }
 
 . "$PSScriptRoot\Microsoft.PowerShell_profile.custom.ps1"
