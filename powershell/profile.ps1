@@ -157,6 +157,7 @@ function archive {
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
 function open { if ($args) { start @args } else { start . } }
+function rmrf { Remove-Item -Recurse -Force @args }
 
 # Enable 24-bit color support - https://unix.stackexchange.com/a/450366
 $env:COLORTERM = 'truecolor'
