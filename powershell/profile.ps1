@@ -13,8 +13,6 @@ $ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
 Set-Alias dn dotnet
 Set-Alias g git
 Set-Alias l ls
-Set-Alias po popd
-Set-Alias pu pushd
 
 # Utilities
 Set-Alias e edit
