@@ -16,6 +16,7 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": false,
+    "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
     "mssql.connections": [
         {
@@ -33,6 +34,7 @@
     "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
     "terminal.integrated.shellArgs.windows": ["-NoLogo"],
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
+    "typescript.suggest.completeFunctionCalls": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorCustomizations": {
         "terminal.ansiBlack": "#0f1610",
