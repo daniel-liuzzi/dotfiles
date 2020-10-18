@@ -13,6 +13,7 @@
     "editor.scrollbar.horizontal": "visible", // https://github.com/microsoft/vscode/issues/35454
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": false,
     "git.autofetch": true,
     "mssql.connections": [
