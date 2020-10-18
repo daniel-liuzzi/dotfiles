@@ -4,6 +4,7 @@ Import-Module posh-git
 Import-Module oh-my-posh
 $DefaultUser = $env:USERNAME # Hide username@domain when not in a VM
 Set-Theme Paradox
+Set-PSReadLineKeyHandler -Key 'Tab', 'Shift+Tab' -Function 'MenuComplete'
 Set-PSReadlineOption -ExtraPromptLineCount 1
 $ThemeSettings.Colors.GitForegroundColor = [ConsoleColor]::White
 $ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
