@@ -50,13 +50,15 @@ SetTitleMatchMode, RegEx
 ; Ctrl+Shift+V paste without formatting on any app
 ; How to Paste Text Without the Extra Formatting
 ; https://www.howtogeek.com/186723/ask-htg-how-can-i-paste-text-without-the-formatting/
-$^+v::
-    ClipSaved := ClipboardAll ; save original clipboard contents
-    Clipboard = %Clipboard% ; remove formatting
-    Send ^v ; send the Ctrl+V command
-    Clipboard := ClipSaved ; restore the original clipboard contents
-    ClipSaved = ; clear the variable
-    return
+#IfWinNotActive, ahk_exe CiscoCollabHost\.exe
+    $^+v::
+        ClipSaved := ClipboardAll ; save original clipboard contents
+        Clipboard = %Clipboard% ; remove formatting
+        Send ^v ; send the Ctrl+V command
+        Clipboard := ClipSaved ; restore the original clipboard contents
+        ClipSaved = ; clear the variable
+        return
+#If
 
 ; ================================================================================
 ; Turn monitor off with a keyboard shortcut
