@@ -21,6 +21,15 @@ Set-Alias edit code-insiders
 Set-Alias o open
 Set-Alias wm winmergeu
 
+# Move to Recycle Bin instead of deleting
+# https://www.powershellgallery.com/packages/Recycle
+Set-Alias -Name 'del' -Value 'Remove-ItemSafely' -Option AllScope
+Set-Alias -Name 'erase' -Value 'Remove-ItemSafely'
+Set-Alias -Name 'rd' -Value 'Remove-ItemSafely'
+Set-Alias -Name 'ri' -Value 'Remove-ItemSafely' -Force
+Set-Alias -Name 'rm' -Value 'Remove-ItemSafely'
+Set-Alias -Name 'rmdir' -Value 'Remove-ItemSafely'
+
 # https://stackoverflow.com/a/7785226/88709
 filter Search-String {
   [Alias("ss")]
@@ -158,7 +167,6 @@ function archive {
 function la { ls -force @args }
 function mcd { mkdir @args >$null; cd @args }
 function open { if ($args) { start @args } else { start . } }
-function rmrf { Remove-Item -Recurse -Force @args }
 
 # Enable 24-bit color support - https://unix.stackexchange.com/a/450366
 $env:COLORTERM = 'truecolor'
