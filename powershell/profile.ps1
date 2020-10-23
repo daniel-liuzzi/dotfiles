@@ -1,4 +1,5 @@
 ﻿Import-Module PSColor # http://stackoverflow.com/a/30788506
+Import-Module cd-extras # https://stackoverflow.com/a/48640071/88709
 
 Import-Module posh-git
 Import-Module oh-my-posh
