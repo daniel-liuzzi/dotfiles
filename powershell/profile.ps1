@@ -62,8 +62,8 @@ function clone($repository) {
 
 function co { git checkout @args }
 function d { git diff @args }
-function dd { git diff develop...HEAD @args }
-function dm { git diff master...HEAD @args }
+function dd { git diff 'develop..' @args }
+function dm { git diff 'master..' @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
@@ -105,31 +105,9 @@ function grm { git rebase master @args }
 function mt { git mergetool @args }
 function sw { git show @args }
 
-function lg {
-  git log `
-    --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
-    --date=format-local:'%a, %d %b %Y, %H:%M' `
-    --graph `
-    @args
-}
-
-function lgm($rev) {
-  git log `
-    --reverse `
-    --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
-    --date=format-local:'%a, %d %b %Y, %H:%M' `
-    master..$(if ($rev) { $rev } else { 'HEAD' }) `
-    @args
-}
-
-function lgd($rev) {
-  git log `
-    --reverse `
-    --pretty=format:'%Cgreen%ad%Creset  %Cred%h%Creset  %<(50,trunc)%s  %C(cyan)%an%Creset' `
-    --date=format-local:'%a, %d %b %Y, %H:%M' `
-    develop..$(if ($rev) { $rev } else { 'HEAD' }) `
-    @args
-}
+function lg { git log --pretty=small @args }
+function lgd { git log --pretty=small --reverse 'develop..' @args }
+function lgm { git log --pretty=small --reverse 'master..' @args }
 
 function pull { git pull @args }
 function push { git push @args }
