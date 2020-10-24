@@ -95,6 +95,7 @@ SetTitleMatchMode, RegEx
 
 ; Punctuation
 ::...::…  ; HORIZONTAL ELLIPSIS
+::----::― ; HORIZONTAL BAR
 ::---::—  ; EM DASH
 ::--::–   ; EN DASH
 
@@ -252,6 +253,24 @@ FETCH NEXT 100 ROWS ONLY;
     SendInput %CurrentDateTime%
     return
 
+; Current date
+::date::
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-dd
+    SendInput %CurrentDateTime%
+    return
+
+; Current time
+::time::
+    FormatTime, CurrentDateTime, %A_NowUTC%, HH:mm
+    SendInput %CurrentDateTime%
+    return
+
+; Current date & time
+::now::
+    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-dd HH:mm
+    SendInput %CurrentDateTime%
+    return
+
 ; Arrows
 ::^|::↑   ; UPWARDS ARROW
 ::->::→   ; RIGHTWARDS ARROW
@@ -261,7 +280,7 @@ FETCH NEXT 100 ROWS ONLY;
 ; Algebra
 ::+-::±   ; PLUS-MINUS SIGN
 ::-::−    ; MINUS SIGN
-::x::×    ; MULTIPLICATION SIGN
+::*::×    ; MULTIPLICATION SIGN
 ::/::÷    ; DIVISION SIGN
 ::~=::≈   ; ALMOST EQUAL TO
 ::!=::≠   ; NOT EQUAL TO
