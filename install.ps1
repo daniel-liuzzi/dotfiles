@@ -4,7 +4,7 @@ using namespace System.Security.Principal
 if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuiltInRole]::Administrator)) {
   Start-Process `
     -FilePath (Get-Process -Id $PID).Path `
-    -ArgumentList @('-NoProfile', '-File', "`"$($MyInvocation.MyCommand.Path)`"") `
+    -ArgumentList @('-NoProfile', '-File', "`"$PSCommandPath`"") `
     -Verb RunAs `
     -Wait
   return
