@@ -1,8 +1,9 @@
-﻿Import-Module PSColor # http://stackoverflow.com/a/30788506
+﻿# Modules
 Import-Module cd-extras # https://stackoverflow.com/a/48640071/88709
-
-Import-Module posh-git
 Import-Module oh-my-posh
+Import-Module posh-git
+Import-Module PSColor # http://stackoverflow.com/a/30788506
+
 $DefaultUser = $env:USERNAME # Hide username@domain when not in a VM
 Set-Theme Paradox
 Set-PSReadLineKeyHandler -Key 'Tab', 'Shift+Tab' -Function 'MenuComplete'
