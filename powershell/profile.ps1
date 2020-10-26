@@ -3,6 +3,7 @@ Import-Module cd-extras # https://stackoverflow.com/a/48640071/88709
 Import-Module oh-my-posh
 Import-Module posh-git
 Import-Module PSColor # http://stackoverflow.com/a/30788506
+Import-Module Recycle
 
 $DefaultUser = $env:USERNAME # Hide username@domain when not in a VM
 Set-Theme Paradox
