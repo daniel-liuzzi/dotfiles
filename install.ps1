@@ -26,7 +26,7 @@ function New-Link ($target, $source) {
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 Write-Output '- Installing Powershell modules...'
-Install-Module Recycle, PSColor, posh-git, oh-my-posh, cd-extras
+Install-Module -Name Recycle, PSColor, posh-git, oh-my-posh, cd-extras -Force
 
 Write-Output '- Creating symlinks...'
 New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
