@@ -94,7 +94,7 @@
 	cmd = winmergeu -e -u -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
 
 [pretty]
-	small = %C(brightgreen)%ad  %C(brightred)%h  %C(brightwhite)%<(50,trunc)%s  %C(brightblue)%aN%Creset
+	small = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(50,trunc)%s  %C(brightblue)%aN%Creset
 
 [pull]
 	rebase = true
