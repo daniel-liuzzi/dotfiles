@@ -64,9 +64,9 @@ function clone($repository) {
 
 function co { git checkout @args }
 function d { git diff @args }
-function dd { git diff 'develop...' @args }
-function dm { git diff 'master...' @args }
-function dr { git diff '@{push}...' @args }
+function dd { git diff 'develop...HEAD' @args }
+function dm { git diff 'master...HEAD' @args }
+function dr { git diff '@{push}...HEAD' @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
@@ -109,9 +109,9 @@ function mt { git mergetool @args }
 function sw { git show @args }
 
 function lg { git log --pretty=small @args }
-function lgd { git log --pretty=small --reverse 'develop...' @args }
-function lgm { git log --pretty=small --reverse 'master...' @args }
-function lgr { git log --pretty=small --reverse '@{push}...' @args }
+function lgd { git log --pretty=small --reverse 'develop...HEAD' @args }
+function lgm { git log --pretty=small --reverse 'master...HEAD' @args }
+function lgr { git log --pretty=small --reverse '@{push}...HEAD' @args }
 
 function pull { git pull @args }
 function push { git push @args }
