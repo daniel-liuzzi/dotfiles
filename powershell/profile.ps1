@@ -14,15 +14,15 @@ $ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
 $ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
 
 # Aliases (autocomplete-friendly)
-Set-Alias dn dotnet
-Set-Alias g git
-Set-Alias l ls
+Set-Alias -Name 'dn' -Value 'dotnet'
+Set-Alias -Name 'g' -Value 'git'
+Set-Alias -Name 'l' -Value 'ls'
 
 # Utilities
-Set-Alias e edit
-Set-Alias edit code-insiders
-Set-Alias o open
-Set-Alias wm winmergeu
+Set-Alias -Name 'e' -Value 'edit'
+Set-Alias -Name 'edit' -Value 'code-insiders'
+Set-Alias -Name 'o' -Value 'open'
+Set-Alias -Name 'wm' -Value 'winmergeu'
 
 # Move to Recycle Bin instead of deleting
 # https://www.powershellgallery.com/packages/Recycle
@@ -82,12 +82,12 @@ function gfft { git flow feature track @args }
 function gfid { git flow init -d }
 
 function gh {
-  git ls-files | % {
+  git ls-files | ForEach-Object {
     New-Object psobject -Property ([ordered]@{
-        Path    = $_
+        Path    = (Resolve-Path -Path $_ -Relative)
 
         # https://stackoverflow.com/a/11729072/88709
-        Commits = (git log --oneline -- $_ | measure).Count
+        Commits = (git log --oneline -- $_ | Measure-Object).Count
 
         # https://stackoverflow.com/a/13598028/88709
         Oldest  = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" --diff-filter=A -- $_))
@@ -133,10 +133,10 @@ function sln {
 }
 
 # Navigation
-function / { cd / }
-function \ { cd \ }
-function ~ { cd ~ }
-function .. { cd .. }
+function / { Set-Location '/' }
+function \ { Set-Location '\' }
+function ~ { Set-Location '~' }
+function .. { Set-Location '.'. }
 
 # Miscellaneous
 function archive {
@@ -147,9 +147,9 @@ function archive {
   Write-Output "Desktop archived successfully."
   Start-Process -FilePath (Resolve-Path $path)
 }
-function la { ls -force @args }
+function la { Get-ChildItem -Force @args }
 function mcd { mkdir @args >$null; cd @args }
-function open { if ($args) { start @args } else { start . } }
+function open { if ($args) { Start-Process @args } else { Start-Process . } }
 
 # Enable 24-bit color support - https://unix.stackexchange.com/a/450366
 $env:COLORTERM = 'truecolor'
