@@ -48,6 +48,15 @@ filter Search-String {
 }
 
 # Git
+function Get-GitMainGranch {
+  foreach ($branch in @('main', 'prod')) {
+    if (git branch --list $branch) {
+      return $branch
+    }
+  }
+  return 'master'
+}
+
 function a { git add @args }
 function b { git branch @args }
 function c { git commit @args }
@@ -65,7 +74,7 @@ function clone($repository) {
 function co { git checkout @args }
 function d { git diff @args }
 function dd { git diff 'develop...HEAD' @args }
-function dm { git diff 'master...HEAD' @args }
+function dm { git diff "$(Get-GitMainGranch)...HEAD" @args }
 function dr { git diff '@{push}...HEAD' @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
@@ -102,15 +111,15 @@ function gra { git rebase --abort @args }
 function grc { git rebase --continue @args }
 function gri { git rebase --interactive @args }
 function grid { git rebase --interactive develop @args }
-function grim { git rebase --interactive master @args }
+function grim { git rebase --interactive (Get-GitMainGranch) @args }
 function grd { git rebase develop @args }
-function grm { git rebase master @args }
+function grm { git rebase (Get-GitMainGranch) @args }
 function mt { git mergetool @args }
 function sw { git show @args }
 
 function lg { git log --pretty=small @args }
 function lgd { git log --pretty=small --reverse 'develop...HEAD' @args }
-function lgm { git log --pretty=small --reverse 'master...HEAD' @args }
+function lgm { git log --pretty=small --reverse "$(Get-GitMainGranch)...HEAD" @args }
 function lgr { git log --pretty=small --reverse '@{push}...HEAD' @args }
 
 function pull { git pull @args }
