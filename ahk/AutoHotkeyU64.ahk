@@ -26,14 +26,14 @@ SetTitleMatchMode, RegEx
 ; VSCode-style shortcuts in SQL Server Management Studio
 #IfWinActive, ahk_exe Ssms\.exe
     ^w::        SendInput ^{F4}         ; Close window/tab
-    ^/::        SendInput ^k^c^k^c      ; Comment selection
-    ^+/::       SendInput ^k^u^k^u      ; Uncomment selection
+    ^/::        SendInput ^k^c          ; Comment selection
+    ^+/::       SendInput ^k^u          ; Uncomment selection
 #If
 
 ; VSCode-style shortcuts in LINQPad
 #IfWinActive, ahk_exe LINQPad\d*\.exe
-    ^/::        SendInput ^k^c^k^c      ; Comment selection
-    ^+/::       SendInput ^k^u^k^u      ; Uncomment selection
+    ^/::        SendInput ^k^c          ; Comment selection
+    ^+/::       SendInput ^k^u          ; Uncomment selection
     ^,::        SendInput !en           ; User Settings
     ^p::        SendInput ^,            ; Quick Open, Go to File...
     +!f::       SendInput ^ed           ; Format document
