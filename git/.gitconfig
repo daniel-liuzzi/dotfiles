@@ -31,7 +31,7 @@
 	pager = delta
 
 [credential]
-	helper = manager
+	helper = manager-core
 
 [delta]
 	file-style = "#ffffff"
