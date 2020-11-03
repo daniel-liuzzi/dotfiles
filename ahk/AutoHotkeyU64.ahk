@@ -39,6 +39,12 @@ SetTitleMatchMode, RegEx
     +!f::       SendInput ^ed           ; Format document
 #If
 
+; VSCode-style shortcuts in Oracle SQL Developer
+#IfWinActive, ahk_exe sqldeveloper64W\.exe
+    +!f::       SendInput ^{F7}         ; Format document
+    !LButton::  SendInput ^+{LButton}   ; Insert cursor
+#If
+
 ; macOS-style shortcuts
 ^q::            SendInput !{F4}         ; Quit app
 
