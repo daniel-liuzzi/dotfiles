@@ -203,17 +203,23 @@ SetTitleMatchMode, RegEx
 ::~o::õ
 ::~O::Õ
 
-; Superscript digits
-::0::⁰    ; SUPERSCRIPT ZERO
-::1::¹    ; SUPERSCRIPT ONE
-::2::²    ; SUPERSCRIPT TWO
-::3::³    ; SUPERSCRIPT THREE
-::4::⁴    ; SUPERSCRIPT FOUR
-::5::⁵    ; SUPERSCRIPT FIVE
-::6::⁶    ; SUPERSCRIPT SIX
-::7::⁷    ; SUPERSCRIPT SEVEN
-::8::⁸    ; SUPERSCRIPT EIGHT
-::9::⁹    ; SUPERSCRIPT NINE
+; Superscript symbols
+::^-::⁻     ; SUPERSCRIPT MINUS
+::^(::⁽     ; SUPERSCRIPT LEFT PARENTHESIS
+::^)::⁾     ; SUPERSCRIPT RIGHT PARENTHESIS
+::^+::⁺     ; SUPERSCRIPT PLUS SIGN
+::^=::⁼     ; SUPERSCRIPT EQUALS SIGN
+::^0::⁰     ; SUPERSCRIPT ZERO
+::^1::¹     ; SUPERSCRIPT ONE
+::^2::²     ; SUPERSCRIPT TWO
+::^3::³     ; SUPERSCRIPT THREE
+::^4::⁴     ; SUPERSCRIPT FOUR
+::^5::⁵     ; SUPERSCRIPT FIVE
+::^6::⁶     ; SUPERSCRIPT SIX
+::^7::⁷     ; SUPERSCRIPT SEVEN
+::^8::⁸     ; SUPERSCRIPT EIGHT
+::^9::⁹     ; SUPERSCRIPT NINE
+::^n::ⁿ     ; SUPERSCRIPT LATIN SMALL LETTER N
 
 ; Hotstrings below don't trigger when inside another word
 #Hotstring ?0
