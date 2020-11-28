@@ -163,7 +163,7 @@ function archive {
   Start-Process -FilePath (Resolve-Path $path)
 }
 function la { Get-ChildItem -Force @args }
-function mcd { mkdir @args >$null; cd @args }
+function mcd { Set-Location (mkdir @args) }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 
 # Enable 24-bit color support - https://unix.stackexchange.com/a/450366
