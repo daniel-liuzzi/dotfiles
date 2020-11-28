@@ -14,6 +14,7 @@ $ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
 $ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
 
 # Aliases (autocomplete-friendly)
+Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'dn' -Value 'dotnet'
 Set-Alias -Name 'g' -Value 'git'
 Set-Alias -Name 'l' -Value 'ls'
@@ -46,6 +47,49 @@ filter Search-String {
 
   $_
 }
+
+<#
+.SYNOPSIS
+    Creates a new dotnet console app and opens it in the text editor.
+#>
+function New-ConsoleApp {
+  param (
+    [Parameter(Mandatory = $true)]
+    [string]
+    $Path
+  )
+
+  if (Test-Path $Path) {
+    throw "Path '$Path' already exists. Choose a different one."
+  }
+
+  $DirectoryInfo = mkdir $Path
+  $OutputName = (Get-Culture).TextInfo.ToTitleCase($DirectoryInfo.Name)
+  Set-Location $DirectoryInfo
+
+  git init
+  git commit --message="initial" --allow-empty
+
+  dotnet new gitignore
+  git add --all
+  git commit --message="dotnet new gitignore"
+
+  dotnet new console --name=$OutputName --output=.
+  git add --all
+  git commit --message="dotnet new console"
+
+  edit . ./Program.cs
+}
+
+# .NET CLI
+function dna { dotnet add @args }
+function dnap { dotnet add package @args }
+function dnar { dotnet add reference @args }
+function dnb { dotnet build @args }
+function dnn { dotnet new @args }
+function dnr { dotnet run @args }
+function dnw { dotnet watch @args }
+function dnwr { dotnet watch run @args }
 
 # Git
 function Get-GitMainGranch {
