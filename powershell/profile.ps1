@@ -58,6 +58,7 @@ function Get-GitMainGranch {
 }
 
 function a { git add @args }
+function aa { git add --all @args }
 function b { git branch @args }
 function c { git commit @args }
 function ca { git commit --amend @args }
