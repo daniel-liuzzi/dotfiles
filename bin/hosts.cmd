@@ -1,1 +1,1 @@
-sudo subl %SystemRoot%\System32\drivers\etc\hosts
+sudo code-insiders %SystemRoot%\System32\drivers\etc\hosts
