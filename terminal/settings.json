@@ -13,6 +13,9 @@
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
 
+    // https://github.com/microsoft/terminal/pull/8326
+    "tabSwitcherMode": "mru",
+
     // Better double-click selection for branch names and file paths
     "wordDelimiters": " ",
 
