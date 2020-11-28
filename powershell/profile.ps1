@@ -151,7 +151,7 @@ function sln {
 function / { Set-Location '/' }
 function \ { Set-Location '\' }
 function ~ { Set-Location '~' }
-function .. { Set-Location '.'. }
+function .. { Set-Location '..' }
 
 # Miscellaneous
 function archive {
