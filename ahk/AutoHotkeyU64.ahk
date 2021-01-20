@@ -228,7 +228,7 @@ SetTitleMatchMode, RegEx
 :R0:merge::
 (
 +{Home}MERGE INTO target t
-+{Home}USING source s ON t.key = s.key
++{Home}USING source s ON (t.id = s.id)
 +{Home}WHEN MATCHED THEN
 +{Home}    UPDATE SET
 +{Home}        col1 = s.col1,
