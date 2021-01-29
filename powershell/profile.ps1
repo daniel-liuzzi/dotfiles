@@ -154,6 +154,11 @@ function gh {
       })
   }
 }
+
+# git merge
+function gmd { git merge develop @args }
+function gmm { git merge "$(Get-GitMainGranch)" @args }
+
 function gr { git recent @args }
 function gra { git rebase --abort @args }
 function grc { git rebase --continue @args }
