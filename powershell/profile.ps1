@@ -205,6 +205,7 @@ function .. { Set-Location '..' }
 
 # Miscellaneous
 function archive {
+  # TODO: delete node_modules, bin, obj recursively
   $date = Get-Date -Format 'yyyy-MM-dd'
   $path = Join-Path '~/!Archive' $date
   New-Item -Path $path -ItemType Directory -Force | Out-Null
