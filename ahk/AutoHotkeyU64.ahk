@@ -56,7 +56,7 @@ SetTitleMatchMode, RegEx
 ; Ctrl+Shift+V paste without formatting on any app
 ; How to Paste Text Without the Extra Formatting
 ; https://www.howtogeek.com/186723/ask-htg-how-can-i-paste-text-without-the-formatting/
-#IfWinNotActive, ahk_exe CiscoCollabHost\.exe
+#IfWinNotActive, ahk_exe (CiscoCollabHost|Hyper)\.exe
     $^+v::
         ClipSaved := ClipboardAll ; save original clipboard contents
         Clipboard = %Clipboard% ; remove formatting
