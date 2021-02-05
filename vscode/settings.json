@@ -58,7 +58,6 @@
         // "terminal.background": "#0f1610",
     },
     "workbench.colorTheme": "SynthWave '84",
-    "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
 }
