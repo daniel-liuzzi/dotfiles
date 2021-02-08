@@ -43,6 +43,7 @@ SetTitleMatchMode, RegEx
 #IfWinActive, ahk_exe sqldeveloper64W\.exe
     +!f::       SendInput ^{F7}         ; Format document
     !LButton::  SendInput ^+{LButton}   ; Insert cursor
+    ^n::        SendInput !{F10}        ; New connection
 #If
 
 ; macOS-style shortcuts
