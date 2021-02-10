@@ -29,6 +29,8 @@
         {
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "Daniel",
+            "useAcrylic": true, 
+            "acrylicOpacity": 0.75,
             "fontFace": "Cascadia Code PL"
         },
         "list":
