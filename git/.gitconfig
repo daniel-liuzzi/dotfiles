@@ -74,6 +74,9 @@
 [init]
 	defaultBranch = main
 
+[interactive]
+	diffFilter = delta --color-only
+
 [log]
 	date = format:%a, %d %b %Y, %H:%M %z
 	follow = true
