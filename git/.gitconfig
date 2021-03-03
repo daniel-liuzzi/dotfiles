@@ -44,10 +44,10 @@
 	line-numbers-plus-style = "#336633"
 	line-numbers-left-style = "#333333"
 	line-numbers-right-style = "#333333"
-	minus-style = "#999999" "#330000"
-	plus-style = "#999999" "#003300"
-	minus-emph-style = "#cccccc" "#660000"
-	plus-emph-style = "#cccccc" "#006600"
+	minus-style = syntax "#220000"
+	plus-style = syntax "#002200"
+	minus-emph-style = syntax "#550000"
+	plus-emph-style = syntax "#005500"
 	syntax-theme = Dracula
 
 [diff]
