@@ -44,6 +44,7 @@
 	line-numbers-plus-style = "#336633"
 	line-numbers-left-style = "#333333"
 	line-numbers-right-style = "#333333"
+	max-line-length = 0
 	minus-style = syntax "#220000"
 	plus-style = syntax "#002200"
 	minus-emph-style = syntax "#550000"
