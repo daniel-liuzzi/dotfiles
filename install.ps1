@@ -31,6 +31,7 @@ Install-Module -Name oh-my-posh -RequiredVersion 2.0.496 -Force
 Install-Module -Name posh-git -RequiredVersion 0.7.3 -Force
 Install-Module -Name PSColor -RequiredVersion 1.0.0.0 -Force
 Install-Module -Name Recycle -RequiredVersion 1.1.1 -Force
+Install-Module -Name z -RequiredVersion 1.1.9 -Force
 
 Write-Output '- Creating symlinks...'
 New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
