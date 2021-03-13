@@ -59,5 +59,6 @@
     },
     "workbench.colorTheme": "SynthWave '84",
     "workbench.iconTheme": "vscode-icons",
+    "workbench.productIconTheme": "fluent-icons",
     "workbench.startupEditor": "none",
 }
