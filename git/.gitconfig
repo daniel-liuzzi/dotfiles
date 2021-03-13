@@ -52,6 +52,7 @@
 	syntax-theme = Dracula
 
 [diff]
+	algorithm = histogram
 	colorMoved = blocks
 	colorMovedWS = allow-indentation-change
 	renameLimit = 9999
