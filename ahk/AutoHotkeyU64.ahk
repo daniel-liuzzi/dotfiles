@@ -1,4 +1,6 @@
 ﻿#SingleInstance, Ignore
+#InstallKeybdHook
+#InstallMouseHook
 #UseHook
 SetTitleMatchMode, RegEx
 
@@ -65,6 +67,11 @@ SetTitleMatchMode, RegEx
         Clipboard := ClipSaved ; restore the original clipboard contents
         ClipSaved = ; clear the variable
         return
+#If
+
+; Webex
+#IfWinExist, ahk_exe atmgr\.exe
+    ^l::       SendInput ^+l   ; Clear screen
 #If
 
 ; ================================================================================
