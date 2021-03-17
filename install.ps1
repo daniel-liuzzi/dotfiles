@@ -27,7 +27,7 @@ function New-Link ($target, $source) {
 
 Write-Output '- Installing Powershell modules...'
 Install-Module -Name cd-extras -RequiredVersion 2.9.0 -Force
-Install-Module -Name oh-my-posh -RequiredVersion 2.0.496 -Force
+Install-Module -Name oh-my-posh -RequiredVersion 3.111.2 -Force
 Install-Module -Name posh-git -RequiredVersion 0.7.3 -Force
 Install-Module -Name PSColor -RequiredVersion 1.0.0.0 -Force
 Install-Module -Name Recycle -RequiredVersion 1.1.1 -Force
@@ -41,7 +41,6 @@ New-Link ".\git\.gitconfig" "~\.gitconfig"
 New-Link ".\git\.gitconfig.custom" "~\.gitconfig.custom"
 New-Link ".\hyper\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
 New-Link ".\powershell\profile.ps1" $PROFILE.CurrentUserCurrentHost
-New-Link ".\powershell\profile.custom.ps1" ($PROFILE.CurrentUserCurrentHost -replace '.ps1', '.custom.ps1')
 New-Link ".\terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 New-Link ".\terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"
 New-Link ".\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
