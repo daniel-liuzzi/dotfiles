@@ -69,9 +69,9 @@ SetTitleMatchMode, RegEx
         return
 #If
 
-; Webex
-#IfWinExist, ahk_exe atmgr\.exe
-    ^l::       SendInput ^+l   ; Clear screen
+; https://www.autohotkey.com/boards/viewtopic.php?t=59028
+#IfWinExist, ahk_class MagUIClass
+    ^!m::       SendInput ^l            ; Clear screen
 #If
 
 ; ================================================================================
