@@ -2,4 +2,4 @@
 
 Terminal settings, Git configs, AutoHotkey macros & more CLI love ❤️
 
-![Screenshot](https://user-images.githubusercontent.com/143884/108417376-2df59d00-7230-11eb-926d-d707a8fb21ac.png)
+![Screenshot](https://user-images.githubusercontent.com/143884/111545905-21089280-8777-11eb-86e6-a3944a077e12.png)
