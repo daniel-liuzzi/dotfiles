@@ -37,7 +37,6 @@ Install-Module -Name z -RequiredVersion 1.1.9 -Force
 Write-Output '- Creating symlinks...'
 New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\ahk\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
-New-Link ".\bin" "~\bin"
 New-Link ".\git\.gitconfig" "~\.gitconfig"
 New-Link ".\git\.gitconfig.custom" "~\.gitconfig.custom"
 New-Link ".\powershell\profile.ps1" $PROFILE.CurrentUserCurrentHost

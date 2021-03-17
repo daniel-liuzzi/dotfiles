@@ -214,9 +214,16 @@ function archive {
   Write-Output "Desktop archived successfully."
   Start-Process -FilePath (Resolve-Path $path)
 }
+function hosts { sudo code-insiders $env:SystemRoot\System32\drivers\etc\hosts }
 function la { Get-ChildItem -Force @args }
 function mcd { Set-Location (mkdir @args) }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
+function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
+
+# SQL Server
+function Stop-SqlServer { sudo pwsh -Command 'net stop SQLSERVERAGENT; net stop MSSQLSERVER' }
+function Start-SqlServer { sudo pwsh -Command 'net start MSSQLSERVER; net start SQLSERVERAGENT' }
+function Restart-SqlServer { sudo pwsh -Command 'Stop-SqlServer; Start-SqlServer' }
 
 # Enable 24-bit color support - https://unix.stackexchange.com/a/450366
 $env:COLORTERM = 'truecolor'
