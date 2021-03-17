@@ -35,7 +35,6 @@
     "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
     "terminal.integrated.shellArgs.windows": ["-NoLogo"],
-    "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
     "typescript.suggest.completeFunctionCalls": true,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
