@@ -14,13 +14,6 @@ $root = $ProfileDir.Parent
 $env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
 Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
 
-# PSReadLine
-Set-PSReadLineKeyHandler -Chord Ctrl+L -Function ClearScreen
-Set-PSReadLineKeyHandler -Key 'Tab', 'Shift+Tab' -Function 'MenuComplete'
-Set-PSReadlineOption -ExtraPromptLineCount 1
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -WordDelimiters ' '
-
 # Aliases (autocomplete-friendly)
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'dn' -Value 'dotnet'
@@ -245,4 +238,5 @@ if (!$env:Path.Contains("$env:USERPROFILE\bin\")) {
   $env:Path = "$env:USERPROFILE\bin\;$env:Path"
 }
 
-. "$ProfileDir/profile.custom.ps1"
+. "$ProfileDir/PSReadLine"
+. "$ProfileDir/profile.custom"
