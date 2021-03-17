@@ -5,11 +5,14 @@ Import-Module posh-git
 Import-Module PSColor # http://stackoverflow.com/a/30788506
 Import-Module Recycle
 
-$DefaultUser = $env:USERNAME # Hide username@domain when not in a VM
-Set-Theme Paradox
-$ThemeSettings.Colors.GitForegroundColor = [ConsoleColor]::White
-$ThemeSettings.Colors.PromptBackgroundColor = [ConsoleColor]::DarkGray
-$ThemeSettings.Colors.PromptForegroundColor = [ConsoleColor]::White
+# Real paths (i.e., non-symlinked)
+$ProfilePath = Get-Item (Get-Item $PSCommandPath).Target
+$ProfileDir = $ProfilePath.Directory
+$root = $ProfileDir.Parent
+
+# Oh my Posh
+$env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
+Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
 
 # PSReadLine
 Set-PSReadLineKeyHandler -Chord Ctrl+L -Function ClearScreen
@@ -242,4 +245,4 @@ if (!$env:Path.Contains("$env:USERPROFILE\bin\")) {
   $env:Path = "$env:USERPROFILE\bin\;$env:Path"
 }
 
-. "$PSScriptRoot\Microsoft.PowerShell_profile.custom.ps1"
+. "$ProfileDir/profile.custom.ps1"

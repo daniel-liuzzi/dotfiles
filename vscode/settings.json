@@ -32,6 +32,7 @@
     "remote.SSH.remotePlatform": {
         "web7.lan.mlginc.com": "windows",
     },
+    "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
     "terminal.integrated.shellArgs.windows": ["-NoLogo"],
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",

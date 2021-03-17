@@ -29,7 +29,8 @@
         {
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "Daniel",
-            "fontFace": "Cascadia Code PL"
+            "fontFace": "MesloLGM NF",
+            "fontSize": 11
         },
         "list":
         [

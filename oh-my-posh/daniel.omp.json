@@ -1,0 +1,105 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "time",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#cccccc",
+          "background": "#333333",
+          "properties": {
+            "time_format": "<#666666>\uF017</> 15:04"
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#cccccc",
+          "background": "#cc0000",
+          "properties": {
+            "threshold": 9999,
+            "prefix": " <#fefefe>\uFBAB</> "
+          }
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#ffffff",
+          "properties": {
+            "display_default": false
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#8800dd",
+          "properties": {
+            "home_icon": "\uF7DB",
+            "folder_icon": "\uF115",
+            "folder_separator_icon": " <#000000>\uE0B1</> ",
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#193549",
+          "background": "#95f8ff",
+          "properties": {
+            "status_colors_enabled": true,
+            "ahead_color": "#99ff99",
+            "behind_color": "#ff9999",
+            "ahead_and_behind_color": "#ffff99"
+          }
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#ff8080",
+          "properties": {
+            "prefix": " \uE20F"
+          }
+        }
+      ]
+    },
+    {
+      "type": "newline"
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#ffc83d",
+          "properties": {
+            "root_icon": "\u26A1"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#007acc",
+          "properties": {
+            "prefix": "",
+            "text": "\u25B6"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": false
+}
