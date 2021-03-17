@@ -40,7 +40,6 @@ New-Link ".\ahk\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\bin" "~\bin"
 New-Link ".\git\.gitconfig" "~\.gitconfig"
 New-Link ".\git\.gitconfig.custom" "~\.gitconfig.custom"
-New-Link ".\hyper\.hyper.js" "$env:APPDATA\Hyper\.hyper.js"
 New-Link ".\powershell\profile.ps1" $PROFILE.CurrentUserCurrentHost
 New-Link ".\terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 New-Link ".\terminal\settings.json" "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"
