@@ -2,5 +2,6 @@
   "recommendations": [
     "editorconfig.editorconfig",
     "ms-vscode.powershell-preview",
+    "slevesque.vscode-autohotkey",
   ]
 }
