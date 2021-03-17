@@ -37,6 +37,7 @@
     "terminal.integrated.shellArgs.windows": ["-NoLogo"],
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|')\\s*($TAGS)|^\\s*- \\[ \\])",
     "typescript.suggest.completeFunctionCalls": true,
+    "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorCustomizations": {
         "terminal.ansiBlack": "#0f1610",
