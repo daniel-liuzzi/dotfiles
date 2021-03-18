@@ -113,6 +113,10 @@
 	# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
 	autostash = true
 
+[status]
+	short = true
+	showUntrackedFiles = all
+
 # Keep this section last so it can override settings above
 [include]
 	path = .gitconfig.custom
