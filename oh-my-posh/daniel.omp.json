@@ -56,6 +56,7 @@
           "foreground": "#193549",
           "background": "#95f8ff",
           "properties": {
+            "branch_icon": "\uE0A0 ",
             "status_colors_enabled": true,
             "ahead_color": "#99ff99",
             "behind_color": "#ff9999",
