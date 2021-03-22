@@ -225,7 +225,18 @@ SetTitleMatchMode, RegEx
 ; Hotstrings below don't trigger when inside another word
 #Hotstring ?0
 
-; Development
+; SQL
+
+:R0:select::
+(
++{Home}SELECT *
++{Home}FROM
++{Home}ORDER BY 1 DESC
++{Home}OFFSET 0 ROWS
++{Home}FETCH NEXT 100 ROWS ONLY;
++{Home}{Up 4}{End}{Space}^{Space}
+)
+
 :R0:merge::
 (
 +{Home}MERGE INTO target t
@@ -239,15 +250,47 @@ SetTitleMatchMode, RegEx
 +{Home}    VALUES (s.col1, s.col2);
 +{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
 )
-:R0:select::
+
+:R0:tbls::
 (
-SELECT *
-FROM
-ORDER BY 1 DESC
-OFFSET 0 ROWS
-FETCH NEXT 100 ROWS ONLY;
-{Up 4}{End}{Space}^{Space}
++{Home}SELECT *
++{Home}FROM INFORMATION_SCHEMA.TABLES
++{Home}WHERE
++{Home}    TABLE_CATALOG LIKE '%%' AND
++{Home}    TABLE_SCHEMA LIKE '%%' AND
++{Home}    TABLE_NAME LIKE '%%' AND
++{Home}    TABLE_TYPE = 'BASE TABLE'
++{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
++{Home}{Up 3}{End}{Left 6}
 )
+
+:R0:views::
+(
++{Home}SELECT *
++{Home}FROM INFORMATION_SCHEMA.TABLES
++{Home}WHERE
++{Home}    TABLE_CATALOG LIKE '%%' AND
++{Home}    TABLE_SCHEMA LIKE '%%' AND
++{Home}    TABLE_NAME LIKE '%%' AND
++{Home}    TABLE_TYPE = 'VIEW'
++{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
++{Home}{Up 3}{End}{Left 6}
+)
+
+:R0:cols::
+(
++{Home}SELECT *
++{Home}FROM INFORMATION_SCHEMA.COLUMNS
++{Home}WHERE
++{Home}    TABLE_CATALOG LIKE '%%' AND
++{Home}    TABLE_SCHEMA LIKE '%%' AND
++{Home}    TABLE_NAME LIKE '%%' AND
++{Home}    COLUMN_NAME LIKE '%%'
++{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME, ORDINAL_POSITION;
++{Home}{Up 2}{End}{Left 2}
+)
+
+; Misc
 ::constr::trusted_connection=true;
 ::lorem::Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ::cl::console.log();{Left 2}
