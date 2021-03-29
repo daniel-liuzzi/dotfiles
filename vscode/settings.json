@@ -34,7 +34,9 @@
     },
     "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
-    "terminal.integrated.shellArgs.windows": ["-NoLogo"],
+    "terminal.integrated.shellArgs.windows": [
+        "-NoLogo"
+    ],
     "typescript.suggest.completeFunctionCalls": true,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -59,6 +61,12 @@
         // "terminal.background": "#0f1610",
     },
     "workbench.colorTheme": "SynthWave '84",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "default",
+            "filenamePattern": "git-rebase-todo"
+        }
+    ],
     "workbench.iconTheme": "vscode-icons",
     "workbench.productIconTheme": "fluent-icons",
     "workbench.startupEditor": "none",
