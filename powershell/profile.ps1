@@ -92,6 +92,14 @@ function dnr { dotnet run @args }
 function dnw { dotnet watch @args }
 function dnwr { dotnet watch run @args }
 
+# PowerShell parameter completion shim for the dotnet CLI
+Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+  param($commandName, $wordToComplete, $cursorPosition)
+  dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+  }
+}
+
 # Git
 function Get-GitMainBranch {
   foreach ($branch in @('main', 'prod')) {
