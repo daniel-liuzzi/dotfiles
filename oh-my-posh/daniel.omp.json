@@ -12,6 +12,8 @@
           "foreground": "#cccccc",
           "background": "#333333",
           "properties": {
+            "prefix": " ",
+            "postfix": " ",
             "time_format": "<#666666>\uF017</> 15:04"
           }
         },
@@ -22,8 +24,9 @@
           "foreground": "#cccccc",
           "background": "#cc0000",
           "properties": {
-            "threshold": 9999,
-            "prefix": " <#fefefe>\uFBAB</> "
+            "prefix": " <#fefefe>\uFBAB</> ",
+            "postfix": " ",
+            "threshold": 9999
           }
         },
         {
@@ -33,6 +36,8 @@
           "foreground": "#100e23",
           "background": "#ffffff",
           "properties": {
+            "prefix": " ",
+            "postfix": " ",
             "display_default": false
           }
         },
@@ -43,6 +48,8 @@
           "foreground": "#ffffff",
           "background": "#8800dd",
           "properties": {
+            "prefix": " ",
+            "postfix": " ",
             "home_icon": "\uF7DB",
             "folder_icon": "\uF115",
             "folder_separator_icon": " <#000000>\uE0B1</> ",
@@ -56,6 +63,8 @@
           "foreground": "#193549",
           "background": "#95f8ff",
           "properties": {
+            "prefix": " ",
+            "postfix": " ",
             "branch_icon": "\uE0A0 ",
             "status_colors_enabled": true,
             "ahead_color": "#99ff99",
@@ -70,7 +79,8 @@
           "foreground": "#ffffff",
           "background": "#ff8080",
           "properties": {
-            "prefix": " \uE20F"
+            "prefix": " \uE20F",
+            "postfix": " "
           }
         }
       ]
