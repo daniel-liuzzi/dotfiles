@@ -219,12 +219,12 @@ function archive {
   $path = Join-Path '~/!Archive' $date
   New-Item -Path $path -ItemType Directory -Force | Out-Null
   Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $path | Out-Null
-  Write-Output "Desktop archived successfully."
+  Write-Output 'Desktop archived successfully.'
   Start-Process -FilePath (Resolve-Path $path)
 }
 function hosts { sudo code-insiders $env:SystemRoot\System32\drivers\etc\hosts }
 function la { Get-ChildItem -Force @args }
-function mcd { Set-Location (mkdir @args) }
+function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
 
