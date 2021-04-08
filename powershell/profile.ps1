@@ -89,6 +89,7 @@ function dnar { dotnet add reference @args }
 function dnb { dotnet build @args }
 function dnn { dotnet new @args }
 function dnr { dotnet run @args }
+function dns { dotnet search @args }
 function dnw { dotnet watch @args }
 function dnwr { dotnet watch run @args }
 
