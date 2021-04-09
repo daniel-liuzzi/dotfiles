@@ -27,6 +27,7 @@ function New-Link ($target, $source) {
 
 Write-Output '- Installing Powershell modules...'
 Install-Module -Name cd-extras -RequiredVersion 2.9.0 -Force
+Install-Module -Name DockerCompletion -RequiredVersion 1.2010.0.201211 -Force
 Install-Module -Name oh-my-posh -RequiredVersion 3.130.0 -Force
 Install-Module -Name posh-git -RequiredVersion 1.0.0 -Force
 Install-Module -Name PSColor -RequiredVersion 1.0.0.0 -Force
