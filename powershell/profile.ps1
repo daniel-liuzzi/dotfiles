@@ -25,6 +25,7 @@ Set-Alias -Name 'l' -Value 'ls'
 Set-Alias -Name 'e' -Value 'edit'
 Set-Alias -Name 'edit' -Value 'code-insiders'
 Set-Alias -Name 'o' -Value 'open'
+Set-Alias -Name 'theme' -Value 'Set-Theme'
 Set-Alias -Name 'wm' -Value 'winmergeu'
 
 # Move to Recycle Bin instead of deleting
@@ -229,6 +230,37 @@ function la { Get-ChildItem -Force @args }
 function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
+
+<#
+  .SYNOPSIS
+  Switch apps and system color themes.
+
+  .DESCRIPTION
+  Omitting both parameters will toggle between dark and light themes.
+#>
+function Set-Theme {
+  [CmdletBinding(DefaultParameterSetName = 'toggle')]
+  param (
+    # Switch to dark color scheme.
+    [parameter(ParameterSetName = 'dark')]
+    [switch]
+    $Dark,
+
+    # Switch to light color scheme.
+    [parameter(ParameterSetName = 'light')]
+    [switch]
+    $Light
+  )
+
+  $Key = 'HKCU:/SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize'
+
+  $OldIsLight = [bool](Get-ItemPropertyValue -Path $Key -Name 'SystemUsesLightTheme')
+  $NewIsLight = if ($Dark -or $Light) { !$Dark } else { !$OldIsLight }
+  if ($NewIsLight -eq $OldIsLight) { return }
+
+  Set-ItemProperty -Path $Key -Name 'AppsUseLightTheme' -Value $NewIsLight
+  Set-ItemProperty -Path $Key -Name 'SystemUsesLightTheme' -Value $NewIsLight
+}
 
 # SQL Server
 function Stop-SqlServer { sudo pwsh -Command 'net stop SQLSERVERAGENT; net stop MSSQLSERVER' }
