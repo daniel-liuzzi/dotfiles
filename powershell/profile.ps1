@@ -90,6 +90,7 @@ function dna { dotnet add @args }
 function dnap { dotnet add package @args }
 function dnar { dotnet add reference @args }
 function dnb { dotnet build @args }
+function dnc { dotnet clean @args }
 function dnn { dotnet new @args }
 function dnr { dotnet run @args }
 function dns { dotnet search @args }
