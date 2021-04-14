@@ -2,7 +2,6 @@
     "[html]": {
         "editor.renameOnType": true,
     },
-    "angular.experimental-ivy": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Cascadia Code PL",
     "editor.fontSize": 16,
