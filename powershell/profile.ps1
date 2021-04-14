@@ -256,7 +256,7 @@ function Set-Theme {
 
   $Key = 'HKCU:/SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize'
 
-  $OldIsLight = [bool](Get-ItemPropertyValue -Path $Key -Name 'SystemUsesLightTheme')
+  $OldIsLight = [bool](Get-ItemProperty -Path $Key).SystemUsesLightTheme
   $NewIsLight = if ($Dark -or $Light) { !$Dark } else { !$OldIsLight }
   if ($NewIsLight -eq $OldIsLight) { return }
 
