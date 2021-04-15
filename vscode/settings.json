@@ -60,7 +60,7 @@
         "terminal.ansiForeground": "#eff0eb",
         // "terminal.background": "#0f1610",
     },
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "GitHub Dark",
     "workbench.editorAssociations": [
         {
             "viewType": "default",
