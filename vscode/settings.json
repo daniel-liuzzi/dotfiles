@@ -19,19 +19,7 @@
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
-    "mssql.connections": [
-        {
-            "server": ".\\SQLEXPRESS",
-            "database": "Crs",
-            "authenticationType": "Integrated",
-            "profileName": ".\\SQLEXPRESS - Crs",
-            "password": "",
-        },
-    ],
     "powershell.notebooks.showToggleButton": true,
-    "remote.SSH.remotePlatform": {
-        "web7.lan.mlginc.com": "windows",
-    },
     "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
     "terminal.integrated.shellArgs.windows": [
