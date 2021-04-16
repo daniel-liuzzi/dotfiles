@@ -1,6 +1,8 @@
 [alias]
 	# http://stackoverflow.com/a/7149602
 	addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+	# squashed = !sh -c 'git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && echo "$branch is merged into develop and can be deleted"; done'
+	squashed = !sh -c 'git checkout -q develop && git for-each-ref refs/heads/ \"--format=%(refname:short)\"'
 
 	# git branch archive/unarchive
 	branch-archive = !git tag archive/$1 $1 && git branch -D $1 && :
@@ -9,6 +11,8 @@
 	# https://github.com/so-fancy/diff-so-fancy#raw-patches
 	patch = !git --no-pager diff --no-color
 	sh = !sh
+	unstage = reset HEAD -- && status
+	test = !sh -c 'git status'
 
 	# Git prev & next (Example) - https://coderwall.com/p/ok-iyg/git-prev-next
 	prev = checkout HEAD^1
