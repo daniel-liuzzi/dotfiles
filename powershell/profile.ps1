@@ -281,10 +281,5 @@ $env:DELTA_PAGER = 'less -rFX'
 # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
 $env:EDITOR = 'code-insiders --wait'
 
-# Add bin/ to the system path (if not already present)
-if (!$env:Path.Contains("$env:USERPROFILE\bin\")) {
-  $env:Path = "$env:USERPROFILE\bin\;$env:Path"
-}
-
 . "$ProfileDir/PSReadLine"
 . "$ProfileDir/profile.custom"
