@@ -6,6 +6,16 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#666666",
+          "properties": {
+            "prefix": "<#333333>\uFBAB</> ",
+            "postfix": "\n",
+            "threshold": 9999
+          }
+        },
+        {
           "type": "time",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",
@@ -15,21 +25,6 @@
             "prefix": " ",
             "postfix": " ",
             "time_format": "<#666666>\uF017</> 15:04"
-          }
-        },
-        {
-          "type": "text"
-        },
-        {
-          "type": "executiontime",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#cccccc",
-          "background": "#cc0000",
-          "properties": {
-            "prefix": " <#fefefe>\uFBAB</> ",
-            "postfix": " ",
-            "threshold": 9999
           }
         },
         {
@@ -91,20 +86,6 @@
             "behind_color": "#ff9999",
             "ahead_and_behind_color": "#ffff99"
           }
-        },
-        {
-          "type": "text"
-        },
-        {
-          "type": "exit",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#ffffff",
-          "background": "#ff8080",
-          "properties": {
-            "prefix": " \uE20F",
-            "postfix": " "
-          }
         }
       ]
     },
@@ -120,11 +101,10 @@
           "style": "plain",
           "foreground": "#ffc83d",
           "properties": {
+            "prefix": "",
+            "postfix": "",
             "root_icon": "\u26A1"
           }
-        },
-        {
-          "type": "text"
         },
         {
           "type": "text",
@@ -132,11 +112,12 @@
           "foreground": "#007acc",
           "properties": {
             "prefix": "",
+            "postfix": "",
             "text": "\u25B6"
           }
         }
       ]
     }
   ],
-  "final_space": false
+  "final_space": true
 }
