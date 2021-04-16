@@ -12,7 +12,7 @@
           "properties": {
             "prefix": "<#333333>\uFBAB</> ",
             "postfix": "\n",
-            "threshold": 9999
+            "threshold": 999
           }
         },
         {
