@@ -184,14 +184,14 @@ function grm { git rebase (Get-GitMainBranch) @args }
 function mt { git mergetool @args }
 function sw { git show @args }
 
-function lg { git log --pretty=small --max-count=$($DotfilesOptions.Git.LogMaxCount) @args }
+function lg { lga --max-count=$($DotfilesOptions.Git.LogMaxCount) @args }
 function lga { git log --pretty=small @args }
-function lgd { git log --pretty=small --reverse 'develop..HEAD' @args }
-function lgdx { git log --pretty=small --reverse 'develop...HEAD' @args }
-function lgm { git log --pretty=small --reverse "$(Get-GitMainBranch)..HEAD" @args }
-function lgmx { git log --pretty=small --reverse "$(Get-GitMainBranch)...HEAD" @args }
-function lgr { git log --pretty=small --reverse '@{push}..HEAD' @args }
-function lgrx { git log --pretty=small --reverse '@{push}...HEAD' @args }
+function lgd { lga --reverse 'develop..HEAD' @args }
+function lgdx { lga --reverse 'develop...HEAD' @args }
+function lgm { lga --reverse "$(Get-GitMainBranch)..HEAD" @args }
+function lgmx { lga --reverse "$(Get-GitMainBranch)...HEAD" @args }
+function lgr { lga --reverse '@{push}..HEAD' @args }
+function lgrx { lga --reverse '@{push}...HEAD' @args }
 
 function pull { git pull @args }
 function push { git push @args }
