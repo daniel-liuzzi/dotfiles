@@ -55,6 +55,7 @@
             "filenamePattern": "git-rebase-todo"
         }
     ],
+    "workbench.editor.restoreViewState": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.productIconTheme": "fluent-icons",
     "workbench.startupEditor": "none",
