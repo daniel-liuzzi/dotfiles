@@ -184,7 +184,8 @@ function grm { git rebase (Get-GitMainBranch) @args }
 function mt { git mergetool @args }
 function sw { git show @args }
 
-function lg { git log --pretty=small @args }
+function lg { git log --pretty=small --max-count=$($DotfilesOptions.Git.LogMaxCount) @args }
+function lga { git log --pretty=small @args }
 function lgd { git log --pretty=small --reverse 'develop..HEAD' @args }
 function lgdx { git log --pretty=small --reverse 'develop...HEAD' @args }
 function lgm { git log --pretty=small --reverse "$(Get-GitMainBranch)..HEAD" @args }
@@ -280,6 +281,13 @@ $env:DELTA_PAGER = 'less -rFX'
 
 # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
 $env:EDITOR = 'code-insiders --wait'
+
+# Default settings
+$global:DotfilesOptions = @{
+  Git = @{
+    LogMaxCount = 10
+  }
+}
 
 . "$ProfileDir/PSReadLine"
 . "$ProfileDir/profile.custom"
