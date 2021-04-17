@@ -12,7 +12,7 @@
           "properties": {
             "prefix": "<#333333>\uFBAB</> ",
             "postfix": "\n",
-            "threshold": 9999
+            "threshold": 999
           }
         },
         {
@@ -119,5 +119,8 @@
       ]
     }
   ],
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{ .Env.TITLE }}",
   "final_space": true
 }

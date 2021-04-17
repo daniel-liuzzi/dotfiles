@@ -12,9 +12,14 @@ $ProfilePath = Get-Item (Get-Item $PSCommandPath).Target
 $ProfileDir = $ProfilePath.Directory
 $root = $ProfileDir.Parent
 
+# posh-git
+$GitPromptSettings.DefaultPromptAbbreviateGitDirectory = $true
+$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+
 # Oh my Posh
 $env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
 Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
+function Set-PoshContext { $env:TITLE = Get-PromptPath }
 
 # Aliases (autocomplete-friendly)
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
@@ -184,13 +189,14 @@ function grm { git rebase (Get-GitMainBranch) @args }
 function mt { git mergetool @args }
 function sw { git show @args }
 
-function lg { git log --pretty=small @args }
-function lgd { git log --pretty=small --reverse 'develop..HEAD' @args }
-function lgdx { git log --pretty=small --reverse 'develop...HEAD' @args }
-function lgm { git log --pretty=small --reverse "$(Get-GitMainBranch)..HEAD" @args }
-function lgmx { git log --pretty=small --reverse "$(Get-GitMainBranch)...HEAD" @args }
-function lgr { git log --pretty=small --reverse '@{push}..HEAD' @args }
-function lgrx { git log --pretty=small --reverse '@{push}...HEAD' @args }
+function lg { lga --max-count=$($DotfilesOptions.Git.LogMaxCount) @args }
+function lga { git log --pretty=small @args }
+function lgd { lga --reverse 'develop..HEAD' @args }
+function lgdx { lga --reverse 'develop...HEAD' @args }
+function lgm { lga --reverse "$(Get-GitMainBranch)..HEAD" @args }
+function lgmx { lga --reverse "$(Get-GitMainBranch)...HEAD" @args }
+function lgr { lga --reverse '@{push}..HEAD' @args }
+function lgrx { lga --reverse '@{push}...HEAD' @args }
 
 function pull { git pull @args }
 function push { git push @args }
@@ -281,12 +287,11 @@ $env:DELTA_PAGER = 'less -rFX'
 # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
 $env:EDITOR = 'code-insiders --wait'
 
-# Enable Hyperlinks - https://github.com/microsoft/terminal/pull/7251#issuecomment-692953180
-$ESC = "`e"
-
-# Add bin/ to the system path (if not already present)
-if (!$env:Path.Contains("$env:USERPROFILE\bin\")) {
-  $env:Path = "$env:USERPROFILE\bin\;$env:Path"
+# Default settings
+$global:DotfilesOptions = @{
+  Git = @{
+    LogMaxCount = 10
+  }
 }
 
 . "$ProfileDir/PSReadLine"

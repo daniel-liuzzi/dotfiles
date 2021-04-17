@@ -1,0 +1,1 @@
+$global:DotfilesOptions.Git.LogMaxCount = 99
