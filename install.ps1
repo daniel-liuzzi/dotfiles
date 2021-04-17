@@ -29,7 +29,7 @@ Write-Output '- Installing Powershell modules...'
 Install-Module -Name cd-extras -RequiredVersion 2.9.0 -Force
 Install-Module -Name DockerCompletion -RequiredVersion 1.2010.0.201211 -Force
 Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
-Install-Module -Name oh-my-posh -RequiredVersion 3.130.0 -Force
+Install-Module -Name oh-my-posh -RequiredVersion 3.139.1 -Force
 Install-Module -Name posh-git -RequiredVersion 1.0.0 -Force
 Install-Module -Name PSColor -RequiredVersion 1.0.0.0 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.0-beta2 -AllowPrerelease -Force

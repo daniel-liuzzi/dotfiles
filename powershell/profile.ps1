@@ -12,9 +12,14 @@ $ProfilePath = Get-Item (Get-Item $PSCommandPath).Target
 $ProfileDir = $ProfilePath.Directory
 $root = $ProfileDir.Parent
 
+# posh-git
+$GitPromptSettings.DefaultPromptAbbreviateGitDirectory = $true
+$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+
 # Oh my Posh
 $env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
 Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
+function Set-PoshContext { $env:TITLE = Get-PromptPath }
 
 # Aliases (autocomplete-friendly)
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
