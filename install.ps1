@@ -37,6 +37,7 @@ Install-Module -Name Recycle -RequiredVersion 1.1.1 -Force
 Install-Module -Name z -RequiredVersion 1.1.9 -Force
 
 Write-Output '- Creating symlinks...'
+New-Link ".\.omnisharp\" "$env:USERPROFILE\.omnisharp\"
 New-Link ".\ahk\AutoHotkeyU64.ahk" "~\Documents\AutoHotkeyU64.ahk"
 New-Link ".\ahk\AutoHotkeyU64.custom.ahk" "~\Documents\AutoHotkeyU64.custom.ahk"
 New-Link ".\git\.gitconfig" "~\.gitconfig"
