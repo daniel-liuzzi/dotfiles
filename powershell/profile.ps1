@@ -25,6 +25,7 @@ function Set-PoshContext { $env:TITLE = Get-PromptPath }
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'dn' -Value 'dotnet'
 Set-Alias -Name 'g' -Value 'git'
+Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
 Set-Alias -Name 'l' -Value 'ls'
 
 # Utilities
@@ -157,20 +158,27 @@ function gffs { git flow feature start @args }
 function gfft { git flow feature track @args }
 function gfid { git flow init -d }
 
-function gh {
-  git ls-files | ForEach-Object {
-    New-Object psobject -Property ([ordered]@{
-        Path    = (Resolve-Path -Path $_ -Relative)
+function Get-GitChildItem {
+  $format = '{0,-25}    {1,10}    {2,10}    {3,-25}    {4,-25}'
+  $format -f 'Path', 'Size', 'Commits', 'Oldest', 'Newest'
+  git ls-tree -l --abbrev HEAD | ForEach-Object {
+    $line = $_ -split "`t"
+    $file = $line[1]
+    $data = $line[0] -split ' +'
+    $type = $data[1]
+    $size = $data[3]
 
-        # https://stackoverflow.com/a/11729072/88709
-        Commits = (git log --oneline -- $_ | Measure-Object).Count
+    # https://stackoverflow.com/a/11729072/88709
+    $commits = (git log --oneline -- $file | Measure-Object).Count
 
-        # https://stackoverflow.com/a/13598028/88709
-        Oldest  = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" --diff-filter=A -- $_))
+    # https://stackoverflow.com/a/13598028/88709
+    $oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $file
 
-        # https://stackoverflow.com/a/4784629/88709
-        Newest  = [System.DateTimeOffset]::Parse((git log --max-count=1 --format="%ai" -- $_))
-      })
+    # https://stackoverflow.com/a/4784629/88709
+    $newest = git log --max-count=1 --format="%ai" -- $file
+
+    if ($type -eq 'tree') { $file += '/' }
+    $format -f $file, $size, $commits, $oldest, $newest
   }
 }
 
