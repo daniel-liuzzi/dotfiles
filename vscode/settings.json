@@ -55,6 +55,7 @@
         }
     ],
     "workbench.editor.restoreViewState": false,
+    "workbench.editor.untitled.hint": "hidden",
     "workbench.iconTheme": "vscode-icons",
     "workbench.productIconTheme": "fluent-icons",
     "workbench.startupEditor": "none",
