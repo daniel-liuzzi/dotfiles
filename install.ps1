@@ -37,11 +37,12 @@ Install-Module -Name Recycle -RequiredVersion 1.1.1 -Force
 Install-Module -Name z -RequiredVersion 1.1.9 -Force
 
 Write-Output '- Creating symlinks...'
-New-Link "./.omnisharp" "$env:USERPROFILE/.omnisharp"
+New-Link "./.omnisharp" "~/.omnisharp"
 New-Link "./ahk/AutoHotkeyU64.ahk" "~/Documents/AutoHotkeyU64.ahk"
 New-Link "./ahk/AutoHotkeyU64.custom.ahk" "~/Documents/AutoHotkeyU64.custom.ahk"
 New-Link "./git/.gitconfig" "~/.gitconfig"
 New-Link "./git/.gitconfig.custom" "~/.gitconfig.custom"
+New-Link "./jrnl" "~/.config/jrnl"
 New-Link "./powershell/profile.ps1" $PROFILE.CurrentUserCurrentHost
 New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"

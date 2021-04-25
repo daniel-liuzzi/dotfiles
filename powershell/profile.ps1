@@ -26,7 +26,9 @@ Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'dn' -Value 'dotnet'
 Set-Alias -Name 'g' -Value 'git'
 Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
+Set-Alias -Name 'j' -Value 'jrnl'
 Set-Alias -Name 'l' -Value 'ls'
+Set-Alias -Name 'daily' -Value 'Get-Journal'
 
 # Utilities
 Set-Alias -Name 'e' -Value 'edit'
@@ -56,6 +58,35 @@ filter Search-String {
   }
 
   $_
+}
+
+<#
+  .SYNOPSIS
+  Get journal entries for the previuos, current, and next day
+#>
+function Get-Journal {
+  function Display ($jrnl) {
+    $entry = Invoke-Expression "jrnl $jrnl --format dates" | Select-Object -First 1
+    if ($entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
+    Write-Host "`n$(Format-RelativeDate $matches.0)`n" -ForegroundColor Blue
+    jrnl -on ('{0:yyyy-MM-dd}' -f $matches.0) $jrnl_args
+  }
+
+  $jrnl_args = $args
+  Display ('-to {0:yyyy-MM-dd} -n 1' -f [datetime]::Today.AddDays(-1))
+  Display ('-on {0:yyyy-MM-dd} -n 1' -f [datetime]::Today)
+  Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
+}
+
+function Format-RelativeDate ([datetime]$Value) {
+  switch (($Value.Date - [datetime]::Today).Days) {
+    { $_ -ge -7 -and $_ -le -2 } { 'Last {0:dddd}' -f $Value }
+    { $_ -eq -1 } { 'Yesterday' }
+    { $_ -eq 0 } { 'Today' }
+    { $_ -eq 1 } { 'Tomorrow' }
+    { $_ -ge 2 -and $_ -le 7 } { 'Next {0:dddd}' -f $Value }
+    Default { '{0:D}' -f $Value }
+  }
 }
 
 <#

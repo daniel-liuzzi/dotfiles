@@ -1,0 +1,18 @@
+colors:
+  body: YELLOW
+  date: GREEN
+  tags: CYAN
+  title: WHITE
+default_hour: 0
+default_minute: 0
+editor: code-insiders.cmd --wait
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  default: ~/Sync/journal/
+linewrap: 79
+tagsymbols: '@'
+template: false
+timeformat: '%Y-%m-%d %H:%M'
+version: v2.8.1
