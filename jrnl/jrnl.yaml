@@ -11,7 +11,7 @@ highlight: true
 indent_character: '|'
 journals:
   default: ~/Google Drive/Sync/journal/
-linewrap: 79
+linewrap: 119
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
