@@ -48,12 +48,9 @@
         // "terminal.background": "#0f1610",
     },
     "workbench.colorTheme": "GitHub Dark",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "default",
-            "filenamePattern": "git-rebase-todo"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "git-rebase-todo": "default",
+    },
     "workbench.editor.restoreViewState": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.iconTheme": "vscode-icons",
