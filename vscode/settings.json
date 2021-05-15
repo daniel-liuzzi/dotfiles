@@ -15,6 +15,7 @@
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "files.hotExit": "off",
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
@@ -27,6 +28,7 @@
     "typescript.suggest.completeFunctionCalls": true,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.restoreWindows": "none",
     "workbench.colorCustomizations": {
         "terminal.ansiBlack": "#0f1610",
         "terminal.ansiBrightBlack": "#666666",
