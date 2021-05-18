@@ -178,6 +178,10 @@ function drx { git diff '@{push}..HEAD' @args }
 function ds { git diff --staged @args }
 function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
+function gcp { git cherry-pick @args }
+function gcpa { git cherry-pick --abort @args }
+function gcpc { git cherry-pick --continue @args }
+function gcps { git cherry-pick --skip @args }
 
 # git-flow
 function gf { git flow @args }
