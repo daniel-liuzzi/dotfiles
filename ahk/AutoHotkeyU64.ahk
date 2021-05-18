@@ -86,6 +86,11 @@ SetTitleMatchMode, RegEx
     return
 
 ; ================================================================================
+; Inverted question / exclamation marks
+^!/::¿  ; Ctrl+Alt+/
+^!1::¡  ; Ctrl+Alt+1
+
+; ================================================================================
 ; Hotstrings, text expansions
 ; http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit
 ; http://plaintext-productivity.net/4-04-autocorrection-and-text-expansion-with-autohotkey.html
@@ -101,6 +106,8 @@ SetTitleMatchMode, RegEx
 #Hotstring ?
 
 ; Punctuation
+::?::¿    ; INVERTED QUESTION MARK
+::!::¡    ; INVERTED EXCLAMATION MARK
 ::...::…  ; HORIZONTAL ELLIPSIS
 ::----::― ; HORIZONTAL BAR
 ::---::—  ; EM DASH
