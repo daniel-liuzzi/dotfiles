@@ -194,14 +194,14 @@ function gfft { git flow feature track @args }
 function gfid { git flow init -d }
 
 function Get-GitChildItem {
-  $format = '{0,-25}    {1,10}    {2,10}    {3,-25}    {4,-25}'
-  $format -f 'Path', 'Size', 'Commits', 'Oldest', 'Newest'
+  $format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
+  $format -f 'Path', 'Commits', 'Oldest', 'Newest'
+  $format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
   git ls-tree -l --abbrev HEAD | ForEach-Object {
     $line = $_ -split "`t"
     $file = $line[1]
     $data = $line[0] -split ' +'
     $type = $data[1]
-    $size = $data[3]
 
     # https://stackoverflow.com/a/11729072/88709
     $commits = (git log --oneline -- $file | Measure-Object).Count
@@ -213,7 +213,7 @@ function Get-GitChildItem {
     $newest = git log --max-count=1 --format="%ai" -- $file
 
     if ($type -eq 'tree') { $file += '/' }
-    $format -f $file, $size, $commits, $oldest, $newest
+    $format -f $file, $commits, $oldest, $newest
   }
 }
 
