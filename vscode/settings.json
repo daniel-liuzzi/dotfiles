@@ -29,6 +29,8 @@
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.restoreWindows": "none",
+    "window.title": "${rootName}${separator}${dirty}${separator}${activeEditorMedium}",
+    "window.titleSeparator": " — ",
     "workbench.colorCustomizations": {
         "terminal.ansiBlack": "#0f1610",
         "terminal.ansiBrightBlack": "#666666",
