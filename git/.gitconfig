@@ -116,7 +116,6 @@
 
 [status]
 	short = true
-	showUntrackedFiles = all
 
 # Keep this section last so it can override settings above
 [include]
