@@ -45,10 +45,10 @@
 	line-numbers-left-style = "#333333"
 	line-numbers-right-style = "#333333"
 	max-line-length = 0
-	minus-style = syntax "#220000"
+	minus-style = syntax "#330000"
 	navigate = true
 	plus-style = syntax "#002200"
-	minus-emph-style = syntax "#550000"
+	minus-emph-style = syntax "#660000"
 	plus-emph-style = syntax "#005500"
 	syntax-theme = Dracula
 
