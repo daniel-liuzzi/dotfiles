@@ -151,10 +151,11 @@ SetTitleMatchMode, RegEx
 ::rub::₽    ; Russian ruble
 
 ; Legal / Other
-::(c)::©  ; COPYRIGHT SIGN
-::(r)::®  ; REGISTERED SIGN
-::tm::™   ; TRADE MARK SIGN
-::deg::°  ; DEGREE SIGN
+::(c)::©            ; COPYRIGHT SIGN
+::(r)::®            ; REGISTERED SIGN
+::tm::™             ; TRADE MARK SIGN
+::deg::°            ; DEGREE SIGN
+::nbsp::{U+00A0}    ; NO-BREAK SPACE
 
 ; International characters, based on Windows US International keyboard layout
 ; https://support.microsoft.com/en-us/help/306560/how-to-use-the-united-states-international-keyboard-layout-in-windows
@@ -482,7 +483,6 @@ SetTitleMatchMode, RegEx
 
 ; ================================================================================
 ; Misc.
-+^space::SendInput {U+00A0} ; Shift+Ctrl+Space -> Word-style nonbreaking space
 !=::SendInput ^{NumpadAdd}  ; Alt+= -> Size all columns to fit in listview controls
 
 #Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
