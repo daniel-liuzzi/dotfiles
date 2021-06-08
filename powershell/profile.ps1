@@ -33,6 +33,7 @@ Set-Alias -Name 'daily' -Value 'Get-Journal'
 # Utilities
 Set-Alias -Name 'e' -Value 'edit'
 Set-Alias -Name 'edit' -Value 'code-insiders'
+Set-Alias -Name 'ip' -Value 'Get-MyIp'
 Set-Alias -Name 'o' -Value 'open'
 Set-Alias -Name 'theme' -Value 'Set-Theme'
 Set-Alias -Name 'wm' -Value 'winmergeu'
@@ -77,6 +78,12 @@ function Get-Journal {
   Display ('-on {0:yyyy-MM-dd} -n 1' -f [datetime]::Today)
   Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
 }
+
+<#
+  .SYNOPSIS
+  Get public IP
+#>
+function Get-MyIp { Invoke-RestMethod 'https://ident.me/' }
 
 function Format-RelativeDate ([datetime]$Value) {
   switch (($Value.Date - [datetime]::Today).Days) {
