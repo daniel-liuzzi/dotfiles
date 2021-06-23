@@ -156,6 +156,9 @@ SetTitleMatchMode, RegEx
 ::tm::™             ; TRADE MARK SIGN
 ::deg::°            ; DEGREE SIGN
 ::nbsp::{U+00A0}    ; NO-BREAK SPACE
+::nro::№            ; NUMERO SIGN
+::ordf::ª           ; FEMININE ORDINAL INDICATOR
+::ordm::º           ; MASCULINE ORDINAL INDICATOR
 
 ; International characters, based on Windows US International keyboard layout
 ; https://support.microsoft.com/en-us/help/306560/how-to-use-the-united-states-international-keyboard-layout-in-windows
