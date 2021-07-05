@@ -24,8 +24,6 @@ function Set-PoshContext { $env:TITLE = Get-PromptPath }
 # Aliases (autocomplete-friendly)
 Set-Alias -Name 'ads' -Value 'azuredatastudio'
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
-Set-Alias -Name 'dn' -Value 'dotnet'
-Set-Alias -Name 'g' -Value 'git'
 Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
 Set-Alias -Name 'j' -Value 'jrnl'
 Set-Alias -Name 'l' -Value 'ls'
@@ -130,17 +128,18 @@ function New-ConsoleApp {
   edit . ./Program.cs
 }
 
-# .NET CLI
-function dna { dotnet add @args }
-function dnap { dotnet add package @args }
-function dnar { dotnet add reference @args }
-function dnb { dotnet build @args }
-function dnc { dotnet clean @args }
-function dnn { dotnet new @args }
-function dnr { dotnet run @args }
-function dns { dotnet search @args }
-function dnw { dotnet watch @args }
-function dnwr { dotnet watch run @args }
+# dotnet
+function dn { x dotnet @args }
+function dna { dn add @args }
+function dnap { dna package @args }
+function dnar { dna reference @args }
+function dnb { dn build @args }
+function dnc { dn clean @args }
+function dnn { dn new @args }
+function dnr { dn run @args }
+function dns { dn search @args }
+function dnw { dn watch @args }
+function dnwr { dnw run @args }
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
@@ -150,56 +149,132 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
-# Git
-function Get-GitMainBranch {
-  foreach ($branch in @('main', 'prod')) {
-    if (git branch --list $branch) {
-      return $branch
-    }
-  }
-  return 'master'
-}
+# git
+function g { x git @args }
+function a { g add @args }
+function aa { a --all @args }
+function b { g branch @args }
+function c { g commit @args }
+function ca { c --amend @args }
+function can { ca --no-edit @args }
+function co { g checkout @args }
+function cob { co (Get-GitBranchBase) @args }
+function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
+function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
+function mt { g mergetool @args }
+function pull { g pull @args }
+function push { g push @args }
+function re { g recent @args }
+function s { g status @args }
+function show { g show @args }
+function sw { g show @args }
 
-function a { git add @args }
-function aa { git add --all @args }
-function b { git branch @args }
-function c { git commit @args }
-function ca { git commit --amend @args }
-function can { git commit --amend --no-edit @args }
+# git flow
+function gf { g flow @args }
+function gfi { gf init @args }
+function gfid { gfi -d }
+function gff { gf feature @args }
+function gffd { gff delete @args }
+function gfff { gff finish @args }
+function gffp { gff publish @args }
+function gffs { gff start @args }
+function gfft { gff track @args }
+
+# git diff
+function d { g diff @args }
+function ds { d --staged @args }
+function db { d "$(Get-GitBranchBase)...HEAD" @args }
+function dba { d "$(Get-GitBranchBase)..HEAD" @args }
+function dd { d "$(Get-GitBranchDev)...HEAD" @args }
+function dda { d "$(Get-GitBranchDev)..HEAD" @args }
+function dm { d "$(Get-GitBranchMain)...HEAD" @args }
+function dma { d "$(Get-GitBranchMain)..HEAD" @args }
+function dp { d '"@{push}...HEAD"' @args }
+function dpa { d '"@{push}..HEAD"' @args }
+function du { d '"@{upstream}...HEAD"' @args }
+function dua { d '"@{upstream}..HEAD"' @args }
+
+# git log
+function lg { g log --pretty=small @args }
+function lgr { lg --reverse @args }
+function lgb { lgr "$(Get-GitBranchBase)..HEAD" @args }
+function lgba { lgr "$(Get-GitBranchBase)...HEAD" @args }
+function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
+function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
+function lgm { lgr "$(Get-GitBranchMain)..HEAD" @args }
+function lgma { lgr "$(Get-GitBranchMain)...HEAD" @args }
+function lgp { lgr '"@{push}..HEAD"' @args }
+function lgpa { lgr '"@{push}...HEAD"' @args }
+function lgu { lgr '"@{upstream}..HEAD"' @args }
+function lgua { lgr '"@{upstream}...HEAD"' @args }
+
+# git merge
+function gm_ { g merge @args }
+function gma { gm_ --abort @args }
+function gmc { gm_ --continue @args }
+function gmb { gm_ (Get-GitBranchBase) @args }
+function gmd { gm_ (Get-GitBranchDev) @args }
+function gmm { gm_ (Get-GitBranchMain) @args }
+
+# git rebase
+function gr { g rebase @args }
+function gra { gr --abort @args }
+function grc { gr --continue @args }
+function grb { gr (Get-GitBranchBase) @args }
+function grd { gr (Get-GitBranchDev) @args }
+function grm { gr (Get-GitBranchMain) @args }
+function gri { gr --interactive @args }
+function grib { gri (Get-GitBranchBase) @args }
+function grid { gri (Get-GitBranchDev) @args }
+function grim { gri (Get-GitBranchMain) @args }
+
+# git cherry-pick
+function gcp { g cherry-pick @args }
+function gcpa { gcp --abort @args }
+function gcpc { gcp --continue @args }
+function gcps { gcp --skip @args }
 
 function clone($repository) {
   # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
   if ($repository -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
   $directory = $Matches.path -replace '/', '_' # flatten path
-  git clone -- $repository $directory
+  g clone -- $repository $directory
   Set-Location $directory
 }
 
-function co { git checkout @args }
-function d { git diff @args }
-function dd { git diff 'develop...HEAD' @args }
-function ddx { git diff 'develop..HEAD' @args }
-function dm { git diff "$(Get-GitMainBranch)...HEAD" @args }
-function dmx { git diff "$(Get-GitMainBranch)..HEAD" @args }
-function dr { git diff '@{push}...HEAD' @args }
-function drx { git diff '@{push}..HEAD' @args }
-function ds { git diff --staged @args }
-function dt { git difftool @args } # allows "Alt+Right", but diff one file at a time
-function dtd { git difftool --dir-diff @args } # diffs all files, but no "Alt+Right"
-function gcp { git cherry-pick @args }
-function gcpa { git cherry-pick --abort @args }
-function gcpc { git cherry-pick --continue @args }
-function gcps { git cherry-pick --skip @args }
+function Get-GitBranchBase {
+  $current = Get-GitBranchCurrent
 
-# git-flow
-function gf { git flow @args }
-function gff { git flow feature @args }
-function gffd { git flow feature delete @args }
-function gfff { git flow feature finish @args }
-function gffp { git flow feature publish @args }
-function gffs { git flow feature start @args }
-function gfft { git flow feature track @args }
-function gfid { git flow init -d }
+  $base = git config gitflow.branch.$current.base
+  if ($base) { return $base }
+
+  $main = Get-GitBranchMain
+  if ($current -eq $main) { return $null }
+
+  $develop = Get-GitBranchDev
+  if (!$develop) { return $main }
+  if ($develop -eq $current) { return $main }
+
+  return $develop
+}
+
+function Get-GitBranchCurrent {
+  git branch --show-current
+}
+function Get-GitBranchDev {
+  Find-GitBranch (@(git config gitflow.branch.develop) + $DotfilesOptions.Git.Dev)
+}
+function Get-GitBranchMain {
+  Find-GitBranch (@(git config gitflow.branch.master) + $DotfilesOptions.Git.Main)
+}
+
+function Find-GitBranch($Names) {
+  foreach ($branch in $Names) {
+    if (git branch --list $branch) {
+      return $branch
+    }
+  }
+}
 
 function Get-GitChildItem {
   $format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
@@ -224,35 +299,6 @@ function Get-GitChildItem {
     $format -f $file, $commits, $oldest, $newest
   }
 }
-
-# git merge
-function gmd { git merge develop @args }
-function gmm { git merge "$(Get-GitMainBranch)" @args }
-
-function gr { git recent @args }
-function gra { git rebase --abort @args }
-function grc { git rebase --continue @args }
-function gri { git rebase --interactive @args }
-function grid { git rebase --interactive develop @args }
-function grim { git rebase --interactive (Get-GitMainBranch) @args }
-function grd { git rebase develop @args }
-function grm { git rebase (Get-GitMainBranch) @args }
-function mt { git mergetool @args }
-function sw { git show @args }
-
-function lg { lga --max-count=$($DotfilesOptions.Git.LogMaxCount) @args }
-function lga { git log --pretty=small @args }
-function lgd { lga --reverse 'develop..HEAD' @args }
-function lgdx { lga --reverse 'develop...HEAD' @args }
-function lgm { lga --reverse "$(Get-GitMainBranch)..HEAD" @args }
-function lgmx { lga --reverse "$(Get-GitMainBranch)...HEAD" @args }
-function lgr { lga --reverse '@{push}..HEAD' @args }
-function lgrx { lga --reverse '@{push}...HEAD' @args }
-
-function pull { git pull @args }
-function push { git push @args }
-function s { git status @args }
-function show { git show @args }
 
 # Visual Studio
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
@@ -289,6 +335,10 @@ function la { Get-ChildItem -Force @args }
 function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
+function x {
+  Write-Host "> $args" -ForegroundColor DarkGray
+  Invoke-Expression ($args -join ' ')
+}
 
 <#
   .SYNOPSIS
@@ -341,7 +391,8 @@ $env:EDITOR = 'code-insiders --wait'
 # Default settings
 $global:DotfilesOptions = @{
   Git = @{
-    LogMaxCount = 10
+    Dev  = @('develop')
+    Main = @('main', 'master')
   }
 }
 

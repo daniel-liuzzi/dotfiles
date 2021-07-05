@@ -1,1 +1,2 @@
-$global:DotfilesOptions.Git.LogMaxCount = 99
+$global:DotfilesOptions.Git.Dev = @('develop')
+$global:DotfilesOptions.Git.Main = @('main', 'master')
