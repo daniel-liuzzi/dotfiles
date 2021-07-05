@@ -102,18 +102,18 @@ function Format-RelativeDate ([datetime]$Value) {
 #>
 function New-ConsoleApp {
   param (
-    [Parameter(Mandatory = $true)]
     [string]
-    $Path
+    $Path = '.'
   )
 
-  if (Test-Path $Path) {
-    throw "Path '$Path' already exists. Choose a different one."
+  if (-not (Test-Path $Path)) {
+    mkdir $Path
+  }
+  elseif (Get-ChildItem $Path -Force) {
+    throw 'Error: Directory not empty'
   }
 
-  $DirectoryInfo = mkdir $Path
-  $OutputName = (Get-Culture).TextInfo.ToTitleCase($DirectoryInfo.Name)
-  Set-Location $DirectoryInfo
+  Set-Location $Path
 
   git init
   git commit --message="initial" --allow-empty
@@ -122,7 +122,7 @@ function New-ConsoleApp {
   git add --all
   git commit --message="dotnet new gitignore"
 
-  dotnet new console --name=$OutputName --output=.
+  dotnet new console
   git add --all
   git commit --message="dotnet new console"
 
