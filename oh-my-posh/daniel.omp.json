@@ -74,7 +74,7 @@
             "postfix": " ",
             "branch_icon": "\uE0A0 ",
             "branch_gone_icon": "\uD83D\uDC80",
-            "display_status_detail": false,
+            "display_status_detail": true,
             "display_stash_count": true,
             "status_separator_icon": "",
             "local_working_icon": " <#000000>\uE0B1</> \uF044 ",
