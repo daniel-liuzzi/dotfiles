@@ -22,6 +22,7 @@ Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
 function Set-PoshContext { $env:TITLE = Get-PromptPath }
 
 # Aliases (autocomplete-friendly)
+Set-Alias -Name 'ads' -Value 'azuredatastudio'
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'dn' -Value 'dotnet'
 Set-Alias -Name 'g' -Value 'git'

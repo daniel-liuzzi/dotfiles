@@ -40,6 +40,7 @@ Write-Output '- Creating symlinks...'
 New-Link "./.omnisharp" "~/.omnisharp"
 New-Link "./ahk/AutoHotkeyU64.ahk" "~/Documents/AutoHotkeyU64.ahk"
 New-Link "./ahk/AutoHotkeyU64.custom.ahk" "~/Documents/AutoHotkeyU64.custom.ahk"
+New-Link "./azuredatastudio/settings.json" "$env:APPDATA/azuredatastudio/User/settings.json"
 New-Link "./git/.gitconfig" "~/.gitconfig"
 New-Link "./git/.gitconfig.custom" "~/.gitconfig.custom"
 New-Link "./jrnl" "~/.config/jrnl"
