@@ -1,0 +1,13 @@
+{
+    "datasource.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "C777F06B-202E-4480-B475-FA416154D458"
+        }
+    ],
+    "datasource.connections": [],
+    "files.hotExit": "off",
+    "workbench.colorTheme": "Default Dark Azure Data Studio",
+    "workbench.enablePreviewFeatures": true,
+    "workbench.startupEditor": "welcomePage"
+}
