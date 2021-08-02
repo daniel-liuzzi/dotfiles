@@ -314,9 +314,9 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT table_name
 +{Home}FROM user_tables
-+{Home}WHERE table_name LIKE '%%'
++{Home}WHERE table_name LIKE UPPER('%%')
 +{Home}ORDER BY table_name;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query tables (all users)
@@ -324,9 +324,9 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT owner, table_name
 +{Home}FROM all_tables
-+{Home}WHERE owner LIKE '%%' AND table_name LIKE '%%'
++{Home}WHERE owner LIKE UPPER('%%') AND table_name LIKE UPPER('%%')
 +{Home}ORDER BY owner, table_name;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query views
@@ -334,9 +334,9 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT view_name
 +{Home}FROM user_views
-+{Home}WHERE view_name LIKE '%%'
++{Home}WHERE view_name LIKE UPPER('%%')
 +{Home}ORDER BY view_name;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query views (all users)
@@ -344,29 +344,36 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT owner, view_name
 +{Home}FROM all_views
-+{Home}WHERE owner LIKE '%%' AND view_name LIKE '%%'
++{Home}WHERE owner LIKE UPPER('%%') AND view_name LIKE UPPER('%%')
 +{Home}ORDER BY owner, view_name;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
-; Query columns
+; Query table columns
 :R0:ocols::
 (
 +{Home}SELECT table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
 +{Home}FROM user_tab_columns
-+{Home}WHERE table_name LIKE '%%' AND column_name LIKE '%%'
++{Home}WHERE
++{Home}    table_name IN (SELECT table_name FROM user_tables) AND
++{Home}    table_name LIKE UPPER('%%') AND
++{Home}    column_name LIKE UPPER('%%')
 +{Home}ORDER BY table_name, column_id;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
-; Query columns (all users)
-:R0:colsa::
+; Query table columns (all users)
+:R0:ocolsa::
 (
 +{Home}SELECT owner, table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
 +{Home}FROM all_tab_columns
-+{Home}WHERE owner LIKE '%%' AND table_name LIKE '%%' AND column_name LIKE '%%'
++{Home}WHERE
++{Home}    owner LIKE UPPER('%%') AND
++{Home}    table_name IN (SELECT table_name FROM all_tables) AND
++{Home}    table_name LIKE UPPER('%%') AND
++{Home}    column_name LIKE UPPER('%%')
 +{Home}ORDER BY owner, table_name, column_id;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query users
@@ -374,9 +381,9 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT *
 +{Home}FROM user_users
-+{Home}WHERE username LIKE '%%'
++{Home}WHERE username LIKE UPPER('%%')
 +{Home}ORDER BY username;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query users (all users)
@@ -384,9 +391,9 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT *
 +{Home}FROM all_users
-+{Home}WHERE username LIKE '%%'
++{Home}WHERE username LIKE UPPER('%%')
 +{Home}ORDER BY username;
-+{Home}{Up 2}{End}{Left 2}
++{Home}{Up 2}{End}{Left 3}
 )
 
 ; Graphviz
