@@ -238,7 +238,15 @@ SetTitleMatchMode, RegEx
 
 ; SQL
 
-:R0:select::
+:R0:sel::
+(
++{Home}SELECT *
++{Home}FROM
++{Home}ORDER BY 1 DESC;
++{Home}{Up 2}{End}{Space}^{Space}
+)
+
+:R0:sel100::
 (
 +{Home}SELECT *
 +{Home}FROM
