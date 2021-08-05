@@ -2,6 +2,8 @@
 #UseHook
 SetTitleMatchMode, RegEx
 
+#Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
+
 ; ================================================================================
 ; Map Caps Lock to Alt-Tab
 ; http://superuser.com/a/7144
@@ -502,5 +504,3 @@ SetTitleMatchMode, RegEx
 ; ================================================================================
 ; Misc.
 !=::SendInput ^{NumpadAdd}  ; Alt+= -> Size all columns to fit in listview controls
-
-#Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
