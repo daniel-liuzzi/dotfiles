@@ -244,7 +244,7 @@ SetTitleMatchMode, RegEx
 (
 +{Home}SELECT *
 +{Home}FROM
-+{Home}ORDER BY 1 DESC
++{Home}ORDER BY 1 DESC;
 +{Home}{Up 2}{End}{Space}^{Space}
 )
 
@@ -254,7 +254,7 @@ SetTitleMatchMode, RegEx
 +{Home}FROM
 +{Home}ORDER BY 1 DESC
 +{Home}OFFSET 0 ROWS
-+{Home}FETCH NEXT 100 ROWS ONLY
++{Home}FETCH NEXT 100 ROWS ONLY;
 +{Home}{Up 4}{End}{Space}^{Space}
 )
 
@@ -268,7 +268,7 @@ SetTitleMatchMode, RegEx
 +{Home}        col2 = s.col2
 +{Home}WHEN NOT MATCHED THEN
 +{Home}    INSERT (col1, col2)
-+{Home}    VALUES (s.col1, s.col2)
++{Home}    VALUES (s.col1, s.col2);
 +{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
 )
 
@@ -281,7 +281,7 @@ SetTitleMatchMode, RegEx
 +{Home}    TABLE_SCHEMA LIKE '%%' AND
 +{Home}    TABLE_NAME LIKE '%%' AND
 +{Home}    TABLE_TYPE = 'BASE TABLE'
-+{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME
++{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
 +{Home}{Up 3}{End}{Left 6}
 )
 
@@ -294,7 +294,7 @@ SetTitleMatchMode, RegEx
 +{Home}    TABLE_SCHEMA LIKE '%%' AND
 +{Home}    TABLE_NAME LIKE '%%' AND
 +{Home}    TABLE_TYPE = 'VIEW'
-+{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME
++{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
 +{Home}{Up 3}{End}{Left 6}
 )
 
@@ -312,7 +312,7 @@ SetTitleMatchMode, RegEx
 +{Home}    c.TABLE_SCHEMA LIKE '%%' AND
 +{Home}    c.TABLE_NAME LIKE '%%' AND
 +{Home}    c.COLUMN_NAME LIKE '%%'
-+{Home}ORDER BY c.TABLE_CATALOG, c.TABLE_SCHEMA, c.TABLE_NAME, c.ORDINAL_POSITION
++{Home}ORDER BY c.TABLE_CATALOG, c.TABLE_SCHEMA, c.TABLE_NAME, c.ORDINAL_POSITION;
 +{Home}{Up 3}{End}{Left 6}
 )
 
@@ -321,7 +321,7 @@ SetTitleMatchMode, RegEx
 ; Switch current session to another schema
 :R0:oschema::
 (
-+{Home}ALTER SESSION SET CURRENT_SCHEMA ={Space}
++{Home}ALTER SESSION SET CURRENT_SCHEMA = ;{Left}
 )
 
 ; Query tables
@@ -330,7 +330,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT table_name
 +{Home}FROM user_tables
 +{Home}WHERE table_name LIKE UPPER('%%')
-+{Home}ORDER BY table_name
++{Home}ORDER BY table_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -340,7 +340,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT owner, table_name
 +{Home}FROM all_tables
 +{Home}WHERE owner LIKE UPPER('%%') AND table_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, table_name
++{Home}ORDER BY owner, table_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -350,7 +350,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT view_name
 +{Home}FROM user_views
 +{Home}WHERE view_name LIKE UPPER('%%')
-+{Home}ORDER BY view_name
++{Home}ORDER BY view_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -360,7 +360,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT owner, view_name
 +{Home}FROM all_views
 +{Home}WHERE owner LIKE UPPER('%%') AND view_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, view_name
++{Home}ORDER BY owner, view_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -373,7 +373,7 @@ SetTitleMatchMode, RegEx
 +{Home}    table_name IN (SELECT table_name FROM user_tables) AND
 +{Home}    table_name LIKE UPPER('%%') AND
 +{Home}    column_name LIKE UPPER('%%')
-+{Home}ORDER BY table_name, column_id
++{Home}ORDER BY table_name, column_id;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -387,7 +387,7 @@ SetTitleMatchMode, RegEx
 +{Home}    table_name IN (SELECT table_name FROM all_tables) AND
 +{Home}    table_name LIKE UPPER('%%') AND
 +{Home}    column_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, table_name, column_id
++{Home}ORDER BY owner, table_name, column_id;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -397,7 +397,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT *
 +{Home}FROM user_users
 +{Home}WHERE username LIKE UPPER('%%')
-+{Home}ORDER BY username
++{Home}ORDER BY username;
 +{Home}{Up 2}{End}{Left 3}
 )
 
@@ -407,7 +407,7 @@ SetTitleMatchMode, RegEx
 +{Home}SELECT *
 +{Home}FROM all_users
 +{Home}WHERE username LIKE UPPER('%%')
-+{Home}ORDER BY username
++{Home}ORDER BY username;
 +{Home}{Up 2}{End}{Left 3}
 )
 
