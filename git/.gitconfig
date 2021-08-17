@@ -107,6 +107,7 @@
 
 [pull]
 	rebase = true
+	twohead = ort
 
 [push]
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
