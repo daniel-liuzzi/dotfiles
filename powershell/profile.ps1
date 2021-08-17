@@ -330,7 +330,7 @@ function Restart-SqlServer { sudo pwsh -Command 'Stop-SqlServer; Start-SqlServer
 $env:COLORTERM = 'truecolor'
 
 # Make git diff --stat show full file path - https://stackoverflow.com/a/16733338
-$env:COLUMNS = 170
+$env:COLUMNS = 135
 
 # Fix delta hyperlinks - https://github.com/dandavison/delta/issues/332#issuecomment-703149304
 $env:DELTA_PAGER = 'less -rFX'
