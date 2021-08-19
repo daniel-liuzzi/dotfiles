@@ -242,77 +242,77 @@ SetTitleMatchMode, RegEx
 
 :R0:sel::
 (
-+{Home}SELECT *
-+{Home}FROM
-+{Home}ORDER BY 1 DESC;
++{Home}select *
++{Home}from
++{Home}order by 1 desc;
 +{Home}{Up 2}{End}{Space}^{Space}
 )
 
 :R0:sel100::
 (
-+{Home}SELECT *
-+{Home}FROM
-+{Home}ORDER BY 1 DESC
-+{Home}OFFSET 0 ROWS
-+{Home}FETCH NEXT 100 ROWS ONLY;
++{Home}select *
++{Home}from
++{Home}order by 1 desc
++{Home}offset 0 rows
++{Home}fetch next 100 rows only;
 +{Home}{Up 4}{End}{Space}^{Space}
 )
 
 :R0:merge::
 (
-+{Home}MERGE INTO target t
-+{Home}USING source s ON (t.id = s.id)
-+{Home}WHEN MATCHED THEN
-+{Home}    UPDATE SET
++{Home}merge into target t
++{Home}using source s on (t.id = s.id)
++{Home}when matched then
++{Home}    update set
 +{Home}        col1 = s.col1,
 +{Home}        col2 = s.col2
-+{Home}WHEN NOT MATCHED THEN
-+{Home}    INSERT (col1, col2)
-+{Home}    VALUES (s.col1, s.col2);
++{Home}when not matched then
++{Home}    insert (col1, col2)
++{Home}    values (s.col1, s.col2);
 +{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
 )
 
 :R0:tbls::
 (
-+{Home}SELECT *
-+{Home}FROM INFORMATION_SCHEMA.TABLES
-+{Home}WHERE
-+{Home}    TABLE_CATALOG LIKE '%%' AND
-+{Home}    TABLE_SCHEMA LIKE '%%' AND
-+{Home}    TABLE_NAME LIKE '%%' AND
-+{Home}    TABLE_TYPE = 'BASE TABLE'
-+{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
++{Home}select *
++{Home}from information_schema.tables
++{Home}where
++{Home}    table_catalog like '%%' and
++{Home}    table_schema like '%%' and
++{Home}    table_name like '%%' and
++{Home}    table_type = 'base table'
++{Home}order by table_catalog, table_schema, table_name;
 +{Home}{Up 3}{End}{Left 6}
 )
 
 :R0:views::
 (
-+{Home}SELECT *
-+{Home}FROM INFORMATION_SCHEMA.TABLES
-+{Home}WHERE
-+{Home}    TABLE_CATALOG LIKE '%%' AND
-+{Home}    TABLE_SCHEMA LIKE '%%' AND
-+{Home}    TABLE_NAME LIKE '%%' AND
-+{Home}    TABLE_TYPE = 'VIEW'
-+{Home}ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME;
++{Home}select *
++{Home}from information_schema.tables
++{Home}where
++{Home}    table_catalog like '%%' and
++{Home}    table_schema like '%%' and
++{Home}    table_name like '%%' and
++{Home}    table_type = 'view'
++{Home}order by table_catalog, table_schema, table_name;
 +{Home}{Up 3}{End}{Left 6}
 )
 
 :R0:cols::
 (
-+{Home}SELECT *
-+{Home}FROM INFORMATION_SCHEMA.COLUMNS c
-+{Home}INNER JOIN INFORMATION_SCHEMA.TABLES t ON
-+{Home}    t.TABLE_CATALOG = c.TABLE_CATALOG AND
-+{Home}    t.TABLE_SCHEMA = c.TABLE_SCHEMA AND
-+{Home}    t.TABLE_NAME = c.TABLE_NAME
-+{Home}WHERE
-+{Home}    t.TABLE_TYPE = 'BASE TABLE' AND
-+{Home}    c.TABLE_CATALOG LIKE '%%' AND
-+{Home}    c.TABLE_SCHEMA LIKE '%%' AND
-+{Home}    c.TABLE_NAME LIKE '%%' AND
-+{Home}    c.COLUMN_NAME LIKE '%%'
-+{Home}ORDER BY c.TABLE_CATALOG, c.TABLE_SCHEMA, c.TABLE_NAME, c.ORDINAL_POSITION;
++{Home}select *
++{Home}from information_schema.columns c
++{Home}inner join information_schema.tables t on
++{Home}    t.table_catalog = c.table_catalog and
++{Home}    t.table_schema = c.table_schema and
++{Home}    t.table_name = c.table_name
++{Home}where
++{Home}    t.table_type = 'base table' and
++{Home}    c.table_catalog like '%%' and
++{Home}    c.table_schema like '%%' and
++{Home}    c.table_name like '%%' and
++{Home}    c.column_name like '%%'
++{Home}order by c.table_catalog, c.table_schema, c.table_name, c.ordinal_position;
 +{Home}{Up 3}{End}{Left 6}
 )
 
@@ -321,106 +321,106 @@ SetTitleMatchMode, RegEx
 ; Switch current session to another schema
 :R0:oschema::
 (
-+{Home}ALTER SESSION SET CURRENT_SCHEMA = ;{Left}
++{Home}alter session set current_schema = ;{Left}
 )
 
 ; Query tables
 :R0:otbls::
 (
-+{Home}SELECT table_name
-+{Home}FROM user_tables
-+{Home}WHERE table_name LIKE UPPER('%%')
-+{Home}ORDER BY table_name;
++{Home}select table_name
++{Home}from user_tables
++{Home}where table_name like upper('%%')
++{Home}order by table_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query tables (all users)
 :R0:otblsa::
 (
-+{Home}SELECT owner, table_name
-+{Home}FROM all_tables
-+{Home}WHERE owner LIKE UPPER('%%') AND table_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, table_name;
++{Home}select owner, table_name
++{Home}from all_tables
++{Home}where owner like upper('%%') and table_name like upper('%%')
++{Home}order by owner, table_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query views
 :R0:oviews::
 (
-+{Home}SELECT view_name
-+{Home}FROM user_views
-+{Home}WHERE view_name LIKE UPPER('%%')
-+{Home}ORDER BY view_name;
++{Home}select view_name
++{Home}from user_views
++{Home}where view_name like upper('%%')
++{Home}order by view_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query views (all users)
 :R0:oviewsa::
 (
-+{Home}SELECT owner, view_name
-+{Home}FROM all_views
-+{Home}WHERE owner LIKE UPPER('%%') AND view_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, view_name;
++{Home}select owner, view_name
++{Home}from all_views
++{Home}where owner like upper('%%') and view_name like upper('%%')
++{Home}order by owner, view_name;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query table columns
 :R0:ocols::
 (
-+{Home}SELECT table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
-+{Home}FROM user_tab_columns
-+{Home}WHERE
-+{Home}    table_name IN (SELECT table_name FROM user_tables) AND
-+{Home}    table_name LIKE UPPER('%%') AND
-+{Home}    column_name LIKE UPPER('%%')
-+{Home}ORDER BY table_name, column_id;
++{Home}select table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
++{Home}from user_tab_columns
++{Home}where
++{Home}    table_name in (select table_name from user_tables) and
++{Home}    table_name like upper('%%') and
++{Home}    column_name like upper('%%')
++{Home}order by table_name, column_id;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query table columns (all users)
 :R0:ocolsa::
 (
-+{Home}SELECT owner, table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
-+{Home}FROM all_tab_columns
-+{Home}WHERE
-+{Home}    owner LIKE UPPER('%%') AND
-+{Home}    table_name IN (SELECT table_name FROM all_tables) AND
-+{Home}    table_name LIKE UPPER('%%') AND
-+{Home}    column_name LIKE UPPER('%%')
-+{Home}ORDER BY owner, table_name, column_id;
++{Home}select owner, table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
++{Home}from all_tab_columns
++{Home}where
++{Home}    owner like upper('%%') and
++{Home}    table_name in (select table_name from all_tables) and
++{Home}    table_name like upper('%%') and
++{Home}    column_name like upper('%%')
++{Home}order by owner, table_name, column_id;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query users
 :R0:ousers::
 (
-+{Home}SELECT *
-+{Home}FROM user_users
-+{Home}WHERE username LIKE UPPER('%%')
-+{Home}ORDER BY username;
++{Home}select *
++{Home}from user_users
++{Home}where username like upper('%%')
++{Home}order by username;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Query users (all users)
 :R0:ousersa::
 (
-+{Home}SELECT *
-+{Home}FROM all_users
-+{Home}WHERE username LIKE UPPER('%%')
-+{Home}ORDER BY username;
++{Home}select *
++{Home}from all_users
++{Home}where username like upper('%%')
++{Home}order by username;
 +{Home}{Up 2}{End}{Left 3}
 )
 
 ; Get DDL
 :R0:oddl::
 (
-+{Home}SELECT object_type, object_name, DBMS_METADATA.GET_DDL(object_type, object_name, owner) ddl
-+{Home}FROM all_objects
-+{Home}WHERE
-+{Home}    owner = SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA') AND
-+{Home}    object_type NOT IN ('JOB', 'LOB', 'TABLE PARTITION') AND
-+{Home}    object_name LIKE upper('%%')
-+{Home}ORDER BY object_type, object_name;
++{Home}select object_type, object_name, dbms_metadata.get_ddl(object_type, object_name, owner) ddl
++{Home}from all_objects
++{Home}where
++{Home}    owner = sys_context('userenv', 'current_schema') and
++{Home}    object_type not in ('JOB', 'LOB', 'TABLE PARTITION') and
++{Home}    object_name like upper('%%')
++{Home}order by object_type, object_name;
 +{Home}{Up 2}{End}{Left 2}+{Left 2}
 )
 
@@ -441,7 +441,6 @@ SetTitleMatchMode, RegEx
 +{Home}    "Analyze" -> "Conclusion";+{End}
 +{Home}    "Conclusion" -> "Observation";+{End}
 +{Home}{}}+{End}
-
 )
 
 ; Graph
@@ -459,7 +458,6 @@ SetTitleMatchMode, RegEx
 +{Home}    "Analyze" -- "Conclusion";+{End}
 +{Home}    "Conclusion" -- "Observation";+{End}
 +{Home}{}}+{End}
-
 )
 
 ; Misc
