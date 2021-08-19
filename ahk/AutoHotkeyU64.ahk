@@ -411,6 +411,19 @@ SetTitleMatchMode, RegEx
 +{Home}{Up 2}{End}{Left 3}
 )
 
+; Get DDL
+:R0:oddl::
+(
++{Home}SELECT object_type, object_name, DBMS_METADATA.GET_DDL(object_type, object_name, owner) ddl
++{Home}FROM all_objects
++{Home}WHERE
++{Home}    owner = SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA') AND
++{Home}    object_type NOT IN ('JOB', 'LOB', 'TABLE PARTITION') AND
++{Home}    object_name LIKE upper('%%')
++{Home}ORDER BY object_type, object_name;
++{Home}{Up 2}{End}{Left 2}+{Left 2}
+)
+
 ; Graphviz
 
 ; Digraph
