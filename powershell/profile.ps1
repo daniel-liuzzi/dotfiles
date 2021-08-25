@@ -129,7 +129,7 @@ function New-ConsoleApp {
 }
 
 # dotnet
-function dn { x dotnet @args }
+function dn { run dotnet @args }
 function dna { dn add @args }
 function dnap { dna package @args }
 function dnar { dna reference @args }
@@ -150,7 +150,7 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 }
 
 # git
-function g { x git @args }
+function g { run git @args }
 function a { g add @args }
 function aa { a --all @args }
 function b { g branch @args }
@@ -335,9 +335,15 @@ function la { Get-ChildItem -Force @args }
 function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
-function x {
-  Write-Host "> $args" -ForegroundColor DarkGray
-  Invoke-Expression ($args -join ' ')
+function run {
+  $cmd = $args.ForEach( {
+      $qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
+      $value = $_.Replace("'", "''")
+      if ($qualify) { "'$value'" } else { $value }
+    } ) -join ' '
+
+  Write-Host "> $cmd" -ForegroundColor DarkGray
+  Invoke-Expression $cmd
 }
 
 <#
