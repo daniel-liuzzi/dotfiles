@@ -165,6 +165,7 @@ function mt { g mergetool @args }
 function pull { g pull @args }
 function push { g push @args }
 function re { g recent @args }
+function rs { g reset @args }
 function s { g status @args }
 function show { g show @args }
 function sw { g show @args }
