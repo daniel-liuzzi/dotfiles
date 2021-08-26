@@ -165,7 +165,6 @@ function mt { g mergetool @args }
 function pull { g pull @args }
 function push { g push @args }
 function re { g recent @args }
-function rs { g reset @args }
 function s { g status @args }
 function show { g show @args }
 function sw { g show @args }
@@ -228,6 +227,14 @@ function gri { gr --interactive @args }
 function grib { gri (Get-GitBranchBase) @args }
 function grid { gri (Get-GitBranchDev) @args }
 function grim { gri (Get-GitBranchMain) @args }
+
+# git reset
+function rs { g reset @args }
+function rsb { rs (Get-GitBranchBase) @args }
+function rsd { rs (Get-GitBranchDev) @args }
+function rsm { rs (Get-GitBranchMain) @args }
+function rsp { rs '"@{push}"' @args }
+function rsu { rs '"@{upstream}"' @args }
 
 # git cherry-pick
 function gcp { g cherry-pick @args }
