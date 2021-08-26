@@ -1,2 +1,4 @@
+# Code here will run AFTER the profile is loaded
+
 $global:DotfilesOptions.Git.Dev = @('develop')
 $global:DotfilesOptions.Git.Main = @('main', 'master')
