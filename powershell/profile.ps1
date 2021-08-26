@@ -162,12 +162,27 @@ function cob { co (Get-GitBranchBase) @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
-function pull { g pull @args }
-function push { g push @args }
+
+function pull {
+  if (lgu --grep='^WIP$') { throw 'WIP commits found. Please unwip before pulling.' }
+  g pull @args
+}
+
+function push {
+  if (lgp --grep='^WIP$') { throw 'WIP commits found. Please unwip before pushing.' }
+  g push @args
+}
+
 function re { g recent @args }
 function s { g status @args }
 function show { g show @args }
 function sw { g show @args }
+function wip { aa; c -m 'WIP' }
+
+function unwip {
+  if (sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
+  rs HEAD^
+}
 
 # git flow
 function gf { g flow @args }
