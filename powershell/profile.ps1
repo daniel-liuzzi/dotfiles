@@ -159,8 +159,6 @@ function b { g branch @args }
 function c { g commit @args }
 function ca { c --amend @args }
 function can { ca --no-edit @args }
-function co { g checkout @args }
-function cob { co (Get-GitBranchBase) @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
@@ -196,6 +194,12 @@ function gfff { gff finish @args }
 function gffp { gff publish @args }
 function gffs { gff start @args }
 function gfft { gff track @args }
+
+# git checkout
+function co { g checkout @args }
+function cob { co (Get-GitBranchBase) @args }
+function cod { co (Get-GitBranchDev) @args }
+function com { co (Get-GitBranchMain) @args }
 
 # git diff
 function d { g diff @args }
