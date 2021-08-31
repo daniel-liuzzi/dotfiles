@@ -366,9 +366,9 @@ function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
 function run {
   $cmd = $args.ForEach( {
-      $token = $_.ToString()
-      $qualify = $token.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
-      $value = $token.Replace("'", "''")
+      if ($_ -isnot [string]) { return $_ }
+      $qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
+      $value = $_.Replace("'", "''")
       if ($qualify) { "'$value'" } else { $value }
     } ) -join ' '
 
