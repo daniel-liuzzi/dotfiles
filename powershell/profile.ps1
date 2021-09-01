@@ -164,12 +164,12 @@ function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
 
 function pull {
-  if (lgu --grep='^WIP$') { throw 'WIP commits found. Please unwip before pulling.' }
+  if (quietly lgu --grep='^WIP$') { throw 'WIP commits found. Please unwip before pulling.' }
   g pull @args
 }
 
 function push {
-  if (lgp --grep='^WIP$') { throw 'WIP commits found. Please unwip before pushing.' }
+  if (quietly lgp --grep='^WIP$') { throw 'WIP commits found. Please unwip before pushing.' }
   g push --set-upstream @args
 }
 
@@ -180,7 +180,7 @@ function sw { g show @args }
 function wip { aa; c -m 'WIP' }
 
 function unwip {
-  if (sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
+  if (quietly sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
   rs HEAD^
 }
 
@@ -372,9 +372,11 @@ function run {
       if ($qualify) { "'$value'" } else { $value }
     } ) -join ' '
 
-  Write-Host "> $cmd" -ForegroundColor DarkGray
+  if (!$quiet) { Write-Host "> $cmd" -ForegroundColor DarkGray }
   Invoke-Expression $cmd
 }
+
+function quietly { $quiet = $true; run @args }
 
 <#
   .SYNOPSIS
