@@ -177,7 +177,7 @@ function re { g recent @args }
 function s { g status @args }
 function show { g show @args }
 function sw { g show @args }
-function wip { aa; c -m 'WIP' }
+function wip { aa; c --message=WIP }
 
 function unwip {
   if (quietly sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
@@ -187,7 +187,7 @@ function unwip {
 # git flow
 function gf { g flow @args }
 function gfi { gf init @args }
-function gfid { gfi -d }
+function gfid { gfi --defaults }
 function gff { gf feature @args }
 function gffd { gff delete @args }
 function gfff { gff finish @args }
@@ -309,7 +309,7 @@ function Get-GitChildItem {
   $format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
   $format -f 'Path', 'Commits', 'Oldest', 'Newest'
   $format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
-  git ls-tree -l --abbrev HEAD | ForEach-Object {
+  git ls-tree --long --abbrev HEAD | ForEach-Object {
     $line = $_ -split "`t"
     $file = $line[1]
     $data = $line[0] -split ' +'
