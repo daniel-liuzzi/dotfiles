@@ -170,7 +170,7 @@ function pull {
 
 function push {
   if (lgp --grep='^WIP$') { throw 'WIP commits found. Please unwip before pushing.' }
-  g push @args
+  g push --set-upstream @args
 }
 
 function re { g recent @args }
