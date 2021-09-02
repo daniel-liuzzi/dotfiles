@@ -1,7 +1,7 @@
 ﻿# Real paths (i.e., non-symlinked)
 $ProfilePath = Get-Item (Get-Item $PSCommandPath).Target
 $ProfileDir = $ProfilePath.Directory
-$root = $ProfileDir.Parent
+$Root = $ProfileDir.Parent
 
 . "$ProfileDir/profile.pre.custom"
 
@@ -20,7 +20,7 @@ $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 
 # Oh my Posh
 $env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
-Set-PoshPrompt -Theme "$root/oh-my-posh/daniel.omp.json"
+Set-PoshPrompt -Theme "$Root/oh-my-posh/daniel.omp.json"
 function Set-PoshContext { $env:TITLE = Get-PromptPath }
 
 # Aliases (autocomplete-friendly)
@@ -67,14 +67,14 @@ filter Search-String {
   Get journal entries for the previuos, current, and next day
 #>
 function Get-Journal {
-  function Display ($jrnl) {
-    $entry = Invoke-Expression "jrnl $jrnl --format dates" | Select-Object -First 1
-    if ($entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
+  function Display ($Range) {
+    $Entry = Invoke-Expression "jrnl $Range --format dates" | Select-Object -First 1
+    if ($Entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
     Write-Host "`n$(Format-RelativeDate $matches.0)`n" -ForegroundColor Blue
-    jrnl -on ('{0:yyyy-MM-dd}' -f $matches.0) $jrnl_args
+    jrnl -on ('{0:yyyy-MM-dd}' -f $matches.0) $JournalArgs
   }
 
-  $jrnl_args = $args
+  $JournalArgs = $args
   Display ('-to {0:yyyy-MM-dd} -n 1' -f [datetime]::Today.AddDays(-1))
   Display ('-on {0:yyyy-MM-dd} -n 1' -f [datetime]::Today)
   Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
@@ -263,28 +263,28 @@ function gcpa { gcp --abort @args }
 function gcpc { gcp --continue @args }
 function gcps { gcp --skip @args }
 
-function clone($repository) {
+function clone($Url) {
   # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
-  if ($repository -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
-  $directory = $Matches.path -replace '/', '_' # flatten path
-  g clone -- $repository $directory
-  Set-Location $directory
+  if ($Url -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
+  $Directory = $Matches.path -replace '/', '_' # flatten path
+  g clone -- $Url $Directory
+  Set-Location $Directory
 }
 
 function Get-GitBranchBase {
-  $current = Get-GitBranchCurrent
+  $Current = Get-GitBranchCurrent
 
-  $base = git config gitflow.branch.$current.base
-  if ($base) { return $base }
+  $Base = git config gitflow.branch.$Current.base
+  if ($Base) { return $Base }
 
-  $main = Get-GitBranchMain
-  if ($current -eq $main) { return $null }
+  $Main = Get-GitBranchMain
+  if ($Current -eq $Main) { return $null }
 
-  $develop = Get-GitBranchDev
-  if (!$develop) { return $main }
-  if ($develop -eq $current) { return $main }
+  $Develop = Get-GitBranchDev
+  if (!$Develop) { return $Main }
+  if ($Develop -eq $Current) { return $Main }
 
-  return $develop
+  return $Develop
 }
 
 function Get-GitBranchCurrent {
@@ -298,34 +298,34 @@ function Get-GitBranchMain {
 }
 
 function Find-GitBranch($Names) {
-  foreach ($branch in $Names) {
-    if (git branch --list $branch) {
-      return $branch
+  foreach ($Branch in $Names) {
+    if (git branch --list $Branch) {
+      return $Branch
     }
   }
 }
 
 function Get-GitChildItem {
-  $format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
-  $format -f 'Path', 'Commits', 'Oldest', 'Newest'
-  $format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
+  $Format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
+  $Format -f 'Path', 'Commits', 'Oldest', 'Newest'
+  $Format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
   git ls-tree --long --abbrev HEAD | ForEach-Object {
-    $line = $_ -split "`t"
-    $file = $line[1]
-    $data = $line[0] -split ' +'
-    $type = $data[1]
+    $Line = $_ -split "`t"
+    $File = $Line[1]
+    $Data = $Line[0] -split ' +'
+    $Type = $Data[1]
 
     # https://stackoverflow.com/a/11729072/88709
-    $commits = (git log --oneline -- $file | Measure-Object).Count
+    $Commits = (git log --oneline -- $File | Measure-Object).Count
 
     # https://stackoverflow.com/a/13598028/88709
-    $oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $file
+    $Oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $File
 
     # https://stackoverflow.com/a/4784629/88709
-    $newest = git log --max-count=1 --format="%ai" -- $file
+    $Newest = git log --max-count=1 --format="%ai" -- $File
 
-    if ($type -eq 'tree') { $file += '/' }
-    $format -f $file, $commits, $oldest, $newest
+    if ($Type -eq 'tree') { $File += '/' }
+    $Format -f $File, $Commits, $Oldest, $Newest
   }
 }
 
@@ -333,10 +333,10 @@ function Get-GitChildItem {
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
 
 function sln {
-  $path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
-  if ($path) {
-    Write-Output "Starting $path"
-    Start-Process $path
+  $Path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
+  if ($Path) {
+    Write-Output "Starting $Path"
+    Start-Process $Path
   }
   else {
     Write-Error 'Solution file not found'
@@ -352,12 +352,12 @@ function .. { Set-Location '..' }
 # Miscellaneous
 function archive {
   # TODO: delete node_modules, bin, obj recursively
-  $date = Get-Date -Format 'yyyy-MM-dd'
-  $path = Join-Path '~/!Archive' $date
-  New-Item -Path $path -ItemType Directory -Force | Out-Null
-  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $path | Out-Null
+  $Date = Get-Date -Format 'yyyy-MM-dd'
+  $Path = Join-Path '~/!Archive' $Date
+  New-Item -Path $Path -ItemType Directory -Force | Out-Null
+  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $Path | Out-Null
   Write-Output 'Desktop archived successfully.'
-  Start-Process -FilePath (Resolve-Path $path)
+  Start-Process -FilePath (Resolve-Path $Path)
 }
 function hosts { sudo code-insiders $env:SystemRoot\System32\drivers\etc\hosts }
 function la { Get-ChildItem -Force @args }
@@ -365,18 +365,18 @@ function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
 function run {
-  $cmd = $args.ForEach( {
+  $Command = $args.ForEach( {
       if ($_ -isnot [string]) { return $_ }
-      $qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
-      $value = $_.Replace("'", "''")
-      if ($qualify) { "'$value'" } else { $value }
+      $Qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
+      $Value = $_.Replace("'", "''")
+      if ($Qualify) { "'$Value'" } else { $Value }
     } ) -join ' '
 
-  if (!$quiet) { Write-Host "> $cmd" -ForegroundColor DarkGray }
-  Invoke-Expression $cmd
+  if (!$Quiet) { Write-Host "> $Command" -ForegroundColor DarkGray }
+  Invoke-Expression $Command
 }
 
-function quietly { $quiet = $true; run @args }
+function quietly { $Quiet = $true; run @args }
 
 <#
   .SYNOPSIS
@@ -427,7 +427,7 @@ $env:DELTA_PAGER = 'less -rFX'
 $env:EDITOR = 'code-insiders --wait'
 
 # Default settings
-$global:DotfilesOptions = @{
+$Global:DotfilesOptions = @{
   Git = @{
     Dev  = @('develop')
     Main = @('main', 'master')
