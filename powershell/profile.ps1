@@ -11,7 +11,7 @@ Import-Module DockerCompletion
 Import-Module DockerComposeCompletion
 Import-Module oh-my-posh
 Import-Module posh-git
-Import-Module PSColor # http://stackoverflow.com/a/30788506
+Import-Module Terminal-Icons
 Import-Module Recycle
 
 # posh-git
