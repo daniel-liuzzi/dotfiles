@@ -31,9 +31,9 @@ Install-Module -Name DockerCompletion -RequiredVersion 1.2010.0.201211 -Force
 Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
 Install-Module -Name oh-my-posh -RequiredVersion 3.139.1 -Force
 Install-Module -Name posh-git -RequiredVersion 1.0.0 -Force
-Install-Module -Name Terminal-Icons -RequiredVersion 0.5.2 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.0-beta2 -AllowPrerelease -Force
 Install-Module -Name Recycle -RequiredVersion 1.1.1 -Force
+Install-Module -Name Terminal-Icons -RequiredVersion 0.5.2 -Force
 Install-Module -Name z -RequiredVersion 1.1.9 -Force
 
 Write-Output '- Creating symlinks...'

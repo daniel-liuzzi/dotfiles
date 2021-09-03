@@ -11,8 +11,8 @@ Import-Module DockerCompletion
 Import-Module DockerComposeCompletion
 Import-Module oh-my-posh
 Import-Module posh-git
-Import-Module Terminal-Icons
 Import-Module Recycle
+Import-Module Terminal-Icons
 
 # posh-git
 $GitPromptSettings.DefaultPromptAbbreviateGitDirectory = $true
