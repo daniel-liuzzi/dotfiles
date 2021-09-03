@@ -434,6 +434,11 @@ $Global:DotfilesOptions = @{
   }
 }
 
+# ISO 8601 dates, times
+$Culture = [cultureinfo]::InvariantCulture.Clone()
+$Culture.DateTimeFormat.ShortDatePattern = 'yyyy-MM-dd'
+[System.Threading.Thread]::CurrentThread.CurrentCulture = $Culture
+
 . "$ProfileDir/PSReadLine"
 
 . "$ProfileDir/profile.post.custom"
