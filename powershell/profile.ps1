@@ -27,7 +27,6 @@ function Set-PoshContext { $env:TITLE = Get-PromptPath }
 Set-Alias -Name 'ads' -Value 'azuredatastudio'
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
-Set-Alias -Name 'j' -Value 'jrnl'
 Set-Alias -Name 'l' -Value 'ls'
 Set-Alias -Name 'daily' -Value 'Get-Journal'
 
@@ -71,7 +70,7 @@ function Get-Journal {
     $Entry = Invoke-Expression "jrnl $Range --format dates" | Select-Object -First 1
     if ($Entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
     Write-Host "`n$(Format-RelativeDate $matches.0)`n" -ForegroundColor Blue
-    jrnl -on ('{0:yyyy-MM-dd}' -f $matches.0) $JournalArgs
+    quietly j -on ('{0:yyyy-MM-dd}' -f $matches.0) $JournalArgs
   }
 
   $JournalArgs = $args
@@ -328,6 +327,10 @@ function Get-GitChildItem {
     $Format -f $File, $Commits, $Oldest, $Newest
   }
 }
+
+# jrnl
+function j { run jrnl @args }
+function jw { j -from monday -to today --format short @args }
 
 # Visual Studio
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
