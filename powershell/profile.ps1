@@ -163,12 +163,12 @@ function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
 
 function pull {
-  if (quietly lgu --grep='^WIP$') { throw 'WIP commits found. Please unwip before pulling.' }
+  if (quietly lgu --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pulling.' }
   g pull @args
 }
 
 function push {
-  if (quietly lgp --grep='^WIP$') { throw 'WIP commits found. Please unwip before pushing.' }
+  if (quietly lgp --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pushing.' }
   g push --set-upstream @args
 }
 
