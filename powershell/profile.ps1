@@ -136,8 +136,14 @@ function dnap { dna package @args }
 function dnar { dna reference @args }
 function dnb { dn build @args }
 function dnc { dn clean @args }
+function dnl { dn list @args }
+function dnlp { dnl package @args }
+function dnlr { dnl reference @args }
 function dnn { dn new @args }
 function dnr { dn run @args }
+function dnrm { dn remove @args }
+function dnrmp { dnrm package @args }
+function dnrmr { dnrm reference @args }
 function dns { dn search @args }
 function dnw { dn watch @args }
 function dnwr { dnw run @args }
