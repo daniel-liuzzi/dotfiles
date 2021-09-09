@@ -129,6 +129,61 @@ function New-ConsoleApp {
   edit . ./Program.cs
 }
 
+<#
+.SYNOPSIS
+    Creates a new dotnet console app and opens it in the text editor.
+#>
+function New-DotNetSln {
+  param (
+    [string]
+    $Path = '.'
+  )
+
+  if (-not (Test-Path $Path)) {
+    mkdir $Path
+  }
+  elseif (Get-ChildItem $Path -Force) {
+    throw 'Error: Directory not empty'
+  }
+
+  Push-Location $Path
+  $SolutionName = Get-Location | Split-Path -Leaf
+
+  git init
+  git commit --message="initial" --allow-empty
+
+  # Solution
+  dn new sln
+  dn new gitignore
+  git add --all
+  git commit --message="$SolutionName"
+
+  # Core
+  mkdir "$SolutionName.Core" | Push-Location
+  dn new classlib
+  dn sln .. add .
+  Pop-Location
+
+  # CLI
+  mkdir "$SolutionName.Cli" | Push-Location
+  dn new console
+  dn add reference "../$SolutionName.Core"
+  dn sln .. add .
+  git add --all
+  git commit --message="$SolutionName.Cli"
+  Pop-Location
+
+  # API
+  mkdir "$SolutionName.Api" | Push-Location
+  dn new webapi
+  dn add reference "../$SolutionName.Core"
+  dn sln .. add .
+  Pop-Location
+
+  # edit . ./Program.cs
+  Pop-Location
+}
+
 # dotnet
 function dn { run dotnet @args }
 function dna { dn add @args }
