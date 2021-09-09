@@ -6,12 +6,9 @@ $Root = $ProfileDir.Parent
 . "$ProfileDir/profile.pre.custom"
 
 # Modules
-Import-Module cd-extras # https://stackoverflow.com/a/48640071/88709
 Import-Module DockerCompletion
 Import-Module DockerComposeCompletion
-Import-Module oh-my-posh
 Import-Module posh-git
-Import-Module Recycle
 Import-Module Terminal-Icons
 
 # posh-git
