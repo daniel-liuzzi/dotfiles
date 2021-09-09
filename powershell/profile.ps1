@@ -46,16 +46,16 @@ Set-Alias -Name 'rmdir' -Value 'Remove-ItemSafely'
 
 # https://stackoverflow.com/a/7785226/88709
 filter Search-String {
-  [Alias("ss")]
-  [OutputType([System.IO.FileInfo])]
-  param([string[]] $Patterns)
-  foreach ($Pattern in $Patterns) {
-    if (-not ($_ | Select-String -Pattern $Pattern)) {
-      return
+    [Alias("ss")]
+    [OutputType([System.IO.FileInfo])]
+    param([string[]] $Patterns)
+    foreach ($Pattern in $Patterns) {
+        if (-not ($_ | Select-String -Pattern $Pattern)) {
+            return
+        }
     }
-  }
 
-  $_
+    $_
 }
 
 <#
@@ -63,17 +63,17 @@ filter Search-String {
   Get journal entries for the previuos, current, and next day
 #>
 function Get-Journal {
-  function Display ($Range) {
-    $Entry = Invoke-Expression "jrnl $Range --format dates" | Select-Object -First 1
-    if ($Entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
-    Write-Host "`n$(Format-RelativeDate $matches.0)`n" -ForegroundColor Blue
-    quietly j -on ('{0:yyyy-MM-dd}' -f $matches.0) $JournalArgs
-  }
+    function Display ($Range) {
+        $Entry = Invoke-Expression "jrnl $Range --format dates" | Select-Object -First 1
+        if ($Entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
+        Write-Host "`n$(Format-RelativeDate $matches.0)`n" -ForegroundColor Blue
+        quietly j -on ('{0:yyyy-MM-dd}' -f $matches.0) $JournalArgs
+    }
 
-  $JournalArgs = $args
-  Display ('-to {0:yyyy-MM-dd} -n 1' -f [datetime]::Today.AddDays(-1))
-  Display ('-on {0:yyyy-MM-dd} -n 1' -f [datetime]::Today)
-  Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
+    $JournalArgs = $args
+    Display ('-to {0:yyyy-MM-dd} -n 1' -f [datetime]::Today.AddDays(-1))
+    Display ('-on {0:yyyy-MM-dd} -n 1' -f [datetime]::Today)
+    Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
 }
 
 <#
@@ -83,14 +83,14 @@ function Get-Journal {
 function Get-MyIp { Invoke-RestMethod 'https://ident.me/' }
 
 function Format-RelativeDate ([datetime]$Value) {
-  switch (($Value.Date - [datetime]::Today).Days) {
-    { $_ -ge -7 -and $_ -le -2 } { 'Last {0:dddd}' -f $Value }
-    { $_ -eq -1 } { 'Yesterday' }
-    { $_ -eq 0 } { 'Today' }
-    { $_ -eq 1 } { 'Tomorrow' }
-    { $_ -ge 2 -and $_ -le 7 } { 'Next {0:dddd}' -f $Value }
-    Default { '{0:D}' -f $Value }
-  }
+    switch (($Value.Date - [datetime]::Today).Days) {
+        { $_ -ge -7 -and $_ -le -2 } { 'Last {0:dddd}' -f $Value }
+        { $_ -eq -1 } { 'Yesterday' }
+        { $_ -eq 0 } { 'Today' }
+        { $_ -eq 1 } { 'Tomorrow' }
+        { $_ -ge 2 -and $_ -le 7 } { 'Next {0:dddd}' -f $Value }
+        Default { '{0:D}' -f $Value }
+    }
 }
 
 <#
@@ -98,32 +98,32 @@ function Format-RelativeDate ([datetime]$Value) {
     Creates a new dotnet console app and opens it in the text editor.
 #>
 function New-ConsoleApp {
-  param (
-    [string]
-    $Path = '.'
-  )
+    param (
+        [string]
+        $Path = '.'
+    )
 
-  if (-not (Test-Path $Path)) {
-    mkdir $Path
-  }
-  elseif (Get-ChildItem $Path -Force) {
-    throw 'Error: Directory not empty'
-  }
+    if (-not (Test-Path $Path)) {
+        mkdir $Path
+    }
+    elseif (Get-ChildItem $Path -Force) {
+        throw 'Error: Directory not empty'
+    }
 
-  Set-Location $Path
+    Set-Location $Path
 
-  git init
-  git commit --message="initial" --allow-empty
+    git init
+    git commit --message="initial" --allow-empty
 
-  dotnet new gitignore
-  git add --all
-  git commit --message="dotnet new gitignore"
+    dotnet new gitignore
+    git add --all
+    git commit --message="dotnet new gitignore"
 
-  dotnet new console
-  git add --all
-  git commit --message="dotnet new console"
+    dotnet new console
+    git add --all
+    git commit --message="dotnet new console"
 
-  edit . ./Program.cs
+    edit . ./Program.cs
 }
 
 # dotnet
@@ -147,10 +147,10 @@ function dnwr { dnw run @args }
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-  param($commandName, $wordToComplete, $cursorPosition)
-  dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-  }
+    param($commandName, $wordToComplete, $cursorPosition)
+    dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    }
 }
 
 # git
@@ -166,13 +166,13 @@ function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
 
 function pull {
-  if (quietly lgu --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pulling.' }
-  g pull @args
+    if (quietly lgu --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pulling.' }
+    g pull @args
 }
 
 function push {
-  if (quietly lgp --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pushing.' }
-  g push --set-upstream @args
+    if (quietly lgp --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pushing.' }
+    g push --set-upstream @args
 }
 
 function re { g recent @args }
@@ -182,8 +182,8 @@ function sw { g show @args }
 function wip { aa; c --message=WIP }
 
 function unwip {
-  if (quietly sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
-  rs HEAD^
+    if (quietly sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
+    rs HEAD^
 }
 
 # git flow
@@ -266,69 +266,69 @@ function gcpc { gcp --continue @args }
 function gcps { gcp --skip @args }
 
 function clone($Url) {
-  # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
-  if ($Url -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
-  $Directory = $Matches.path -replace '/', '_' # flatten path
-  g clone -- $Url $Directory
-  Set-Location $Directory
+    # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
+    if ($Url -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
+    $Directory = $Matches.path -replace '/', '_' # flatten path
+    g clone -- $Url $Directory
+    Set-Location $Directory
 }
 
 function Get-GitBranchBase {
-  $Current = Get-GitBranchCurrent
+    $Current = Get-GitBranchCurrent
 
-  $Base = git config gitflow.branch.$Current.base
-  if ($Base) { return $Base }
+    $Base = git config gitflow.branch.$Current.base
+    if ($Base) { return $Base }
 
-  $Main = Get-GitBranchMain
-  if ($Current -eq $Main) { return $null }
+    $Main = Get-GitBranchMain
+    if ($Current -eq $Main) { return $null }
 
-  $Develop = Get-GitBranchDev
-  if (!$Develop) { return $Main }
-  if ($Develop -eq $Current) { return $Main }
+    $Develop = Get-GitBranchDev
+    if (!$Develop) { return $Main }
+    if ($Develop -eq $Current) { return $Main }
 
-  return $Develop
+    return $Develop
 }
 
 function Get-GitBranchCurrent {
-  git branch --show-current
+    git branch --show-current
 }
 function Get-GitBranchDev {
-  Find-GitBranch (@(git config gitflow.branch.develop) + $DotfilesOptions.Git.Dev)
+    Find-GitBranch (@(git config gitflow.branch.develop) + $DotfilesOptions.Git.Dev)
 }
 function Get-GitBranchMain {
-  Find-GitBranch (@(git config gitflow.branch.master) + $DotfilesOptions.Git.Main)
+    Find-GitBranch (@(git config gitflow.branch.master) + $DotfilesOptions.Git.Main)
 }
 
 function Find-GitBranch($Names) {
-  foreach ($Branch in $Names) {
-    if (git branch --list $Branch) {
-      return $Branch
+    foreach ($Branch in $Names) {
+        if (git branch --list $Branch) {
+            return $Branch
+        }
     }
-  }
 }
 
 function Get-GitChildItem {
-  $Format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
-  $Format -f 'Path', 'Commits', 'Oldest', 'Newest'
-  $Format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
-  git ls-tree --long --abbrev HEAD | ForEach-Object {
-    $Line = $_ -split "`t"
-    $File = $Line[1]
-    $Data = $Line[0] -split ' +'
-    $Type = $Data[1]
+    $Format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
+    $Format -f 'Path', 'Commits', 'Oldest', 'Newest'
+    $Format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
+    git ls-tree --long --abbrev HEAD | ForEach-Object {
+        $Line = $_ -split "`t"
+        $File = $Line[1]
+        $Data = $Line[0] -split ' +'
+        $Type = $Data[1]
 
-    # https://stackoverflow.com/a/11729072/88709
-    $Commits = (git log --oneline -- $File | Measure-Object).Count
+        # https://stackoverflow.com/a/11729072/88709
+        $Commits = (git log --oneline -- $File | Measure-Object).Count
 
-    # https://stackoverflow.com/a/13598028/88709
-    $Oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $File
+        # https://stackoverflow.com/a/13598028/88709
+        $Oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $File
 
-    # https://stackoverflow.com/a/4784629/88709
-    $Newest = git log --max-count=1 --format="%ai" -- $File
+        # https://stackoverflow.com/a/4784629/88709
+        $Newest = git log --max-count=1 --format="%ai" -- $File
 
-    if ($Type -eq 'tree') { $File += '/' }
-    $Format -f $File, $Commits, $Oldest, $Newest
-  }
+        if ($Type -eq 'tree') { $File += '/' }
+        $Format -f $File, $Commits, $Oldest, $Newest
+    }
 }
 
 # jrnl
@@ -339,14 +339,14 @@ function jw { j -from monday -to today --format short @args }
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
 
 function sln {
-  $Path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
-  if ($Path) {
-    Write-Output "Starting $Path"
-    Start-Process $Path
-  }
-  else {
-    Write-Error 'Solution file not found'
-  }
+    $Path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
+    if ($Path) {
+        Write-Output "Starting $Path"
+        Start-Process $Path
+    }
+    else {
+        Write-Error 'Solution file not found'
+    }
 }
 
 # Navigation
@@ -357,13 +357,13 @@ function .. { Set-Location '..' }
 
 # Miscellaneous
 function archive {
-  # TODO: delete node_modules, bin, obj recursively
-  $Date = Get-Date -Format 'yyyy-MM-dd'
-  $Path = Join-Path '~/!Archive' $Date
-  New-Item -Path $Path -ItemType Directory -Force | Out-Null
-  Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $Path | Out-Null
-  Write-Output 'Desktop archived successfully.'
-  Start-Process -FilePath (Resolve-Path $Path)
+    # TODO: delete node_modules, bin, obj recursively
+    $Date = Get-Date -Format 'yyyy-MM-dd'
+    $Path = Join-Path '~/!Archive' $Date
+    New-Item -Path $Path -ItemType Directory -Force | Out-Null
+    Get-ChildItem -Path '~/Desktop' -Recurse -Force | Move-Item -Destination $Path | Out-Null
+    Write-Output 'Desktop archived successfully.'
+    Start-Process -FilePath (Resolve-Path $Path)
 }
 function hosts { sudo code-insiders $env:SystemRoot\System32\drivers\etc\hosts }
 function la { Get-ChildItem -Force @args }
@@ -371,15 +371,15 @@ function mcd { mkdir @args | Set-Location }
 function open { if ($args) { Start-Process @args } else { Start-Process . } }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' }
 function run {
-  $Command = $args.ForEach( {
-      if ($_ -isnot [string]) { return $_ }
-      $Qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
-      $Value = $_.Replace("'", "''")
-      if ($Qualify) { "'$Value'" } else { $Value }
-    } ) -join ' '
+    $Command = $args.ForEach( {
+            if ($_ -isnot [string]) { return $_ }
+            $Qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
+            $Value = $_.Replace("'", "''")
+            if ($Qualify) { "'$Value'" } else { $Value }
+        } ) -join ' '
 
-  if (!$Quiet) { Write-Host "> $Command" -ForegroundColor DarkGray }
-  Invoke-Expression $Command
+    if (!$Quiet) { Write-Host "> $Command" -ForegroundColor DarkGray }
+    Invoke-Expression $Command
 }
 
 function quietly { $Quiet = $true; run @args }
@@ -392,27 +392,27 @@ function quietly { $Quiet = $true; run @args }
   Omitting both parameters will toggle between dark and light themes.
 #>
 function Set-Theme {
-  [CmdletBinding(DefaultParameterSetName = 'toggle')]
-  param (
-    # Switch to dark color scheme.
-    [parameter(ParameterSetName = 'dark')]
-    [switch]
-    $Dark,
+    [CmdletBinding(DefaultParameterSetName = 'toggle')]
+    param (
+        # Switch to dark color scheme.
+        [parameter(ParameterSetName = 'dark')]
+        [switch]
+        $Dark,
 
-    # Switch to light color scheme.
-    [parameter(ParameterSetName = 'light')]
-    [switch]
-    $Light
-  )
+        # Switch to light color scheme.
+        [parameter(ParameterSetName = 'light')]
+        [switch]
+        $Light
+    )
 
-  $Key = 'HKCU:/SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize'
+    $Key = 'HKCU:/SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize'
 
-  $OldIsLight = [bool](Get-ItemProperty -Path $Key).SystemUsesLightTheme
-  $NewIsLight = if ($Dark -or $Light) { !$Dark } else { !$OldIsLight }
-  if ($NewIsLight -eq $OldIsLight) { return }
+    $OldIsLight = [bool](Get-ItemProperty -Path $Key).SystemUsesLightTheme
+    $NewIsLight = if ($Dark -or $Light) { !$Dark } else { !$OldIsLight }
+    if ($NewIsLight -eq $OldIsLight) { return }
 
-  Set-ItemProperty -Path $Key -Name 'AppsUseLightTheme' -Value $NewIsLight
-  Set-ItemProperty -Path $Key -Name 'SystemUsesLightTheme' -Value $NewIsLight
+    Set-ItemProperty -Path $Key -Name 'AppsUseLightTheme' -Value $NewIsLight
+    Set-ItemProperty -Path $Key -Name 'SystemUsesLightTheme' -Value $NewIsLight
 }
 
 # SQL Server
@@ -434,10 +434,10 @@ $env:EDITOR = 'code-insiders --wait'
 
 # Default settings
 $Global:DotfilesOptions = @{
-  Git = @{
-    Dev  = @('develop')
-    Main = @('main', 'master')
-  }
+    Git = @{
+        Dev  = @('develop')
+        Main = @('main', 'master')
+    }
 }
 
 # ISO 8601 dates, times

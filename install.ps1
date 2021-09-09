@@ -2,25 +2,25 @@ using namespace System.Security.Principal
 
 # Self-elevate
 if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuiltInRole]::Administrator)) {
-  Start-Process `
-    -FilePath (Get-Process -Id $PID).Path `
-    -ArgumentList @('-NoProfile', '-File', "`"$PSCommandPath`"") `
-    -Verb RunAs `
-    -Wait
-  return
+    Start-Process `
+        -FilePath (Get-Process -Id $PID).Path `
+        -ArgumentList @('-NoProfile', '-File', "`"$PSCommandPath`"") `
+        -Verb RunAs `
+        -Wait
+    return
 }
 
 function New-Link ($target, $source) {
-  if (Test-Path $source) {
-    if ((Get-Item $source).LinkType -eq 'SymbolicLink') {
-      Remove-Item $source
+    if (Test-Path $source) {
+        if ((Get-Item $source).LinkType -eq 'SymbolicLink') {
+            Remove-Item $source
+        }
+        else {
+            Move-Item -Path $source -Destination "$source.bak" -Force
+        }
     }
-    else {
-      Move-Item -Path $source -Destination "$source.bak" -Force
-    }
-  }
 
-  New-Item -ItemType SymbolicLink -Path $source -Target (Resolve-Path $target)
+    New-Item -ItemType SymbolicLink -Path $source -Target (Resolve-Path $target)
 }
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
