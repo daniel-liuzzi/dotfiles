@@ -1,3 +1,0 @@
-# BOM necessary for Unicode characters - https://stackoverflow.com/a/14482588
-[*]
-charset = utf-8-bom

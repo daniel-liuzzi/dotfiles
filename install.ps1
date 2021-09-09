@@ -26,6 +26,7 @@ function New-Link ($target, $source) {
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 Write-Output '- Installing Powershell modules...'
+Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 –Force
 Install-Module -Name cd-extras -RequiredVersion 2.9.0 -Force
 Install-Module -Name DockerCompletion -RequiredVersion 1.2010.0.201211 -Force
 Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
