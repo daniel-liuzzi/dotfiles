@@ -106,7 +106,7 @@
 	small = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(50,trunc)%s  %C(brightblue)%aN%Creset
 
 [pull]
-	rebase = true
+	rebase = merges
 	twohead = ort
 
 [push]
