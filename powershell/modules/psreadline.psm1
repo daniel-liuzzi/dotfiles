@@ -1,15 +1,16 @@
+# Below copied from https://github.com/PowerShell/PSReadLine/blob/v2.2.0-beta2/PSReadLine/SamplePSReadLineProfile.ps1
+
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
+# This is an example profile for PSReadLine.
+#
+# This is roughly what I use so there is some emphasis on emacs bindings,
+# but most of these bindings make sense in Windows mode as well.
+
 Import-Module PSReadLine
 
-Set-PSReadLineKeyHandler -Chord Ctrl+L -Function ClearScreen
-Set-PSReadLineKeyHandler -Key 'Tab', 'Shift+Tab' -Function 'MenuComplete'
-Set-PSReadlineOption -ExtraPromptLineCount 1
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -WordDelimiters ' '
-
-# Below copied from https://github.com/PowerShell/PSReadLine/blob/v2.2.0-beta2/PSReadLine/SamplePSReadLineProfile.ps1
+Set-PSReadLineOption -EditMode Emacs
 
 # Searching for commands with up/down arrow is really handy.  The
 # option "moves to end" is useful if you want the cursor at the end
