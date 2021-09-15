@@ -4,7 +4,7 @@ Import-Module $ProfileDir/modules/base
   .SYNOPSIS
   Get journal entries for the previuos, current, and next day
 #>
-function Get-Journal {
+function Get-DailyJournal {
     function Display ($Range) {
         $Entry = Invoke-Expression "jrnl $Range --format dates" | Select-Object -First 1
         if ($Entry -notmatch '^\d{4}-\d{2}-\d{2}') { return }
@@ -18,7 +18,9 @@ function Get-Journal {
     Display ('-from {0:yyyy-MM-dd}' -f [datetime]::Today.AddDays(1))
 }
 
-function j { run jrnl @args }
-function jw { j -from monday -to today --format short @args }
+function Get-WeeklyJournal { j -from monday -to today --format short @args }
 
-Set-Alias -Name 'daily' -Value 'Get-Journal'
+function j { run jrnl @args }
+
+Set-Alias -Name 'jd' -Value 'Get-DailyJournal'
+Set-Alias -Name 'jw' -Value 'Get-WeeklyJournal'
