@@ -32,17 +32,6 @@ function unwip {
     rs HEAD^
 }
 
-# git flow
-function gf { g flow @args }
-function gfi { gf init @args }
-function gfid { gfi --defaults }
-function gff { gf feature @args }
-function gffd { gff delete @args }
-function gfff { gff finish @args }
-function gffp { gff publish @args }
-function gffs { gff start @args }
-function gfft { gff track @args }
-
 # git checkout
 function co { g checkout @args }
 function cob { co (Get-GitBranchBase) @args }
