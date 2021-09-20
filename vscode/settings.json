@@ -19,13 +19,16 @@
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
-    "powershell.notebooks.showToggleButton": true,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "MesloLGM NF",
-    "terminal.integrated.shell.windows": "${env:ProgramFiles}/PowerShell/7/pwsh.exe",
-    "terminal.integrated.shellArgs.windows": [
-        "-NoLogo"
-    ],
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoLogo"
+            ]
+        }
+    },
     "typescript.suggest.completeFunctionCalls": true,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
