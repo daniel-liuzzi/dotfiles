@@ -37,5 +37,10 @@
         "key": "ctrl+shift+alt+backspace",
         "command": "deleteWordPartRight",
         "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+`",
+        "command": "workbench.action.createTerminalEditor",
+        "when": "terminalProcessSupported"
     }
 ]
