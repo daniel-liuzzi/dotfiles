@@ -1,7 +1,4 @@
 {
-    "[html]": {
-        "editor.renameOnType": true,
-    },
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Cascadia Code PL",
@@ -9,6 +6,7 @@
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
+    "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
     "editor.scrollbar.vertical": "visible", // https://github.com/microsoft/vscode/issues/35454
