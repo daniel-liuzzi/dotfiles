@@ -19,8 +19,8 @@ SetTitleMatchMode, RegEx
 ; (for the rest, go to Tools > Options > Environment > Keyboard and select 'Visual Studio Code')
 #IfWinActive, ahk_exe devenv\.exe
     ^w::        SendInput ^{F4}         ; Close window/tab
-    ^/::        SendInput ^k^c^k^c      ; Comment selection (SA1005-style comments)
-    ^+/::       SendInput ^k^u^k^u      ; Uncomment selection
+    ^/::        SendInput ^k^c          ; Comment selection (SA1005-style comments)
+    ^+/::       SendInput ^k^u          ; Uncomment selection
     ^+l::       SendInput !+;           ; Select all occurrences of current selection
     !LButton::  SendInput ^!{LButton}   ; Insert cursor
 #If
