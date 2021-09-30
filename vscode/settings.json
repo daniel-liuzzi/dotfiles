@@ -19,6 +19,7 @@
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
+    "omnisharp.enableDecompilationSupport": true,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.profiles.windows": {
