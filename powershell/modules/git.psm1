@@ -23,8 +23,8 @@ function push {
 
 function re { g recent @args }
 function s { g status @args }
-function show { g show @args }
-function sw { g show @args }
+function show { g show --patch-with-stat @args }
+function sw { show @args }
 function wip { aa; c --message=WIP }
 
 function unwip {
@@ -39,7 +39,7 @@ function cod { co (Get-GitBranchDev) @args }
 function com { co (Get-GitBranchMain) @args }
 
 # git diff
-function d { g diff @args }
+function d { g diff --patch-with-stat @args }
 function ds { d --staged @args }
 function db { d "$(Get-GitBranchBase)...HEAD" @args }
 function dba { d "$(Get-GitBranchBase)..HEAD" @args }
