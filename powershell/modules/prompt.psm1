@@ -1,6 +1,9 @@
 Import-Module cd-extras
 Import-Module posh-git
 
+# cd-extras
+setocd CD_PATH ~/code, ~/Desktop
+
 # posh-git
 $GitPromptSettings.DefaultPromptAbbreviateGitDirectory = $true
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
