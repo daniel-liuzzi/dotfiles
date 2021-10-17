@@ -1,3 +1,4 @@
+Import-Module cd-extras
 Import-Module posh-git
 
 # posh-git
