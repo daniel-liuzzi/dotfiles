@@ -18,8 +18,8 @@
 	next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
 
 [color "diff"]
-	oldMoved = magenta
-	newMoved = cyan
+	oldMoved = "#666666" "#220022"
+	newMoved = "#666666" "#002222"
 
 [color "status"]
 	added = green bold
