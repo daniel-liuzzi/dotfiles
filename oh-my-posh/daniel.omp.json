@@ -122,7 +122,5 @@
         }
     ],
     "console_title": true,
-    "console_title_style": "template",
-    "console_title_template": "{{ .Env.TITLE }}",
     "final_space": true
 }

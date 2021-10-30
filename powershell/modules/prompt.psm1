@@ -1,14 +1,7 @@
-Import-Module cd-extras
-Import-Module posh-git
-
-# cd-extras
-setocd CD_PATH ~/code, ~/Desktop
-
-# posh-git
-$GitPromptSettings.DefaultPromptAbbreviateGitDirectory = $true
-$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-
 # Oh my Posh
 $env:POSH_SESSION_DEFAULT_USER = $env:USERNAME # Hide default user@host
 Set-PoshPrompt -Theme "$Root/oh-my-posh/daniel.omp.json"
-function Set-PoshContext { $env:TITLE = Get-PromptPath }
+
+# Workaround for weird bug when using -NoLogo
+# https://github.com/microsoft/terminal/issues/8341#issuecomment-917650188
+Clear-Host
