@@ -10,7 +10,7 @@ encrypt: false
 highlight: true
 indent_character: "|"
 journals:
-    default: ~/Google Drive/Sync/journal/
+    default: G:/My Drive/Sync/journal
 linewrap: 119
 tagsymbols: "@"
 template: false
