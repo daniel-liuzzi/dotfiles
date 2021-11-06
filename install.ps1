@@ -49,8 +49,10 @@ New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.Window
 New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"
 New-Link "./vscode/settings.json" "$env:APPDATA/Code/User/settings.json"
 New-Link "./vscode/keybindings.json" "$env:APPDATA/Code/User/keybindings.json"
+New-Link "./vscode/tasks.json" "$env:APPDATA/Code/User/tasks.json"
 New-Link "./vscode/settings.json" "$env:APPDATA/Code - Insiders/User/settings.json"
 New-Link "./vscode/keybindings.json" "$env:APPDATA/Code - Insiders/User/keybindings.json"
+New-Link "./vscode/tasks.json" "$env:APPDATA/Code - Insiders/User/tasks.json"
 
 Write-Output '- Done.'
 Write-Output ''
