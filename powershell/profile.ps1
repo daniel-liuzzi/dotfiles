@@ -8,4 +8,4 @@ $Global:DotfilesOptions = @{
     }
 }
 
-Get-ChildItem $ProfileDir/modules -Filter *.psm1 -File | Import-Module
+Import-Module (Get-ChildItem $ProfileDir/modules/*.psm1 -File)
