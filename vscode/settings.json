@@ -6,6 +6,7 @@
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
+    "editor.inlineSuggest.enabled": true,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
