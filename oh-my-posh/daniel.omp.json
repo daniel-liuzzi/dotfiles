@@ -64,6 +64,19 @@
                     "type": "text"
                 },
                 {
+                    "type": "dotnet",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#000000",
+                    "background": "#99ff99",
+                    "properties": {
+                        "prefix": " \uE77F "
+                    }
+                },
+                {
+                    "type": "text"
+                },
+                {
                     "type": "git",
                     "style": "powerline",
                     "powerline_symbol": "\uE0B0",
