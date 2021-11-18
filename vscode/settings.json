@@ -1,4 +1,8 @@
 {
+    "cSpell.userWords": [
+        "hotstring",
+        "hotstrings"
+    ],
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Cascadia Code PL",
