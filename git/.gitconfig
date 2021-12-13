@@ -36,6 +36,9 @@
 [credential]
 	helper = manager-core
 
+[credential "helperselector"]
+	selected = manager-core
+
 [delta]
 	file-style = "#ffffff"
 	file-decoration-style = "#333333" ul box
