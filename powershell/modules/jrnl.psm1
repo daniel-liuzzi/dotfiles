@@ -20,6 +20,9 @@ function Get-DailyJournal {
 
 function Get-WeeklyJournal { j -from monday -to today --format short @args }
 
+# jrnl v2.8.1 doesn't work with Python 3.10
+function Repair-Journal { scoop reset python@3.9.7 }
+
 function j { run jrnl @args }
 
 Set-Alias -Name 'jd' -Value 'Get-DailyJournal'
