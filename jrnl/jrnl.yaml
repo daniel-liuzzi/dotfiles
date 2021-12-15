@@ -5,7 +5,7 @@ colors:
     title: WHITE
 default_hour: 0
 default_minute: 0
-editor: code-insiders.cmd --wait
+editor: code.cmd --wait
 encrypt: false
 highlight: true
 indent_character: "|"

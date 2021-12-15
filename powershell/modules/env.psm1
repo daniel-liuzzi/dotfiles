@@ -5,4 +5,4 @@ $env:COLORTERM = 'truecolor'
 $env:COLUMNS = 135
 
 # VS Code as default editor - https://stackoverflow.com/a/57144660/88709
-$env:EDITOR = 'code-insiders --wait'
+$env:EDITOR = 'code --wait'

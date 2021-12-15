@@ -3,7 +3,7 @@ function \ { Set-Location '\' }
 function ~ { Set-Location '~' }
 function .. { Set-Location '..' }
 
-function hosts { sudo code-insiders $env:SystemRoot\System32\drivers\etc\hosts }
+function hosts { sudo code $env:SystemRoot\System32\drivers\etc\hosts }
 function la { Get-ChildItem -Force @args }
 function mcd { mkdir @args | Set-Location }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' @args }
