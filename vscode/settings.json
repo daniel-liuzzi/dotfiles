@@ -24,6 +24,7 @@
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
     "git.autofetch": true,
+    "groovyLint.java.options": "-Xms256m,-Xmx1024m",
     "omnisharp.enableDecompilationSupport": true,
     "powershell.integratedConsole.showOnStartup": false,
     "security.workspace.trust.untrustedFiles": "open",
