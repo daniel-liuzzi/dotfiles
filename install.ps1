@@ -1,7 +1,5 @@
 using namespace System.Security.Principal
 
-Import-Module $PSScriptRoot/powershell/modules/base -Force
-
 # Self-elevate
 if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuiltInRole]::Administrator)) {
     Start-Process `
@@ -18,14 +16,19 @@ Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
 # Install-Module -Name DockerCompletion -RequiredVersion 1.2010.1.211002 -Force
 # Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
 Install-Module -Name oh-my-posh -RequiredVersion 6.27.1 -Force
+Install-Module -Name PsIni -RequiredVersion 3.1.2 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.0-beta4 -AllowPrerelease -Force
 Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
 # Install-Module -Name Terminal-Icons -RequiredVersion 0.5.2 -Force
 Install-Module -Name z -RequiredVersion 1.1.13 -Force -AllowClobber
 
+Import-Module $PSScriptRoot/powershell/modules/base -Force
+Import-Module $PSScriptRoot/powershell/modules/firefox -Force
+
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 Write-Output '- Creating symlinks...'
+$FirefoxProfiles = Get-FirefoxProfiles
 @(
     @{
         Target = './.omnisharp'
@@ -42,6 +45,14 @@ Write-Output '- Creating symlinks...'
     @{
         Target = './azuredatastudio/settings.json'
         Source = "$env:APPDATA/azuredatastudio/User/settings.json"
+    }
+    @{
+        Target = './firefox/chrome'
+        Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'chrome' }
+    }
+    @{
+        Target = './firefox/user.js'
+        Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'user.js' }
     }
     @{
         Target = './git/.gitconfig'

@@ -1,0 +1,20 @@
+#TabsToolbar > :not(.titlebar-buttonbox-container) {
+    visibility: hidden;
+}
+
+#nav-bar {
+    /*
+        The 180px margin is because minimize, maximize, and close buttons in
+        Windows 11 need about 45px each. We also leave an extra 45px for drag
+        space (Firefox's native 'Drag Space' wastes too much vertical space.)
+    */
+    margin-right: 180px;
+
+    margin-top: -40px;
+}
+
+#customizableui-special-spring1,
+#customizableui-special-spring2,
+#sidebar-header {
+    visibility: collapse;
+}
