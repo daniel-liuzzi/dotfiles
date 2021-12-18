@@ -13,7 +13,7 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
 }
 
 Write-Output '- Installing Powershell modules...'
-Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 –Force
+Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
 # Install-Module -Name cd-extras -RequiredVersion 2.9.4 -Force
 # Install-Module -Name DockerCompletion -RequiredVersion 1.2010.1.211002 -Force
 # Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
