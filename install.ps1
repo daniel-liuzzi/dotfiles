@@ -1,5 +1,7 @@
 using namespace System.Security.Principal
 
+Import-Module $PSScriptRoot/powershell/modules/base -Force
+
 # Self-elevate
 if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuiltInRole]::Administrator)) {
     Start-Process `
@@ -9,21 +11,6 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
         -Wait
     return
 }
-
-function New-Link ($target, $source) {
-    if (Test-Path $source) {
-        if ((Get-Item $source).LinkType -eq 'SymbolicLink') {
-            Remove-Item $source
-        }
-        else {
-            Move-Item -Path $source -Destination "$source.bak" -Force
-        }
-    }
-
-    New-Item -ItemType SymbolicLink -Path $source -Target (Resolve-Path $target)
-}
-
-# TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 Write-Output '- Installing Powershell modules...'
 Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 –Force
@@ -36,23 +23,77 @@ Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
 # Install-Module -Name Terminal-Icons -RequiredVersion 0.5.2 -Force
 Install-Module -Name z -RequiredVersion 1.1.13 -Force
 
+# TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
+
 Write-Output '- Creating symlinks...'
-New-Link "./.omnisharp" "~/.omnisharp"
-New-Link "./ahk/AutoHotkeyU64.ahk" "~/Documents/AutoHotkeyU64.ahk"
-New-Link "./ahk/AutoHotkeyU64.custom.ahk" "~/Documents/AutoHotkeyU64.custom.ahk"
-New-Link "./azuredatastudio/settings.json" "$env:APPDATA/azuredatastudio/User/settings.json"
-New-Link "./git/.gitconfig" "~/.gitconfig"
-New-Link "./git/.gitconfig.custom" "~/.gitconfig.custom"
-New-Link "./jrnl" "~/.config/jrnl"
-New-Link "./powershell/profile.ps1" $PROFILE.CurrentUserCurrentHost
-New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-New-Link "./terminal/settings.json" "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"
-New-Link "./vscode/settings.json" "$env:APPDATA/Code/User/settings.json"
-New-Link "./vscode/keybindings.json" "$env:APPDATA/Code/User/keybindings.json"
-New-Link "./vscode/tasks.json" "$env:APPDATA/Code/User/tasks.json"
-New-Link "./vscode/settings.json" "$env:APPDATA/Code - Insiders/User/settings.json"
-New-Link "./vscode/keybindings.json" "$env:APPDATA/Code - Insiders/User/keybindings.json"
-New-Link "./vscode/tasks.json" "$env:APPDATA/Code - Insiders/User/tasks.json"
+@(
+    @{
+        Target = './.omnisharp'
+        Source = '~/.omnisharp'
+    }
+    @{
+        Target = './ahk/AutoHotkeyU64.ahk'
+        Source = '~/Documents/AutoHotkeyU64.ahk'
+    }
+    @{
+        Target = './ahk/AutoHotkeyU64.custom.ahk'
+        Source = '~/Documents/AutoHotkeyU64.custom.ahk'
+    }
+    @{
+        Target = './azuredatastudio/settings.json'
+        Source = "$env:APPDATA/azuredatastudio/User/settings.json"
+    }
+    @{
+        Target = './git/.gitconfig'
+        Source = '~/.gitconfig'
+    }
+    @{
+        Target = './git/.gitconfig.custom'
+        Source = '~/.gitconfig.custom'
+    }
+    @{
+        Target = './jrnl'
+        Source = '~/.config/jrnl'
+    }
+    @{
+        Target = './powershell/profile.ps1'
+        Source = $PROFILE.CurrentUserCurrentHost
+    }
+    @{
+        Target = './terminal/settings.json'
+        Source = @(
+            "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+            "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"
+        )
+    }
+    @{
+        Target = './vscode/keybindings.json'
+        Source = @(
+            "$env:APPDATA/Code/User/keybindings.json"
+            "$env:APPDATA/Code - Insiders/User/keybindings.json"
+        )
+    }
+    @{
+        Target = './vscode/settings.json'
+        Source = @(
+            "$env:APPDATA/Code/User/settings.json"
+            "$env:APPDATA/Code - Insiders/User/settings.json"
+        )
+    }
+    @{
+        Target = './vscode/tasks.json'
+        Source = @(
+            "$env:APPDATA/Code/User/tasks.json"
+            "$env:APPDATA/Code - Insiders/User/tasks.json"
+        )
+    }
+) | ForEach-Object {
+    New-Link `
+        -Type SymbolicLink `
+        -Target "$PSScriptRoot/$($_.Target)" `
+        -Source $_.Source |
+    Out-Null
+}
 
 Write-Output '- Done.'
 Write-Output ''

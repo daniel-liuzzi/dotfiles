@@ -1,3 +1,39 @@
+function New-Link {
+    param (
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('SymbolicLink', 'Junction', 'HardLink')]
+        [string]
+        $Type,
+
+        [Parameter(Mandatory = $true)]
+        [string]
+        $Target,
+
+        [Parameter(Mandatory = $true)]
+        [string[]]
+        $Source
+    )
+
+    $TargetPath = Resolve-Path $Target -ErrorAction SilentlyContinue
+    if (!$TargetPath) {
+        return Write-Error "Target path '$Target' does not exist."
+    }
+
+    $Source | ForEach-Object {
+        $Item = Get-Item $_ -ErrorAction SilentlyContinue
+        if ($Item) {
+            if ($Item.LinkType -eq $Type -and
+                $Item.LinkTarget -eq $TargetPath) {
+                return $Item
+            }
+
+            Move-Item $_ "$_.bak" -Force
+        }
+
+        New-Item $_ -ItemType $Type -Target $TargetPath -Force
+    }
+}
+
 function Format-RelativeDate ([datetime]$Value) {
     switch (($Value.Date - [datetime]::Today).Days) {
         { $_ -ge -7 -and $_ -le -2 } { 'Last {0:dddd}' -f $Value }
