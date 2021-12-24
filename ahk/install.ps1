@@ -1,0 +1,15 @@
+Register-ScheduledTask `
+    -TaskName 'AutoHotkey' `
+    -Trigger (New-ScheduledTaskTrigger `
+        -AtLogOn `
+        -User $env:USERNAME) `
+    -Action (New-ScheduledTaskAction `
+        -Execute 'powershell.exe' `
+        -Argument '-NoProfile -WindowStyle Hidden "while ($true) { Start-Process ~/scoop/apps/autohotkey/current/AutoHotkeyU64.exe -Wait }"') `
+    -Settings (New-ScheduledTaskSettingsSet `
+        -DontStopOnIdleEnd `
+        -AllowStartIfOnBatteries `
+        -DontStopIfGoingOnBatteries `
+        -ExecutionTimeLimit 0) `
+    -RunLevel Highest `
+    -Force

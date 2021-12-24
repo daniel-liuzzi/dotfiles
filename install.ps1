@@ -106,6 +106,10 @@ $FirefoxProfiles = Get-FirefoxProfiles
     Out-Null
 }
 
+# Create AutoHotkey scheduled task
+Write-Output '- Creating scheduled tasks...'
+& './ahk/install' | Out-Null
+
 Write-Output '- Done.'
 Write-Output ''
 Write-Output 'Close PowerShell and reopen it for changes to take effect.'
