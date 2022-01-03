@@ -58,7 +58,7 @@ function dnwr { dnw run @args }
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
 
 function sln {
-    $Path = Get-ChildItem *.sln -Recurse -Depth 1 -File | Select-Object -First 1
+    $Path = Get-ChildItem -Filter *.sln -Recurse -Depth 1 -File | Select-Object -First 1
     if ($Path) {
         Write-Output "Starting $Path"
         Start-Process $Path
