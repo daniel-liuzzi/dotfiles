@@ -91,7 +91,6 @@
 
 [log]
 	date = format:%a, %d %b %Y, %H:%M %z
-	follow = true
 
 [merge]
 	conflictStyle = diff3
