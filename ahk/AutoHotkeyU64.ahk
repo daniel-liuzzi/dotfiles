@@ -33,7 +33,7 @@ SetTitleMatchMode, RegEx
 #If
 
 ; VSCode-style shortcuts in LINQPad
-#IfWinActive, ahk_exe LINQPad\d*\.exe
+#IfWinActive, ahk_exe LINQPad.*\.exe
     ^/::        SendInput ^k^c          ; Comment selection
     ^+/::       SendInput ^k^u          ; Uncomment selection
     ^,::        SendInput !en           ; User Settings
