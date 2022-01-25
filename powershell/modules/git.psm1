@@ -35,15 +35,15 @@ function unwip {
 
 # git checkout
 function co { g checkout @args }
-function cob { co (Get-GitBranchBase) @args }
+function cob($Ref = 'HEAD') { co (Get-GitBranchBase $Ref) @args }
 function cod { co (Get-GitBranchDev) @args }
 function com { co (Get-GitBranchMain) @args }
 
 # git diff
 function d { g diff @args }
 function ds { d --staged @args }
-function db { d "$(Get-GitBranchBase)...HEAD" @args }
-function dba { d "$(Get-GitBranchBase)..HEAD" @args }
+function db($Ref = 'HEAD') { d "$(Get-GitBranchBase $Ref)...$Ref" @args }
+function dba($Ref = 'HEAD') { d "$(Get-GitBranchBase $Ref)..$Ref" @args }
 function dd { d "$(Get-GitBranchDev)...HEAD" @args }
 function dda { d "$(Get-GitBranchDev)..HEAD" @args }
 function dm { d "$(Get-GitBranchMain)...HEAD" @args }
@@ -56,8 +56,8 @@ function dua { d '"@{upstream}..HEAD"' @args }
 # git log
 function lg { g log --pretty=small @args }
 function lgr { lg --reverse @args }
-function lgb { lgr "$(Get-GitBranchBase)..HEAD" @args }
-function lgba { lgr "$(Get-GitBranchBase)...HEAD" @args }
+function lgb($Ref = 'HEAD') { lgr "$(Get-GitBranchBase $Ref)..$Ref" @args }
+function lgba($Ref = 'HEAD') { lgr "$(Get-GitBranchBase $Ref)...$Ref" @args }
 function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
 function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
 function lgm { lgr "$(Get-GitBranchMain)..HEAD" @args }
@@ -109,18 +109,18 @@ function clone($Url) {
     Set-Location $Directory
 }
 
-function Get-GitBranchBase {
-    $Current = Get-GitBranchCurrent
+function Get-GitBranchBase($Ref) {
+    if (!$Ref) { $Ref = Get-GitBranchCurrent }
 
-    $Base = git config gitflow.branch.$Current.base
+    $Base = git config gitflow.branch.$Ref.base
     if ($Base) { return $Base }
 
     $Main = Get-GitBranchMain
-    if ($Current -eq $Main) { return $null }
+    if ($Ref -eq $Main) { return $null }
 
     $Develop = Get-GitBranchDev
     if (!$Develop) { return $Main }
-    if ($Develop -eq $Current) { return $Main }
+    if ($Develop -eq $Ref) { return $Main }
 
     return $Develop
 }
