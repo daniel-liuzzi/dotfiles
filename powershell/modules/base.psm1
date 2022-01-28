@@ -1,3 +1,11 @@
+function Get-ArgsOptions {
+    $args | Where-Object { $_.ToString().StartsWith('-') }
+}
+
+function Get-ArgsOther {
+    $args | Where-Object { !$_.ToString().StartsWith('-') }
+}
+
 function New-Link {
     param (
         [Parameter(Mandatory = $true)]

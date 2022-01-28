@@ -35,15 +35,37 @@ function unwip {
 
 # git checkout
 function co { g checkout @args }
-function cob($Ref = 'HEAD') { co (Get-GitBranchBase $Ref) @args }
+function cob {
+    co @(
+        Get-ArgsOptions @args
+        Get-GitBranchBase
+        Get-ArgsOther @args
+    )
+}
 function cod { co (Get-GitBranchDev) @args }
 function com { co (Get-GitBranchMain) @args }
 
 # git diff
 function d { g diff @args }
 function ds { d --staged @args }
-function db($Ref = 'HEAD') { d "$(Get-GitBranchBase $Ref)...$Ref" @args }
-function dba($Ref = 'HEAD') { d "$(Get-GitBranchBase $Ref)..$Ref" @args }
+function db {
+    $Ref, $Rest = (Get-ArgsOther @args)
+    if (!$Ref) { $Ref = 'HEAD' }
+    d @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)...$Ref"
+        $Rest
+    )
+}
+function dba {
+    $Ref, $Rest = (Get-ArgsOther @args)
+    if (!$Ref) { $Ref = 'HEAD' }
+    d @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)..$Ref"
+        $Rest
+    )
+}
 function dd { d "$(Get-GitBranchDev)...HEAD" @args }
 function dda { d "$(Get-GitBranchDev)..HEAD" @args }
 function dm { d "$(Get-GitBranchMain)...HEAD" @args }
@@ -56,8 +78,24 @@ function dua { d '"@{upstream}..HEAD"' @args }
 # git log
 function lg { g log --pretty=small @args }
 function lgr { lg --reverse @args }
-function lgb($Ref = 'HEAD') { lgr "$(Get-GitBranchBase $Ref)..$Ref" @args }
-function lgba($Ref = 'HEAD') { lgr "$(Get-GitBranchBase $Ref)...$Ref" @args }
+function lgb {
+    $Ref, $Rest = (Get-ArgsOther @args)
+    if (!$Ref) { $Ref = 'HEAD' }
+    lgr @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)..$Ref"
+        $Rest
+    )
+}
+function lgba {
+    $Ref, $Rest = (Get-ArgsOther @args)
+    if (!$Ref) { $Ref = 'HEAD' }
+    lgr @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)...$Ref"
+        $Rest
+    )
+}
 function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
 function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
 function lgm { lgr "$(Get-GitBranchMain)..HEAD" @args }
@@ -110,7 +148,7 @@ function clone($Url) {
 }
 
 function Get-GitBranchBase($Ref) {
-    if (!$Ref) { $Ref = Get-GitBranchCurrent }
+    if (!$Ref -or $Ref -eq 'HEAD') { $Ref = Get-GitBranchCurrent }
 
     $Base = git config gitflow.branch.$Ref.base
     if ($Base) { return $Base }
