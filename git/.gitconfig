@@ -59,6 +59,7 @@
 	plus-style = syntax "#002200"
 	minus-emph-style = syntax "#660000"
 	plus-emph-style = syntax "#005500"
+	relative-paths = true
 	syntax-theme = Dracula
 
 [diff]
@@ -66,6 +67,7 @@
 	colorMoved = blocks
 	colorMovedWS = allow-indentation-change
 	renameLimit = 9999
+	statGraphWidth = 10
 	tool = winmerge
 
 [difftool]
