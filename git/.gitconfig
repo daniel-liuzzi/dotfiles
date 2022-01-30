@@ -95,7 +95,7 @@
 	date = format:%a, %d %b %Y, %H:%M %z
 
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 	tool = vscode
 
 [mergetool]
