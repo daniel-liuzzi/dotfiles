@@ -36,8 +36,8 @@ function unwip {
 # git checkout
 function co { g checkout @args }
 function cob { co (Get-ArgsOptions @args) (Get-GitBranchBase) (Get-ArgsOther @args) }
-function cod { co (Get-GitBranchDev) @args }
-function com { co (Get-GitBranchMain) @args }
+function cod { co (Get-ArgsOptions @args) (Get-GitBranchDev) (Get-ArgsOther @args) }
+function com { co (Get-ArgsOptions @args) (Get-GitBranchMain) (Get-ArgsOther @args) }
 
 # git diff
 function d { g diff @args }
