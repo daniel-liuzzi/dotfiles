@@ -35,13 +35,7 @@ function unwip {
 
 # git checkout
 function co { g checkout @args }
-function cob {
-    co @(
-        Get-ArgsOptions @args
-        Get-GitBranchBase
-        Get-ArgsOther @args
-    )
-}
+function cob { co (Get-ArgsOptions @args) (Get-GitBranchBase) (Get-ArgsOther @args) }
 function cod { co (Get-GitBranchDev) @args }
 function com { co (Get-GitBranchMain) @args }
 
@@ -51,20 +45,12 @@ function ds { d --staged @args }
 function db {
     $Ref, $Rest = (Get-ArgsOther @args)
     if (!$Ref) { $Ref = 'HEAD' }
-    d @(
-        Get-ArgsOptions @args
-        "$(Get-GitBranchBase $Ref)...$Ref"
-        $Rest
-    )
+    d (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)...$Ref" $Rest
 }
 function dba {
     $Ref, $Rest = (Get-ArgsOther @args)
     if (!$Ref) { $Ref = 'HEAD' }
-    d @(
-        Get-ArgsOptions @args
-        "$(Get-GitBranchBase $Ref)..$Ref"
-        $Rest
-    )
+    d (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)..$Ref" $Rest
 }
 function dd { d "$(Get-GitBranchDev)...HEAD" @args }
 function dda { d "$(Get-GitBranchDev)..HEAD" @args }
@@ -81,20 +67,12 @@ function lgr { lg --reverse @args }
 function lgb {
     $Ref, $Rest = (Get-ArgsOther @args)
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr @(
-        Get-ArgsOptions @args
-        "$(Get-GitBranchBase $Ref)..$Ref"
-        $Rest
-    )
+    lgr (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)..$Ref" $Rest
 }
 function lgba {
     $Ref, $Rest = (Get-ArgsOther @args)
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr @(
-        Get-ArgsOptions @args
-        "$(Get-GitBranchBase $Ref)...$Ref"
-        $Rest
-    )
+    lgr (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)...$Ref" $Rest
 }
 function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
 function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
