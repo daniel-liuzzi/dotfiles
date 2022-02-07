@@ -56,9 +56,9 @@
 	max-line-length = 0
 	minus-style = syntax "#330000"
 	navigate = true
-	plus-style = syntax "#002200"
+	plus-style = syntax "#003300"
 	minus-emph-style = syntax "#660000"
-	plus-emph-style = syntax "#005500"
+	plus-emph-style = syntax "#006600"
 	relative-paths = true
 	syntax-theme = Dracula
 
