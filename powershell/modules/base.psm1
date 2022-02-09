@@ -1,11 +1,3 @@
-function Get-ArgsOptions {
-    $args | Where-Object { $_.ToString().StartsWith('-') }
-}
-
-function Get-ArgsOther {
-    $args | Where-Object { !$_.ToString().StartsWith('-') }
-}
-
 function New-Link {
     param (
         [Parameter(Mandatory = $true)]
@@ -53,20 +45,25 @@ function Format-RelativeDate ([datetime]$Value) {
     }
 }
 
-function run {
+function run ($Command) {
     if (!$Quiet) {
-        $CommandLine = $args.ForEach({
-                if ($_ -isnot [string]) { return $_ }
-                $Qualify = $_.ToCharArray().ForEach( { [char]::IsWhiteSpace($_) -or $_ -in @('"', "'") } ).Contains($true)
-                $Value = $_.Replace("'", "''")
-                if ($Qualify) { "'$Value'" } else { $Value }
-            }) -join ' '
-
-        Write-Host "> $CommandLine" -ForegroundColor DarkGray
+        Write-Host @(
+            '>'
+            Get-QuotedValue $Command
+            $args | ForEach-Object { Get-QuotedValue $_ }
+        ) -ForegroundColor DarkGray
     }
 
-    $Command, $Arguments = $args
-    & $Command $Arguments
+    & $Command @args
 }
 
 function quietly { $Quiet = $true; run @args }
+
+function Get-QuotedValue($Value) {
+    if ($Value -isnot [string]) { return $Value }
+    $ShouldQuote = $Value -match '[\s''"]'
+    $Value = $Value -replace "'", "''"
+    if ($ShouldQuote) { "'$Value'" } else { $Value }
+}
+
+Set-Alias -Name 'quote' -Value 'Get-QuotedValue'

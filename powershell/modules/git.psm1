@@ -1,5 +1,22 @@
 Import-Module $ProfileDir/modules/base
 
+function Get-ArgsOptions {
+    git rev-parse --no-revs --flags @args
+}
+
+function Get-ArgsRevs {
+    $args | Where-Object { git rev-parse --quiet --verify $_ }
+}
+
+function Get-ArgsOther {
+    $opts = Get-ArgsOptions @args
+    $revs = Get-ArgsRevs @args
+    $args | Where-Object {
+        $_ -notin $opts -and
+        $_ -notin $revs
+    }
+}
+
 function g { run git @args }
 function a { g add @args }
 function aa { a --all @args }
@@ -43,14 +60,22 @@ function com { co (Get-ArgsOptions @args) (Get-GitBranchMain) (Get-ArgsOther @ar
 function d { g diff @args }
 function ds { d --staged @args }
 function db {
-    $Ref, $Rest = (Get-ArgsOther @args)
+    $Ref = Get-ArgsRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    d (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)...$Ref" $Rest
+    d @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)...$Ref"
+        Get-ArgsOther @args
+    )
 }
 function dba {
-    $Ref, $Rest = (Get-ArgsOther @args)
+    $Ref = Get-ArgsRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    d (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)..$Ref" $Rest
+    d @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)..$Ref"
+        Get-ArgsOther @args
+    )
 }
 function dd { d "$(Get-GitBranchDev)...HEAD" @args }
 function dda { d "$(Get-GitBranchDev)..HEAD" @args }
@@ -65,14 +90,22 @@ function dua { d '"@{upstream}..HEAD"' @args }
 function lg { g log --pretty=small @args }
 function lgr { lg --reverse @args }
 function lgb {
-    $Ref, $Rest = (Get-ArgsOther @args)
+    $Ref = Get-ArgsRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)..$Ref" $Rest
+    lgr @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)..$Ref"
+        Get-ArgsOther @args
+    )
 }
 function lgba {
-    $Ref, $Rest = (Get-ArgsOther @args)
+    $Ref = Get-ArgsRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr (Get-ArgsOptions @args) "$(Get-GitBranchBase $Ref)...$Ref" $Rest
+    lgr @(
+        Get-ArgsOptions @args
+        "$(Get-GitBranchBase $Ref)...$Ref"
+        Get-ArgsOther @args
+    )
 }
 function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
 function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
