@@ -1,22 +1,5 @@
 Import-Module $ProfileDir/modules/base
 
-function Get-ArgsOptions {
-    git rev-parse --no-revs --flags @args
-}
-
-function Get-ArgsRevs {
-    $args | Where-Object { git rev-parse --quiet --verify $_ }
-}
-
-function Get-ArgsOther {
-    $opts = Get-ArgsOptions @args
-    $revs = Get-ArgsRevs @args
-    $args | Where-Object {
-        $_ -notin $opts -and
-        $_ -notin $revs
-    }
-}
-
 function g { run git @args }
 function a { g add @args }
 function aa { a --all @args }
@@ -52,29 +35,29 @@ function unwip {
 
 # git checkout
 function co { g checkout @args }
-function cob { co (Get-ArgsOptions @args) (Get-GitBranchBase) (Get-ArgsOther @args) }
-function cod { co (Get-ArgsOptions @args) (Get-GitBranchDev) (Get-ArgsOther @args) }
-function com { co (Get-ArgsOptions @args) (Get-GitBranchMain) (Get-ArgsOther @args) }
+function cob { co (Get-GitFlags @args) (Get-GitBranchBase) (Get-GitArgs @args) }
+function cod { co (Get-GitFlags @args) (Get-GitBranchDev) (Get-GitArgs @args) }
+function com { co (Get-GitFlags @args) (Get-GitBranchMain) (Get-GitArgs @args) }
 
 # git diff
 function d { g diff @args }
 function ds { d --staged @args }
 function db {
-    $Ref = Get-ArgsRevs @args
+    $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
     d @(
-        Get-ArgsOptions @args
+        Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)...$Ref"
-        Get-ArgsOther @args
+        Get-GitArgs @args
     )
 }
 function dba {
-    $Ref = Get-ArgsRevs @args
+    $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
     d @(
-        Get-ArgsOptions @args
+        Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)..$Ref"
-        Get-ArgsOther @args
+        Get-GitArgs @args
     )
 }
 function dd { d "$(Get-GitBranchDev)...HEAD" @args }
@@ -90,21 +73,21 @@ function dua { d '"@{upstream}..HEAD"' @args }
 function lg { g log --pretty=small @args }
 function lgr { lg --reverse @args }
 function lgb {
-    $Ref = Get-ArgsRevs @args
+    $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
     lgr @(
-        Get-ArgsOptions @args
+        Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)..$Ref"
-        Get-ArgsOther @args
+        Get-GitArgs @args
     )
 }
 function lgba {
-    $Ref = Get-ArgsRevs @args
+    $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
     lgr @(
-        Get-ArgsOptions @args
+        Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)...$Ref"
-        Get-ArgsOther @args
+        Get-GitArgs @args
     )
 }
 function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
@@ -157,6 +140,10 @@ function clone($Url) {
     g clone -- $Url $Directory
     Set-Location $Directory
 }
+
+function Get-GitFlags { git rev-parse --no-revs --flags @args }
+function Get-GitRevs { git rev-parse --revs-only --symbolic @args }
+function Get-GitArgs { git rev-parse --no-revs --no-flags @args }
 
 function Get-GitBranchBase($Ref) {
     if (!$Ref -or $Ref -eq 'HEAD') { $Ref = Get-GitBranchCurrent }
