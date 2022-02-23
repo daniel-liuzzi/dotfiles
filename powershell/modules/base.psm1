@@ -61,9 +61,8 @@ function quietly { $Quiet = $true; run @args }
 
 function Get-QuotedValue($Value) {
     if ($Value -isnot [string]) { return $Value }
-    $ShouldQuote = $Value -match '[\s''"]'
-    $Value = $Value -replace "'", "''"
-    if ($ShouldQuote) { "'$Value'" } else { $Value }
+    if ($Value -notmatch '\W') { return $Value }
+    return "'$($Value.Replace("'", "''"))'"
 }
 
 Set-Alias -Name 'quote' -Value 'Get-QuotedValue'

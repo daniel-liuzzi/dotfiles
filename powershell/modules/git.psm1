@@ -35,9 +35,27 @@ function unwip {
 
 # git checkout
 function co { g checkout @args }
-function cob { co (Get-GitFlags @args) (Get-GitBranchBase) (Get-GitArgs @args) }
-function cod { co (Get-GitFlags @args) (Get-GitBranchDev) (Get-GitArgs @args) }
-function com { co (Get-GitFlags @args) (Get-GitBranchMain) (Get-GitArgs @args) }
+function cob {
+    co @(
+        Get-GitFlags @args
+        Get-GitBranchBase
+        Get-GitArgs @args
+    )
+}
+function cod {
+    co @(
+        Get-GitFlags @args
+        Get-GitBranchDev
+        Get-GitArgs @args
+    )
+}
+function com {
+    co @(
+        Get-GitFlags @args
+        Get-GitBranchMain
+        Get-GitArgs @args
+    )
+}
 
 # git diff
 function d { g diff @args }
@@ -64,10 +82,10 @@ function dd { d "$(Get-GitBranchDev)...HEAD" @args }
 function dda { d "$(Get-GitBranchDev)..HEAD" @args }
 function dm { d "$(Get-GitBranchMain)...HEAD" @args }
 function dma { d "$(Get-GitBranchMain)..HEAD" @args }
-function dp { d '"@{push}...HEAD"' @args }
-function dpa { d '"@{push}..HEAD"' @args }
-function du { d '"@{upstream}...HEAD"' @args }
-function dua { d '"@{upstream}..HEAD"' @args }
+function dp { d '@{push}...HEAD' @args }
+function dpa { d '@{push}..HEAD' @args }
+function du { d '@{upstream}...HEAD' @args }
+function dua { d '@{upstream}..HEAD' @args }
 
 # git log
 function lg { g log --pretty=small @args }
@@ -94,38 +112,110 @@ function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
 function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
 function lgm { lgr "$(Get-GitBranchMain)..HEAD" @args }
 function lgma { lgr "$(Get-GitBranchMain)...HEAD" @args }
-function lgp { lgr '"@{push}..HEAD"' @args }
-function lgpa { lgr '"@{push}...HEAD"' @args }
-function lgu { lgr '"@{upstream}..HEAD"' @args }
-function lgua { lgr '"@{upstream}...HEAD"' @args }
+function lgp { lgr '@{push}..HEAD' @args }
+function lgpa { lgr '@{push}...HEAD' @args }
+function lgu { lgr '@{upstream}..HEAD' @args }
+function lgua { lgr '@{upstream}...HEAD' @args }
 
 # git merge
 function gm_ { g merge @args }
 function gma { gm_ --abort @args }
 function gmc { gm_ --continue @args }
-function gmb { gm_ (Get-GitBranchBase) @args }
-function gmd { gm_ (Get-GitBranchDev) @args }
-function gmm { gm_ (Get-GitBranchMain) @args }
+function gmb {
+    gm_ @(
+        Get-GitFlags @args
+        Get-GitBranchBase
+        Get-GitArgs @args
+    )
+}
+function gmd {
+    gm_ @(
+        Get-GitFlags @args
+        Get-GitBranchDev
+        Get-GitArgs @args
+    )
+}
+function gmm {
+    gm_ @(
+        Get-GitFlags @args
+        Get-GitBranchMain
+        Get-GitArgs @args
+    )
+}
 
 # git rebase
 function gr { g rebase @args }
 function gra { gr --abort @args }
 function grc { gr --continue @args }
-function grb { gr (Get-GitBranchBase) @args }
-function grd { gr (Get-GitBranchDev) @args }
-function grm { gr (Get-GitBranchMain) @args }
+function grb {
+    gr @(
+        Get-GitFlags @args
+        Get-GitBranchBase
+        Get-GitArgs @args
+    )
+}
+function grd {
+    gr @(
+        Get-GitFlags @args
+        Get-GitBranchDev
+        Get-GitArgs @args
+    )
+}
+function grm {
+    gr @(
+        Get-GitFlags @args
+        Get-GitBranchMain
+        Get-GitArgs @args
+    )
+}
 function gri { gr --interactive @args }
-function grib { gri (Get-GitBranchBase) @args }
-function grid { gri (Get-GitBranchDev) @args }
-function grim { gri (Get-GitBranchMain) @args }
+function grib {
+    gri @(
+        Get-GitFlags @args
+        Get-GitBranchBase
+        Get-GitArgs @args
+    )
+}
+function grid {
+    gri @(
+        Get-GitFlags @args
+        Get-GitBranchDev
+        Get-GitArgs @args
+    )
+}
+function grim {
+    gri @(
+        Get-GitFlags @args
+        Get-GitBranchMain
+        Get-GitArgs @args
+    )
+}
 
 # git reset
 function rs { g reset @args }
-function rsb { rs (Get-GitBranchBase) @args }
-function rsd { rs (Get-GitBranchDev) @args }
-function rsm { rs (Get-GitBranchMain) @args }
-function rsp { rs '"@{push}"' @args }
-function rsu { rs '"@{upstream}"' @args }
+function rsb {
+    rs @(
+        Get-GitFlags @args
+        Get-GitBranchBase
+        Get-GitArgs @args
+    )
+}
+function rsd {
+    rs @(
+        Get-GitFlags @args
+        Get-GitBranchDev
+        Get-GitArgs @args
+    )
+}
+function rsm {
+    rs @(
+        Get-GitFlags @args
+        Get-GitBranchMain
+        Get-GitArgs @args
+    )
+}
+function rsp { rs '@{push}' @args }
+function rsu { rs '@{upstream}' @args }
 
 # git cherry-pick
 function gcp { g cherry-pick @args }
