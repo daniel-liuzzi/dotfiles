@@ -227,8 +227,7 @@ function clone($Url) {
     # TODO: Support all URLs syntaxes - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
     if ($Url -notmatch '^(?:git@.*?:|https://.*?/)(?<path>.*?)(?:.git)?$') { throw 'Unsupported URL syntax' }
     $Directory = $Matches.path -replace '/', '_' # flatten path
-    g clone -- $Url $Directory
-    Set-Location $Directory
+    g clone -- $Url $Directory && Set-Location $Directory
 }
 
 function Get-GitFlags { git rev-parse --no-revs --flags @args }
