@@ -1,6 +1,29 @@
 Import-Module $ProfileDir/modules/base
 Import-Module $ProfileDir/modules/git
 
+function Get-ReferenceGraph {
+    # TODO: Parse SLN
+    'digraph {'
+    Get-ChildItem -Filter *.csproj -Recurse |
+    ForEach-Object {
+        $projectFile = $_ | Select-Object -ExpandProperty FullName
+        $projectName = $_ | Select-Object -ExpandProperty BaseName
+        $projectXml = [xml](Get-Content $projectFile)
+
+        $projectReferences = $projectXml |
+        Select-Xml '/Project/ItemGroup/ProjectReference' |
+        Select-Object -ExpandProperty Node |
+        Select-Object -ExpandProperty Include |
+        ForEach-Object { ([IO.FileInfo]$_).BaseName }
+
+        "    ""$projectName"";"
+        $projectReferences | ForEach-Object {
+            "    ""$projectName"" -> ""$_"";"
+        }
+    }
+    '}'
+}
+
 <#
 .SYNOPSIS
     Creates a new dotnet console app and opens it in the text editor.
