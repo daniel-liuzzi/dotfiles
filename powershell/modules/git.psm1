@@ -269,26 +269,32 @@ function Find-GitBranch($Names) {
 }
 
 function Get-GitChildItem {
-    $Format = '| {0,-50} | {1,7} | {2,-25} | {3,-25} |'
-    $Format -f 'Path', 'Commits', 'Oldest', 'Newest'
-    $Format -f ":$('-' * 49)", "$('-' * 6):", ":$('-' * 23):", ":$('-' * 23):"
-    git ls-tree --long --abbrev HEAD | ForEach-Object {
-        $Line = $_ -split "`t"
-        $File = $Line[1]
-        $Data = $Line[0] -split ' +'
-        $Type = $Data[1]
+    $Ref = Get-GitRevs @args
+    if (!$Ref) { $Ref = 'HEAD' }
 
-        # https://stackoverflow.com/a/11729072/88709
-        $Commits = (git log --oneline -- $File | Measure-Object).Count
-
-        # https://stackoverflow.com/a/13598028/88709
-        $Oldest = git log --max-count=1 --format="%ai" --diff-filter=A -- $File
-
-        # https://stackoverflow.com/a/4784629/88709
-        $Newest = git log --max-count=1 --format="%ai" -- $File
+    git @(
+        'ls-tree'
+        '--long'
+        Get-GitFlags @args
+        $Ref
+        Get-GitArgs @args
+    ) | ForEach-Object {
+        $Data, $File = $_ -split "`t"
+        $Mode, $Type, $Object, $Size = $Data -split ' +'
 
         if ($Type -eq 'tree') { $File += '/' }
-        $Format -f $File, $Commits, $Oldest, $Newest
+        [DateTimeOffset]$Oldest, $OldestRef = (git log --max-count=1 --format="%ai`t%h" --diff-filter=A -- $File) -split "`t"
+        [DateTimeOffset]$Newest, $NewestRef = (git log --max-count=1 --format="%ai`t%h" -- $File) -split "`t"
+
+        [PSCustomObject]@{
+            Path      = $File
+            Authors   = (git shortlog --numbered --summary -- $File | Measure-Object).Count
+            Commits   = (git log --oneline -- $File | Measure-Object).Count
+            Oldest    = $Oldest
+            OldestRef = $OldestRef
+            Newest    = $Newest
+            NewestRef = $NewestRef
+        }
     }
 }
 
