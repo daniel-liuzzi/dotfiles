@@ -88,7 +88,7 @@ function du { d '@{upstream}...HEAD' @args }
 function dua { d '@{upstream}..HEAD' @args }
 
 # git log
-function lg { g log --pretty=small @args }
+function lg { g log --pretty=s @args }
 function lgr { lg --reverse @args }
 function lgb {
     $Ref = Get-GitRevs @args

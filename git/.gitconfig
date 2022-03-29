@@ -110,7 +110,9 @@
 	cmd = winmergeu -e -u -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
 
 [pretty]
-	small = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(50,trunc)%s  %C(brightblue)%aN%Creset
+	s = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(050,trunc)%s  %C(brightblue)%aN%Creset
+	m = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(100,trunc)%s  %C(brightblue)%aN%Creset
+	l = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(150,trunc)%s  %C(brightblue)%aN%Creset
 
 [pull]
 	rebase = merges
