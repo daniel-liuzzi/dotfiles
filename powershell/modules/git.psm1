@@ -284,8 +284,8 @@ function Get-GitChildItem {
         $Mode, $Type, $Object, $Size = $Data -split ' +'
 
         if ($Type -eq 'tree') { $File += '/' }
-        [DateTimeOffset]$Oldest, $OldestRef = (git log --max-count=1 --format="%ai`t%h" --diff-filter=A -- $File) -split "`t"
-        [DateTimeOffset]$Newest, $NewestRef = (git log --max-count=1 --format="%ai`t%h" -- $File) -split "`t"
+        [Nullable[DateTimeOffset]]$Oldest, $OldestRef = (git log --max-count=1 --format="%ai`t%h" --diff-filter=A -- $File) -split "`t"
+        [Nullable[DateTimeOffset]]$Newest, $NewestRef = (git log --max-count=1 --format="%ai`t%h" -- $File) -split "`t"
 
         [PSCustomObject]@{
             Path      = $File
