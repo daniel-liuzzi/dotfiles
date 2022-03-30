@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>GitChildItemView</Name>
+            <ViewSelectedBy>
+                <TypeName>GitChildItem</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>Path</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Size</PropertyName>
+                                <Alignment>right</Alignment>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Authors</PropertyName>
+                                <Alignment>right</Alignment>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Commits</PropertyName>
+                                <Alignment>right</Alignment>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>OldestRef</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>OldestRefDate</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>NewestRef</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>NewestRefDate</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>

@@ -289,6 +289,7 @@ function Get-GitChildItem {
         $NewestRef, $NewestRefDate = (git log --max-count=1 --format="%h`t%ai" -- $File) -split "`t"
 
         [PSCustomObject]@{
+            PSTypeName    = 'GitChildItem'
             Path          = $File
             Size          = [Nullable[long]]$Size
             Authors       = [Nullable[long]](git shortlog --numbered --summary -- $File | Measure-Object).Count
