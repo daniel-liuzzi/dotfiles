@@ -284,17 +284,19 @@ function Get-GitChildItem {
         $Mode, $Type, $Object, $Size = $Data -split ' +'
 
         if ($Type -eq 'tree') { $File += '/' }
-        [Nullable[DateTimeOffset]]$Oldest, $OldestRef = (git log --max-count=1 --format="%ai`t%h" --diff-filter=A -- $File) -split "`t"
-        [Nullable[DateTimeOffset]]$Newest, $NewestRef = (git log --max-count=1 --format="%ai`t%h" -- $File) -split "`t"
+        if ($Size -eq '-') { $Size = $null }
+        $OldestRef, $OldestRefDate = (git log --max-count=1 --format="%h`t%ai" --diff-filter=A -- $File) -split "`t"
+        $NewestRef, $NewestRefDate = (git log --max-count=1 --format="%h`t%ai" -- $File) -split "`t"
 
         [PSCustomObject]@{
-            Path      = $File
-            Authors   = (git shortlog --numbered --summary -- $File | Measure-Object).Count
-            Commits   = (git log --oneline -- $File | Measure-Object).Count
-            Oldest    = $Oldest
-            OldestRef = $OldestRef
-            Newest    = $Newest
-            NewestRef = $NewestRef
+            Path          = $File
+            Size          = [Nullable[long]]$Size
+            Authors       = [Nullable[long]](git shortlog --numbered --summary -- $File | Measure-Object).Count
+            Commits       = [Nullable[long]](git log --oneline -- $File | Measure-Object).Count
+            OldestRef     = $OldestRef
+            OldestRefDate = [Nullable[DateTimeOffset]]$OldestRefDate
+            NewestRef     = $NewestRef
+            NewestRefDate = [Nullable[DateTimeOffset]]$NewestRefDate
         }
     }
 }
