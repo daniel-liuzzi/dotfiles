@@ -1,11 +1,13 @@
+using namespace System.IO
+
 Import-Module PsIni
 
 function Get-FirefoxProfiles {
-    $FirefoxPath = Join-Path $env:APPDATA 'Mozilla/Firefox'
-    $ProfilesIniPath = Join-Path $FirefoxPath 'profiles.ini'
+    $FirefoxPath = [Path]::Combine($env:APPDATA, 'Mozilla/Firefox')
+    $ProfilesIniPath = [Path]::Combine($FirefoxPath, 'profiles.ini')
     $ProfilesIniContent = Get-IniContent $ProfilesIniPath
 
     $ProfilesIniContent.Keys |
     Where-Object { $_.StartsWith('Profile') } |
-    ForEach-Object { Join-Path $FirefoxPath $ProfilesIniContent.$_.Path }
+    ForEach-Object { [Path]::Combine($FirefoxPath, $ProfilesIniContent.$_.Path) }
 }
