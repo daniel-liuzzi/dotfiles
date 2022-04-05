@@ -71,6 +71,7 @@ function dnap { dna package @args }
 function dnar { dna reference @args }
 function dnb { dn build @args }
 function dnc { dn clean @args }
+function dnf { dn format @args }
 function dnl { dn list @args }
 function dnlp { dnl package @args }
 function dnlr { dnl reference @args }
@@ -80,6 +81,7 @@ function dnrm { dn remove @args }
 function dnrmp { dnrm package @args }
 function dnrmr { dnrm reference @args }
 function dns { dn search @args }
+function dnt { dn test @args }
 function dnw { dn watch @args }
 function dnwr { dnw run @args }
 
