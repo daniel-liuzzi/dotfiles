@@ -231,6 +231,11 @@ function clone($Url) {
     Set-Location $Directory
 }
 
+# These three don't always work as expected. For instance `lgb -3` generates
+# `git log --pretty=s --reverse develop..-3` which results in `ambiguous
+# argument 'develop..-3'`. This happens because flags like -3, -n3, or even
+# --max-count=3 *are all valid revs* and as such they get picked up by
+# Get-GitRevs and not Get-GitFlags.
 function Get-GitFlags { git rev-parse --no-revs --flags @args }
 function Get-GitRevs { git rev-parse --revs-only --symbolic @args }
 function Get-GitArgs { git rev-parse --no-revs --no-flags @args }
