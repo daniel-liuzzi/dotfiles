@@ -47,24 +47,16 @@ $FirefoxProfiles = Get-FirefoxProfiles
         Source = "$env:APPDATA/azuredatastudio/User/settings.json"
     }
     @{
+        Target = './config'
+        Source = '~/.config'
+    }
+    @{
         Target = './firefox/chrome'
         Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'chrome' }
     }
     @{
         Target = './firefox/user.js'
         Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'user.js' }
-    }
-    @{
-        Target = './git/.gitconfig'
-        Source = '~/.gitconfig'
-    }
-    @{
-        Target = './git/.gitconfig.custom'
-        Source = '~/.gitconfig.custom'
-    }
-    @{
-        Target = './jrnl'
-        Source = '~/.config/jrnl'
     }
     @{
         Target = './powershell/profile.ps1'
