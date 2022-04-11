@@ -5,4 +5,4 @@ Set-PSReadLineKeyHandler -Key 'Tab', 'Shift+Tab' -Function 'MenuComplete'
 Set-PSReadLineOption -EditMode Windows
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineOption -WordDelimiters ' '
+Set-PSReadLineOption -WordDelimiters ' /\'
