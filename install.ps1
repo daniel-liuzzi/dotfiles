@@ -72,22 +72,22 @@ $FirefoxProfiles = Get-FirefoxProfiles
     @{
         Target = './vscode/keybindings.json'
         Source = @(
-            "$env:APPDATA/Code/User/keybindings.json"
-            "$env:APPDATA/Code - Insiders/User/keybindings.json"
+            "~/scoop/persist/vscode/data/user-data/User/keybindings.json"
+            "~/scoop/persist/vscode-insiders/data/user-data/User/keybindings.json"
         )
     }
     @{
         Target = './vscode/settings.json'
         Source = @(
-            "$env:APPDATA/Code/User/settings.json"
-            "$env:APPDATA/Code - Insiders/User/settings.json"
+            "~/scoop/persist/vscode/data/user-data/User/settings.json"
+            "~/scoop/persist/vscode-insiders/data/user-data/User/settings.json"
         )
     }
     @{
         Target = './vscode/tasks.json'
         Source = @(
-            "$env:APPDATA/Code/User/tasks.json"
-            "$env:APPDATA/Code - Insiders/User/tasks.json"
+            "~/scoop/persist/vscode/data/user-data/User/tasks.json"
+            "~/scoop/persist/vscode-insiders/data/user-data/User/tasks.json"
         )
     }
 ) | ForEach-Object {
