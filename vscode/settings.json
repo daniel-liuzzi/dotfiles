@@ -1,7 +1,8 @@
 {
     "cSpell.userWords": [
         "hotstring",
-        "hotstrings"
+        "hotstrings",
+        "Xunit",
     ],
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
@@ -13,6 +14,11 @@
     "editor.inlineSuggest.enabled": true,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+        "comments": "inline",
+        "other": "inline",
+        "strings": "inline",
+    },
     "editor.renderWhitespace": "all",
     "editor.suggest.insertMode": "replace",
     "editor.suggestSelection": "first",
@@ -25,6 +31,7 @@
     "groovyLint.java.options": "-Xms256m,-Xmx1024m",
     "omnisharp.enableDecompilationSupport": true,
     "powershell.integratedConsole.showOnStartup": false,
+    "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.profiles.windows": {
