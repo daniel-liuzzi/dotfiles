@@ -35,13 +35,13 @@ function New-ConsoleApp {
     )
 
     if (-not (Test-Path $Path)) {
-        mkdir $Path
+        mkdir $Path | Out-Null
     }
     elseif (Get-ChildItem $Path -Force) {
         throw 'Error: Directory not empty'
     }
 
-    Set-Location $Path
+    Push-Location $Path
 
     git init
     git commit --message="initial" --allow-empty
@@ -55,6 +55,60 @@ function New-ConsoleApp {
     git commit --message="dotnet new console"
 
     edit . ./Program.cs
+
+    Pop-Location
+}
+
+<#
+.SYNOPSIS
+    Creates a new dotnet solution with Core, CLI, and API projects, and opens it
+    in the text editor.
+#>
+function New-Solution {
+    param (
+        [string]
+        $Path = '.'
+    )
+
+    if (-not (Test-Path $Path)) {
+        mkdir $Path | Out-Null
+    }
+    elseif (Get-ChildItem $Path -Force) {
+        throw 'Error: Directory not empty'
+    }
+
+    Push-Location $Path
+    dotnet new gitignore
+    dotnet new sln
+
+    $Name = Split-Path . -Leaf
+
+    mkdir "$Name.Core" | Push-Location
+    dotnet new classlib @args
+    dotnet sln .. add .
+    Pop-Location
+
+    mkdir "$Name.Cli" | Push-Location
+    dotnet new console @args
+    dotnet add reference "../$Name.Core"
+    dotnet sln .. add .
+    Pop-Location
+
+    mkdir "$Name.Api" | Push-Location
+    dotnet new webapi --no-https @args
+    dotnet add reference "../$Name.Core"
+    dotnet sln .. add .
+    Pop-Location
+
+    mkdir "$Name.Api.Tests" | Push-Location
+    dotnet new xunit @args
+    dotnet add reference "../$Name.Api"
+    dotnet sln .. add .
+    Pop-Location
+
+    edit .
+
+    Pop-Location
 }
 
 # docker compose
