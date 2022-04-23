@@ -14,11 +14,7 @@
     "editor.inlineSuggest.enabled": true,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
-    "editor.quickSuggestions": {
-        "comments": "inline",
-        "other": "inline",
-        "strings": "inline",
-    },
+    "editor.quickSuggestions": true,
     "editor.renderWhitespace": "all",
     "editor.suggest.insertMode": "replace",
     "editor.suggestSelection": "first",
