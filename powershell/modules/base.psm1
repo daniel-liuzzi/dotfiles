@@ -61,7 +61,7 @@ function quietly { $Quiet = $true; run @args }
 
 function Get-QuotedValue($Value) {
     if ($Value -isnot [string]) { return $Value }
-    if ($Value -notmatch '\W') { return $Value }
+    if ($Value -notmatch '[^\w=-]') { return $Value }
     return "'$($Value.Replace("'", "''"))'"
 }
 
