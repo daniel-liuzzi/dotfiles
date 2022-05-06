@@ -26,7 +26,7 @@
                     "type": "time"
                 },
                 {
-                    "template": "  ",
+                    "template": "\u00a0",
                     "type": "text"
                 },
                 {
@@ -41,7 +41,7 @@
                     "type": "session"
                 },
                 {
-                    "template": "  ",
+                    "template": "\u00a0",
                     "type": "text"
                 },
                 {
@@ -59,7 +59,7 @@
                     "type": "path"
                 },
                 {
-                    "template": "  ",
+                    "template": "\u00a0",
                     "type": "text"
                 },
                 {
@@ -71,7 +71,7 @@
                     "type": "dotnet"
                 },
                 {
-                    "template": "  ",
+                    "template": "\u00a0",
                     "type": "text"
                 },
                 {
