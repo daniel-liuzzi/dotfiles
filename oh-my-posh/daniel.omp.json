@@ -37,7 +37,7 @@
                         "display_default": false
                     },
                     "style": "powerline",
-                    "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if ne .UserName .Env.USERNAME }}{{ .UserName }}{{ end }}{{ if ne .HostName .Env.COMPUTERNAME }}@{{ .HostName }}{{ end }} ",
+                    "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if ne (upper .UserName) (upper .Env.USERNAME) }}{{ .UserName }}{{ end }}{{ if ne (upper .HostName) (upper .Env.COMPUTERNAME) }}@{{ .HostName }}{{ end }} ",
                     "type": "session"
                 },
                 {
