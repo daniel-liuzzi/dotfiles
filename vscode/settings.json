@@ -20,6 +20,12 @@
     "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "*.js": "${capture}.spec.${extname}",
+        "*.ts": "${capture}.spec.${extname}"
+    },
     "files.hotExit": "off",
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
