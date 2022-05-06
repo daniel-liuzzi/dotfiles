@@ -36,7 +36,7 @@
                         "display_default": false
                     },
                     "style": "powerline",
-                    "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+                    "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if ne .UserName .Env.USERNAME }}{{ .UserName }}{{ end }}{{ if ne .HostName .Env.COMPUTERNAME }}@{{ .HostName }}{{ end }} ",
                     "type": "session"
                 },
                 {
