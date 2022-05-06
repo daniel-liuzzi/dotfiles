@@ -1,5 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "console_title_template": "{{if .Root}}root :: {{end}}{{.Folder}}",
     "blocks": [
         {
             "alignment": "left",
