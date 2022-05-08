@@ -111,13 +111,6 @@ function New-Solution {
     Pop-Location
 }
 
-# docker compose
-function dc { run docker compose @args }
-function dcu { dc up @args }
-function dcud { dcu --detach @args }
-function dcd { dc down @args }
-function dcs { dc stop @args }
-
 # dotnet
 function dn { run dotnet @args }
 function dna { dn add @args }

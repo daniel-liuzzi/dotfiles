@@ -13,8 +13,6 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
 Write-Output '- Installing Powershell modules...'
 Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
 # Install-Module -Name cd-extras -RequiredVersion 2.9.4 -Force
-# Install-Module -Name DockerCompletion -RequiredVersion 1.2010.1.211002 -Force
-# Install-Module -Name DockerComposeCompletion -RequiredVersion 1.29.0.210407 -Force
 Install-Module -Name PsIni -RequiredVersion 3.1.2 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.0-beta4 -AllowPrerelease -Force
 Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
