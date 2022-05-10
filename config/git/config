@@ -46,19 +46,19 @@
 	hunk-header-decoration-style = none
 	hyperlinks = true
 	line-numbers = true
-	line-numbers-minus-style = "#993333"
+	line-numbers-minus-style = "#80312f"
 	line-numbers-zero-style = "#666666"
-	line-numbers-plus-style = "#336633"
+	line-numbers-plus-style = "#1d572d"
 	line-numbers-left-format = "{nm:>3} ⋮ "
 	line-numbers-left-style = "#333333"
 	line-numbers-right-format = "{np:>3} │ "
 	line-numbers-right-style = "#333333"
 	max-line-length = 0
-	minus-style = syntax "#330000"
+	minus-style = syntax "#301b1e"
 	navigate = true
-	plus-style = syntax "#003300"
-	minus-emph-style = syntax "#660000"
-	plus-emph-style = syntax "#006600"
+	plus-style = syntax "#12261e"
+	minus-emph-style = syntax "#80312f"
+	plus-emph-style = syntax "#1d572d"
 	relative-paths = true
 	syntax-theme = Dracula
 
