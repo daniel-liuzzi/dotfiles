@@ -362,7 +362,26 @@ SetTitleMatchMode, RegEx
 ; Query table columns
 :R0:ocols::
 (
-+{Home}select table_name, column_id, column_name, data_type, data_length, data_precision, data_scale, nullable
++{Home}select
++{Home}    table_name,
++{Home}    column_name,
++{Home}    data_type,
++{Home}    case
++{Home}        when data_type in ('NUMBER') then
++{Home}            case
++{Home}                when data_precision is not null and data_scale is not null then
++{Home}                    '(' || data_precision || ',' || data_scale || ')'
++{Home}                when data_precision is not null then
++{Home}                    '(' || data_precision || ')'
++{Home}            end
++{Home}        when data_type in ('CHAR', 'VARCHAR2') then
++{Home}            '(' || char_length || case char_used when 'C' then ' CHAR' end || ')'
++{Home}        when data_type in ('NCHAR', 'NVARCHAR2') then
++{Home}            '(' || char_length || ')'
++{Home}        when data_type in ('RAW', 'UROWID') then
++{Home}            '(' || data_length || ')'
++{Home}    end data_size,
++{Home}    case nullable when 'N' then ' NOT NULL' end data_null
 +{Home}from user_tab_columns
 +{Home}where
 +{Home}    table_name in (select table_name from user_tables) and
