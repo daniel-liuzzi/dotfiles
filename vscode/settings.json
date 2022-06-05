@@ -10,6 +10,7 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "MesloLGM NF",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
