@@ -42,9 +42,10 @@
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "MesloLGM NF",
+    "terminal.integrated.defaultProfile.windows": "PowerShell Core",
     "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
+        "PowerShell Core": {
+            "path": "pwsh",
             "args": [
                 "-NoLogo"
             ]
