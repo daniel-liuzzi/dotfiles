@@ -11,7 +11,7 @@
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.fontFamily": "MesloLGM NF",
+    "editor.fontFamily": "Comic Mono",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
