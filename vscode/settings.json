@@ -1,4 +1,7 @@
 {
+    "[powershell]": {
+        "editor.defaultFormatter": "ms-vscode.powershell",
+    },
     "cSpell.userWords": [
         "hotstring",
         "hotstrings",
