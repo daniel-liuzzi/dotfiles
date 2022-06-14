@@ -136,17 +136,6 @@ function dnwr { dnw run @args }
 
 function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
 
-function sln {
-    $Path = Get-ChildItem -Filter *.sln -Recurse -Depth 1 -File | Select-Object -First 1
-    if ($Path) {
-        Write-Output "Starting $Path"
-        Start-Process $Path
-    }
-    else {
-        Write-Error 'Solution file not found'
-    }
-}
-
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
@@ -155,7 +144,23 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     }
 }
 
+function Start-File($Filter) {
+    $Path = `
+        Get-ChildItem -Filter $Filter -Recurse -Depth 1 -File | `
+        Select-Object -First 1 | `
+        Resolve-Path -Relative
+
+    if (!$Path) { return Write-Error "No $Filter files found" }
+    run start $Path
+}
+
+function Start-Project { Start-File *.*proj }
+
+function Start-Solution { Start-File *.sln }
+
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'e' -Value 'edit'
 Set-Alias -Name 'edit' -Value 'code'
+Set-Alias -Name 'proj' -Value 'Start-Project'
+Set-Alias -Name 'sln' -Value 'Start-Solution'
 Set-Alias -Name 'wm' -Value 'winmergeu'
