@@ -12,13 +12,8 @@ SetTitleMatchMode, RegEx
 <#!Left::       SendInput {Home}
 <#!Right::      SendInput {End}
 
-; ================================================================================
-; Map Caps Lock to Alt-Tab
-; http://superuser.com/a/7144
-; https://autohotkey.com/board/topic/96714-alt-tab-binding-possible-autohotkey/?p=609135
-
-; CapsLock::SendInput !{tab}
-; Return
+; CapsLock -> Alt+Tab
+CapsLock::      SendInput !{Tab}
 
 ; ================================================================================
 ; Better shortcuts (^ = Ctrl; + = Shift; ! = Alt; # = Win)
