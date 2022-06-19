@@ -55,9 +55,9 @@ CapsLock::      SendInput !{Tab}
 ^q::            SendInput !{F4}         ; Quit app
 
 ; Volume control
-^#!PgUp::       SendInput {Volume_Up}   ; Increase volume
-^#!PgDn::       SendInput {Volume_Down} ; Decrease volume
-^#!End::        SendInput {Volume_Mute} ; Toggle mute
+^#!=::          SendInput {Volume_Up}   ; Increase volume
+^#!-::          SendInput {Volume_Down} ; Decrease volume
+^#!0::          SendInput {Volume_Mute} ; Toggle mute
 
 ; Ctrl+Shift+V paste without formatting on any app
 ; How to Paste Text Without the Extra Formatting
