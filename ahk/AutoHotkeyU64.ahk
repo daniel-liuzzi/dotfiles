@@ -4,6 +4,9 @@ SetTitleMatchMode, RegEx
 
 #Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
 
+; ^ = Ctrl; + = Shift; ! = Alt; # = Win; < = LMod; > = RMod
+; https://www.autohotkey.com/docs/Hotkeys.htm#Symbols
+
 ; Better navigation
 <^Up::          SendInput {PgUp}
 <^Down::        SendInput {PgDn}
@@ -15,8 +18,8 @@ SetTitleMatchMode, RegEx
 ; CapsLock -> Alt+Tab
 CapsLock::      SendInput !{Tab}
 
-; ================================================================================
-; Better shortcuts (^ = Ctrl; + = Shift; ! = Alt; # = Win)
+; Alt+= -> Autosize listview columns
+!=::            SendInput ^{NumpadAdd}
 
 ; VSCode-style shortcuts in Visual Studio
 ; (for the rest, go to Tools > Options > Environment > Keyboard and select 'Visual Studio Code')
@@ -72,7 +75,6 @@ CapsLock::      SendInput !{Tab}
         return
 #If
 
-; ================================================================================
 ; Turn monitor off with a keyboard shortcut
 ; Source: https://gist.github.com/davejamesmiller/1965854
 
@@ -546,7 +548,3 @@ trim_trailing_whitespace = true
 ::>>>::⋙   ; VERY MUCH GREATER-THAN
 ::>>::≫   ; MUCH GREATER-THAN
 ::>=::≥   ; GREATER-THAN OR EQUAL TO
-
-; ================================================================================
-; Misc.
-!=::SendInput ^{NumpadAdd}  ; Alt+= -> Size all columns to fit in listview controls
