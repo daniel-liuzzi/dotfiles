@@ -17,7 +17,7 @@
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.fontFamily": "Comic Mono",
+    "editor.fontFamily": "ComicMono NF",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
@@ -51,7 +51,6 @@
     "powershell.integratedConsole.showOnStartup": false,
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.fontFamily": "MesloLGM NF",
     "terminal.integrated.defaultProfile.windows": "PowerShell Core",
     "terminal.integrated.profiles.windows": {
         "PowerShell Core": {
