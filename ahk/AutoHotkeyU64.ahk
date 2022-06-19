@@ -4,6 +4,14 @@ SetTitleMatchMode, RegEx
 
 #Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
 
+; Better navigation
+<^Up::          SendInput {PgUp}
+<^Down::        SendInput {PgDn}
+<#!Up::         SendInput ^{Home}
+<#!Down::       SendInput ^{End}
+<#!Left::       SendInput {Home}
+<#!Right::      SendInput {End}
+
 ; ================================================================================
 ; Map Caps Lock to Alt-Tab
 ; http://superuser.com/a/7144
