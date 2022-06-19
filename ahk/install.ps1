@@ -4,8 +4,9 @@ Register-ScheduledTask `
         -AtLogOn `
         -User $env:USERNAME) `
     -Action (New-ScheduledTaskAction `
-        -Execute 'powershell.exe' `
-        -Argument '-NoProfile -WindowStyle Hidden "while ($true) { Start-Process ~/scoop/apps/autohotkey/current/AutoHotkeyU64.exe -Wait }"') `
+        -Execute 'powershell' `
+        -Argument '-NoProfile -WindowStyle Hidden "while ($true) { autohotkeyu64 dotfiles.ahk }"' `
+        -WorkingDirectory $PSScriptRoot) `
     -Settings (New-ScheduledTaskSettingsSet `
         -DontStopOnIdleEnd `
         -AllowStartIfOnBatteries `

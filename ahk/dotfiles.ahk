@@ -2,7 +2,7 @@
 #UseHook
 SetTitleMatchMode, RegEx
 
-#Include %A_ScriptDir%\AutoHotkeyU64.custom.ahk
+#Include dotfiles.custom.ahk
 
 ; ^ = Ctrl; + = Shift; ! = Alt; # = Win; < = LMod; > = RMod
 ; https://www.autohotkey.com/docs/Hotkeys.htm#Symbols

@@ -31,14 +31,6 @@ $FirefoxProfiles = Get-FirefoxProfiles
         Source = '~/.omnisharp'
     }
     @{
-        Target = './ahk/AutoHotkeyU64.ahk'
-        Source = '~/Documents/AutoHotkeyU64.ahk'
-    }
-    @{
-        Target = './ahk/AutoHotkeyU64.custom.ahk'
-        Source = '~/Documents/AutoHotkeyU64.custom.ahk'
-    }
-    @{
         Target = './azuredatastudio/settings.json'
         Source = "$env:APPDATA/azuredatastudio/User/settings.json"
     }
