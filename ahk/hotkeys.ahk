@@ -7,10 +7,19 @@ SetTitleMatchMode, RegEx
 ; Better navigation
 <^Up::          SendInput {PgUp}
 <^Down::        SendInput {PgDn}
-<#!Up::         SendInput ^{Home}
-<#!Down::       SendInput ^{End}
-<#!Left::       SendInput {Home}
-<#!Right::      SendInput {End}
+<+^Up::         SendInput +{PgUp}
+<+^Down::       SendInput +{PgDn}
+#If, !GetKeyState("Shift")
+    CapsLock & Up::     SendInput ^{Home}
+    CapsLock & Down::   SendInput ^{End}
+    CapsLock & Left::   SendInput {Home}
+    CapsLock & Right::  SendInput {End}
+#If, GetKeyState("Shift")
+    CapsLock & Up::     SendInput +^{Home}
+    CapsLock & Down::   SendInput +^{End}
+    CapsLock & Left::   SendInput +{Home}
+    CapsLock & Right::  SendInput +{End}
+#If
 
 ; CapsLock -> Alt+Tab
 CapsLock::      SendInput !{Tab}
