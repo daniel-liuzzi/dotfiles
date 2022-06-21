@@ -10,6 +10,7 @@
         "hotstrings",
         "Xunit",
     ],
+    "debug.onTaskErrors": "abort",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.cursorBlinking": "expand",
