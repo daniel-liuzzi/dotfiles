@@ -9,6 +9,9 @@
     "files.hotExit": "off",
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Default Dark Azure Data Studio",
+    "workbench.editorAssociations": {
+        "*.{sqlplan}": "workbench.editor.executionplan"
+    },
     "workbench.enablePreviewFeatures": true,
     "workbench.startupEditor": "welcomePage"
 }
