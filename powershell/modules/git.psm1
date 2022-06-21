@@ -1,5 +1,11 @@
 Import-Module $ProfileDir/modules/base
 
+function Test-Wips {
+    if (quietly lgp --grep='^WIP$' 2> $null) {
+        throw 'WIP commits found. Aborting...'
+    }
+}
+
 function g { run git @args }
 function a { g add @args }
 function aa { a --all @args }
@@ -11,21 +17,13 @@ function cn { c --no-edit @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
-
-function pull {
-    if (quietly lgu --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pulling.' }
-    g pull @args
-}
-
-function push {
-    if (quietly lgp --grep='^WIP$' 2> $null) { throw 'WIP commits found. Please unwip before pushing.' }
-    g push --set-upstream @args
-}
-
+function pull { Test-Wips; g pull --tags @args }
+function push { Test-Wips; g push --set-upstream @args }
 function re { g recent @args }
 function s { g status @args }
 function show { g show @args }
 function sw { show @args }
+function sync { pull; push }
 function wip { aa; c --message=WIP }
 
 function unwip {
