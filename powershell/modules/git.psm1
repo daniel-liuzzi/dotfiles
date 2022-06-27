@@ -17,7 +17,7 @@ function cn { c --no-edit @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
 function mt { g mergetool @args }
-function pull { Test-Wips; g pull --tags @args }
+function pull { Test-Wips; g pull @args }
 function push { Test-Wips; g push --set-upstream @args }
 function re { g recent @args }
 function s { g status @args }
