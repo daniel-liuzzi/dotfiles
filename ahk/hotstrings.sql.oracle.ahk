@@ -4,6 +4,31 @@
 +{Home}alter session set current_schema = ;{Left}
 )
 
+; Query errors
+:R0:oerrors::
+(
++{Home}select *
++{Home}from user_errors
++{Home}where
++{Home}    name like upper('%%') and
++{Home}    type like upper('%%')
++{Home}order by name;
++{Home}{Up 3}{End}{Left 7}
+)
+
+; Query errors (all users)
+:R0:oerrorsa::
+(
++{Home}select *
++{Home}from all_errors
++{Home}where
++{Home}    owner like upper('%%') and
++{Home}    name like upper('%%') and
++{Home}    type like upper('%%')
++{Home}order by owner, name;
++{Home}{Up 4}{End}{Left 7}
+)
+
 ; Query tables
 :R0:otbls::
 (
