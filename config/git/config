@@ -30,6 +30,8 @@
 	verbose = true
 
 [core]
+	longpaths = true
+
 	# https://github.com/dandavison/delta#configuration
 	pager = delta
 
