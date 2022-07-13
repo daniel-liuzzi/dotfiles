@@ -61,9 +61,11 @@
             ]
         }
     },
+    "terminal.integrated.shellIntegration.enabled": true,
     "typescript.suggest.completeFunctionCalls": true,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.commandCenter": true,
     "window.restoreWindows": "none",
     "window.title": "${rootName}${separator}${dirty}${separator}${activeEditorMedium}",
     "window.titleSeparator": " — ",
