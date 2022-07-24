@@ -44,7 +44,7 @@ function New-ConsoleApp {
     Push-Location $Path
 
     git init
-    git commit --message="initial" --allow-empty
+    git commit --allow-empty --allow-empty-message --no-edit
 
     dotnet new gitignore
     git add --all
