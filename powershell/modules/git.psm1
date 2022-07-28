@@ -246,7 +246,7 @@ function Get-GitBranchBase($Ref) {
     if ($Base) { return $Base }
 
     $Main = Get-GitBranchMain
-    if ($Ref -eq $Main) { return $null }
+    if ($Ref -eq $Main) { return Get-GitEmptyTree }
 
     $Develop = Get-GitBranchDev
     if (!$Develop) { return $Main }
