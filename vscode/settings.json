@@ -69,7 +69,6 @@
     "window.restoreWindows": "none",
     "window.title": "${rootName}${separator}${dirty}${separator}${activeEditorMedium}",
     "window.titleSeparator": " — ",
-    "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
         "editorCursor.foreground": "#66ff66",
         "editor.lineHighlightBackground": "#303030",
