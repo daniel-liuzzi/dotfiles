@@ -63,18 +63,6 @@
                     "type": "text"
                 },
                 {
-                    "background": "#99ff99",
-                    "foreground": "#000000",
-                    "powerline_symbol": "\ue0b0",
-                    "style": "powerline",
-                    "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
-                    "type": "dotnet"
-                },
-                {
-                    "template": "\u00a0",
-                    "type": "text"
-                },
-                {
                     "background": "#95f8ff",
                     "background_templates": [
                         "{{ if or (.Working.Changed) (.Staging.Changed) }}#ff9900{{ end }}",
