@@ -15,7 +15,6 @@
     "editor.guides.bracketPairsHorizontal": true,
     "editor.cursorBlinking": "expand",
     "editor.cursorSmoothCaretAnimation": true,
-    "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "ComicMono NF",
@@ -23,7 +22,6 @@
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
-    "editor.inlineSuggest.enabled": true,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
     "editor.quickSuggestions": {
@@ -33,7 +31,6 @@
     },
     "editor.renderWhitespace": "all",
     "editor.suggest.insertMode": "replace",
-    "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.fileNesting.enabled": true,
@@ -47,6 +44,7 @@
     "javascript.suggest.completeFunctionCalls": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.autofetch": true,
+	"git.autofetchPeriod": 60,
     "groovyLint.java.options": "-Xms256m,-Xmx1024m",
     "omnisharp.enableDecompilationSupport": true,
     "powershell.integratedConsole.showOnStartup": false,
@@ -61,11 +59,9 @@
             ]
         }
     },
-    "terminal.integrated.shellIntegration.enabled": true,
     "typescript.suggest.completeFunctionCalls": true,
-    "vsicons.dontShowNewVersionMessage": true,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.commandCenter": true,
+    "window.menuBarVisibility": "compact",
     "window.restoreWindows": "none",
     "window.title": "${rootName}${separator}${dirty}${separator}${activeEditorMedium}",
     "window.titleSeparator": " — ",
@@ -101,7 +97,6 @@
     },
     "workbench.editor.restoreViewState": false,
     "workbench.editor.untitled.hint": "hidden",
-    "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 18,
 }

@@ -70,13 +70,16 @@
 	colorMovedWS = allow-indentation-change
 	renameLimit = 9999
 	statGraphWidth = 10
-	tool = winmerge
+	tool = vscode
 
 [difftool]
 	prompt = false
 
-[difftool "winmerge"]
-	cmd = winmergeu -r -e -u -wl -fr "$LOCAL" "$REMOTE"
+[difftool "vscode"]
+	cmd = code --new-window --wait --diff $LOCAL $REMOTE
+
+[difftool "winmergeu"]
+	cmd = winmergeu -r -e -u -wl -fr $LOCAL $REMOTE
 
 [fetch]
 	prune = true
@@ -105,11 +108,11 @@
 	trustExitCode = false
 
 [mergetool "vscode"]
-	cmd = code --wait $MERGED
+	cmd = code --new-window --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-[mergetool "winmerge"]
+[mergetool "winmergeu"]
 	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
-	cmd = winmergeu -e -u -fm -dl Ours -dm "$MERGED" -dr Theirs "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
+	cmd = winmergeu -e -u -fm -dl Ours -dm $MERGED -dr Theirs $LOCAL $BASE $REMOTE -o $MERGED
 
 [pretty]
 	s = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(050,trunc)%s  %C(brightblue)%aN%Creset
