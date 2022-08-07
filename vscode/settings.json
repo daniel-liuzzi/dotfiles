@@ -62,6 +62,7 @@
     "typescript.suggest.completeFunctionCalls": true,
     "window.commandCenter": true,
     "window.menuBarVisibility": "compact",
+    "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
     "window.title": "${rootName}${separator}${dirty}${separator}${activeEditorMedium}",
     "window.titleSeparator": " — ",
