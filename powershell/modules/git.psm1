@@ -14,7 +14,6 @@ function ancestry {
     if (!$Ref) { $Ref = 'HEAD' }
     lg @(
         '--all'
-        '--boundary'
         '--ancestry-path'
         '--graph'
         Get-GitFlags @args
@@ -100,7 +99,7 @@ function du { d '@{upstream}...HEAD' @args }
 function dua { d '@{upstream}..HEAD' @args }
 
 # git log
-function lg { g log --pretty=s @args }
+function lg { g log --boundary --pretty=s @args }
 function lgr { lg --reverse @args }
 function lgb {
     $Ref = Get-GitRevs @args
