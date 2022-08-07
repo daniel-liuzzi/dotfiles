@@ -9,6 +9,19 @@ function Test-Wips {
 function g { run git @args }
 function a { g add @args }
 function aa { a --all @args }
+function ancestry {
+    $Ref = Get-GitRevs @args
+    if (!$Ref) { $Ref = 'HEAD' }
+    lg @(
+        '--all'
+        '--boundary'
+        '--ancestry-path'
+        '--graph'
+        Get-GitFlags @args
+        "$Ref.."
+        Get-GitArgs @args
+    )
+}
 function b { g branch @args }
 function c { g commit @args }
 function ca { c --amend @args }
