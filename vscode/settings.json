@@ -5,6 +5,9 @@
     "[powershell]": {
         "editor.defaultFormatter": "ms-vscode.powershell",
     },
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
     "cSpell.userWords": [
         "hotstring",
         "hotstrings",
@@ -100,4 +103,7 @@
     "workbench.editor.untitled.hint": "hidden",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 18,
+    "xml.server.binary.trustedHashes": [
+        "a1bf296a5263bc63cca97cb46692d0d523edfe9d2d4e79d5b4d245f57c6c623b",
+    ],
 }
