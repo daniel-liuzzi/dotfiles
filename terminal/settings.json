@@ -459,5 +459,6 @@
         }
     ],
     "tabSwitcherMode": "mru",
+    "windowingBehavior": "useExisting",
     "wordDelimiters": " "
 }
