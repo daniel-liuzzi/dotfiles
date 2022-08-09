@@ -20,6 +20,7 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.experimental.stickyScroll.enabled": true,
     "editor.fontFamily": "ComicMono NF",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
