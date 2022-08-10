@@ -28,6 +28,7 @@ function can { ca --no-edit @args }
 function cn { c --no-edit @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
+function f { g fetch @args }
 function init { g init; cn --allow-empty --allow-empty-message @args }
 function mt { g mergetool @args }
 function pull { Test-Wips; g pull @args }
