@@ -23,7 +23,7 @@
 
 [color "status"]
 	added = green bold
-	changed = red bold
+	changed = yellow bold
 	untracked = red bold
 
 [commit]
