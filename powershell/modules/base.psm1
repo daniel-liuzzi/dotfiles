@@ -47,11 +47,7 @@ function Format-RelativeDate ([datetime]$Value) {
 
 function run ($Command) {
     if (!$Quiet) {
-        Write-Host @(
-            '>'
-            Get-QuotedValue $Command
-            $args | ForEach-Object { Get-QuotedValue $_ }
-        ) -ForegroundColor DarkGray
+        Write-Host '&' (Get-QuotedValues $Command @args) -ForegroundColor DarkGray
     }
 
     & $Command @args
@@ -59,10 +55,12 @@ function run ($Command) {
 
 function quietly { $Quiet = $true; run @args }
 
-function Get-QuotedValue($Value) {
-    if ($Value -isnot [string]) { return $Value }
-    if ($Value -notmatch '[^-./\\\w^=~]') { return $Value }
-    return "'$($Value.Replace("'", "''"))'"
+function Get-QuotedValues {
+    $args | ForEach-Object {
+        if ($_ -isnot [string]) { return $_ }
+        if ($_ -notmatch '[^-./\\\w^=~]') { return $_ }
+        return "'$($_.Replace("'", "''"))'"
+    }
 }
 
-Set-Alias -Name 'quote' -Value 'Get-QuotedValue'
+Set-Alias -Name 'quote' -Value 'Get-QuotedValues'
