@@ -1,3 +1,6 @@
+[add.interactive]
+	useBuiltin = false
+
 [advice]
 	addEmptyPathspec = false
 
