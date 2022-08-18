@@ -1,7 +1,7 @@
 Import-Module $ProfileDir/modules/base
 Import-Module $ProfileDir/modules/git
 
-function Get-ReferenceGraph {
+function Get-SlnGraph {
     # TODO: Parse SLN
     'digraph {'
     Get-ChildItem -Filter *.csproj -Recurse |
