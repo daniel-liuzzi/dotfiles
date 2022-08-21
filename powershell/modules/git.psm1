@@ -323,7 +323,4 @@ function Get-GitChildItem {
 
 function Get-GitEmptyTree { $null | git mktree }
 
-# Fix delta hyperlinks - https://github.com/dandavison/delta/issues/332#issuecomment-703149304
-$env:DELTA_PAGER = 'less -rFX'
-
 Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
