@@ -112,9 +112,9 @@
 	cmd = winmergeu -e -u -fm -dl Ours -dm $MERGED -dr Theirs $LOCAL $BASE $REMOTE -o $MERGED
 
 [pretty]
-	s = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(050,trunc)%s  %C(brightblue)%aN%C(auto)%d%Creset
-	m = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(100,trunc)%s  %C(brightblue)%aN%C(auto)%d%Creset
-	l = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(150,trunc)%s  %C(brightblue)%aN%C(auto)%d%Creset
+	s = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(050,trunc)%s  %C(brightblue)%aN%C(auto)% D%Creset
+	m = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(100,trunc)%s  %C(brightblue)%aN%C(auto)% D%Creset
+	l = %C(brightgreen)%ad  %C(white)%m  %C(brightred)%h  %C(brightwhite)%<(150,trunc)%s  %C(brightblue)%aN%C(auto)% D%Creset
 
 [pull]
 	rebase = merges
