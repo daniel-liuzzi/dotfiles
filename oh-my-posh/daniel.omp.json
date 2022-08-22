@@ -80,7 +80,7 @@
                         "fetch_worktree_count": true
                     },
                     "style": "powerline",
-                    "template": " {{ .Env.HEAD_REV }} {{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} <#000000>\ue0b1</> \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} <#000000>\ue0b1</> \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}}<#000000>\ue0b1</> \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+                    "template": " {{ .HEAD }}{{ .BranchStatus }} <#000000>\ue0b1</> {{ .Env.HEAD_REV }}{{ if .Working.Changed }} <#000000>\ue0b1</> \uf044 {{ .Working.String }}{{ end }} {{ if .Staging.Changed }} <#000000>\ue0b1</> \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}}<#000000>\ue0b1</> \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
                     "type": "git"
                 }
             ],
