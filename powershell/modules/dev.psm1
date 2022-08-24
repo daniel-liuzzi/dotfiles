@@ -154,9 +154,15 @@ function Start-File($Filter) {
     run start $Path
 }
 
-function Start-Project { Start-File *.*proj }
+function Start-Project {
+    # TODO: check if project already open, if so, focus window (alla vscode)
+    Start-File *.*proj
+}
 
-function Start-Solution { Start-File *.sln }
+function Start-Solution {
+    # TODO: check if solution already open, if so, focus window (alla vscode)
+    Start-File *.sln
+}
 
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'e' -Value 'edit'
