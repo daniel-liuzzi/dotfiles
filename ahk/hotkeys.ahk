@@ -3,26 +3,67 @@
 
 #UseHook
 SetTitleMatchMode, RegEx
+SetCapsLockState, AlwaysOff
 
-; Better navigation
-<^Up::          SendInput {PgUp}
-<^Down::        SendInput {PgDn}
-<+^Up::         SendInput +{PgUp}
-<+^Down::       SendInput +{PgDn}
-#If, !GetKeyState("Shift")
-    CapsLock & Up::     SendInput ^{Home}
-    CapsLock & Down::   SendInput ^{End}
-    CapsLock & Left::   SendInput {Home}
-    CapsLock & Right::  SendInput {End}
-#If, GetKeyState("Shift")
-    CapsLock & Up::     SendInput +^{Home}
-    CapsLock & Down::   SendInput +^{End}
-    CapsLock & Left::   SendInput +{Home}
-    CapsLock & Right::  SendInput +{End}
+#If GetKeyState("CapsLock", "P")
+
+    ; Function row
+    1::F1
+    2::F2
+    3::F3
+    4::F4
+    5::F5
+    6::F6
+    7::F7
+    8::F8
+    9::F9
+    0::F10
+    -::F11
+    =::F12
+
+    ; 🠜/🠞/🠝/🠟               (no change)
+    ; Caps + 🠜/🠞            prev/next word
+    ; Caps + 🠝/🠟            prev/next page
+    ; Caps + Ctrl + 🠜/🠞     start/end line
+    ; Caps + Ctrl + 🠝/🠟     start/end file
+    Up::        PgUp
+    Down::      PgDn
+    Left::      ^Left
+    Right::     ^Right
+    <^Up::      Home
+    <^Down::    End
+    <^Left::    SendInput {Home}
+    <^Right::   SendInput {End}
+    <+^Left::   SendInput +{Home}
+    <+^Right::  SendInput +{End}
+
+    ; Media controls
+    [::         Volume_Down
+    ]::         Volume_Up
+    \::         Volume_Mute
+    ,::         Media_Prev
+    .::         Media_Next
+    Space::     Media_Play_Pause
+
+    ; Caps + L = Turn monitor off and lock PC
+    ; https://gist.github.com/davejamesmiller/1965854
+    l::
+        Run rundll32.exe user32.dll`,LockWorkStation
+        Sleep 1000
+        SendMessage 0x112, 0xF170, 2,, Program Manager
+        return
+
+    ; Misc.
+    `::         Esc
+    Esc::       `
+    BackSpace:: Delete
+    i::         Insert
+    p::         PrintScreen
+
 #If
 
 ; CapsLock -> Alt+Tab
-CapsLock::      SendInput !{Tab}
+;;CapsLock::      SendInput !{Tab} ; Temporarily disabled (interferes with the above)
 
 ; Alt+= -> Autosize listview columns
 !=::            SendInput ^{NumpadAdd}
@@ -63,11 +104,6 @@ CapsLock::      SendInput !{Tab}
 ; macOS-style shortcuts
 ^q::            SendInput !{F4}         ; Quit app
 
-; Volume control
-^#!=::          SendInput {Volume_Up}   ; Increase volume
-^#!-::          SendInput {Volume_Down} ; Decrease volume
-^#!0::          SendInput {Volume_Mute} ; Toggle mute
-
 ; Ctrl+Shift+V paste without formatting on any app
 ; How to Paste Text Without the Extra Formatting
 ; https://www.howtogeek.com/186723/ask-htg-how-can-i-paste-text-without-the-formatting/
@@ -80,20 +116,3 @@ CapsLock::      SendInput !{Tab}
         ClipSaved = ; clear the variable
         return
 #If
-
-; Turn monitor off with a keyboard shortcut
-; Source: https://gist.github.com/davejamesmiller/1965854
-
-; Win+\
-#\::
-    Sleep 1000
-    SendMessage 0x112, 0xF140, 0,, Program Manager  ; Start screensaver
-    SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
-    return
-
-; Win+Shift+\
-#+\::
-    Run rundll32.exe user32.dll`,LockWorkStation    ; Lock PC
-    Sleep 1000
-    SendMessage 0x112, 0xF170, 2,, Program Manager  ; Monitor off
-    return
