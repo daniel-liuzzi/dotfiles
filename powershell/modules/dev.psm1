@@ -167,6 +167,14 @@ function Start-Solution {
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 Set-Alias -Name 'e' -Value 'edit'
 Set-Alias -Name 'edit' -Value 'code'
+
+Set-Alias -Name 'msbuild' -Value (
+    # scoop install vswhere
+    # https://github.com/microsoft/vswhere/wiki/Find-MSBuild#powershell
+    vswhere -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe |
+    select-object -first 1
+)
+
 Set-Alias -Name 'proj' -Value 'Start-Project'
 Set-Alias -Name 'sln' -Value 'Start-Solution'
 Set-Alias -Name 'wm' -Value 'winmergeu'
