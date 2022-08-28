@@ -1,3 +1,9 @@
+if ($PSVersionTable.PSEdition -eq 'Core') {
+    $RunColorAmpersand = $PSStyle.Foreground.FromRgb(0x222222)
+    $RunColorCommand = $PSStyle.Foreground.FromRgb(0x666644)
+    $RunColorArgs = $PSStyle.Foreground.FromRgb(0x444444)
+}
+
 function New-Link {
     param (
         [Parameter(Mandatory = $true)]
@@ -47,7 +53,11 @@ function Format-RelativeDate ([datetime]$Value) {
 
 function run ($Command) {
     if (!$Quiet) {
-        Write-Host '&' (Get-QuotedValues $Command @args) -ForegroundColor DarkGray
+        Write-Host @(
+            $RunColorAmpersand + '&'
+            $RunColorCommand + (Get-QuotedValues $Command)
+            $RunColorArgs + (Get-QuotedValues @args)
+        ) -ForegroundColor DarkGray
     }
 
     & $Command @args
