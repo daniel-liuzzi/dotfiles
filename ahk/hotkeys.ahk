@@ -21,21 +21,11 @@ SetCapsLockState, AlwaysOff
     -::F11
     =::F12
 
-    ; 🠜/🠞/🠝/🠟               (no change)
-    ; Caps + 🠜/🠞            prev/next word
-    ; Caps + 🠝/🠟            prev/next page
-    ; Caps + Ctrl + 🠜/🠞     start/end line
-    ; Caps + Ctrl + 🠝/🠟     start/end file
+    ; MacBook-style navigation keys
+    Left::      Home
+    Right::     End
     Up::        PgUp
     Down::      PgDn
-    Left::      ^Left
-    Right::     ^Right
-    <^Up::      Home
-    <^Down::    End
-    <^Left::    SendInput {Home}
-    <^Right::   SendInput {End}
-    <+^Left::   SendInput +{Home}
-    <+^Right::  SendInput +{End}
 
     ; Media controls
     [::         Volume_Down
