@@ -96,4 +96,13 @@ Write-Output ''
 Write-Output 'Close PowerShell and reopen it for changes to take effect.'
 Write-Output ''
 
+# Enable long paths (Windows 10 version 1607 and Later)
+# https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later
+New-ItemProperty `
+    -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' `
+    -Name 'LongPathsEnabled' `
+    -Value 1 `
+    -PropertyType DWORD `
+    -Force
+
 pause
