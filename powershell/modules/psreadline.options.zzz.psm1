@@ -1,3 +1,7 @@
+if ($PSVersionTable.PSEdition -eq 'Core') {
+    Import-Module Az.Tools.Predictor -Global
+}
+
 # psreadline overrides
 Set-PSReadLineKeyHandler -Key 'UpArrow' -Function 'PreviousHistory'
 Set-PSReadLineKeyHandler -Key 'DownArrow' -Function 'NextHistory'

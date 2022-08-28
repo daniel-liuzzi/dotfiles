@@ -11,6 +11,9 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
 }
 
 Write-Output '- Installing Powershell modules...'
+Install-Module -Name Az.Accounts -RequiredVersion 2.9.1 -Force
+Install-Module -Name Az.Resources -RequiredVersion 6.1.0 -Force
+Install-Module -Name Az.Tools.Predictor -RequiredVersion 1.0.1 -Force
 Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
 Install-Module -Name PsIni -RequiredVersion 3.1.2 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.6 -Force
