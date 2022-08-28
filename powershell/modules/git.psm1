@@ -102,6 +102,11 @@ function du { d '@{upstream}...HEAD' @args }
 function dua { d '@{upstream}..HEAD' @args }
 
 # git log
+function ln_($number) { lgr --max-count=$number @args }
+function l9 { ln_ 9 @args }
+function l19 { ln_ 29 @args }
+function l49 { ln_ 49 @args }
+function l99 { ln_ 99 @args }
 function lg { g log --boundary --pretty=s @args }
 function lgr { lg --reverse @args }
 function lgb {
