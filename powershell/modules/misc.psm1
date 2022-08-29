@@ -12,6 +12,5 @@ function which { Get-Command @args | Select-Object -ExpandProperty Definition }
 
 Set-Alias -Name 'ads' -Value 'azuredatastudio'
 Set-Alias -Name 'hist' -Value 'Get-SavedHistory'
-Set-Alias -Name 'l' -Value 'Get-ChildItem'
 Set-Alias -Name 'o' -Value 'Start-Process'
 Set-Alias -Name 'open' -Value 'Start-Process'

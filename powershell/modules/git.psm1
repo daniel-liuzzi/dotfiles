@@ -1,7 +1,7 @@
 Import-Module $ProfileDir/modules/base
 
 function Test-Wips {
-    if (quietly lgp --grep='^WIP$' 2> $null) {
+    if (quietly lp --grep='^WIP$' 2> $null) {
         throw 'WIP commits found. Aborting...'
     }
 }
@@ -12,7 +12,7 @@ function aa { a --all @args }
 function ancestry {
     $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    lg @(
+    l @(
         '--all'
         '--ancestry-path'
         '--graph'
@@ -102,39 +102,39 @@ function du { d '@{upstream}...HEAD' @args }
 function dua { d '@{upstream}..HEAD' @args }
 
 # git log
-function ln_($number) { lgr --max-count=$number @args }
+function ln_($number) { lr --max-count=$number @args }
 function l9 { ln_ 9 @args }
 function l19 { ln_ 29 @args }
 function l49 { ln_ 49 @args }
 function l99 { ln_ 99 @args }
-function lg { g log --boundary --pretty=s @args }
-function lgr { lg --reverse @args }
-function lgb {
+function l { g log --boundary --pretty=s @args }
+function lr { l --reverse @args }
+function lb {
     $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr @(
+    lr @(
         Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)..$Ref"
         Get-GitArgs @args
     )
 }
-function lgba {
+function lba {
     $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    lgr @(
+    lr @(
         Get-GitFlags @args
         "$(Get-GitBranchBase $Ref)...$Ref"
         Get-GitArgs @args
     )
 }
-function lgd { lgr "$(Get-GitBranchDev)..HEAD" @args }
-function lgda { lgr "$(Get-GitBranchDev)...HEAD" @args }
-function lgm { lgr "$(Get-GitBranchMain)..HEAD" @args }
-function lgma { lgr "$(Get-GitBranchMain)...HEAD" @args }
-function lgp { lgr '@{push}..HEAD' @args }
-function lgpa { lgr '@{push}...HEAD' @args }
-function lgu { lgr '@{upstream}..HEAD' @args }
-function lgua { lgr '@{upstream}...HEAD' @args }
+function ld { lr "$(Get-GitBranchDev)..HEAD" @args }
+function lda { lr "$(Get-GitBranchDev)...HEAD" @args }
+function lm { lr "$(Get-GitBranchMain)..HEAD" @args }
+function lma { lr "$(Get-GitBranchMain)...HEAD" @args }
+function lp { lr '@{push}..HEAD' @args }
+function lpa { lr '@{push}...HEAD' @args }
+function lu { lr '@{upstream}..HEAD' @args }
+function lua { lr '@{upstream}...HEAD' @args }
 
 # git merge
 function gm_ { g merge @args }
@@ -250,7 +250,7 @@ function clone($Url) {
     Set-Location $Directory
 }
 
-# These three don't always work as expected. For instance `lgb -3` generates
+# These three don't always work as expected. For instance `lb -3` generates
 # `git log --pretty=s --reverse develop..-3` which results in `ambiguous
 # argument 'develop..-3'`. This happens because flags like -3, -n3, or even
 # --max-count=3 *are all valid revs* and as such they get picked up by
