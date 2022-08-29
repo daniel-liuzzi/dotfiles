@@ -39,7 +39,7 @@ function s { g status @args }
 function show { g show @args }
 function sw { show @args }
 function sync { pull; push }
-function undo { rs HEAD^ @args  }
+function undo { rs HEAD^ @args }
 function wip { aa; c --message=WIP }
 
 function unwip {
