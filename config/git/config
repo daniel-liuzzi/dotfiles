@@ -46,27 +46,27 @@
 	selected = manager-core
 
 [delta]
-	file-style = "#ffffff"
 	file-decoration-style = "#333333" ul box
+	file-style = "#ffffff"
 	hunk-header-decoration-style = none
 	hyperlinks = true
 	line-numbers = true
-	line-numbers-minus-style = "#80312f"
-	line-numbers-zero-style = "#666666"
-	line-numbers-plus-style = "#1d572d"
 	line-numbers-left-format = "{nm:>3} ⋮ "
 	line-numbers-left-style = "#333333"
+	line-numbers-minus-style = "#80312f"
+	line-numbers-plus-style = "#1d572d"
 	line-numbers-right-format = "{np:>3} │ "
 	line-numbers-right-style = "#333333"
+	line-numbers-zero-style = "#666666"
 	max-line-length = 0
+	minus-emph-style = syntax "#80312f"
 	minus-style = syntax "#301b1e"
 	navigate = true
-	plus-style = syntax "#12261e"
-	minus-emph-style = syntax "#80312f"
+	paging = always
 	plus-emph-style = syntax "#1d572d"
+	plus-style = syntax "#12261e"
 	relative-paths = true
 	syntax-theme = Dracula
-	paging = always
 
 [diff]
 	algorithm = histogram
