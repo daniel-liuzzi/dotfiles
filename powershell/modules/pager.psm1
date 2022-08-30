@@ -11,14 +11,21 @@ $env:BAT_OPTS = @(
 
 # https://git-scm.com/docs/git-config/2.37.2#Documentation/git-config.txt-corepager
 $env:LESS = @(
-    '--chop-long-lines'
-    '--clear-screen'
-    '--IGNORE-CASE'
-    # '--no-init' # spams stdout
-    '--quit-if-one-screen'
-    # '--raw-control-chars' # breaks --chop-long-lines
-    '--shift=4'
-    '--tilde'
+    '--chop-long-lines'     # -S    Truncate long lines rather than wrapping
+    '--clear-screen'        # -c    Repaint by clearing rather than scrolling
+    '--IGNORE-CASE'         # -I    Ignore case in all searches
+
+    # # Commented out as it fills up the scrollback buffer
+    # # https://github.com/gwsw/less/issues/266#issuecomment-1140589904
+    # '--no-init'           # -X    Don't use termcap init/deinit strings
+
+    '--quit-if-one-screen'  # -F    Quit if entire file fits on first screen
+
+    # # Breaks --chop-long-lines
+    # '--raw-control-chars' # -r    Output "raw" control characters
+
+    '--shift=4'             # -#    Set horizontal scroll amount (0 = one half screen width)
+    '--tilde'               # -~    Don't display tildes after end of file
 )
 
 # Better pager for commands that respect it, i.e., `help`
