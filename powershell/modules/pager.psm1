@@ -12,6 +12,7 @@ $env:BAT_OPTS = @(
 # https://git-scm.com/docs/git-config/2.37.2#Documentation/git-config.txt-corepager
 $env:LESS = @(
     '--chop-long-lines'
+    '--clear-screen'
     '--IGNORE-CASE'
     # '--no-init' # spams stdout
     '--quit-if-one-screen'
