@@ -66,6 +66,7 @@
 	plus-emph-style = syntax "#1d572d"
 	relative-paths = true
 	syntax-theme = Dracula
+	paging = always
 
 [diff]
 	algorithm = histogram
