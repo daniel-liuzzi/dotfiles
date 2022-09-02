@@ -34,7 +34,6 @@ function init { g init; cn --allow-empty --allow-empty-message @args }
 function mt { g mergetool @args }
 function pull { Test-Wips; g pull @args }
 function push { Test-Wips; g push --set-upstream @args }
-function re { g recent @args }
 function s { g status @args }
 function show { g show @args }
 function sw { show @args }
@@ -103,6 +102,7 @@ function dua { d '@{upstream}..HEAD' @args }
 
 # git log
 function ln_($number) { lr --max-count=$number @args }
+function l5 { ln_ 5 @args }
 function l9 { ln_ 9 @args }
 function l19 { ln_ 29 @args }
 function l49 { ln_ 49 @args }
@@ -209,6 +209,15 @@ function grim {
         Get-GitArgs @args
     )
 }
+
+# git recent
+function r_ { g recent @args }
+function rn($number) { r_ "-n$number" @args }
+function r5 { rn 5 @args }
+function r9 { rn 9 @args }
+function r19 { rn 29 @args }
+function r49 { rn 49 @args }
+function r99 { rn 99 @args }
 
 # git reset
 function rs { g reset @args }
