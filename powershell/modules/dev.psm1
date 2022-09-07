@@ -1,24 +1,18 @@
 Import-Module $ProfileDir/modules/base
 Import-Module $ProfileDir/modules/git
 
-function Get-SlnGraph {
-    # TODO: Parse SLN
+function Get-SlnGraph($Path = $PWD) {
+    $Sln = Get-Item $Path
+    $SlnPath = if ($Sln.DirectoryName) { $Sln.DirectoryName } else { $Sln.FullName }
+
     'digraph {'
-    Get-ChildItem -Filter *.csproj -Recurse |
-    ForEach-Object {
-        $projectFile = $_ | Select-Object -ExpandProperty FullName
-        $projectName = $_ | Select-Object -ExpandProperty BaseName
-        $projectXml = [xml](Get-Content $projectFile)
+    dotnet sln $Path list | Select-String 'proj$' | ForEach-Object {
+        $Proj = Join-Path $SlnPath $_ | Get-Item
 
-        $projectReferences = $projectXml |
-        Select-Xml '/Project/ItemGroup/ProjectReference' |
-        Select-Object -ExpandProperty Node |
-        Select-Object -ExpandProperty Include |
-        ForEach-Object { ([IO.FileInfo]$_).BaseName }
-
-        "    ""$projectName"";"
-        $projectReferences | ForEach-Object {
-            "    ""$projectName"" -> ""$_"";"
+        "    ""$($Proj.BaseName)"";"
+        dotnet list $Proj reference | Select-String 'proj$' | ForEach-Object {
+            $Ref = Join-Path $Proj.Directory $_ | Get-Item
+            "    ""$($Proj.BaseName)"" -> ""$($Ref.BaseName)"";"
         }
     }
     '}'
