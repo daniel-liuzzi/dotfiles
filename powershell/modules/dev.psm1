@@ -1,21 +1,41 @@
 Import-Module $ProfileDir/modules/base
 Import-Module $ProfileDir/modules/git
 
-function Get-SlnGraph($Path = $PWD) {
+function Get-SlnReferences($Path = $PWD) {
     $Sln = Get-Item $Path
     $SlnPath = if ($Sln.DirectoryName) { $Sln.DirectoryName } else { $Sln.FullName }
 
-    'digraph {'
-    dotnet sln $Path list | Select-String 'proj$' | ForEach-Object {
-        $Proj = Join-Path $SlnPath $_ | Get-Item
-
-        "    ""$($Proj.BaseName)"";"
-        dotnet list $Proj reference | Select-String 'proj$' | ForEach-Object {
-            $Ref = Join-Path $Proj.Directory $_ | Get-Item
-            "    ""$($Proj.BaseName)"" -> ""$($Ref.BaseName)"";"
+    dotnet sln $Path list | Select-String 'proj$' | Sort-Object | ForEach-Object {
+        $Project = Join-Path $SlnPath $_ | Get-Item
+        [PSCustomObject][ordered]@{
+            Project    = $Project.BaseName
+            References = dotnet list $Project reference | Select-String 'proj$' | Sort-Object | ForEach-Object {
+                $Reference = Join-Path $Project.Directory $_ | Get-Item
+                $Reference.BaseName
+            }
         }
     }
-    '}'
+}
+
+function Get-SlnReferencesGraph($Path = $PWD) {
+    $Projects = Get-SlnReferences $Path
+    $Graph = @(
+        'digraph {'
+        $Projects | ForEach-Object { '    "{0}";' -f $_.Project }
+        $Projects | ForEach-Object {
+            if (!$_.References) { return }
+            $Project = $_.Project
+            $_.References | ForEach-Object {
+                '    "{0}" -> "{1}";' -f $Project, $_
+            }
+        }
+        '}'
+    )
+
+    $TempFile = "$(New-TemporaryFile).svg"
+    $Graph | dot -T svg -o $TempFile # scoop install graphviz
+    Start-Process $TempFile -Wait
+    Remove-Item $TempFile
 }
 
 <#
