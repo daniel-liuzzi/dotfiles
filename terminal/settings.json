@@ -6,14 +6,18 @@
         {
             "command": 
             {
+                "action": "openSettings",
+                "target": "settingsUI"
+            },
+            "keys": "ctrl+shift+comma"
+        },
+        {
+            "command": 
+            {
                 "action": "switchToTab",
                 "index": 5
             },
             "keys": "ctrl+6"
-        },
-        {
-            "command": "closePane",
-            "keys": "ctrl+w"
         },
         {
             "command": 
@@ -24,8 +28,20 @@
             "keys": "ctrl+3"
         },
         {
+            "command": "closePane",
+            "keys": "ctrl+w"
+        },
+        {
             "command": "paste",
             "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 1
+            },
+            "keys": "ctrl+2"
         },
         {
             "command": 
@@ -33,14 +49,6 @@
                 "action": "newTab"
             },
             "keys": "ctrl+t"
-        },
-        {
-            "command": 
-            {
-                "action": "openSettings",
-                "target": "settingsUI"
-            },
-            "keys": "ctrl+shift+comma"
         },
         {
             "command": "find",
@@ -61,14 +69,6 @@
                 "index": 4
             },
             "keys": "ctrl+5"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 1
-            },
-            "keys": "ctrl+2"
         },
         {
             "command": 
@@ -176,6 +176,12 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
             }
         ]
     },
@@ -459,6 +465,7 @@
         }
     ],
     "tabSwitcherMode": "mru",
+    "themes": [],
     "windowingBehavior": "useExisting",
     "wordDelimiters": " ,"
 }
