@@ -3,6 +3,14 @@
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
+        { "command": { "action": "addMark" } },
+        { "command": { "action": "addMark", "color": "#ff00ff" } },
+        { "command": { "action": "addMark", "color": "#0000ff" } },
+        { "command": { "action": "clearAllMarks" } },
+        { "command": { "action": "scrollToMark", "direction": "previous" }, "keys": "ctrl+up" },
+        { "command": { "action": "scrollToMark", "direction": "next" }, "keys": "ctrl+down" },
+        { "command": { "action": "scrollToMark", "direction": "first" }, "keys": "ctrl+pgup" },
+        { "command": { "action": "scrollToMark", "direction": "last" }, "keys": "ctrl+pgdn" },
         {
             "command": 
             {
@@ -128,6 +136,8 @@
         "defaults": 
         {
             "colorScheme": "Daniel",
+            "experimental.autoMarkPrompts": true,
+            "experimental.showMarksOnScrollbar": true,
             "font": 
             {
                 "face": "ComicMono NF",
