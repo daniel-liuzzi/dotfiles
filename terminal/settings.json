@@ -142,7 +142,8 @@
             {
                 "face": "ComicMono NF",
                 "size": 12
-            }
+            },
+            "useAtlasEngine": false
         },
         "list": 
         [
