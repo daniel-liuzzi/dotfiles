@@ -1,0 +1,15 @@
+$Servers = @{
+    MSSQL_LOCAL = @{ Driver = 'ms'; Host = 'localhost'; User = 'bobby'; Pass = 'correct horse battery staple' }
+    MSSQL_PROD  = @{ Driver = 'ms'; Host = 'example.com'; User = 'bobby'; Pass = 'correct horse battery staple' }
+    ORACLE      = @{ Driver = 'ora'; Host = 'example.com'; User = 'bobby'; Pass = 'correct horse battery staple' }
+}
+
+$global:SqlOptions = @{
+    Prefix    = 'DSN_'
+    Databases = @{
+        CONTOSO   = @{ Name = 'contoso'; Server = $Servers.MSSQL_LOCAL }
+        ACME      = @{ Name = 'acme'; Server = $Servers.MSSQL_LOCAL }
+        ACME_PROD = @{ Name = 'acme'; Server = $Servers.MSSQL_PROD }
+        XYZ       = @{ Name = 'xyz'; Server = $Servers.ORACLE }
+    }
+}
