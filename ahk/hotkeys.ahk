@@ -52,6 +52,28 @@ SetCapsLockState, AlwaysOff
 
 #If
 
+; Force myself to use the above
+F1::
+F2::
+F3::
+F4::
+F5::
+F6::
+F7::
+F8::
+F9::
+F10::
+F11::
+F12::
+Home::
+End::
+PgUp::
+PgDn::
+Delete::
+Insert::
+PrintScreen::
+return
+
 ; CapsLock -> Alt+Tab
 ;;CapsLock::      SendInput !{Tab} ; Temporarily disabled (interferes with the above)
 
