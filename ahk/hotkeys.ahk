@@ -47,8 +47,11 @@ SetCapsLockState, AlwaysOff
     `::         Esc
     Esc::       `
     BackSpace:: Delete
+    b::         vk13 ; Pause
+    ^b::        CtrlBreak
     i::         Insert
     p::         PrintScreen
+    s::         ScrollLock
 
 #If
 
