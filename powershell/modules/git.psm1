@@ -102,6 +102,7 @@ function dua { d '@{upstream}..HEAD' @args }
 
 # git log
 function ln_($number) { lr --max-count=$number @args }
+function l1 { ln_ 1 @args }
 function l5 { ln_ 5 @args }
 function l9 { ln_ 9 @args }
 function l19 { ln_ 29 @args }
@@ -213,6 +214,7 @@ function grim {
 # git recent
 function r_ { g recent @args }
 function rn($number) { r_ "-n$number" @args }
+function r1 { rn 1 @args }
 function r5 { rn 5 @args }
 function r9 { rn 9 @args }
 function r19 { rn 29 @args }
