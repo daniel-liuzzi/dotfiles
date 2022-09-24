@@ -125,6 +125,9 @@
 	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
 	default = current
 
+	# Push annotated tags - https://stackoverflow.com/a/26438076/88709
+	followTags = true
+
 [rebase]
 	# Automatically stash and pop uncommitted changes with git pull --rebase
 	# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
