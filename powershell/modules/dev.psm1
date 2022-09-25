@@ -92,35 +92,50 @@ function New-Solution {
     }
 
     Push-Location $Path
-    dotnet new gitignore
     dotnet new sln
+    dotnet new editorconfig
 
-    $Name = Split-Path . -Leaf
+    Set-Content Directory.Build.props @(
+        '<Project>'
+        '    <PropertyGroup>'
+        '        <AssemblyName>$(SolutionName).$(MSBuildProjectName)</AssemblyName>'
+        '        <RootNamespace>$(AssemblyName.Replace(" ", "_"))</RootNamespace>'
+        '        <Deterministic>true</Deterministic>'
+        '    </PropertyGroup>'
+        '</Project>'
+    )
 
-    mkdir "$Name.Core" | Push-Location
+    mkdir Core | Push-Location
     dotnet new classlib @args
+    Remove-Item *.cs
     dotnet sln .. add .
     Pop-Location
 
-    mkdir "$Name.Cli" | Push-Location
+    mkdir Cli | Push-Location
     dotnet new console @args
-    dotnet add reference "../$Name.Core"
+    dotnet add reference ../Core
     dotnet sln .. add .
     Pop-Location
 
-    mkdir "$Name.Api" | Push-Location
+    mkdir Api | Push-Location
     dotnet new webapi --no-https @args
-    dotnet add reference "../$Name.Core"
+    dotnet add reference ../Core
     dotnet sln .. add .
     Pop-Location
 
-    mkdir "$Name.Api.Tests" | Push-Location
+    mkdir Api.Tests | Push-Location
     dotnet new xunit @args
-    dotnet add reference "../$Name.Api"
+    dotnet add reference ../Api
     dotnet sln .. add .
     Pop-Location
 
-    edit .
+    dotnet new gitignore
+    git init
+    git commit --no-edit --allow-empty --allow-empty-message
+    git add --all
+    git commit --message Initial
+
+    edit . ./Api/Controllers/WeatherForecastController.cs
 
     Pop-Location
 }
