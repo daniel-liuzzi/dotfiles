@@ -1,7 +1,7 @@
 Import-Module $ProfileDir/modules/base
 Import-Module $ProfileDir/modules/git
 
-function Get-SlnReferences($Path = $PWD) {
+function Get-SlnReferences($Path = $PWD.ProviderPath) {
     $Sln = Get-Item $Path
     $SlnPath = if ($Sln.DirectoryName) { $Sln.DirectoryName } else { $Sln.FullName }
 
@@ -17,7 +17,7 @@ function Get-SlnReferences($Path = $PWD) {
     }
 }
 
-function Get-SlnReferencesGraph($Path = $PWD) {
+function Get-SlnReferencesGraph($Path = $PWD.ProviderPath) {
     $Projects = Get-SlnReferences $Path
     $Graph = @(
         'digraph {'
