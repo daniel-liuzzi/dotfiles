@@ -163,7 +163,7 @@ function dnwr { dnw run @args }
 
 # misc.
 
-function dob { Get-ChildItem bin, obj -Directory -Recurse | Remove-Item -Force -Recurse }
+function dob { Get-ChildItem -Include bin, obj -Recurse -Directory | Remove-Item -Recurse -Force }
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
