@@ -1,10 +1,15 @@
 # scoop install bat less
 
-function Invoke-Bat { run bat @args }
+function Get-ContentColorized { run bat --paging=never @args }
 
-Set-Alias -Name cat -Value Invoke-Bat -Option AllScope -Scope Global
+@('cat', 'gc', 'type') | % {
+    Set-Alias -Name $_ -Value 'Get-ContentColorized' -Option AllScope -Scope Global -Force
+}
 
 $env:BAT_OPTS = @(
+    '--map-syntax="*.??proj:XML"'
+    '--map-syntax="app.config:XML"'
+    '--map-syntax="packages.config:XML"'
     '--style=full'
     '--wrap=never'
 )
