@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "console_title_template": "{{if .Root}}\u26A1{{end}}{{if .Env.REPO_NAME}}{{.Env.REPO_NAME}}{{else}}{{.Folder}}{{end}}",
+    "console_title_template": "{{if .Root}}\u26A1{{end}}{{if .Segments.Git.RepoName}}{{.Segments.Git.RepoName}}{{else}}{{.Folder}}{{end}}",
     "blocks": [
         {
             "alignment": "left",
@@ -80,7 +80,17 @@
                         "fetch_worktree_count": true
                     },
                     "style": "powerline",
-                    "template": " {{ .HEAD }} {{ .BranchStatus }} <#000000>\ue0b1</> {{ .Env.HEAD_REV }}{{ if .Working.Changed }} <#000000>\ue0b1</> \uf044 {{ .Working.String }}{{ end }} {{ if .Staging.Changed }} <#000000>\ue0b1</> \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}}<#000000>\ue0b1</> \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+                    "templates": [
+                        " {{ .HEAD }}",
+                        " {{ .BranchStatus }}",
+                        " <#000000>\ue0b1</>",
+                        " {{ .Env.HEAD_REV }}",
+                        "{{ if .Working.Changed }} <#000000>\ue0b1</> \uf044 {{ .Working.String }}{{ end }}",
+                        "{{ if .Staging.Changed }} <#000000>\ue0b1</> \uf046 {{ .Staging.String }}{{ end }}",
+                        "{{ if gt .StashCount 0 }} <#000000>\ue0b1</> \uf692 {{ .StashCount }}{{ end }}",
+                        "{{ if gt .WorktreeCount 0 }} <#000000>\ue0b1</> \uf1bb {{ .WorktreeCount }}{{ end }}",
+                        "\u2800"
+                    ],
                     "type": "git"
                 }
             ],
