@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "palette": {
+        "base": "#999999",
+        "highlight": "#ffffff",
+        "muted": "#333333",
+        "invisible": "#222211",
+        "took": "p:muted",
+        "root": "#ffc83d",
+        "git-repo": "#cc66cc",
+        "git-identical": "#00ccff",
+        "git-ahead": "#66ff66",
+        "git-behind": "#ff6666",
+        "git-diverged": "#ffff66",
+        "git-gone": "#666666",
+        "git-dirty": "#666666",
+        "git-sha": "p:invisible",
+        "path": "p:base",
+        "time": "p:muted",
+        "prompt": "p:muted"
+    },
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "p:took",
+                    "properties": {
+                        "threshold": 999
+                    },
+                    "style": "plain",
+                    "template": "<i>{{ .FormattedMs }}</i>\n",
+                    "type": "executiontime"
+                },
+                {
+                    "foreground": "p:path",
+                    "properties": {
+                        "style": "full"
+                    },
+                    "style": "plain",
+                    "template": "{{ if not .Segments.Git.Dir }}{{ .Path | replace \"\\\\\" \"/\" }}{{ end }}",
+                    "type": "path"
+                },
+                {
+                    "foreground_templates": [
+                        "{{ if .UpstreamGone }}p:git-gone{{ end }}",
+                        "{{ if and .Ahead .Behind }}p:git-diverged{{ end }}",
+                        "{{ if .Ahead }}p:git-ahead{{ end }}",
+                        "{{ if .Behind }}p:git-behind{{ end }}",
+                        "p:git-identical"
+                    ],
+                    "properties": {
+                        "branch_icon": "",
+                        "fetch_status": true
+                    },
+                    "style": "plain",
+                    "templates": [
+                        "<p:git-repo>{{ .RepoName }}</>",
+                        "<p:path>{{ (trimPrefix .Dir .Segments.Path.Path) | replace \"\\\\\" \"/\" }}</>",
+                        "\u2800\u2800",
+                        "{{ .HEAD }} ",
+                        "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>✱ </>{{ end }}"
+                    ],
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "segments": [
+                {
+                    "foreground": "p:git-sha",
+                    "style": "plain",
+                    "template": "{{ .Env.HEAD_REV }} ",
+                    "type": "text"
+                },
+                {
+                    "foreground": "p:time",
+                    "properties": {
+                        "time_format": "15:04"
+                    },
+                    "style": "plain",
+                    "type": "time"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "p:prompt",
+                    "style": "plain",
+                    "template": "{{ if .Root }}<p:root>\u26a1</>{{ else }}> {{ end }}",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "console_title_template": "{{if .Root}}\u26a1{{end}}{{if .Segments.Git.RepoName}}{{.Segments.Git.RepoName}}{{else}}{{.Folder}}{{end}}",
+    "version": 2
+}
