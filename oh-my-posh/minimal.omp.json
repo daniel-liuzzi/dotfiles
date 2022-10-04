@@ -57,7 +57,7 @@
                     "templates": [
                         "<p:git-repo>{{ .RepoName }}</>",
                         "<p:path>{{ (trimPrefix .Dir .Segments.Path.Path) | replace \"\\\\\" \"/\" }}</>",
-                        "\u2800\u2800",
+                        "<>  </>",
                         "{{ .HEAD }} ",
                         "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>✱ </>{{ end }}"
                     ],
