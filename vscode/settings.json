@@ -50,7 +50,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.autofetch": true,
 	"git.autofetchPeriod": 60,
-    "git.mergeEditor": false,
     "groovyLint.java.options": "-Xms256m,-Xmx1024m",
     "omnisharp.enableDecompilationSupport": true,
     "powershell.integratedConsole.showOnStartup": false,
