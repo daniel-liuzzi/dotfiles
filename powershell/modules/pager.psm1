@@ -2,14 +2,14 @@
 
 function Get-ContentColorized { run bat --paging=never @args }
 
-@('cat', 'gc', 'type') | % {
+@('cat', 'gc', 'type') | ForEach-Object {
     Set-Alias -Name $_ -Value 'Get-ContentColorized' -Option AllScope -Scope Global -Force
 }
 
 $env:BAT_OPTS = @(
+    '--map-syntax="[Aa]pp.config:XML"'
     '--map-syntax="[Ww]eb.config:XML"'
     '--map-syntax="*.??proj:XML"'
-    '--map-syntax="app.config:XML"'
     '--map-syntax="packages.config:XML"'
     '--style=full'
     '--theme="Solarized (dark)"'
