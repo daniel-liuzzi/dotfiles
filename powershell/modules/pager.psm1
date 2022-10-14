@@ -7,6 +7,7 @@ function Get-ContentColorized { run bat --paging=never @args }
 }
 
 $env:BAT_OPTS = @(
+    '--map-syntax="[Ww]eb.config:XML"'
     '--map-syntax="*.??proj:XML"'
     '--map-syntax="app.config:XML"'
     '--map-syntax="packages.config:XML"'
