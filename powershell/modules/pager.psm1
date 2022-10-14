@@ -12,6 +12,7 @@ $env:BAT_OPTS = @(
     '--map-syntax="app.config:XML"'
     '--map-syntax="packages.config:XML"'
     '--style=full'
+    '--theme="Solarized (dark)"'
     '--wrap=never'
 )
 
