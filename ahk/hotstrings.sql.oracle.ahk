@@ -77,28 +77,22 @@
 +{Home}    column_name,
 +{Home}    data_type,
 +{Home}    case
-+{Home}        when data_type in ('NUMBER') then
-+{Home}            case
-+{Home}                when data_precision is not null and data_scale is not null then
-+{Home}                    '(' || data_precision || ',' || data_scale || ')'
-+{Home}                when data_precision is not null then
-+{Home}                    '(' || data_precision || ')'
-+{Home}            end
-+{Home}        when data_type in ('CHAR', 'VARCHAR2') then
-+{Home}            '(' || char_length || case char_used when 'C' then ' CHAR' end || ')'
-+{Home}        when data_type in ('NCHAR', 'NVARCHAR2') then
-+{Home}            '(' || char_length || ')'
-+{Home}        when data_type in ('RAW', 'UROWID') then
-+{Home}            '(' || data_length || ')'
++{Home}        when data_type in ('NUMBER') and data_precision is not null and data_scale is not null   then '(' || data_precision || ',' || data_scale || ')'
++{Home}        when data_type in ('NUMBER') and data_precision is not null                              then '(' || data_precision || ')'
++{Home}        when data_type in ('CHAR', 'VARCHAR2') and char_used = 'C'                               then '(' || char_length || ' CHAR)'
++{Home}        when data_type in ('CHAR', 'VARCHAR2', 'NCHAR', 'NVARCHAR2')                             then '(' || char_length || ')'
++{Home}        when data_type in ('RAW', 'UROWID')                                                      then '(' || data_length || ')'
 +{Home}    end data_size,
-+{Home}    case nullable when 'N' then ' NOT NULL' end data_null
++{Home}    case nullable when 'N' then 'NOT NULL' end data_null,
++{Home}    column_id position
 +{Home}from user_tab_columns
 +{Home}where
 +{Home}    table_name in (select table_name from user_tables) and
 +{Home}    table_name like upper('%%') and
-+{Home}    column_name like upper('%%')
++{Home}    column_name like upper('%%') and
++{Home}    1 = 1
 +{Home}order by table_name, column_id;
-+{Home}{Up 2}{End}{Left 3}
++{Home}{Up 3}{End}{Left 7}
 )
 
 ; Query table columns (all users)
@@ -110,9 +104,10 @@
 +{Home}    owner like upper('%%') and
 +{Home}    table_name in (select table_name from all_tables) and
 +{Home}    table_name like upper('%%') and
-+{Home}    column_name like upper('%%')
++{Home}    column_name like upper('%%') and
++{Home}    1 = 1
 +{Home}order by owner, table_name, column_id;
-+{Home}{Up 2}{End}{Left 3}
++{Home}{Up 3}{End}{Left 7}
 )
 
 ; Query users
@@ -143,7 +138,8 @@
 +{Home}where
 +{Home}    owner = sys_context('userenv', 'current_schema') and
 +{Home}    object_type not in ('JOB', 'LOB', 'TABLE PARTITION') and
-+{Home}    object_name like upper('%%')
++{Home}    object_name like upper('%%') and
++{Home}    1 = 1
 +{Home}order by object_type, object_name;
-+{Home}{Up 2}{End}{Left 2}+{Left 2}
++{Home}{Up 3}{End}{Left 7}
 )
