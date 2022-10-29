@@ -95,6 +95,25 @@
 +{Home}{Up 3}{End}{Left 7}
 )
 
+; Query indexes
+:R0:oind::
+(
++{Home}select table_name, listagg(column_name, ', ') within group (order by column_position) columns, index_name
++{Home}from user_ind_columns
++{Home}where index_name in (
++{Home}    select index_name
++{Home}    from user_ind_columns
++{Home}    where
++{Home}        table_name like upper('%%') and
++{Home}        column_name like upper('%%') and
++{Home}        index_name like upper('%%') and
++{Home}        1 = 1
++{Home})
++{Home}group by index_name, table_name
++{Home}order by table_name, columns;
++{Home}{Up 6}{End}{Left 7}
+)
+
 ; Query table columns (all users)
 :R0:ocolsa::
 (
