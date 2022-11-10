@@ -96,13 +96,13 @@ function New-Solution {
     dotnet new editorconfig
 
     Set-Content Directory.Build.props @(
-        '<Project>'
-        '    <PropertyGroup>'
-        '        <AssemblyName>$(SolutionName).$(MSBuildProjectName)</AssemblyName>'
-        '        <RootNamespace>$(AssemblyName.Replace(" ", "_"))</RootNamespace>'
-        '        <Deterministic>true</Deterministic>'
-        '    </PropertyGroup>'
-        '</Project>'
+        "<Project>"
+        "    <PropertyGroup>"
+        "        <AssemblyName>$(Split-Path -Leaf .).`$(MSBuildProjectName)</AssemblyName>"
+        "        <RootNamespace>`$(AssemblyName.Replace(`" `", `"_`"))</RootNamespace>"
+        "        <Deterministic>true</Deterministic>"
+        "    </PropertyGroup>"
+        "</Project>"
     )
 
     mkdir Core | Push-Location
