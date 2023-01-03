@@ -10,6 +10,9 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
     return
 }
 
+Write-Output '- Installing package provider...'
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
 Write-Output '- Installing Powershell modules...'
 Install-Module -Name Az.Accounts -RequiredVersion 2.9.1 -Force
 Install-Module -Name Az.Resources -RequiredVersion 6.1.0 -Force
