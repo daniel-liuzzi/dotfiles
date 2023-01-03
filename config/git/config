@@ -40,7 +40,7 @@
 
 [credential]
 	helper =
-	helper = manager-core
+	helper = manager
 
 [credential "helperselector"]
 	selected = manager-core
