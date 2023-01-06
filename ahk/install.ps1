@@ -5,7 +5,7 @@ Register-ScheduledTask `
         -User $env:USERNAME) `
     -Action (New-ScheduledTaskAction `
         -Execute 'powershell' `
-        -Argument '-NoProfile -WindowStyle Hidden "while ($true) { autohotkeyu64 dotfiles.ahk }"' `
+        -Argument '-NoProfile -WindowStyle Hidden "while ($true) { autohotkey dotfiles.ahk }"' `
         -WorkingDirectory $PSScriptRoot) `
     -Settings (New-ScheduledTaskSettingsSet `
         -DontStopOnIdleEnd `

@@ -1,4 +1,6 @@
-#SingleInstance, Ignore
+#Requires AutoHotkey >=2 <3
+
+#SingleInstance Ignore
 
 #Include hotkeys.ahk
 

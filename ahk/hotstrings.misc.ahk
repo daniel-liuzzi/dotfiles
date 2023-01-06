@@ -13,33 +13,33 @@ trim_trailing_whitespace = true
 
 ; Timestamp - ISO 8601 format
 ::now.iso::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
-    SendInput %CurrentDateTime%
-    return
+{
+    SendInput(FormatTime(A_NowUTC, "yyyy-MM-ddTHH:mm:ssZ"))
+}
 
 ; Timestamp - yyyyMMddHHmmss format
 ::now.ts::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyyMMddHHmmss
-    SendInput %CurrentDateTime%
-    return
+{
+    SendInput(FormatTime(A_NowUTC, "yyyyMMddHHmmss"))
+}
 
 ; Current date
 ::date::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-dd
-    SendInput %CurrentDateTime%
-    return
+{
+    SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd"))
+}
 
 ; Current time
 ::time::
-    FormatTime, CurrentDateTime, %A_NowUTC%, HH:mm
-    SendInput %CurrentDateTime%
-    return
+{
+    SendInput(FormatTime(A_NowUTC, "HH:mm"))
+}
 
 ; Current date & time
 ::now::
-    FormatTime, CurrentDateTime, %A_NowUTC%, yyyy-MM-dd HH:mm
-    SendInput %CurrentDateTime%
-    return
+{
+    SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd HH:mm"))
+}
 
 ; Other
 ::constr::trusted_connection=true;
