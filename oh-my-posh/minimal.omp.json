@@ -3,8 +3,8 @@
     "palette": {
         "base": "#999999",
         "highlight": "#ffffff",
-        "muted": "#333333",
-        "invisible": "#222211",
+        "muted": "#444444",
+        "invisible": "#333322",
         "took": "p:muted",
         "root": "#ffc83d",
         "git-repo": "#cc66cc",
