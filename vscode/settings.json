@@ -17,7 +17,7 @@
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.cursorBlinking": "expand",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "ComicMono NF",
