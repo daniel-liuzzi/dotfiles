@@ -1,3 +1,29 @@
+:R0:funcs::
+(
++{Home}select *
++{Home}from information_schema.routines
++{Home}where
++{Home}    routine_catalog like '%%' and
++{Home}    routine_schema like '%%' and
++{Home}    routine_name like '%%' and
++{Home}    routine_type = 'function'
++{Home}order by routine_catalog, routine_schema, routine_name;
++{Home}{Up 3}{End}{Left 6}
+)
+
+:R0:procs::
+(
++{Home}select *
++{Home}from information_schema.routines
++{Home}where
++{Home}    routine_catalog like '%%' and
++{Home}    routine_schema like '%%' and
++{Home}    routine_name like '%%' and
++{Home}    routine_type = 'procedure'
++{Home}order by routine_catalog, routine_schema, routine_name;
++{Home}{Up 3}{End}{Left 6}
+)
+
 :R0:tbls::
 (
 +{Home}select *
