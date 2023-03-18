@@ -9,6 +9,7 @@
 
 #Hotstring ? ; Trigger inside words
 #Include hotstrings.chars.ahk
+#Include hotstrings.flags.ahk
 
 #Hotstring ?0 ; Don't trigger inside words
 #Include hotstrings.custom.ahk
