@@ -40,10 +40,6 @@
             "keys": "ctrl+w"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": 
             {
                 "action": "switchToTab",
@@ -93,14 +89,6 @@
                 "index": 7
             },
             "keys": "ctrl+8"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
         },
         {
             "command": 
