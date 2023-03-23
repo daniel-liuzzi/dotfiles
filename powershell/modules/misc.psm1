@@ -2,6 +2,15 @@ function / { Set-Location '/' }
 function \ { Set-Location '\' }
 function ~ { Set-Location '~' }
 function .. { Set-Location '..' }
+function ... { Set-Location '../..' }
+function .... { Set-Location '../../..' }
+function ..... { Set-Location '../../../..' }
+function ...... { Set-Location '../../../../..' }
+function ....... { Set-Location '../../../../../..' }
+function ........ { Set-Location '../../../../../../..' }
+function ......... { Set-Location '../../../../../../../..' }
+function .......... { Set-Location '../../../../../../../../..' }
+function ........... { Set-Location '../../../../../../../../../..' }
 
 function Get-SavedHistory { Get-Content (Get-PSReadlineOption).HistorySavePath @args }
 function hosts { sudo code $env:SystemRoot\System32\drivers\etc\hosts }
