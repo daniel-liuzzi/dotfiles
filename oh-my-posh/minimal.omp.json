@@ -93,7 +93,7 @@
                 {
                     "foreground": "p:prompt",
                     "style": "plain",
-                    "template": "{{ if .Root }}<p:root>\u26a1</>{{ else }}> {{ end }}",
+                    "template": "{{ if .Root }}<p:root>\u26a1</>{{ else }}>{{ end }} ",
                     "type": "text"
                 }
             ],
