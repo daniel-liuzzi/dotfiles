@@ -21,7 +21,7 @@
     "editor.cursorWidth": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "ComicMono NF",
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
@@ -60,6 +60,7 @@
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.defaultProfile.windows": "PowerShell Core",
+    "terminal.integrated.fontSize": 16,
     "terminal.integrated.profiles.windows": {
         "PowerShell Core": {
             "path": "pwsh",
