@@ -102,7 +102,6 @@
     },
     "workbench.colorTheme": "Nord",
     "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor",
         "git-rebase-todo": "default",
     },
     "workbench.editor.restoreViewState": false,
