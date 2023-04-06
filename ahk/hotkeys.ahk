@@ -94,17 +94,3 @@ SetCapsLockState("AlwaysOff")
 
 ; macOS-style shortcuts
 ^q::            SendInput "!{F4}"       ; Quit app
-
-; Ctrl+Shift+V paste without formatting on any app
-; How to Paste Text Without the Extra Formatting
-; https://www.howtogeek.com/186723/ask-htg-how-can-i-paste-text-without-the-formatting/
-#HotIf !WinActive("ahk_exe (CiscoCollabHost)\.exe")
-    $^+v::
-    {
-        ClipSaved := ClipboardAll() ; save original clipboard contents
-        A_Clipboard := A_Clipboard ; remove formatting
-        Send "^v" ; send the Ctrl+V command
-        A_Clipboard := ClipSaved ; restore the original clipboard contents
-        ClipSaved := "" ; clear the variable
-    }
-#HotIf
