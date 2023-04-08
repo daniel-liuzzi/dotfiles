@@ -82,7 +82,7 @@
 [difftool "vscode"]
 	cmd = code --new-window --wait --diff $LOCAL $REMOTE
 
-[difftool "winmergeu"]
+[difftool "wm"]
 	cmd = winmergeu -r -e -u -wl -fr $LOCAL $REMOTE
 
 [fetch]
@@ -108,7 +108,7 @@
 [mergetool "vscode"]
 	cmd = code --new-window --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-[mergetool "winmergeu"]
+[mergetool "wm"]
 	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
 	cmd = winmergeu -e -u -fm -dl Ours -dm $MERGED -dr Theirs $LOCAL $BASE $REMOTE -o $MERGED
 
