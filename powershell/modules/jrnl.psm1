@@ -19,9 +19,11 @@ function Get-DailyJournal([datetime]$Date = [datetime]::Today) {
     Display '-from' 1
 }
 
+function Get-MonthlyJournal { j -from ('{0:yyyy-MM}' -f (Get-Date)) -to today --format short @args 2> $null }
 function Get-WeeklyJournal { j -from monday -to today --format short @args 2> $null }
 
 function j { run jrnl @args }
 
 Set-Alias -Name 'jd' -Value 'Get-DailyJournal'
+Set-Alias -Name 'jm' -Value 'Get-MonthlyJournal'
 Set-Alias -Name 'jw' -Value 'Get-WeeklyJournal'
