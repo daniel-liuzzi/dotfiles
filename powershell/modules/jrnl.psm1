@@ -19,7 +19,7 @@ function Get-DailyJournal([datetime]$Date = [datetime]::Today) {
     Display '-from' 1
 }
 
-function Get-MonthlyJournal { j -from ('{0:yyyy-MM}' -f (Get-Date)) -to today --format short @args 2> $null }
+function Get-MonthlyJournal { j -from (Get-Date -Format 'yyyy-MM') -to today --format short @args 2> $null }
 function Get-WeeklyJournal { j -from monday -to today --format short @args 2> $null }
 
 function j { run jrnl @args }
