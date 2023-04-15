@@ -85,6 +85,10 @@ $FirefoxProfiles = Get-FirefoxProfiles
             "~/scoop/persist/vscode-insiders/data/user-data/User/tasks.json"
         )
     }
+    @{
+        Target = './wsl/.wslconfig'
+        Source = '~/.wslconfig'
+    }
 ) | ForEach-Object {
     New-Link `
         -Type SymbolicLink `

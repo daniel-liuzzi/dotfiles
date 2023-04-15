@@ -45,6 +45,7 @@
         "*.ts": "${capture}.spec.${extname}"
     },
     "files.associations": {
+        ".wslconfig": "ini",
         "**/git/config**": "ini",
     },
     "files.hotExit": "off",
