@@ -44,6 +44,9 @@
         "*.js": "${capture}.spec.${extname}",
         "*.ts": "${capture}.spec.${extname}"
     },
+    "files.associations": {
+        "**/git/config**": "ini",
+    },
     "files.hotExit": "off",
     "diffEditor.renderSideBySide": false,
     "javascript.suggest.completeFunctionCalls": true,
