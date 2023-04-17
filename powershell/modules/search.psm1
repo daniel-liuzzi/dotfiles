@@ -12,6 +12,7 @@ $Urls = @{
     'Google News'            = 'https://www.google.com/search?tbm=nws&q='
     'Google Shopping'        = 'https://www.google.com/search?tbm=shop&q='
     'Google: Stack Overflow' = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
+    'Google: Super User'     = 'https://www.google.com/search?q=site%3Asuperuser.com+'
     'Google'                 = 'https://www.google.com/search?q='
     'Reddit'                 = 'https://www.reddit.com/search/?q='
     'Stack Overflow'         = 'https://stackoverflow.com/search?q='
@@ -46,8 +47,8 @@ function Invoke-Search {
     run start $Url
 }
 
-function goo { Invoke-Search -Target Google @args }
 function gso { Invoke-Search -Target 'Google: Stack Overflow' @args }
+function gsu { Invoke-Search -Target 'Google: Super User' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
 function yt { Invoke-Search -Target 'YouTube' @args }
 
