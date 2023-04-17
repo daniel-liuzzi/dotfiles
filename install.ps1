@@ -45,6 +45,10 @@ $FirefoxProfiles = Get-FirefoxProfiles
         Source = '~/.config'
     }
     @{
+        Target = './espanso'
+        Source = '~/scoop/persist/espanso/.espanso'
+    }
+    @{
         Target = './firefox/chrome'
         Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'chrome' }
     }
