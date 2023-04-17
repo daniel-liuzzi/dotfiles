@@ -11,6 +11,7 @@ $Urls = @{
     'Google Maps'            = 'https://www.google.com/maps?q='
     'Google News'            = 'https://www.google.com/search?tbm=nws&q='
     'Google Shopping'        = 'https://www.google.com/search?tbm=shop&q='
+    'Server Fault'           = 'https://www.google.com/search?q=site%3Aserverfault.com+'
     'Stack Overflow'         = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
     'Super User'             = 'https://www.google.com/search?q=site%3Asuperuser.com+'
     'Google'                 = 'https://www.google.com/search?q='
@@ -45,6 +46,7 @@ function Invoke-Search {
     run start $Url
 }
 
+function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
 function su { Invoke-Search -Target 'Super User' @args }
 function yt { Invoke-Search -Target 'YouTube' @args }
