@@ -4,19 +4,17 @@ $Urls = @{
     'Amazon.com'             = 'https://www.amazon.com/s?k='
     'Amazon.es'              = 'https://www.amazon.es/s?k='
     'Bing'                   = 'https://www.bing.com/search?q='
-    'DBA Stack Exchange'     = 'https://dba.stackexchange.com/search?q='
-    'DevOps Stack Exchange'  = 'https://devops.stackexchange.com/search?q='
+    'DBA Stack Exchange'     = 'https://www.google.com/search?q=site%3Adba.stackexchange.com+'
+    'DevOps Stack Exchange'  = 'https://www.google.com/search?q=site%3Adevops.stackexchange.com+'
     'DuckDuckGo'             = 'https://duckduckgo.com/?q='
     'Google Images'          = 'https://www.google.com/search?tbm=isch&q='
     'Google Maps'            = 'https://www.google.com/maps?q='
     'Google News'            = 'https://www.google.com/search?tbm=nws&q='
     'Google Shopping'        = 'https://www.google.com/search?tbm=shop&q='
-    'Google: Stack Overflow' = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
-    'Google: Super User'     = 'https://www.google.com/search?q=site%3Asuperuser.com+'
+    'Stack Overflow'         = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
+    'Super User'             = 'https://www.google.com/search?q=site%3Asuperuser.com+'
     'Google'                 = 'https://www.google.com/search?q='
     'Reddit'                 = 'https://www.reddit.com/search/?q='
-    'Stack Overflow'         = 'https://stackoverflow.com/search?q='
-    'Super User'             = 'https://superuser.com/search?q='
     'wallhaven.cc'           = 'https://wallhaven.cc/search?q='
     'Wikipedia'              = 'https://www.wikipedia.org/search-redirect.php?search='
     'YouTube'                = 'https://www.youtube.com/results?search_query='
@@ -47,9 +45,8 @@ function Invoke-Search {
     run start $Url
 }
 
-function gso { Invoke-Search -Target 'Google: Stack Overflow' @args }
-function gsu { Invoke-Search -Target 'Google: Super User' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
+function su { Invoke-Search -Target 'Super User' @args }
 function yt { Invoke-Search -Target 'YouTube' @args }
 
 Set-Alias -Name '??' -Value 'Invoke-Search'
