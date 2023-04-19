@@ -59,7 +59,7 @@
                         "<p:path>{{ (trimPrefix .Dir .PWD) | replace \"\\\\\" \"/\" }}</>",
                         "<>  ",
                         "{{ .HEAD }} ",
-                        "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>✱ </>{{ end }}"
+                        "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>* </>{{ end }}"
                     ],
                     "type": "git"
                 }
@@ -78,7 +78,7 @@
                 {
                     "foreground": "p:time",
                     "properties": {
-                        "time_format": "15:04"
+                        "time_format": "2006-01-02 15:04:05"
                     },
                     "style": "plain",
                     "type": "time"
