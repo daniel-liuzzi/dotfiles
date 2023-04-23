@@ -3,6 +3,7 @@ using namespace System.Web
 $Urls = @{
     'Amazon.com'             = 'https://www.amazon.com/s?k='
     'Amazon.es'              = 'https://www.amazon.es/s?k='
+    'ARIN'                   = 'https://search.arin.net/rdap/?query='
     'Bing'                   = 'https://www.bing.com/search?q='
     'DBA Stack Exchange'     = 'https://www.google.com/search?q=site%3Adba.stackexchange.com+'
     'DevOps Stack Exchange'  = 'https://www.google.com/search?q=site%3Adevops.stackexchange.com+'
@@ -46,6 +47,7 @@ function Invoke-Search {
     run start $Url
 }
 
+function arin { Invoke-Search -Target 'ARIN' @args }
 function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
 function su { Invoke-Search -Target 'Super User' @args }
