@@ -248,6 +248,12 @@ function rsm {
 function rsp { rs '@{push}' @args }
 function rsu { rs '@{upstream}' @args }
 
+# git absorb
+# scoop install https://raw.githubusercontent.com/studoot/my-scoop-bucket/master/bucket/git-absorb.json
+function ga { g absorb @args }
+function gab { ga --base (Get-GitBranchBase) @args }
+function gabr { gab --and-rebase @args }
+
 # git cherry-pick
 function gcp { g cherry-pick @args }
 function gcpa { gcp --abort @args }
