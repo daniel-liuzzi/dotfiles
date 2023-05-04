@@ -14,6 +14,7 @@
         "Xunit",
     ],
     "debug.onTaskErrors": "abort",
+    "diffEditor.diffAlgorithm": "advanced",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.cursorBlinking": "expand",
