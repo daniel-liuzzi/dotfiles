@@ -105,7 +105,6 @@
         "terminal.ansiForeground": "#eff0eb",
         // "terminal.background": "#0f1610",
     },
-    "workbench.colorTheme": "Nord",
     "workbench.editorAssociations": {
         "git-rebase-todo": "default",
     },
