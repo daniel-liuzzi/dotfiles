@@ -24,3 +24,4 @@ Set-Alias -Name 'hist' -Value 'Get-SavedHistory'
 Set-Alias -Name 'LogParser' -Value "${env:ProgramFiles(x86)}/Log Parser 2.2/LogParser.exe"
 Set-Alias -Name 'o' -Value 'Start-Process'
 Set-Alias -Name 'open' -Value 'Start-Process'
+Set-Alias -Name 'top' -Value 'ntop'
