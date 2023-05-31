@@ -94,3 +94,19 @@ SetCapsLockState("AlwaysOff")
 
 ; macOS-style shortcuts
 ^q::            SendInput "!{F4}"       ; Quit app
+
+; Common special chars with AltGr
+>!!::¡
+>!?::¿
+>!a::á
+>!A::Á
+>!e::é
+>!E::É
+>!i::í
+>!I::Í
+>!n::ñ
+>!N::Ñ
+>!o::ó
+>!O::Ó
+>!u::ú
+>!U::Ú
