@@ -56,6 +56,12 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.autofetch": true,
 	"git.autofetchPeriod": 60,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false
+    },
     "groovyLint.java.options": "-Xms256m,-Xmx1024m",
     "omnisharp.enableDecompilationSupport": true,
     "oracledevtools.bookmarkFileFolder": "${env:USERPROFILE}\\Oracle\\oracle.oracledevtools",
