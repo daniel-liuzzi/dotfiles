@@ -50,6 +50,7 @@ SetCapsLockState("AlwaysOff")
     BackSpace:: Delete
     b::         vk13 ; Pause
     ^b::        CtrlBreak
+    c::         CapsLock
     i::         Insert
     p::         PrintScreen
     s::         ScrollLock
