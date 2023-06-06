@@ -63,7 +63,8 @@ $FirefoxProfiles = Get-FirefoxProfiles
     @{
         Target = './terminal/settings.json'
         Source = @(
-            "$env:LOCALAPPDATA/Microsoft/Windows Terminal/settings.json"
+            "~/scoop/apps/windows-terminal/current/settings/settings.json"
+            "~/scoop/apps/windows-terminal-preview/current/settings/settings.json"
             "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
             "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"
         )
