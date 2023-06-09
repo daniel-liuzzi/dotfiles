@@ -13,6 +13,7 @@
 
 #Hotstring ?0 ; Don't trigger inside words
 #Include hotstrings.custom.ahk
+#Include hotstrings.emoticons.ahk
 #Include hotstrings.graphviz.ahk
 #Include hotstrings.misc.ahk
 #Include hotstrings.sql.ansi.ahk
