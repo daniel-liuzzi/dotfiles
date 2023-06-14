@@ -59,6 +59,7 @@ SetCapsLockState("AlwaysOff")
     ^b::        CtrlBreak
     c::         CapsLock
     i::         Insert
+    n::         NumLock
     p::         PrintScreen
     s::         ScrollLock
 
