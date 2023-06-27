@@ -107,8 +107,20 @@ SetCapsLockState("AlwaysOff")
 ; Common special chars with AltGr
 >!!::¡
 >!?::¿
+>!<!a::à
+>!<!A::À
+>!<!e::è
+>!<!E::È
+>!<!i::ì
+>!<!I::Ì
+>!<!o::ò
+>!<!O::Ò
+>!<!u::ù
+>!<!U::Ù
 >!a::á
 >!A::Á
+>!c::ç
+>!C::Ç
 >!e::é
 >!E::É
 >!i::í
