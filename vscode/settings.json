@@ -15,6 +15,7 @@
     ],
     "debug.onTaskErrors": "abort",
     "diffEditor.diffAlgorithm": "advanced",
+    "editor.accessibilitySupport": "off",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.cursorBlinking": "expand",
