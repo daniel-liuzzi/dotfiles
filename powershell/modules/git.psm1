@@ -109,7 +109,16 @@ function l9 { ln_ 9 @args }
 function l19 { ln_ 29 @args }
 function l49 { ln_ 49 @args }
 function l99 { ln_ 99 @args }
-function l { g log --boundary --pretty=s @args }
+function l {
+    function pretty {
+        $cols = (Get-Host).UI.RawUI.WindowSize.Width
+        if ($cols -ge 220) { return '--pretty=l' }
+        if ($cols -ge 180) { return '--pretty=m' }
+        return '--pretty=s'
+    }
+
+    g log --boundary (pretty) @args
+}
 function lr { l --reverse @args }
 function lb {
     $Ref = Get-GitRevs @args
