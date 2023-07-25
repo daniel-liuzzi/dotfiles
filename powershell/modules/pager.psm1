@@ -22,7 +22,7 @@ $env:LESS = @(
     '--IGNORE-CASE'             # -I    Ignore case in all searches
     '--no-init'                 # -X    Don't use termcap init/deinit strings
     '--quit-if-one-screen'      # -F    Quit if entire file fits on first screen
-    ##'--raw-control-chars'     # -r    Output "raw" control characters (Breaks --chop-long-lines)
+    '--raw-control-chars'       # -r    Output "raw" control characters
     '--shift=4'                 # -#    Set horizontal scroll amount (0 = one half screen width)
     '--tilde'                   # -~    Don't display tildes after end of file
 )
