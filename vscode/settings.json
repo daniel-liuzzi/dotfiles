@@ -5,6 +5,9 @@
     "[powershell]": {
         "editor.defaultFormatter": "ms-vscode.powershell",
     },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
     "[xml]": {
         "editor.defaultFormatter": "redhat.vscode-xml"
     },
