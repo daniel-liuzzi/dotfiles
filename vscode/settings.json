@@ -2,6 +2,12 @@
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp",
     },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "[powershell]": {
         "editor.defaultFormatter": "ms-vscode.powershell",
     },
