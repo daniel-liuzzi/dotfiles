@@ -66,7 +66,7 @@
     "javascript.suggest.completeFunctionCalls": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.autofetch": true,
-	"git.autofetchPeriod": 60,
+    "git.autofetchPeriod": 60,
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
