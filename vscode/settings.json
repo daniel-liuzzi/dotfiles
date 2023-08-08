@@ -130,6 +130,7 @@
     "workbench.editor.restoreViewState": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.list.smoothScrolling": true,
+    "workbench.settings.editor": "json",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 18,
     "xml.server.binary.trustedHashes": [
