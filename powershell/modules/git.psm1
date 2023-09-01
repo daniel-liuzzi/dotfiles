@@ -25,7 +25,7 @@ function b { g branch @args }
 function c { g commit @args }
 function ca { c --amend @args }
 function can { ca --no-edit @args }
-function clean { g clean -d --force --interactive @args }
+function cl { g clean -d --force --interactive @args }
 function cn { c --no-edit @args }
 function dt { g difftool @args } # allows "Alt+Right", but diff one file at a time
 function dtd { dt --dir-diff @args } # diffs all files, but no "Alt+Right"
