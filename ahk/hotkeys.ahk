@@ -5,13 +5,6 @@
 SetTitleMatchMode("RegEx")
 SetCapsLockState("AlwaysOff")
 
-*CapsLock::
-{
-    if (KeyWait("CapsLock", "T0.2")) {
-        SendInput "{Blind}``"
-    }
-}
-
 #HotIf GetKeyState("CapsLock", "P")
 
     ; Function row
