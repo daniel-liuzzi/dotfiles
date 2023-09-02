@@ -92,7 +92,7 @@
 	defaultBranch = main
 
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = bat
 
 [log]
 	date = format:%a, %d %b %Y, %H:%M %z
