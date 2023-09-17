@@ -394,7 +394,7 @@
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
-      "KC_TRNS",
+      "KC_PGUP",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -409,9 +409,9 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "KC_HOME",
+      "KC_PGDN",
+      "KC_END"
     ]
   ],
   "encoders": []
