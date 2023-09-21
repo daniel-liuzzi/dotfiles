@@ -1,6 +1,6 @@
 using namespace System.Web
 
-$Urls = @{
+$Global:DotfilesOptions.Search += @{
     'Amazon.com'             = 'https://www.amazon.com/s?k='
     'Amazon.es'              = 'https://www.amazon.es/s?k='
     'ARIN'                   = 'https://search.arin.net/rdap/?query='
@@ -23,7 +23,7 @@ $Urls = @{
 }
 
 function Get-SearchTargets($Pattern) {
-    $Urls.GetEnumerator().Name | Where-Object { $_ -like "*$Pattern*" }
+    $Global:DotfilesOptions.Search.GetEnumerator().Name | Where-Object { $_ -like "*$Pattern*" }
 }
 
 function Invoke-Search {
@@ -43,7 +43,7 @@ function Invoke-Search {
         $Target = 'Google'
     )
 
-    $Url = $Urls.$Target + [HttpUtility]::UrlEncode("$Keywords")
+    $Url = $Global:DotfilesOptions.Search.$Target + [HttpUtility]::UrlEncode("$Keywords")
     run start $Url
 }
 
