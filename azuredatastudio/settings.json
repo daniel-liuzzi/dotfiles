@@ -7,6 +7,7 @@
     ],
     "datasource.connections": [],
     "files.hotExit": "off",
+    "queryEditor.results.showCopyCompletedNotification": false,
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Default Dark Azure Data Studio",
     "workbench.editorAssociations": {
