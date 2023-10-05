@@ -129,6 +129,7 @@
     "workbench.editorAssociations": {
         "git-rebase-todo": "default",
     },
+    "workbench.editor.empty.hint": "hidden",
     "workbench.editor.restoreViewState": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.list.smoothScrolling": true,
