@@ -12,6 +12,7 @@ $Global:DotfilesOptions.Search += @{
     'Google Maps'           = 'https://www.google.com/maps?q='
     'Google News'           = 'https://www.google.com/search?tbm=nws&q='
     'Google Shopping'       = 'https://www.google.com/search?tbm=shop&q='
+    'Google.es'             = 'https://www.google.es/search?q='
     'Google'                = 'https://www.google.com/search?q='
     'Reddit'                = 'https://www.reddit.com/search/?q='
     'Server Fault'          = 'https://www.google.com/search?q=site%3Aserverfault.com+'
