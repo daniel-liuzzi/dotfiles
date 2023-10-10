@@ -181,7 +181,7 @@
             "experimental.showMarksOnScrollbar": true,
             "font": 
             {
-                "face": "ComicMono NF",
+                "face": "MesloLGM Nerd Font",
                 "size": 12.0
             },
             "useAtlasEngine": true
