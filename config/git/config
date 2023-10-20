@@ -85,6 +85,9 @@
 [fetch]
 	prune = true
 
+[http]
+	sslBackend = schannel
+
 [init]
 	defaultBranch = main
 
