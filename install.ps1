@@ -21,7 +21,7 @@ Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
 Install-Module -Name PsIni -RequiredVersion 3.1.2 -Force
 Install-Module -Name PSReadLine -RequiredVersion 2.2.6 -Force
 Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
-Install-Module -Name Terminal-Icons -RequiredVersion 0.5.2 -Force
+Install-Module -Name Terminal-Icons -RequiredVersion 0.11.0 -Force
 Install-Module -Name z -RequiredVersion 1.1.13 -Force -AllowClobber
 
 Import-Module $PSScriptRoot/powershell/modules/base -Force
