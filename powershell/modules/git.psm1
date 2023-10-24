@@ -297,10 +297,10 @@ function Get-GitBranchCurrent {
     git branch --show-current
 }
 function Get-GitBranchDev {
-    Find-GitBranch (@(git config gitflow.branch.develop) + $DotfilesOptions.Git.Dev)
+    Find-GitBranch (@(git config gitflow.branch.develop) + $Global:DotfilesOptions.Git.Dev)
 }
 function Get-GitBranchMain {
-    Find-GitBranch (@(git config gitflow.branch.master) + $DotfilesOptions.Git.Main)
+    Find-GitBranch (@(git config gitflow.branch.master) + $Global:DotfilesOptions.Git.Main)
 }
 
 function Find-GitBranch($Names) {
