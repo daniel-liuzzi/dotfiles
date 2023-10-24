@@ -23,6 +23,8 @@ $Global:DotfilesOptions.Search += @{
     'YouTube'               = 'https://www.youtube.com/results?search_query='
 }
 
+$Global:DotfilesOptions.SearchDefault = 'Google'
+
 function Get-SearchTargets($Pattern) {
     $Global:DotfilesOptions.Search.GetEnumerator().Name | Where-Object { $_ -like "*$Pattern*" }
 }
@@ -41,10 +43,16 @@ function Invoke-Search {
                 $_ -in (Get-SearchTargets)
             })]
         [string]
-        $Target = 'Google'
+        $Target
     )
 
-    $Url = $Global:DotfilesOptions.Search.$Target + [HttpUtility]::UrlEncode("$Keywords")
+    if ($Keywords -or $Target) {
+        if (!$Target) { $Target = $Global:DotfilesOptions.SearchDefault }
+        $Url = $Global:DotfilesOptions.Search.$Target + [HttpUtility]::UrlEncode("$Keywords")
+    } else {
+        $Url = 'https://'
+    }
+
     run start $Url
 }
 
