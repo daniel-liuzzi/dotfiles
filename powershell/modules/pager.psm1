@@ -10,6 +10,7 @@ $env:BAT_OPTS = @(
     '--map-syntax="[Aa]pp.config:XML"'
     '--map-syntax="[Ww]eb.config:XML"'
     '--map-syntax="*.??proj:XML"'
+    '--map-syntax="Directory.Build.props:XML"'
     '--map-syntax="packages.config:XML"'
     '--style=full'
     '--theme="Solarized (dark)"'
