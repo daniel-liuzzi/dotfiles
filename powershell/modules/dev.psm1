@@ -107,7 +107,7 @@ function New-Solution {
 
     mkdir Core | Push-Location
     dotnet new classlib @args
-    Remove-Item *.cs
+    Remove-Item Class1.cs
     dotnet sln .. add .
     Pop-Location
 
@@ -119,12 +119,44 @@ function New-Solution {
 
     mkdir Api | Push-Location
     dotnet new webapi --no-https @args
+    "`r`npublic partial class Program { }" >> Program.cs
     dotnet add reference ../Core
     dotnet sln .. add .
     Pop-Location
 
     mkdir Api.Tests | Push-Location
     dotnet new xunit @args
+    Remove-Item UnitTest1.cs
+@"
+using System.Net.Http.Json;
+
+using Microsoft.AspNetCore.Mvc.Testing;
+
+namespace Api.Tests;
+
+public class WeatherForecastControllerTests
+{
+    private readonly WebApplicationFactory<Program> _factory = new();
+
+    [Fact]
+    public async Task WeatherForecast_Ok()
+    {
+        // Arrange
+        var client = _factory.CreateClient();
+
+        // Act
+        var items = await client.GetFromJsonAsync<IEnumerable<WeatherForecast>>("/WeatherForecast");
+
+        // Assert
+        Assert.NotNull(items);
+        Assert.Equal(5, items.Count());
+        var superset = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" }.ToHashSet();
+        var actual = items.Select(i => i.Summary!).ToHashSet();
+        Assert.Subset(superset, actual);
+    }
+}
+"@ > WeatherForecastControllerTests.cs
+    dotnet add package Microsoft.AspNetCore.Mvc.Testing
     dotnet add reference ../Api
     dotnet sln .. add .
     Pop-Location
@@ -135,7 +167,7 @@ function New-Solution {
     git add --all
     git commit --message Initial
 
-    edit . ./Api/Controllers/WeatherForecastController.cs
+    edit . Api.Tests/WeatherForecastControllerTests.cs Api/Controllers/WeatherForecastController.cs
 
     Pop-Location
 }
