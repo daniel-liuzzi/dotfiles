@@ -142,7 +142,7 @@ public class WeatherForecastControllerTests
     public async Task WeatherForecast_Ok()
     {
         // Arrange
-        var client = _factory.CreateClient();
+        using var client = _factory.CreateClient();
 
         // Act
         var items = await client.GetFromJsonAsync<IEnumerable<WeatherForecast>>("/WeatherForecast");
