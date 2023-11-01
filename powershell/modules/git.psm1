@@ -33,7 +33,7 @@ function f { g fetch @args }
 function init { g init; cn --allow-empty --allow-empty-message @args }
 function mt { g mergetool @args }
 function pull { Test-Wips; g pull @args }
-function push { Test-Wips; g push --set-upstream @args }
+function push { Test-Wips; g push @args }
 function s { g status @args }
 function show { g show @args }
 function sw { show @args }

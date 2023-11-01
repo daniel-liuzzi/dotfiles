@@ -122,8 +122,8 @@
 	twohead = ort
 
 [push]
-	# Allows pushing for the first time with just `git push -u` instead of `git push -u origin HEAD`
-	default = current
+	# assume --set-upstream on default push - https://stackoverflow.com/a/6089415/88709
+	autoSetupRemote = true
 
 	# Push annotated tags - https://stackoverflow.com/a/26438076/88709
 	followTags = true
