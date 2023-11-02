@@ -15,7 +15,7 @@ $Global:DotfilesOptions.Search += @{
     'Google.es'             = 'https://www.google.es/search?q='
     'Google'                = 'https://www.google.com/search?q='
     'NuGet'                 = 'https://www.google.com/search?q=site%3Anuget.org+'
-    'Reddit'                = 'https://www.reddit.com/search/?q='
+    'Reddit'                = 'https://www.google.com/search?q=site%3Areddit.com+'
     'Server Fault'          = 'https://www.google.com/search?q=site%3Aserverfault.com+'
     'Stack Overflow'        = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
     'Super User'            = 'https://www.google.com/search?q=site%3Asuperuser.com+'
