@@ -126,11 +126,11 @@
         "terminal.ansiForeground": "#eff0eb",
         // "terminal.background": "#0f1610",
     },
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.restoreViewState": false,
     "workbench.editorAssociations": {
         "git-rebase-todo": "default",
     },
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.editor.restoreViewState": false,
     "workbench.list.smoothScrolling": true,
     "workbench.settings.editor": "json",
     "workbench.startupEditor": "none",
