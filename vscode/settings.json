@@ -131,7 +131,6 @@
     },
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.restoreViewState": false,
-    "workbench.editor.untitled.hint": "hidden",
     "workbench.list.smoothScrolling": true,
     "workbench.settings.editor": "json",
     "workbench.startupEditor": "none",
