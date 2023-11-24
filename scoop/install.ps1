@@ -44,18 +44,7 @@ if ($MissingBuckets) {
 
 $DesiredApps = @(
     'https://raw.githubusercontent.com/ScoopInstaller/Main/45371c57c7e00022d8b161f259b7eb79a95b282c/bucket/erlang.json'             # erlang 25.3.2 (rabbitmq 3.11.17 dep.)
-
-    # python2 : DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as
-    # Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details
-    # about Python 2 support in pip, can be found at
-    # https://pip.pypa.io/en/latest/development/release-process/#python-2-support
-    # At line:1 char:1
-    # + python2 -m ensurepip
-    # + ~~~~~~~~~~~~~~~~~~~~
-    #     + CategoryInfo          : NotSpecified: (DEPRECATION: Py...ython-2-support:String) [], RemoteException
-    #     + FullyQualifiedErrorId : NativeCommandError
     'https://raw.githubusercontent.com/ScoopInstaller/Versions/ea61ddd649414b30bb679f7435ffb4f0ad1f0446/bucket/python27.json'       # python27 2.7.18 (rabbitmqadmin 3.8.9 dep.)
-
     'https://raw.githubusercontent.com/ScoopInstaller/Extras/d2e48ea23c824b1667484d8f92ad7b39e937c96a/bucket/rabbitmq.json'         # rabbitmq 3.11.17
     'https://raw.githubusercontent.com/ScoopInstaller/Extras/95b63cc3b26a2872bd922ec7005f767a499f439c/bucket/rabbitmqadmin.json'    # rabbitmqadmin 3.8.9
     'https://raw.githubusercontent.com/ScoopInstaller/Main/22bff7afc5b8987c0f213f1f5943948b91db1957/bucket/redis.json'              # redis 5.0.14.1
