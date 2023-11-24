@@ -81,8 +81,8 @@ $DesiredApps = @(
     'yq'
     'z'
 )
-$InstalledApps = scoop list 6> $null
-$MissingApps = $DesiredApps | where { $_ -notin ($InstalledApps.Name + $InstalledApps.Source) }
+$InstalledApps = scoop list 6> $null | foreach { if ($_.Source.Contains('://')) { $_.Source } else { $_.Name } }
+$MissingApps = $DesiredApps | where { $_ -notin $InstalledApps }
 if ($MissingApps) {
     Write-Host 'Installing apps ...'
     $MissingApps | foreach {
