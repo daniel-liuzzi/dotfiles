@@ -76,7 +76,7 @@ $DesiredApps = @(
     'usql'
     'vscode'
     'vswhere'
-    'windows-terminal-preview'
+    'windows-terminal'
     'yq'
     'z'
 )
