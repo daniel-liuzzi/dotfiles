@@ -71,6 +71,7 @@ $DesiredApps = @(
     'powertoys'
     'pwsh'
     'px'
+    'python'
     'sqlite'
     'sudo'
     'usql'
