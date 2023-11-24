@@ -12,6 +12,15 @@ if (Get-Command -Name 'scoop' -ErrorAction Ignore) {
     Write-Host 'Scoop has been installed.' -ForegroundColor Green
 }
 
+# Git (for adding buckets)
+if (scoop list 6> $null | where Name -EQ git) {
+    Write-Host 'Git is already installed.' -ForegroundColor Green
+} else {
+    Write-Host 'Installing Git ...'
+    scoop install git *> $null
+    Write-Host 'Git has been installed.' -ForegroundColor Green
+}
+
 # Add buckets
 $DesiredBuckets = @(
     'extras'
