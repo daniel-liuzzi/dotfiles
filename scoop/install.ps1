@@ -17,7 +17,7 @@ if (scoop list 6> $null | where Name -EQ git) {
     Write-Host 'Git is already installed.' -ForegroundColor Green
 } else {
     Write-Host 'Installing Git ...'
-    scoop install git *> $null
+    scoop install git
     Write-Host 'Git has been installed.' -ForegroundColor Green
 }
 
@@ -98,7 +98,7 @@ if ($MissingApps) {
     Write-Host 'Installing apps ...'
     $MissingApps | foreach {
         Write-Host "- $_ ..."
-        scoop install $_ *> $null
+        scoop install $_
         if ($LASTEXITCODE) { throw "Failed to install app '$_'." }
     }
     Write-Host 'All apps have been installed.' -ForegroundColor Green
