@@ -59,7 +59,6 @@ $DesiredApps = @(
     'https://raw.githubusercontent.com/ScoopInstaller/Extras/d2e48ea23c824b1667484d8f92ad7b39e937c96a/bucket/rabbitmq.json'         # rabbitmq 3.11.17
     'https://raw.githubusercontent.com/ScoopInstaller/Extras/95b63cc3b26a2872bd922ec7005f767a499f439c/bucket/rabbitmqadmin.json'    # rabbitmqadmin 3.8.9
     'https://raw.githubusercontent.com/ScoopInstaller/Main/22bff7afc5b8987c0f213f1f5943948b91db1957/bucket/redis.json'              # redis 5.0.14.1
-    '7zip'
     'autohotkey'
     'aws'
     'bat'
