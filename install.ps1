@@ -10,19 +10,62 @@ if (!([WindowsPrincipal] [WindowsIdentity]::GetCurrent()).IsInRole([WindowsBuilt
     return
 }
 
-Write-Output '- Installing package provider...'
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+# Enable Developer Mode
+# https://stackoverflow.com/a/40033638/88709
+$RegistryKeyPath = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock'
+if (-not (Test-Path -Path $RegistryKeyPath)) {
+    New-Item `
+        -Path $RegistryKeyPath `
+        -ItemType Directory `
+        -Force
+}
+
+New-ItemProperty `
+    -Path $RegistryKeyPath `
+    -Name 'AllowDevelopmentWithoutDevLicense' `
+    -PropertyType DWORD `
+    -Value 1 `
+    -Force
+
+# Enable long paths (Windows 10 version 1607 and Later)
+# https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later
+New-ItemProperty `
+    -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' `
+    -Name 'LongPathsEnabled' `
+    -PropertyType DWORD `
+    -Value 1 `
+    -Force
+
+Write-Output '- Installing package providers...'
+@(
+    @{ Name = 'NuGet'; MinimumVersion = '2.8.5.201' }
+) | where {
+    $Provider = Get-PackageProvider $_.Name -ErrorAction SilentlyContinue
+    if (!$Provider) { return $true }
+    if ($Provider.Version -lt $_.MinimumVersion) { return $true }
+    return $false
+} | foreach {
+    "  $($_.Name)"
+    Install-PackageProvider @_ -Scope CurrentUser -Force
+}
 
 Write-Output '- Installing Powershell modules...'
-Install-Module -Name Az.Accounts -RequiredVersion 2.9.1 -Force
-Install-Module -Name Az.Resources -RequiredVersion 6.1.0 -Force
-Install-Module -Name Az.Tools.Predictor -RequiredVersion 1.0.1 -Force
-Install-Module -Name PowerShellGet -RequiredVersion 2.2.5 -Force
-Install-Module -Name PsIni -RequiredVersion 3.1.2 -Force
-Install-Module -Name PSReadLine -RequiredVersion 2.2.6 -Force
-Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
-Install-Module -Name Terminal-Icons -RequiredVersion 0.11.0 -Force
-Install-Module -Name z -RequiredVersion 1.1.13 -Force -AllowClobber
+@(
+    @{ Name = 'PowerShellGet'; RequiredVersion = '2.2.5' }
+    @{ Name = 'Az.Accounts'; RequiredVersion = '2.9.1' }
+    @{ Name = 'Az.Resources'; RequiredVersion = '6.1.0' }
+    @{ Name = 'Az.Tools.Predictor'; RequiredVersion = '1.0.1' }
+    @{ Name = 'PsIni'; RequiredVersion = '3.1.2' }
+    @{ Name = 'PSReadLine'; RequiredVersion = '2.2.6' }
+    @{ Name = 'Recycle'; RequiredVersion = '1.3.1' }
+    @{ Name = 'Terminal-Icons'; RequiredVersion = '0.11.0' }
+    @{ Name = 'z'; RequiredVersion = '1.1.13' }
+) | where {
+    !(Get-InstalledModule @_ -ErrorAction SilentlyContinue)
+} | foreach {
+    "  $($_.Name)"
+    Install-Module @_ -Scope CurrentUser -AllowClobber -Force
+}
 
 Import-Module $PSScriptRoot/powershell/modules/base -Force
 Import-Module $PSScriptRoot/powershell/modules/firefox -Force
@@ -110,14 +153,5 @@ Write-Output '- Done.'
 Write-Output ''
 Write-Output 'Close PowerShell and reopen it for changes to take effect.'
 Write-Output ''
-
-# Enable long paths (Windows 10 version 1607 and Later)
-# https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later
-New-ItemProperty `
-    -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' `
-    -Name 'LongPathsEnabled' `
-    -Value 1 `
-    -PropertyType DWORD `
-    -Force
 
 pause
