@@ -1,6 +1,7 @@
-$Global:ProfilePath = (Get-Item $PSCommandPath).Target # real path (non-symlinked)
-$Global:ProfileDir = Split-Path $ProfilePath -Parent
-$Global:Root = Split-Path $ProfileDir -Parent
+$CommandPath = Get-Item $PSCommandPath
+$Global:ProfilePath = if ($CommandPath.Target) { $CommandPath.Target } else { $CommandPath.FullName }
+$Global:ProfileDir = Split-Path $Global:ProfilePath -Parent
+$Global:Root = Split-Path $Global:ProfileDir -Parent
 $Global:DotfilesOptions = @{
     Git = @{
         Dev  = @('develop')
