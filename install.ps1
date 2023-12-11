@@ -24,8 +24,8 @@ Install-Module -Name Recycle -RequiredVersion 1.3.1 -Force
 Install-Module -Name Terminal-Icons -RequiredVersion 0.11.0 -Force
 Install-Module -Name z -RequiredVersion 1.1.13 -Force -AllowClobber
 
-Import-Module $PSScriptRoot/powershell/modules/base -Force
-Import-Module $PSScriptRoot/powershell/modules/firefox -Force
+Import-Module $PSScriptRoot/powershell/base -Force
+Import-Module $PSScriptRoot/powershell/firefox -Force
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 

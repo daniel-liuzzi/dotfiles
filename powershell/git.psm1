@@ -1,4 +1,4 @@
-Import-Module $ProfileDir/modules/base
+Import-Module $ProfileDir/base
 
 function Test-Wips {
     if (quietly lp --grep='^WIP$' 2> $null) {

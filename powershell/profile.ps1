@@ -9,4 +9,4 @@ $Global:DotfilesOptions = @{
     }
 }
 
-Import-Module (Get-ChildItem $ProfileDir/modules/*.psm1 -File) -Force
+Get-ChildItem $ProfileDir/*.psm1 -File | foreach { Import-Module $_ -Force }

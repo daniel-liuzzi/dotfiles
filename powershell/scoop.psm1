@@ -1,4 +1,4 @@
-Import-Module $ProfileDir/modules/base
+Import-Module $ProfileDir/base
 
 function susus {
     run scoop status --local

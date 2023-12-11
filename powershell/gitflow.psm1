@@ -1,4 +1,4 @@
-Import-Module $ProfileDir/modules/git
+Import-Module $ProfileDir/git
 
 function gf { g flow @args }
 function gfc { gf config @args }

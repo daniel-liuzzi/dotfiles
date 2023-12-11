@@ -1,5 +1,5 @@
-Import-Module $ProfileDir/modules/base
-Import-Module $ProfileDir/modules/git
+Import-Module $ProfileDir/base
+Import-Module $ProfileDir/git
 
 function Get-SlnReferences($Path = $PWD.ProviderPath) {
     $Sln = Get-Item $Path
