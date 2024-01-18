@@ -25,12 +25,11 @@ Install-Module -Name Terminal-Icons -RequiredVersion 0.11.0 -Force
 Install-Module -Name z -RequiredVersion 1.1.13 -Force -AllowClobber
 
 Import-Module $PSScriptRoot/powershell/base -Force
-Import-Module $PSScriptRoot/powershell/firefox -Force
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
 Write-Output '- Creating symlinks...'
-$FirefoxProfiles = Get-FirefoxProfiles
+& $PSScriptRoot/firefox/install
 @(
     @{
         Target = './.omnisharp'
@@ -47,14 +46,6 @@ $FirefoxProfiles = Get-FirefoxProfiles
     @{
         Target = './espanso'
         Source = '~/scoop/persist/espanso/.espanso'
-    }
-    @{
-        Target = './firefox/chrome'
-        Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'chrome' }
-    }
-    @{
-        Target = './firefox/user.js'
-        Source = $FirefoxProfiles | ForEach-Object { Join-Path $_ 'user.js' }
     }
     @{
         Target = './powershell/profile.ps1'
