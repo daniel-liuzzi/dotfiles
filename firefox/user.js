@@ -10,6 +10,9 @@ user_pref("browser.formfill.enable", false);
 // Bookmarks Toolbar > Never Show
 user_pref("browser.toolbars.bookmarks.visibility", "never");
 
+// Never offer to translate
+user_pref("browser.translations.automaticallyPopup", false);
+
 // DevTools
 user_pref("devtools.browserconsole.contentMessages", true);
 user_pref("devtools.browserconsole.filter.css", true);
