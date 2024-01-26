@@ -29,6 +29,10 @@ user_pref("devtools.webconsole.filter.netxhr", true);
 user_pref("devtools.webconsole.persistlog", true);
 user_pref("devtools.webconsole.timestampMessages", true);
 
+// Allow Windows single sign-on for Microsoft, work, and school accounts
+// https://support.mozilla.org/en-US/kb/windows-sso
+user_pref("network.http.windows-sso.enabled", true);
+
 // Set Firefox to look for userChrome.css at startup
 // https://www.userchrome.org/how-create-userchrome-css.html#aboutconfig
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
