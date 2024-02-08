@@ -18,14 +18,14 @@
 
 :R0:merge::
 (
-+{Home}merge into target t
-+{Home}using source s on (t.id = s.id)
++{Home}merge into destination dst
++{Home}using source src on (src.id = dst.id)
 +{Home}when matched then
 +{Home}    update set
-+{Home}        col1 = s.col1,
-+{Home}        col2 = s.col2
++{Home}        dst.col1 = src.col1,
++{Home}        dst.col2 = src.col2
 +{Home}when not matched then
 +{Home}    insert (col1, col2)
-+{Home}    values (s.col1, s.col2);
-+{Home}{Delete}{Up 9}{End}{Left 2}+^{Left}
++{Home}    values (src.col1, src.col2);
++{Home}{Delete}{Up 9}{End}{Left 4}+^{Left}
 )
