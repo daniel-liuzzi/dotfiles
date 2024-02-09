@@ -173,6 +173,8 @@ function gmm {
         Get-GitArgs @args
     )
 }
+function gmp { gm_ '@{push}' @args }
+function gmu { gm_ '@{upstream}' @args }
 
 # git rebase
 function gr { g rebase @args }
@@ -221,6 +223,8 @@ function grim {
         Get-GitArgs @args
     )
 }
+function grp { gr '@{push}' @args }
+function gru { gr '@{upstream}' @args }
 
 # git recent
 function r_ { g recent @args }
