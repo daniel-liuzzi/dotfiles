@@ -1,0 +1,60 @@
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : tw
+CommandAst      : launch tw
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : tw
+Path            : 
+
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : on
+CommandAst      : launch two on
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : {two, on}
+Path            : two
+
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : 
+CommandAst      : launch two
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : two
+Path            : 
+
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : 
+CommandAst      : launch two one
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : {two, one}
+Path            : two
+
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : 
+CommandAst      : launch
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : 
+Path            : 
+
+
+Command         : Invoke-Subcommand
+Parameter       : Target
+WordToComplete  : 
+CommandAst      : launch two
+FakeBoundParams : {}
+CommandName     : launch
+Arguments       : two
+Path            : 
+

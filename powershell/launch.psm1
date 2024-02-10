@@ -62,9 +62,10 @@ function Get-Pepe($Path) {
     foreach ($x in $Path) {
         # Write-Host $x -ForegroundColor Blue
         if ($Value.$x) {
-            $Command += $x
-            $Params = $Params | Select-Object -Skip 1
             $Value = $Value.$x
+            # $Command += $x
+            # $Params = $Params | Select-Object -Skip 1
+            $Command, $Params = $Params
         }
     }
     # Write-Host "@{
@@ -87,9 +88,13 @@ function Invoke-Subcommand {
                 $CommandName, $Arguments = $CommandAst.CommandElements
                 $Path = $CommandAst.CommandElements.Value
                 $Path = $Path | Select-Object -Skip 1 -First ($Path.Length - 2)
-                @{
-                    # Pepe = $CommandAst.Extent.ToString()
+                [PSCustomObject][ordered]@{
+                    Command = $Command
+                    Parameter = $Parameter
                     WordToComplete = $WordToComplete
+                    CommandAst = $CommandAst
+                    FakeBoundParams = $FakeBoundParams
+                    # Pepe = $CommandAst.Extent.ToString()
                     CommandName = $CommandName
                     Arguments = $Arguments
                     Path = $Path
@@ -117,6 +122,11 @@ function Invoke-Subcommand {
     # run start $Url
 
     $Command, $Params, $Value = Get-Pepe $Target
+    [PSCustomObject][ordered]@{
+        Command = $Command
+        Params = $Params
+        Value = $Value
+    } | Format-List
     Write-Host $Value.GetType() -ForegroundColor Cyan
     if ($Value -is [Hashtable]) {
         Write-Host "$Command subcommands:"
@@ -126,12 +136,6 @@ function Invoke-Subcommand {
         return
     }
     # run start $Value
-
-    @{
-        Command = $Command
-        Params = $Params
-        Value = $Value
-    }
 }
 
 Set-Alias -Name 'launch' -Value 'Invoke-Subcommand'
