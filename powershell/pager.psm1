@@ -1,9 +1,7 @@
 # scoop install bat less
 
-function Get-ContentColorized { run bat --paging=never @args }
-
 @('cat', 'gc', 'type') | ForEach-Object {
-    Set-Alias -Name $_ -Value 'Get-ContentColorized' -Option AllScope -Scope Global -Force
+    Set-Alias -Name $_ -Value 'bat' -Option AllScope -Scope Global -Force
 }
 
 $env:BAT_OPTS = @(
