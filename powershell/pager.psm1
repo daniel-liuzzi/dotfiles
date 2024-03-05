@@ -1,9 +1,3 @@
-# scoop install bat less
-
-@('cat', 'gc', 'type') | ForEach-Object {
-    Set-Alias -Name $_ -Value 'bat' -Option AllScope -Scope Global -Force
-}
-
 $env:BAT_OPTS = @(
     '--map-syntax="[Aa]pp.config:XML"'
     '--map-syntax="[Ww]eb.config:XML"'
@@ -29,3 +23,6 @@ $env:LESS = @(
 # Better pager for commands that respect it, i.e., `help`
 # https://github.com/PowerShell/PowerShell/blob/158d3a64e9c6edabb77070074686b8a75027a8a5/src/System.Management.Automation/engine/InitialSessionState.cs#L4173
 $env:PAGER = 'less'
+
+# scoop install bat less
+Set-Alias -Name 'cat' -Value 'bat' -Option AllScope -Scope Global -Force
