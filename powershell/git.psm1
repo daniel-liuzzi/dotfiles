@@ -43,14 +43,14 @@ function undo { rs HEAD^ @args }
 function wip { aa; c --message=WIP }
 
 # git worktree
-function w { g worktree @args }
-function wa {
+function gwt { g worktree @args }
+function gwta {
     $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    w add "../$(Split-Path $PWD -Leaf)_worktrees/$Ref" $Ref
+    gwt add "../$(Split-Path $PWD -Leaf)_worktrees/$Ref" $Ref
 }
-function wl { w list @args }
-function wr { w remove @args }
+function gwtl { gwt list @args }
+function gwtr { gwt remove @args }
 
 function unwip {
     if (quietly sw --grep='^WIP$' --invert-grep) { throw 'Nothing to unwip.' }
