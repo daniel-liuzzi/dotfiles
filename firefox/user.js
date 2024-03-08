@@ -33,6 +33,10 @@ user_pref("devtools.webconsole.timestampMessages", true);
 // https://support.mozilla.org/en-US/kb/windows-sso
 user_pref("network.http.windows-sso.enabled", true);
 
+// Firefox gives certificate warning when accessing applications via Forcepoint ONE
+// https://support.forcepoint.com/s/article/Configure-Firefox-to-use-Windows-certificate-store-1648249639083
+user_pref("security.enterprise_roots.enabled", true);
+
 // Set Firefox to look for userChrome.css at startup
 // https://www.userchrome.org/how-create-userchrome-css.html#aboutconfig
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
