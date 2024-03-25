@@ -116,7 +116,7 @@ function ln_($number) { lr --max-count=$number @args }
 function l1 { ln_ 1 @args }
 function l5 { ln_ 5 @args }
 function l9 { ln_ 9 @args }
-function l19 { ln_ 29 @args }
+function l19 { ln_ 19 @args }
 function l49 { ln_ 49 @args }
 function l99 { ln_ 99 @args }
 function l { g log --boundary --pretty=s @args }
