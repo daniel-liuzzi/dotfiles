@@ -47,7 +47,7 @@ function gwt { g worktree @args }
 function gwta {
     $Ref = Get-GitRevs @args
     if (!$Ref) { $Ref = 'HEAD' }
-    gwt add "$(git rev-parse --show-toplevel)_worktrees/$Ref" $Ref
+    gwt add "$(git rev-parse --show-toplevel)__$($Ref -replace '\W+', '_')" $Ref
 }
 function gwtl { gwt list @args }
 function gwtr { gwt remove @args }
