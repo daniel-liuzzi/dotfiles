@@ -59,6 +59,7 @@ function Invoke-Search {
 }
 
 function arin { Invoke-Search -Target 'ARIN' @args }
+function eng { Invoke-Search -Target 'English Stack Exchange' @args }
 function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
 function su { Invoke-Search -Target 'Super User' @args }
