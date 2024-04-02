@@ -18,6 +18,7 @@ $Global:DotfilesOptions.Search += @{
     'NuGet'                     = 'https://www.google.com/search?q=site%3Anuget.org+'
     'Reddit'                    = 'https://www.google.com/search?q=site%3Areddit.com+'
     'Server Fault'              = 'https://www.google.com/search?q=site%3Aserverfault.com+'
+    'Spanish Stack Exchange'    = 'https://www.google.com/search?q=site%3Aspanish.stackexchange.com+'
     'Stack Overflow'            = 'https://www.google.com/search?q=site%3Astackoverflow.com+'
     'Super User'                = 'https://www.google.com/search?q=site%3Asuperuser.com+'
     'wallhaven.cc'              = 'https://wallhaven.cc/search?q='
@@ -62,6 +63,7 @@ function arin { Invoke-Search -Target 'ARIN' @args }
 function eng { Invoke-Search -Target 'English Stack Exchange' @args }
 function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
+function spa { Invoke-Search -Target 'Spanish Stack Exchange' @args }
 function su { Invoke-Search -Target 'Super User' @args }
 function yt { Invoke-Search -Target 'YouTube' @args }
 
