@@ -10,3 +10,4 @@ function Invoke-Dive {
 
 Set-Alias -Name 'whaler' -Value 'Invoke-Whaler'
 Set-Alias -Name 'dive' -Value 'Invoke-Dive'
+Set-Alias -Name 'dc' -Value 'docker-compose'
