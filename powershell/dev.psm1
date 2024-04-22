@@ -118,7 +118,7 @@ function New-Solution {
     Pop-Location
 
     mkdir Api | Push-Location
-    dotnet new webapi --no-https @args
+    dotnet new webapi --no-https --use-minimal-apis=false @args
     "`r`npublic partial class Program { }" >> Program.cs
     dotnet add reference ../Core
     dotnet sln .. add .
