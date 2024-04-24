@@ -11,35 +11,11 @@ trim_trailing_whitespace = true
 
 )
 
-; Timestamp - ISO 8601 format
-::now.iso::
-{
-    SendInput(FormatTime(A_NowUTC, "yyyy-MM-ddTHH:mm:ssZ"))
-}
-
-; Timestamp - yyyyMMddHHmmss format
-::now.ts::
-{
-    SendInput(FormatTime(A_NowUTC, "yyyyMMddHHmmss"))
-}
-
-; Current date
-::date::
-{
-    SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd"))
-}
-
-; Current time
-::time::
-{
-    SendInput(FormatTime(A_NowUTC, "HH:mm"))
-}
-
-; Current date & time
-::now::
-{
-    SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd HH:mm"))
-}
+; UTC date & time (sortable)
+:X:date::SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd"))              ; Date
+:X:time::SendInput(FormatTime(A_NowUTC, "HH:mm"))                   ; Time
+:X:now::SendInput(FormatTime(A_NowUTC, "yyyy-MM-dd HH:mm"))         ; Date & time
+:X:nowz::SendInput(FormatTime(A_NowUTC, "yyyy-MM-ddTHH:mm:ssZ"))    ; Date & time, ISO 8601
 
 ; Other
 ::constr::trusted_connection=true;
