@@ -176,14 +176,14 @@
     {
         "defaults": 
         {
+            "autoMarkPrompts": true,
             "colorScheme": "Daniel",
-            "experimental.autoMarkPrompts": true,
-            "experimental.showMarksOnScrollbar": true,
             "font": 
             {
                 "face": "MesloLGM Nerd Font",
                 "size": 12.0
             },
+            "showMarksOnScrollbar": true,
             "useAtlasEngine": true
         },
         "list": 
