@@ -51,9 +51,20 @@ function Invoke-Search {
         $Target
     )
 
+    function Get-QuotedKeywords ($keywords) {
+        $keywords | ForEach-Object {
+            if ($_ -isnot [string]) { return $_ }
+            if ($_ -notmatch ' ') { return $_ }
+            return "`"$($_.Replace('"', '""'))`""
+        }
+    }
+
     if ($Keywords -or $Target) {
         if (!$Target) { $Target = $Global:DotfilesOptions.SearchDefault }
-        $Url = $Global:DotfilesOptions.Search.$Target + [HttpUtility]::UrlEncode("$Keywords")
+        $QuotedKeywords = Get-QuotedKeywords $Keywords
+        $UrlPrefix = $Global:DotfilesOptions.Search.$Target
+        $UrlSuffix = [HttpUtility]::UrlEncode($QuotedKeywords)
+        $Url = $UrlPrefix + $UrlSuffix
     } else {
         $Url = 'https://'
     }
