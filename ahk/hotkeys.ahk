@@ -57,7 +57,9 @@ SetCapsLockState("AlwaysOff")
     i::         Insert
     n::         NumLock
     p::         PrintScreen
+    q::         SendInput "!{F4}" ; Alt+F4
     s::         ScrollLock
+    w::         SendInput "^{F4}" ; Ctrl+F4
 
 #HotIf
 
@@ -96,9 +98,6 @@ SetCapsLockState("AlwaysOff")
     !LButton::  SendInput "^+{LButton}" ; Insert cursor
     ^n::        SendInput "!{F10}"      ; New connection
 #HotIf
-
-; macOS-style shortcuts
-^q::            SendInput "!{F4}"       ; Quit app
 
 ; Common special chars with AltGr
 >!!::¡
