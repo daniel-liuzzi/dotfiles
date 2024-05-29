@@ -35,6 +35,9 @@ SetCapsLockState("AlwaysOff")
     .::         Media_Next
     Space::     Media_Play_Pause
 
+    ; Connected Devices (alla Windows 10's Win+K)
+    k::Run "ms-settings:connecteddevices"
+
     ; Caps + L = Turn monitor off and lock PC
     ; https://gist.github.com/davejamesmiller/1965854
     l::
