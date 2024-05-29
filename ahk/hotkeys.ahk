@@ -69,24 +69,17 @@ SetCapsLockState("AlwaysOff")
 ; VSCode-style shortcuts in Visual Studio
 ; (for the rest, go to Tools > Options > Environment > Keyboard and select 'Visual Studio Code')
 #HotIf WinActive("ahk_exe devenv\.exe")
-    ^w::        SendInput "^{F4}"       ; Close window/tab
-    ^/::        SendInput "^k^c"        ; Comment selection (SA1005-style comments)
-    ^+/::       SendInput "^k^u"        ; Uncomment selection
-    ^+l::       SendInput "!+;"         ; Select all occurrences of current selection
     !LButton::  SendInput "^!{LButton}" ; Insert cursor
 #HotIf
 
 ; VSCode-style shortcuts in SQL Server Management Studio
 #HotIf WinActive("ahk_exe Ssms\.exe")
-    ^w::        SendInput "^{F4}"       ; Close window/tab
     ^/::        SendInput "^k^c"        ; Comment selection
     ^+/::       SendInput "^k^u"        ; Uncomment selection
 #HotIf
 
 ; VSCode-style shortcuts in LINQPad
 #HotIf WinActive("ahk_exe LINQPad.*\.exe")
-    ^/::        SendInput "^k^c"        ; Comment selection
-    ^+/::       SendInput "^k^u"        ; Uncomment selection
     ^,::        SendInput "!en"         ; User Settings
     ^p::        SendInput "^,"          ; Quick Open, Go to File...
     +!f::       SendInput "^ed"         ; Format document
