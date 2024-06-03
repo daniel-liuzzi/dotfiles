@@ -1,7 +1,24 @@
 {
   "name": "Keychron Q2 Pro",
   "vendorProductId": 875824672,
-  "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  "macros": [
+    "{KC_LALT,KC_F4}",
+    "{KC_LCTL,KC_F4}",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "layers": [
     [
       "KC_ESC",
@@ -349,8 +366,8 @@
       "KC_NO",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
+      "MACRO(0)",
+      "MACRO(1)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
