@@ -23,3 +23,4 @@ trim_trailing_whitespace = true
 ::cl::console.log();{Left 2}
 ::ct::console.table();{Left 2}
 ::cw::Console.WriteLine();{Left 2}
+::json::System.Text.Json.JsonSerializer.Serialize(obj, new System.Text.Json.JsonSerializerOptions {{} WriteIndented = true {}}){Left 70}+{Left 3}
