@@ -9,4 +9,5 @@ $Global:DotfilesOptions = @{
     }
 }
 
-Get-ChildItem $ProfileDir/*.psm1 -File | foreach { Import-Module $_ -Force }
+$exclude = if ($PSVersionTable.PSEdition -ne 'Core') { '*.core.*' }
+Get-ChildItem $ProfileDir/*.psm1 -File -Exclude $exclude | foreach { Import-Module $_ -Force }
