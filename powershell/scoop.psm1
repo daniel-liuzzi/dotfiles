@@ -15,3 +15,6 @@ function susus {
 
     status
 }
+
+# scoop install scoop-search
+Invoke-Expression (&scoop-search --hook)
