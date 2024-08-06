@@ -3,65 +3,6 @@
 
 #UseHook
 SetTitleMatchMode("RegEx")
-SetCapsLockState("AlwaysOff")
-
-#HotIf GetKeyState("CapsLock", "P")
-
-    ; Function row
-    1::F1
-    2::F2
-    3::F3
-    4::F4
-    5::F5
-    6::F6
-    7::F7
-    8::F8
-    9::F9
-    0::F10
-    -::F11
-    =::F12
-
-    ; MacBook-style navigation keys
-    Left::      Home
-    Right::     End
-    Up::        PgUp
-    Down::      PgDn
-
-    ; Media controls
-    [::         Volume_Down
-    ]::         Volume_Up
-    \::         Volume_Mute
-    ,::         Media_Prev
-    .::         Media_Next
-    Space::     Media_Play_Pause
-
-    ; Connected Devices (alla Windows 10's Win+K)
-    k::Run "ms-settings:connecteddevices"
-
-    ; Caps + L = Turn monitor off and lock PC
-    ; https://gist.github.com/davejamesmiller/1965854
-    l::
-    {
-        Run("rundll32.exe user32.dll,LockWorkStation")
-        Sleep(1000)
-        SendMessage(0x112, 0xF170, 2,, "Program Manager")
-    }
-
-    ; Misc.
-    `::         Esc
-    Esc::       `
-    BackSpace:: Delete
-    b::         vk13 ; Pause
-    ^b::        CtrlBreak
-    c::         CapsLock
-    i::         Insert
-    n::         NumLock
-    p::         PrintScreen
-    q::         SendInput "!{F4}" ; Alt+F4
-    s::         ScrollLock
-    w::         SendInput "^{F4}" ; Ctrl+F4
-
-#HotIf
 
 ; Alt+= -> Autosize listview columns
 !=::            SendInput "^{NumpadAdd}"

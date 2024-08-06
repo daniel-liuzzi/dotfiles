@@ -1,0 +1,58 @@
+(defcfg
+    danger-enable-cmd yes
+    process-unmapped-keys yes
+)
+
+(defsrc)
+
+(deflayermap (base-layer)
+    caps        (layer-toggle caps-layer)
+)
+
+(deflayermap (caps-layer)
+
+    ;; Function row
+    1           f1
+    2           f2
+    3           f3
+    4           f4
+    5           f5
+    6           f6
+    7           f7
+    8           f8
+    9           f9
+    0           f10
+    -           f11
+    =           f12
+
+    ;; MacBook-style navigation keys
+    left        home
+    rght        end
+    up          pgup
+    down        pgdn
+
+    ;; Media controls
+    [           voldwn
+    ]           volu
+    \           mute
+    ,           prev
+    .           next
+    spc         pp
+
+    ;; Connected Devices (alla Windows 10's Win+K)
+    k           (cmd cmd.exe /c start ms-settings:connecteddevices)
+
+    ;; Misc.
+    `           esc
+    esc         `
+    bspc        del
+    b           pause
+    c           caps
+    i           ins
+    n           nlck
+    p           prtsc
+    q           A-f4
+    s           scrlck
+    w           C-f4
+
+)

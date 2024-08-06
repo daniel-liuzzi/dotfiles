@@ -93,9 +93,10 @@ Write-Output '- Creating symlinks...'
     Out-Null
 }
 
-# Create AutoHotkey scheduled task
+# Create scheduled tasks
 Write-Output '- Creating scheduled tasks...'
 & './ahk/install' | Out-Null
+& './kanata/install' | Out-Null
 
 Write-Output '- Done.'
 Write-Output ''
