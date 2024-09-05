@@ -1,7 +1,24 @@
 {
   "name": "NuPhy Air60 V2",
   "vendorProductId": 435499605,
-  "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  "macros": [
+    "{KC_LALT,KC_F4}",
+    "{KC_LCTL,KC_F4}",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "layers": [
     [
       "KC_ESC",
@@ -455,8 +472,8 @@
       "KC_NO",
       "KC_NO",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
+      "MACRO(0)",
+      "MACRO(1)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
