@@ -18,7 +18,8 @@ function dpsa { dps --all @args }
 # docker compose up
 function dcu { dc up @args }
 function dcud { dcu --detach @args }
-function dcudbfr { dcud --build --force-recreate @args }
+function dcudb { dcud --build @args }
+function dcudbfr { dcudb --force-recreate @args }
 
 # docker compose down
 function dcd { dc down @args }
