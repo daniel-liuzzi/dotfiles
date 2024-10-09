@@ -226,6 +226,9 @@ function Start-Solution {
 }
 
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
+
+# Editor
+function e. { e . @args }
 Set-Alias -Name 'e' -Value 'edit'
 Set-Alias -Name 'edit' -Value 'code'
 
