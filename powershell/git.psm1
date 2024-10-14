@@ -361,3 +361,5 @@ function Get-GitChildItem {
 function Get-GitEmptyTree { $null | git mktree }
 
 Set-Alias -Name 'gls' -Value 'Get-GitChildItem'
+
+Set-Alias -Name 'lg' -Value 'lazygit'
