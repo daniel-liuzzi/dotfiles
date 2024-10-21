@@ -223,6 +223,7 @@ function grim {
         Get-GitArgs @args
     )
 }
+function gro { gr --onto @args }
 function grp { gr '@{push}' @args }
 function gru { gr '@{upstream}' @args }
 
