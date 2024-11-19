@@ -174,20 +174,20 @@ public class WeatherForecastControllerTests
 
 # dotnet
 function dn { run dotnet @args }
-function dna { dn add @args }
-function dnap { dna package @args }
-function dnar { dna reference @args }
-function dnb { dn build @args }
-function dnc { dn clean @args }
-function dnf { dn format @args }
-function dnl { dn list @args }
-function dnlp { dnl package @args }
-function dnlr { dnl reference @args }
+function dna($path = '.') { dn add $path @args }
+function dnap($path = '.') { dna $path package @args }
+function dnar($path = '.') { dna $path reference @args }
+function dnb($path = '.') { dn build $path @args }
+function dnc($path = '.') { dn clean $path @args }
+function dnf($path = '.') { dn format $path @args }
+function dnl($path = '.') { dn list $path @args }
+function dnlp($path = '.') { dnl $path package @args }
+function dnlr($path = '.') { dnl $path reference @args }
 function dnn { dn new @args }
 function dnr { dn run @args }
-function dnrm { dn remove @args }
-function dnrmp { dnrm package @args }
-function dnrmr { dnrm reference @args }
+function dnrm($path = '.') { dn remove $path @args }
+function dnrmp($path = '.') { dnrm $path package @args }
+function dnrmr($path = '.') { dnrm $path reference @args }
 function dns { dn search @args }
 function dnt { dn test @args }
 function dnw { dn watch @args }
