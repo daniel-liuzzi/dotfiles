@@ -1,3 +1,5 @@
-Set-PSReadLineOption `
-    -PredictionViewStyle ListView `
-    -WordDelimiters ' /\' `
+try {
+    Set-PSReadLineOption -PredictionViewStyle ListView -WordDelimiters ' /\'
+}
+catch {
+}
