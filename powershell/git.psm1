@@ -228,7 +228,7 @@ function grp { gr '@{push}' @args }
 function gru { gr '@{upstream}' @args }
 
 # git recent
-function r_ { g recent @args }
+function r_ { g recent-og @args }
 function rn($number) { r_ "-n$number" @args }
 function r1 { rn 1 @args }
 function r5 { rn 5 @args }
