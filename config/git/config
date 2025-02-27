@@ -143,6 +143,9 @@
 	branch = true
 	short = true
 
+[tag]
+	sort = version:refname
+
 # Keep this section last so it can override settings above
 [include]
 	path = config.custom
