@@ -23,7 +23,6 @@ function mcd { mkdir -Force @args | Set-Location }
 function sh { & '~/scoop/apps/git/current/bin/sh.exe' @args }
 function which { Get-Command @args | Select-Object -ExpandProperty Definition }
 
-Set-Alias -Name 'ads' -Value 'azuredatastudio'
 Set-Alias -Name 'hist' -Value 'Get-SavedHistory'
 Set-Alias -Name 'LogParser' -Value "${env:ProgramFiles(x86)}/Log Parser 2.2/LogParser.exe"
 Set-Alias -Name 'top' -Value 'ntop'
