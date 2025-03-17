@@ -27,8 +27,17 @@ Import-Module $PSScriptRoot/powershell/base -Force
 
 # TODO: create *.custom.* files (from *.custom.sample.*) if they don't already exist
 
+Write-Output '- Installing features...'
+@(
+    'ahk'
+    'firefox'
+    'keepass'
+) | foreach {
+    Write-Output "  $_"
+    & "$PSScriptRoot/$_/install"
+}
+
 Write-Output '- Creating symlinks...'
-& $PSScriptRoot/firefox/install
 @(
     @{
         Target = './.omnisharp'
@@ -91,10 +100,6 @@ Write-Output '- Creating symlinks...'
         -Source $_.Source |
     Out-Null
 }
-
-# Create AutoHotkey scheduled task
-Write-Output '- Creating scheduled tasks...'
-& './ahk/install' | Out-Null
 
 Write-Output '- Done.'
 Write-Output ''

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Application>
+		<AutoSaveAfterEntryEdit>true</AutoSaveAfterEntryEdit>
+		<FileClosing>
+			<AutoSave>true</AutoSave>
+		</FileClosing>
+		<SaveForceSync>true</SaveForceSync>
+		<Start>
+			<CheckForUpdate>true</CheckForUpdate>
+			<CheckForUpdateConfigured>true</CheckForUpdateConfigured>
+			<MinimizedAndLocked>true</MinimizedAndLocked>
+		</Start>
+	</Application>
+	<Custom>
+		<Item>
+			<Key>KeePassOTP.Hotkey</Key>
+			<Value>T, Control, Alt</Value>
+		</Item>
+		<Item>
+			<Key>WebAutoType.CreateEntryHotKey</Key>
+			<Value>393289</Value>
+		</Item>
+		<Item>
+			<Key>WebAutoType.CreateEntryTargetGroup</Key>
+			<Value>B97EED5446CA024B89F2538A81B8481F</Value>
+		</Item>
+	</Custom>
+	<Integration>
+		<AutoTypeCancelOnTitleChange>true</AutoTypeCancelOnTitleChange>
+		<AutoTypeCancelOnWindowChange>true</AutoTypeCancelOnWindowChange>
+	</Integration>
+	<MainWindow>
+		<EscAction>Minimize</EscAction>
+		<MinimizeAfterAutoType>true</MinimizeAfterAutoType>
+		<MinimizeAfterClipboardCopy>true</MinimizeAfterClipboardCopy>
+		<MinimizeAfterOpeningDatabase>true</MinimizeAfterOpeningDatabase>
+		<MinimizeToTray>true</MinimizeToTray>
+	</MainWindow>
+</Configuration>
