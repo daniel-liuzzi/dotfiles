@@ -1,105 +1,115 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "palette": {
-        "base": "#999999",
-        "highlight": "#ffffff",
-        "muted": "#444444",
-        "invisible": "#333322",
-        "took": "p:muted",
-        "root": "#ffc83d",
-        "git-repo": "#cc66cc",
-        "git-identical": "#00ccff",
-        "git-ahead": "#66ff66",
-        "git-behind": "#ff6666",
-        "git-diverged": "#ffff66",
-        "git-gone": "#666666",
-        "git-dirty": "#666666",
-        "git-sha": "p:invisible",
-        "path": "p:base",
-        "time": "p:muted",
-        "prompt": "p:muted"
-    },
-    "blocks": [
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "base": "#999999",
+    "git-ahead": "#66ff66",
+    "git-behind": "#ff6666",
+    "git-dirty": "#666666",
+    "git-diverged": "#ffff66",
+    "git-gone": "#666666",
+    "git-identical": "#00ccff",
+    "git-repo": "#cc66cc",
+    "git-sha": "p:invisible",
+    "highlight": "#ffffff",
+    "invisible": "#333322",
+    "muted": "#444444",
+    "path": "p:base",
+    "prompt": "p:muted",
+    "root": "#ffc83d",
+    "time": "p:muted",
+    "took": "p:muted"
+  },
+  "console_title_template": "{{if .Root}}⚡{{end}}{{if .Segments.Git.RepoName}}{{.Segments.Git.RepoName}}{{else}}{{.Folder}}{{end}}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
         {
-            "alignment": "left",
-            "segments": [
-                {
-                    "foreground": "p:took",
-                    "properties": {
-                        "threshold": 999
-                    },
-                    "style": "plain",
-                    "template": "<i>{{ .FormattedMs }}</i>\n",
-                    "type": "executiontime"
-                },
-                {
-                    "foreground": "p:path",
-                    "properties": {
-                        "style": "full"
-                    },
-                    "style": "plain",
-                    "template": "{{ if not .Segments.Git.Dir }}{{ .Path | replace \"\\\\\" \"/\" }}{{ end }}",
-                    "type": "path"
-                },
-                {
-                    "foreground_templates": [
-                        "{{ if .UpstreamGone }}p:git-gone{{ end }}",
-                        "{{ if and .Ahead .Behind }}p:git-diverged{{ end }}",
-                        "{{ if .Ahead }}p:git-ahead{{ end }}",
-                        "{{ if .Behind }}p:git-behind{{ end }}",
-                        "p:git-identical"
-                    ],
-                    "properties": {
-                        "branch_icon": "",
-                        "fetch_status": true
-                    },
-                    "style": "plain",
-                    "templates": [
-                        "<p:git-repo>{{ .RepoName }}</>",
-                        "<p:path>{{ (trimPrefix .Dir .PWD) | replace \"\\\\\" \"/\" }}</>",
-                        "<>  ",
-                        "{{ .HEAD }} ",
-                        "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>* </>{{ end }}"
-                    ],
-                    "type": "git"
-                }
-            ],
-            "type": "prompt"
+          "properties": {
+            "cache_duration": "none",
+            "threshold": 999
+          },
+          "template": "<i>{{ .FormattedMs }}</i>\n",
+          "foreground": "p:took",
+          "type": "executiontime",
+          "style": "plain"
         },
         {
-            "alignment": "right",
-            "segments": [
-                {
-                    "foreground": "p:git-sha",
-                    "style": "plain",
-                    "template": "{{ .Env.HEAD_REV }} ",
-                    "type": "text"
-                },
-                {
-                    "foreground": "p:time",
-                    "properties": {
-                        "time_format": "2006-01-02 15:04:05"
-                    },
-                    "style": "plain",
-                    "type": "time"
-                }
-            ],
-            "type": "prompt"
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          },
+          "template": "{{ if not .Segments.Git.Dir }}{{ .Path | replace \"\\\\\" \"/\" }}{{ end }}",
+          "foreground": "p:path",
+          "type": "path",
+          "style": "plain"
         },
         {
-            "alignment": "left",
-            "newline": true,
-            "segments": [
-                {
-                    "foreground": "p:prompt",
-                    "style": "plain",
-                    "template": "{{ if .Root }}<p:root>\u26a1</>{{ else }}>{{ end }} ",
-                    "type": "text"
-                }
-            ],
-            "type": "prompt"
+          "properties": {
+            "branch_icon": "",
+            "cache_duration": "none",
+            "fetch_status": true
+          },
+          "type": "git",
+          "style": "plain",
+          "foreground_templates": [
+            "{{ if .UpstreamGone }}p:git-gone{{ end }}",
+            "{{ if and .Ahead .Behind }}p:git-diverged{{ end }}",
+            "{{ if .Ahead }}p:git-ahead{{ end }}",
+            "{{ if .Behind }}p:git-behind{{ end }}",
+            "p:git-identical"
+          ],
+          "templates": [
+            "<p:git-repo>{{ .RepoName }}</>",
+            "<p:path>{{ (trimPrefix .Dir .PWD) | replace \"\\\\\" \"/\" }}</>",
+            "<>  ",
+            "{{ .HEAD }} ",
+            "{{ if or .Working.Changed .Staging.Changed }}<p:git-dirty>* </>{{ end }}"
+          ]
         }
-    ],
-    "console_title_template": "{{if .Root}}\u26a1{{end}}{{if .Segments.Git.RepoName}}{{.Segments.Git.RepoName}}{{else}}{{.Folder}}{{end}}",
-    "version": 2
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ .Env.HEAD_REV }} ",
+          "foreground": "p:git-sha",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "2006-01-02 15:04:05"
+          },
+          "foreground": "p:time",
+          "type": "time",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if .Root }}<p:root>⚡</>{{ else }}>{{ end }} ",
+          "foreground": "p:prompt",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3
 }
