@@ -40,10 +40,6 @@ Write-Output '- Installing features...'
 Write-Output '- Creating symlinks...'
 @(
     @{
-        Target = './.omnisharp'
-        Source = '~/.omnisharp'
-    }
-    @{
         Target = './azuredatastudio/settings.json'
         Source = "$env:APPDATA/azuredatastudio/User/settings.json"
     }
