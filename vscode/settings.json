@@ -138,4 +138,10 @@
     "xml.server.binary.trustedHashes": [
         "a1bf296a5263bc63cca97cb46692d0d523edfe9d2d4e79d5b4d245f57c6c623b",
     ],
+    "rest-client.defaultHeaders": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip",
+        "User-Agent": "curl/8.10.1"
+    },
+    "rest-client.previewOption": "exchange"
 }
