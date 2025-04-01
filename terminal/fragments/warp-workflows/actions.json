@@ -1,0 +1,2885 @@
+{
+    "actions": [
+        {
+            "name": "android...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "adb root",
+                        "action": "sendInput"
+                    },
+                    "name": "Root your emulator",
+                    "description": "Roots your Android emulator"
+                },
+                {
+                    "command": {
+                        "input": "adb logcat -c",
+                        "action": "sendInput"
+                    },
+                    "name": "Clear the Android logcat buffer",
+                    "description": null
+                },
+                {
+                    "command": {
+                        "input": "adb pull {{android_file_path}} {{local_file_path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Pull file from Android device",
+                    "description": "Pulls a file from an Android device to a local computer using adb."
+                },
+                {
+                    "command": {
+                        "input": "adb shell am start -W -a android.intent.action.VIEW -d \"{{deeplink}}\" {{your_app_package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Push a deeplink to your Android device",
+                    "description": "Uses adb to push a deeplink onto an Android device."
+                },
+                {
+                    "command": {
+                        "input": "adb push '{{local_file}}' '{{android_directory}}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Push local file onto Android device",
+                    "description": "Uses adb to push a file from a local computer to an Android device."
+                },
+                {
+                    "command": {
+                        "input": "adb shell pm list packages | grep \"{{query}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Search for a package on a Android device",
+                    "description": "Use ADB to search for packages on a Android device."
+                },
+                {
+                    "command": {
+                        "input": "adb shell am broadcast \\ -n {{your_app_package_name}}/com.google.firebase.iid.FirebaseInstanceIdReceiver \\ -a \"com.google.android.c2dm.intent.RECEIVE\" \\ --es \"title\" \"{{notification_title}}\" \\ --es \"body\" \"{{notification_body}}\" \\ --es \"deeplink\" \"{{deeplink}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Send a Firebase push notification to a local Android emulator",
+                    "description": "Uses adb to push a Firebase push notification to your local emulator"
+                },
+                {
+                    "command": {
+                        "input": "adb shell am start -n {{package_name}}/{{package_name}}.{{activity_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Start an Android application using Android ADB tools",
+                    "description": "Sends an intent to start an Android application directly from the command line by using adb."
+                },
+                {
+                    "command": {
+                        "input": "adb shell am force-stop {{package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Stop an Android app",
+                    "description": "Force stops an Android app using adb by using the package name."
+                }
+            ]
+        },
+        {
+            "name": "aws...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "aws eks update-kubeconfig --region {{region}} --name {{cluster}}  --alias {{alias}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set AWS EKS kubeconfig",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "brew...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "brew bundle dump",
+                        "action": "sendInput"
+                    },
+                    "name": "Store / Backup all installed dependencies into Brewfile",
+                    "description": "Write all installed casks/formulae/images/taps into a Brewfile in the current directory."
+                },
+                {
+                    "command": {
+                        "input": "brew tap {{formula_repository}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Tap a Homebrew formula repository from GitHub",
+                    "description": "Taps a Homebrew formula repository (a repository that contains Homebrew formulae) from GitHub."
+                },
+                {
+                    "command": {
+                        "input": "brew bundle install",
+                        "action": "sendInput"
+                    },
+                    "name": "Install all dependencies from Brewfile",
+                    "description": "Install and upgrade (by default) all dependencies from the Brewfile. Optionally you can pass [--file={{file_location}}], Otherwise homebrew finds Brewfile from the current location."
+                },
+                {
+                    "command": {
+                        "input": "brew install {{formula_name}}@{{version_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Install a specific version of a Homebrew formula",
+                    "description": "Install a specific version of a formula using Homebrew. To list all available versions, you can run `brew search {{formula_name}}@`."
+                },
+                {
+                    "command": {
+                        "input": "brew list",
+                        "action": "sendInput"
+                    },
+                    "name": "List all installed Homebrew formulae/casks",
+                    "description": "Lists all installed Homebrew formulae/casks"
+                },
+                {
+                    "command": {
+                        "input": "brew pin {{formula_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Pin a formula to its current version",
+                    "description": "Pins a version of a homebrew formula to its current version, i.e. it will not be updated when a newer version is available."
+                },
+                {
+                    "command": {
+                        "input": "brew list -1 | xargs brew reinstall",
+                        "action": "sendInput"
+                    },
+                    "name": "Reinstall all installed Homebrew formulae/casks",
+                    "description": "Reinstalls all installed Homebrew formulae and casks"
+                },
+                {
+                    "command": {
+                        "input": "brew reinstall {{formula_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Reinstall a Homebrew formula",
+                    "description": "Reinstall a Homebrew formula"
+                },
+                {
+                    "command": {
+                        "input": "brew tap beeftornado/rmtree\nbrew rmtree {{package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Uninstall a Homebrew package and all of its dependencies",
+                    "description": "Uses the external command rmtree to remove a Homebrew package and all of its dependencies"
+                },
+                {
+                    "command": {
+                        "input": "brew unpin {{formula_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Unpin a homebrew formula",
+                    "description": "Unpins a version of a homebrew formula to its current version, i.e. it will not be updated when a newer version is available."
+                },
+                {
+                    "command": {
+                        "input": "brew upgrade --cask",
+                        "action": "sendInput"
+                    },
+                    "name": "Upgrade all installed Homebrew casks",
+                    "description": "Upgrades all applications that were downloaded using Homebrewk Cask. This will not update casks that do not have versioning information or applications that have a built-in upgrade mechanism. To reinstall these casks, append the `--greedy` flag."
+                }
+            ]
+        },
+        {
+            "name": "chef...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "sudo chef client -o recipe['{{cookbook}}']",
+                        "action": "sendInput"
+                    },
+                    "name": "Manually run a cookbook by name",
+                    "description": "Use to run a cookbook manually"
+                }
+            ]
+        },
+        {
+            "name": "code...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "code -d {{file1}} {{file2}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Compare two files in VS Code",
+                    "description": "Compare two files using code."
+                },
+                {
+                    "command": {
+                        "input": "code -r {{file_or_directory}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a file or directory in the currently open VS Code window",
+                    "description": "Use -r or --reuse-window command line option to attach the currently open VS Code window."
+                },
+                {
+                    "command": {
+                        "input": "code {{path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a path in VS Code",
+                    "description": "This workflow opens the current or the specified folder in VS Code."
+                }
+            ]
+        },
+        {
+            "name": "code-insiders...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "code-insiders -d {{file1}} {{file2}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Compare two files in VS Code (Insiders)",
+                    "description": "Compare two files using code."
+                },
+                {
+                    "command": {
+                        "input": "code-insiders -r {{file_or_directory}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a file or directory in the currently open VS Code (Insiders) window",
+                    "description": "Use -r or --reuse-window command line option to attach the currently open VS Code window."
+                },
+                {
+                    "command": {
+                        "input": "code-insiders {{path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a path in VS Code (Insiders)",
+                    "description": "This workflow opens the current or the specified folder in VS Code."
+                }
+            ]
+        },
+        {
+            "name": "composer...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "composer show",
+                        "action": "sendInput"
+                    },
+                    "name": "Show a list of available Composer packages",
+                    "description": "Show a list of available Composer packages"
+                },
+                {
+                    "command": {
+                        "input": "composer show --latest",
+                        "action": "sendInput"
+                    },
+                    "name": "List all installed Composer packages including their latest version",
+                    "description": "List all installed Composer packages including their latest version."
+                },
+                {
+                    "command": {
+                        "input": "composer update",
+                        "action": "sendInput"
+                    },
+                    "name": "Update Composer dependencies to their latest versions",
+                    "description": "Updating Composer dependencies to their latest versions."
+                }
+            ]
+        },
+        {
+            "name": "cosmwasm...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "docker run --rm -v \"$(pwd)\":/code --mount type=volume,source=\"$(basename \"$(pwd)\")_cache\",target=/code/target --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry cosmwasm/rust-optimizer-arm64:0.12.8",
+                        "action": "sendInput"
+                    },
+                    "name": "Optimize CosmWasm Project (Apple ARM Chips)",
+                    "description": "Optimize a CosmWasm smart contract project. If a workspace with multiple contracts, use workspace-specific version. Requires Docker to be installed and running. Uses the experimental arm64 variant for use with Apple's chips (M1 & M2 Macs, etc).\n"
+                },
+                {
+                    "command": {
+                        "input": "docker run --rm -v \"$(pwd)\":/code --mount type=volume,source=\"$(basename \"$(pwd)\")_cache\",target=/code/target --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry cosmwasm/workspace-optimizer-arm64:0.12.8\n",
+                        "action": "sendInput"
+                    },
+                    "name": "Optimize CosmWasm Workspace Project (Apple ARM Chips)",
+                    "description": "Optimize a CosmWasm project that is organized as a workspace with multiple member contracts. Requires Docker to be installed and running. Uses the experimental arm64 variant for use with Apple's chips (M1 & M2 Macs, etc).\n"
+                },
+                {
+                    "command": {
+                        "input": "docker run --rm -v \"$(pwd)\":/code --mount type=volume,source=\"$(basename \"$(pwd)\")_cache\",target=/code/target --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry cosmwasm/workspace-optimizer:0.12.10\n",
+                        "action": "sendInput"
+                    },
+                    "name": "Optimize CosmWasm Workspace Project",
+                    "description": "Optimize a CosmWasm project that is organized as a workspace with multiple member contracts. Requires Docker to be installed and running.\n"
+                },
+                {
+                    "command": {
+                        "input": "docker run --rm -v \"$(pwd)\":/code --mount type=volume,source=\"$(basename \"$(pwd)\")_cache\",target=/code/target --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry cosmwasm/rust-optimizer:0.12.12",
+                        "action": "sendInput"
+                    },
+                    "name": "Optimize CosmWasm Project",
+                    "description": "Optimize a CosmWasm smart contract project. If a workspace with multiple contracts, use workspace-specific version. Requires Docker to be installed and running.\n"
+                }
+            ]
+        },
+        {
+            "name": "curl...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "curl --header \"{{header}}\" {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Attach a header to an HTTP request with cURL",
+                    "description": "Uses the --header flag to attach an additional header when sending a request to a url."
+                },
+                {
+                    "command": {
+                        "input": "curl -L {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "cURL a URL and follow redirects",
+                    "description": "Curls a URL and follows redirects by using the -L flag. To limit the number of redirects, append `--max-redirects <num>`."
+                },
+                {
+                    "command": {
+                        "input": "curl -v {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Display request headers from a cURL request",
+                    "description": "Runs curl in verbose mode to display the request headers that were sent with a request."
+                },
+                {
+                    "command": {
+                        "input": "curl --header \"Content-Type: application/json\" \\\n  --request POST \\\n  --data '{{json_data}}' \\\n {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "POST JSON data with cURL",
+                    "description": "Sends a POST request with JSON data using curl by setting the content-type of the request to \"application/json\"."
+                },
+                {
+                    "command": {
+                        "input": "curl -H \"Authorization: Bearer {{access_token}}\" {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set an Bearer authorization header with a cURL request",
+                    "description": "Sends a request using cURL with a Bearer token."
+                },
+                {
+                    "command": {
+                        "input": "curl -H \"Authorization: OAuth {{access_token}}\" {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set an OAuth authorization header with a cURL request",
+                    "description": "Sends a request using cURL with an OAuth access token."
+                }
+            ]
+        },
+        {
+            "name": "cypress...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx cypress open",
+                        "action": "sendInput"
+                    },
+                    "name": "Open Cypress",
+                    "description": "Open the Cypress Test Runner."
+                },
+                {
+                    "command": {
+                        "input": "npx cypress open --config viewportWidth={{width}},viewportHeight={{height}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open Cypress With a Mobile Viewport",
+                    "description": "Open the Cypress Test Runner with a Mobile Viewport."
+                },
+                {
+                    "command": {
+                        "input": "npx cypress run",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Cypress Headless",
+                    "description": "Run Cypress in Headless Mode"
+                },
+                {
+                    "command": {
+                        "input": "npx cypress run --config viewportWidth={{width}},viewportHeight={{height}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Cypress Headless With a Mobile Viewport",
+                    "description": "Run the Cypress Test Runner with a Mobile Viewport in Headless Mode"
+                }
+            ]
+        },
+        {
+            "name": "dig...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "dig +short {{domain}} txt",
+                        "action": "sendInput"
+                    },
+                    "name": "Get the text records for a domain",
+                    "description": "Use dig to get the txt records for a domain. Useful for a quick lookup of SPF records."
+                }
+            ]
+        },
+        {
+            "name": "docker...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "docker cp {{container_id}}:{{container_filepath}} {{local_filepath}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Copy a file from a Docker container to the current host",
+                    "description": "Copies files from a Docker container back to the host. Note the container does not need to be running in order to use this command."
+                },
+                {
+                    "command": {
+                        "input": "docker cp {{local_file_path}} {{container_id}}:/{{container_filepath}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Copy files from a host to a docker container",
+                    "description": "Copies a file (or multiple files) from a host machine to a container."
+                },
+                {
+                    "command": {
+                        "input": "docker image ls",
+                        "action": "sendInput"
+                    },
+                    "name": "List docker images from local system",
+                    "description": "Lists all docker images currently stored on your system"
+                },
+                {
+                    "command": {
+                        "input": "docker exec container env",
+                        "action": "sendInput"
+                    },
+                    "name": "List environment variables from a Docker container",
+                    "description": "Lists all environment variables from a Docker container."
+                },
+                {
+                    "command": {
+                        "input": "docker system prune --all -f && docker volume prune -f",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove all stopped docker container, image and volumes",
+                    "description": "Remove all stopped docker containers, images, and volumes. Be careful when doing this action, all local images & volumes will be removed and can't be reverted"
+                },
+                {
+                    "command": {
+                        "input": "docker container prune",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove all stopped Docker containers",
+                    "description": "Removes all stopped containers. To clean up all unused containers, networks, images and volumes in one command, run `docker system prune`."
+                },
+                {
+                    "command": {
+                        "input": "docker rmi {{image_id}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove docker images from local system",
+                    "description": "Remove docker images currently stored on your system"
+                },
+                {
+                    "command": {
+                        "input": "docker volume create --name {{new_volume}} && docker run --rm -it -v {{old_volume}}:/from -v {{new_volume}}:/to alpine ash -c 'cd /from ; cp -av . /to' && docker volume rm {{old_volume}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Rename a Docker volume",
+                    "description": "Renames a Docker volume by creating a new volume, copying all of its content to from the old to the new volume and then deletes the old volume."
+                },
+                {
+                    "command": {
+                        "input": "docker exec {{container_id}} {{filepath_in_container}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a script inside a docker container using a shell script",
+                    "description": "Runs a shell script located within a running Docker container."
+                },
+                {
+                    "command": {
+                        "input": "docker exec -it {{container_name}} bash",
+                        "action": "sendInput"
+                    },
+                    "name": "Start a Bash shell within a Docker container",
+                    "description": "Runs a Bash subshell within a Docker container."
+                }
+            ]
+        },
+        {
+            "name": "du...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "du -ah {{directory}} | sort -hr | head -n 10",
+                        "action": "sendInput"
+                    },
+                    "name": "Find the largest 10 files in a directory",
+                    "description": "Uses 'du' command to find file and directory sizes in the current working directory, then sorts by size and displays 10 largest files"
+                }
+            ]
+        },
+        {
+            "name": "elasticsearch...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "curl -XGET '{{schema}}://{{host}}:{{port}}/_cat/health?v={{verbose}}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Show the Elasticsearch cluster health",
+                    "description": "Inspect the Elasticsearch cluster health"
+                },
+                {
+                    "command": {
+                        "input": "curl -XGET '{{schema}}://{{host}}:{{port}}/_cat/count/{{index_name}}?v={{verbose}}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Count documents in an index in Elasticsearch",
+                    "description": "Show the document count for an index in Elasticsearch"
+                },
+                {
+                    "command": {
+                        "input": "curl -XGET '{{schema}}://{{host}}:{{port}}/_cat/indices?v={{verbose}}&s=index'",
+                        "action": "sendInput"
+                    },
+                    "name": "List indices in Elasticsearch",
+                    "description": "This lists indices in Elasticsearch"
+                }
+            ]
+        },
+        {
+            "name": "ffmpeg...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "ffprobe -i {{media_file_path}} -show_streams -show_format -print_format json",
+                        "action": "sendInput"
+                    },
+                    "name": "FFprobe file in json",
+                    "description": "Show streams and format of media file in json format using ffprobe"
+                }
+            ]
+        },
+        {
+            "name": "file_manipulation...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "sed -i '' '/{{string}}/d' {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete all lines that contain a specific string from a text file",
+                    "description": "Deletes all lines from a text file that contain a specific string. Pass the `-i` flag to modify the file in place."
+                },
+                {
+                    "command": {
+                        "input": "sed '/^[[:space:]]*$/d' {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete empty lines in a file",
+                    "description": "Deletes all lines that contain only whitespace from a file."
+                },
+                {
+                    "command": {
+                        "input": "grep -L \"{{pattern}}\" ",
+                        "action": "sendInput"
+                    },
+                    "name": "Find all files in a directory that don't contain a string",
+                    "description": "Finds all files in a repository that don't contain a given pattern."
+                },
+                {
+                    "command": {
+                        "input": "sed -i '' '{{line_number}}i\\\n{{line_number}} {{text}}' {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Insert a line at a specific line number",
+                    "description": "Inserts a line of text into a specific line number of a file using sed. The `-i` flag indicates the file is modified in place."
+                },
+                {
+                    "command": {
+                        "input": "sed '{{line_number}}q;d' {{file_path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Print the nth line of a file",
+                    "description": "Uses sed to print the the the nth line of a file.  This is faster than most other solutions since `NUMq` immediately quits when the line number is hit."
+                },
+                {
+                    "command": {
+                        "input": "grep -rl {{old_text}} {{file_path}} | xargs sed -i '' 's/{{old_text}}/{{new_text}}/g'",
+                        "action": "sendInput"
+                    },
+                    "name": "Recursively find and replace within a directory",
+                    "description": "Replaces all occurrences of a string recursively within a directory"
+                },
+                {
+                    "command": {
+                        "input": "grep -r --include=\\*.{{extension}} '{{search_term}}' {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Recursively search through files that match an extension",
+                    "description": "Recursively searches all the files that end in `extension` for the term `search_term`."
+                },
+                {
+                    "command": {
+                        "input": "tail -n +2 \"${{file_name}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove the first line of a text file",
+                    "description": "Removes the first line line of a file using tail. Tail defaults to printing the first `x-1` lines, so `+2` indicates it should skip the first line."
+                },
+                {
+                    "command": {
+                        "input": "tr '\\n' ' ' < {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Replace newline with a space in a file",
+                    "description": "Replaces all newlines with a space, by using the `tr` command."
+                },
+                {
+                    "command": {
+                        "input": "git grep {{pattern}} $(git rev-list --all)",
+                        "action": "sendInput"
+                    },
+                    "name": "Search committed files",
+                    "description": "Search for a pattern among all committed files in a repository."
+                },
+                {
+                    "command": {
+                        "input": "cat {{file_name}} | awk '{ print length, $0 }' | sort -n -s | cut -d\" \" -f2-",
+                        "action": "sendInput"
+                    },
+                    "name": "Sort a file by line length",
+                    "description": "Sorts a text file by line length (including spaces). The `-s` flag indicates that any lines that are the same length are kept in the relative order that they occurred in the input."
+                },
+                {
+                    "command": {
+                        "input": "awk 'BEGIN {OFMT = \"%.0f\"} { sum += $1 } END { print sum }' {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Sum all numbers in a file",
+                    "description": "Uses awk to sum all the numbers in a file. This command is also resilient to big numbers since it internally converts each number to a string."
+                }
+            ]
+        },
+        {
+            "name": "flutter...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "flutter pub run build_runner build --delete-conflicting-outputs",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Build Runner",
+                    "description": "Run build runner to generate code-gen for flutter project."
+                },
+                {
+                    "command": {
+                        "input": "flutter pub run build_runner watch --delete-conflicting-outputs",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Build Runner Watch",
+                    "description": "Run build runner to generate code-gen for flutter project when files changes."
+                },
+                {
+                    "command": {
+                        "input": "flutter clean && flutter pub get",
+                        "action": "sendInput"
+                    },
+                    "name": "Clean Project",
+                    "description": "Cleans flutter project and gets dependencies to make project ready for a fresh run."
+                }
+            ]
+        },
+        {
+            "name": "git...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "git remote set-url origin {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Change URL of remote git repository",
+                    "description": "Sets the URL for a remote git repository to a new URL"
+                },
+                {
+                    "command": {
+                        "input": "git -c core.sshCommand='ssh -i {{sshKeyPath}} -o IdentitiesOnly=yes' clone {{repositoryUrl}} {{targetFolder}}\ncd {{targetFolder}}\ngit config core.sshCommand 'ssh -i {{sshKeyPath}}'\ngit config user.name \"{{userName}}\"\ngit config user.email {{userEmail}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Clone git repository with specific SSH Key and User",
+                    "description": "Clones a git repository given a specific SSH Key Path and configures it to use the desired Name and Email"
+                },
+                {
+                    "command": {
+                        "input": "curl -s -H \"Authorization: token {{auth_token}}\" \"https://api.github.com/orgs/{{org}}/repos?page={{page}}&per_page=100\" | jq -r \".[].clone_url\" | xargs -L1 git clone  ",
+                        "action": "sendInput"
+                    },
+                    "name": "Clone all repos in a GitHub Organization",
+                    "description": "Uses the GitHub API to retrieve a list of repos (up to 100 per page) and clones them."
+                },
+                {
+                    "command": {
+                        "input": "git checkout -b {{branch_name}}\ngit push {{remote_name}} {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create new git remote branch",
+                    "description": "Creates a new local git branch and pushes the branch to a remote server to create a remote branch of the same name."
+                },
+                {
+                    "command": {
+                        "input": "git push -d {{remote_name}} {{branch_name}}\ngit branch -d {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete local and remote git branch",
+                    "description": "Deletes a branch both locally and remotely. The first command deletes the remote branch, whereas the second command deletes the command locally."
+                },
+                {
+                    "command": {
+                        "input": "git branch --delete {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete local git branch",
+                    "description": "Deletes a local git branch only if it has been fully merged into the upstream branch. To force delete the branch irrespective of the its merged status, add the `--force` flag."
+                },
+                {
+                    "command": {
+                        "input": "git push -d {{remote_name}} {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete remote git branch",
+                    "description": "Deletes a remote git branch. A local git branch of the same name, if any, will remain untouched."
+                },
+                {
+                    "command": {
+                        "input": "git commit --amend -m \"{{new_commit_message}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Modify the most recent commit message",
+                    "description": "Amends the most recent git commit with a new message. This will not update the commit on a remote branch unless you force push the branch,"
+                },
+                {
+                    "command": {
+                        "input": "git push origin {{tag_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Push a tag to a remote git repository",
+                    "description": "Pushes a single tag to a remote server"
+                },
+                {
+                    "command": {
+                        "input": "git checkout\ngit checkout master\ngit pull origin master\ngit checkout -\ngit pull origin master --rebase",
+                        "action": "sendInput"
+                    },
+                    "name": "Rebase master into feature branch",
+                    "description": "Rebases master into the feature branch"
+                },
+                {
+                    "command": {
+                        "input": "git clean -fd",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove all untracked files and folders",
+                    "description": "Remove all local untracked files and folders"
+                },
+                {
+                    "command": {
+                        "input": "git rm {{submodule_path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove a git submodule",
+                    "description": "Removes all traces of a git submodule from a repository. The `.git` dir of the submodule is kept around in the `/modules` folder of the main projects `.git` dir to make it possible to checkout past commits without requiring fetching from another repository."
+                },
+                {
+                    "command": {
+                        "input": "git branch -m {{oldname}} {{newname}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Rename local git branch",
+                    "description": "Renames a local git branch while keeping the name of the upstream branch unchanged."
+                },
+                {
+                    "command": {
+                        "input": "git reset {{commit_hash}} {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Reset file back to git revision",
+                    "description": "Resets a file back to a specific commit hash."
+                },
+                {
+                    "command": {
+                        "input": "git fetch {{remote}}\ngit reset --hard {{remote}}/{{branch}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Reset local branch to match remote branch",
+                    "description": "Resets a local branch to match a remote branch by pulling the most recent changes from the remote branch and then force resetting the local branch to match the remote branch."
+                },
+                {
+                    "command": {
+                        "input": "git branch --set-upstream-to={{remote}}/{{remote_branch}} {{local_branch}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set upstream branch",
+                    "description": "Sets the upstream for a local branch to a remote branch."
+                },
+                {
+                    "command": {
+                        "input": "git reset --soft HEAD~{{num_commits}} && git commit",
+                        "action": "sendInput"
+                    },
+                    "name": "Squash last n commits together",
+                    "description": "Squashes the last n commits together. This approach requires rewriting a commit message for the new squashed changes, unlike running `git rebase`."
+                },
+                {
+                    "command": {
+                        "input": "git push -u origin HEAD",
+                        "action": "sendInput"
+                    },
+                    "name": "Synchronize upstream branch",
+                    "description": "Sync the local branch to the remote branch with the same name."
+                },
+                {
+                    "command": {
+                        "input": "git reset {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Undo git add",
+                    "description": "Removes a file that was staged for commit by `git add`. Executing `git reset` without any file name will unstage all changes."
+                },
+                {
+                    "command": {
+                        "input": "git reset HEAD~",
+                        "action": "sendInput"
+                    },
+                    "name": "Undo most recent git commit",
+                    "description": "Undos the last git commit while leaving the working tree (the state of the files on disk) untouched."
+                },
+                {
+                    "command": {
+                        "input": "git rm -r --cached .\ngit add .",
+                        "action": "sendInput"
+                    },
+                    "name": "Delete newly git-ignored files from your repository",
+                    "description": "After adding new files to the .gitignore file, these commands will update the git index"
+                },
+                {
+                    "command": {
+                        "input": "git config --global user.name '{{username}}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Change username of git",
+                    "description": "Sets the username for git"
+                }
+            ]
+        },
+        {
+            "name": "graphite...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "gt bco {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Checkout a branch",
+                    "description": "Alias `bco`. Switch to or checkout a branch. Similar to `git checkout <branch_name>`"
+                },
+                {
+                    "command": {
+                        "input": "gt bc -am {{commit_message}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Create a branch with an accompanying commit message",
+                    "description": "Create a new branch stacked on top of the current branch and commit staged changes. If no branch name is specified but a commit message is passed, generate a branch name from the commit message."
+                },
+                {
+                    "command": {
+                        "input": "gt branch restack",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Restacks the current branch to its parent",
+                    "description": "Alias: `br`. Ensure the current branch is based on its parent, rebasing if necessary."
+                },
+                {
+                    "command": {
+                        "input": "gt branch submit",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Pushes (force) the current branch to GitHub",
+                    "description": "Alias: `bs`. Idempotently force push the current branch to GitHub, creating or updating a pull request."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack edit",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Edit the branches",
+                    "description": "Alias `dse`. Edit the order of the branches between trunk and the current branch, restacking all of their descendants."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack get {{branch_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Get downstack from remote",
+                    "description": "Alias `dsg`. Get branches from trunk to the specified branch from remote, prompting the user to resolve conflicts."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack restack",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Rebase the parent branches",
+                    "description": "Alias `dsr`. From trunk to the current branch, ensure each is based on its parent, rebasing if necessary."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack submit",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Push the parent branches to GitHub",
+                    "description": "Alias `dss`.  Idempotently force push all branches from trunk to the current branch to GitHub, creating or updating distinct pull requests for each."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack test",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Run a command on every branch within a stack",
+                    "description": "Alias `dst`. From trunk to the current branch, run the provided command on each branch and aggregate the results."
+                },
+                {
+                    "command": {
+                        "input": "gt downstack track",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Recursively track parent branches",
+                    "description": "Alias `dstr`. Track a series of untracked branches, by specifying each branch's parent, stopping when you reach a tracked branch."
+                },
+                {
+                    "command": {
+                        "input": "gt rs -r",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Synchronize with remote",
+                    "description": "A quick command to pull changes from your trunk branch and subsequently restack upstack changes. Same as `gt repo sync && gt stack restack` under the hood. Also deletes any branches that have been merged."
+                },
+                {
+                    "command": {
+                        "input": "gt repo init --reset && gt dev cache --clear",
+                        "action": "sendInput"
+                    },
+                    "name": "Graphite - Troubleshoot the Graphite CLI",
+                    "description": "This combination of commands resets Graphite repo metadata and clears the cache."
+                }
+            ]
+        },
+        {
+            "name": "idea...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "idea diff {{file1}} {{file2}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Compare two file in IntelliJ Idea",
+                    "description": "Compare two files using IntelliJ Idea"
+                },
+                {
+                    "command": {
+                        "input": "idea --line {{line_number}} {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a file on a specific line in IntelliJ Idea",
+                    "description": "Use the command line to open a file on a specific line in IntelliJ Idea."
+                },
+                {
+                    "command": {
+                        "input": "idea {{file_or_directory}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Open a file or directory in a IntelliJ Idea editor",
+                    "description": "Use the command line to open a file in IntelliJ Idea."
+                }
+            ]
+        },
+        {
+            "name": "ios...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "rm -rf ~/Library/Developer/Xcode/DerivedData",
+                        "action": "sendInput"
+                    },
+                    "name": "Clear Xcode Derived Data",
+                    "description": null
+                }
+            ]
+        },
+        {
+            "name": "jamf...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "sudo jamf policy -event \"{{policy_id}}\" -verbose",
+                        "action": "sendInput"
+                    },
+                    "name": "Manually initiate a policy via policy id",
+                    "description": "Use to run a Jamf policy manually"
+                },
+                {
+                    "command": {
+                        "input": "sudo jamf policy -event \"{{triggerName}}\" -verbose",
+                        "action": "sendInput"
+                    },
+                    "name": "Manually initiate a policy via policy trigger name",
+                    "description": "Use to run a Jamf policy manually"
+                },
+                {
+                    "command": {
+                        "input": "sudo jamf recon",
+                        "action": "sendInput"
+                    },
+                    "name": "Manually initiate a recon inventory",
+                    "description": "Force a full Jamf inventory from the client"
+                }
+            ]
+        },
+        {
+            "name": "kubernetes...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "kubectl -n {{namespace}} exec -it {{pod_name}} -- /bin/sh",
+                        "action": "sendInput"
+                    },
+                    "name": "Opens a Bash shell into Kubernetes pod",
+                    "description": ""
+                },
+                {
+                    "command": {
+                        "input": "kubectl get event --namespace {{namespace}} --field-selector involvedObject.name={{pod_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "List events for a single Kubernetes pod",
+                    "description": "Lists the events for a single Kubernetes pod by using the field-selector flag."
+                },
+                {
+                    "command": {
+                        "input": "kubectl get pods -l app={{app}} -o jsonpath='{range .items[*]}{\"\\n\"}{range .spec.containers[*]}{.name}{\"\\t\"}{.image}{\"\\n\"}{end}{end}' | sort | uniq\n",
+                        "action": "sendInput"
+                    },
+                    "name": "List all Kubernetes pods by app label",
+                    "description": "Lists the images of pods fetched by app label"
+                },
+                {
+                    "command": {
+                        "input": "kubectl uncordon {{node}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Mark node as schedulable",
+                    "description": "Mark node as schedulable"
+                },
+                {
+                    "command": {
+                        "input": "kubectl cordon {{node}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Mark node as unschedulable",
+                    "description": "Mark node as unschedulable"
+                },
+                {
+                    "command": {
+                        "input": "kubectl port-forward pod/{{pod_name}} {{local_port}}:{{pod_port}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Forward one or more local ports to a pod.",
+                    "description": "Listen on port specified locally, forwarding to {{pod_port}} in the pod"
+                },
+                {
+                    "command": {
+                        "input": "kubectl wait --for=condition=complete job/{{job_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Report when a Kubernetes job has finished",
+                    "description": "Waits for a specified Kubernetes job to complete. The default timeout is 30 seconds, but can be adjusted by passing in the `--timeout` flag."
+                },
+                {
+                    "command": {
+                        "input": "kubectl rollout undo deployment/{{deployment_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Rollback to the previous deployment",
+                    "description": "Rollback to the previous deployment"
+                },
+                {
+                    "command": {
+                        "input": "kubectl exec -it --namespace={{namespace}} {{pod_name}} -- bash -c \"{{bash_command}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a Bash command within a Kubernetes pod",
+                    "description": "Runs a Bash command in a Kubernetes pod. The double dash symbol \"--\" is used to separate the command you want to run inside the container from the kubectl arguments."
+                },
+                {
+                    "command": {
+                        "input": "kubectl scale deployment/{{deployment_name}} --replicas={{count}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set a new size for a deployment.",
+                    "description": "Set a new size for a deployment. If --current-replicas or --resource-version is specified, it is validated before the scale is attempted, and it is guaranteed that the precondition holds true when the scale is sent to the server."
+                },
+                {
+                    "command": {
+                        "input": "kubectl logs -f {{pod_id}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Show a continuous stream of Kubernetes logs",
+                    "description": "Continuously streams logs from a given Kubernetes pod by using the `-f` flag."
+                },
+                {
+                    "command": {
+                        "input": "kubectl get po --sort-by=.status.startTime",
+                        "action": "sendInput"
+                    },
+                    "name": "Sort Kubernetes pods by age",
+                    "description": "Sorts all Kubernetes pods by the pod's start time. To sort by the pod's creation time, specify `.metadata.creationTimestamp` as the value for `--sort-by`."
+                },
+                {
+                    "command": {
+                        "input": "kubectl port-forward svc/{{service_name}} {{local_port}}:{{service_port}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Forward one or more local ports of a service",
+                    "description": "Listen on port specified locally, forwarding to the targetPort of the service's port with the same value in a pod selected by the service."
+                }
+            ]
+        },
+        {
+            "name": "laravel...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "php artisan key:generate",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate Laravel application key",
+                    "description": "Set laravel application key"
+                },
+                {
+                    "command": {
+                        "input": "php artisan cache:table",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate Laravel cache table",
+                    "description": "Create a migration for the cache database table"
+                },
+                {
+                    "command": {
+                        "input": "php artisan config:clear",
+                        "action": "sendInput"
+                    },
+                    "name": "Create Laravel config cache file",
+                    "description": "Create a cache file for faster configuration loading"
+                },
+                {
+                    "command": {
+                        "input": "php artisan config:clear",
+                        "action": "sendInput"
+                    },
+                    "name": "Clear Laravel configuration",
+                    "description": "Remove the configuration cache file"
+                },
+                {
+                    "command": {
+                        "input": "composer create-project laravel/laravel example-app",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a new Laravel App using Composer",
+                    "description": null
+                },
+                {
+                    "command": {
+                        "input": "php artisan env:encrypt --key={{custom_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Encrypt Laravel environment file with custom encryption key",
+                    "description": "command to encrypt your Laravel environment file with custom encryption key"
+                },
+                {
+                    "command": {
+                        "input": "php artisan env:decrypt",
+                        "action": "sendInput"
+                    },
+                    "name": "Decrypt Laravel environment file",
+                    "description": "Command to decrypt Laravel environment file"
+                },
+                {
+                    "command": {
+                        "input": "php artisan env:decrypt --key={{decrypt_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Decrypt Laravel environment file with key",
+                    "description": "Command to decrypt Laravel environment file"
+                },
+                {
+                    "command": {
+                        "input": "php artisan env:encrypt",
+                        "action": "sendInput"
+                    },
+                    "name": "Encrypt Laravel environment file",
+                    "description": "command to encrypt Laravel environment file"
+                },
+                {
+                    "command": {
+                        "input": "php artisan event:list",
+                        "action": "sendInput"
+                    },
+                    "name": "List all Laravel application's events listeners",
+                    "description": "List the application's events and listeners"
+                },
+                {
+                    "command": {
+                        "input": "php artisan event:cache",
+                        "action": "sendInput"
+                    },
+                    "name": "Discover and cache all Laravel application events and listeners",
+                    "description": "Discover and cache the application's events and listeners"
+                },
+                {
+                    "command": {
+                        "input": "php artisan event:clear",
+                        "action": "sendInput"
+                    },
+                    "name": "Clear Laravel events and listeners",
+                    "description": "Clear all cached events and listeners"
+                },
+                {
+                    "command": {
+                        "input": "php artisan event:generate",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate missing Laravel events and listeners",
+                    "description": "Generate the missing events and listeners based on registration"
+                },
+                {
+                    "command": {
+                        "input": "composer global require laravel/installer",
+                        "action": "sendInput"
+                    },
+                    "name": "Installing Laravel Installer",
+                    "description": "Install Laravel Installer"
+                },
+                {
+                    "command": {
+                        "input": "composer config repositories.nova '{\"type\": \"composer\", \"url\": \"https://nova.laravel.com\"}' --file composer.json && composer require laravel/nova && composer update --prefer-dist",
+                        "action": "sendInput"
+                    },
+                    "name": "Install Laravel Nova using Composer",
+                    "description": "Install Laravel Nova using Composer"
+                },
+                {
+                    "command": {
+                        "input": "composer require laravel/sail --dev",
+                        "action": "sendInput"
+                    },
+                    "name": "Install Laravel Sail using Composer",
+                    "description": "Install Laravel Sail using Composer"
+                },
+                {
+                    "command": {
+                        "input": "composer require laravel/vapor-cli --update-with-dependencies",
+                        "action": "sendInput"
+                    },
+                    "name": "Install Laravel Vapor using Composer",
+                    "description": "Install Laravel Vapor using Composer"
+                },
+                {
+                    "command": {
+                        "input": "php artisan down",
+                        "action": "sendInput"
+                    },
+                    "name": "Enable Laravel maintenance mode",
+                    "description": "This command enables maintenance mode in your laravel application"
+                },
+                {
+                    "command": {
+                        "input": "php artisan down --secret=\"{{bypass_secret_key}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Bypass Laravel maintenance mode",
+                    "description": "This command helps you bypass laravel maintenance mode by setting the secret key."
+                },
+                {
+                    "command": {
+                        "input": "php artisan up",
+                        "action": "sendInput"
+                    },
+                    "name": "Laravel maintenance mode disabled",
+                    "description": "Disable laravel maintenance mode"
+                },
+                {
+                    "command": {
+                        "input": "php artisan down --redirect={{URI}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Redirect Laravel maintenance mode",
+                    "description": "This command helps you redirect laravel maintenance mode by setting the secret key."
+                },
+                {
+                    "command": {
+                        "input": "php artisan down --refresh={{refresh_duration}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Automatically refresh Laravel maintenance mode",
+                    "description": "Refresh Laravel maintenance mode automatically after the specified number of seconds is due."
+                },
+                {
+                    "command": {
+                        "input": "php artisan migrate",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Laravel database migrations",
+                    "description": "This command runs Laravel database migrations"
+                },
+                {
+                    "command": {
+                        "input": "php artisan migrate:fresh",
+                        "action": "sendInput"
+                    },
+                    "name": "Drop all tables and run Laravel's migrations",
+                    "description": "This command will drop all existing tables and run Laravel database migrations after that"
+                },
+                {
+                    "command": {
+                        "input": "php artisan migrate:fresh --seed",
+                        "action": "sendInput"
+                    },
+                    "name": "Drop all tables and run Laravel's migrations and seeders",
+                    "description": "This command will drop all existing tables and run Laravel database migrations after that, with seeding the database at the end."
+                },
+                {
+                    "command": {
+                        "input": "php artisan migrate --pretend",
+                        "action": "sendInput"
+                    },
+                    "name": "Pretend to run Laravel database migrations",
+                    "description": "This command will return the SQL statement that would be performed when we would run the migration"
+                },
+                {
+                    "command": {
+                        "input": "php artisan optimize",
+                        "action": "sendInput"
+                    },
+                    "name": "Optimize Laravel Framework",
+                    "description": "Cache the framework bootstrap files"
+                }
+            ]
+        },
+        {
+            "name": "macOS...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "echo \"old value:\"\ndefaults read -g com.apple.mouse.scaling \ndefaults write -g com.apple.mouse.scaling -integer {{acceleration_amount}}",
+                        "action": "sendInput"
+                    },
+                    "name": "MacOS 13+ - Disable/Enabled mouse acceleration",
+                    "description": "Update mouse acceleration built into MacOS. Returns -1 when disabled. For MacOS 13+"
+                },
+                {
+                    "command": {
+                        "input": "sudo mdutil -a -i {{switch}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Starts or stops the MacOS Spotlight indexing process mds_stores.",
+                    "description": "mds_stores is a CPU intensive process that runs for Spotlight indexing. This command will enable or disable that process."
+                }
+            ]
+        },
+        {
+            "name": "meroxa...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type bigquery --url \"bigquery://{{gcp_project_id}}/{{gcp_dataset_name}}\" --client-key \"$(cat {{gcp_service_account_json_file}})\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a Google BigQuery resource to the Meroxa Platform",
+                    "description": "Add a Google BigQuery resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type elasticsearch --url \"https://{{es_username}}:{{es_password}}@{{es_url}}:{{es_port}}\" --metadata '{\"index.prefix\": \"{{es_index}}\",\"incrementing.field.name\": \"{{es_incrementing_field}}\"}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Add an Elasticsearch resource to the Meroxa Platform",
+                    "description": "Add an Elasticsearch resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type mongodb -u \"mongodb://{{mongodb_username}}:{{mongodb_password}}@{{mongodb_url}}:{{mongodb_port}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a MongoDB resource to the Meroxa Platform",
+                    "description": "Add a MongoDB resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type mysql -u \"mysql://{{mysql_username}}:{{mysql_password}}@{{mysql_url}}:{{mysql_port}}/{{mysql_database_name}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a MySQL resource to the Meroxa Platform",
+                    "description": "Add a MySQL resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type postgres --url \"postgres://{{pg_username}}:{{pg_password}}@{{pg_url}}:{{pg_port}}/{{pg_database_name}}\" ",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a Postgres resource without logical replication to the Meroxa Platform",
+                    "description": "Add a Postgres resource without logical replication to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type postgres --url \"postgres://{{pg_username}}:{{pg_password}}@{{pg_url}}:{{pg_port}}/{{pg_database_name}}\" --metadata '{\"logical_replication\":\"true\"}'",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a Postgres resource with logical replication to the Meroxa Platform",
+                    "description": "Add a Postgres resource with logical replication to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type redshift --url \"redshift://{{redshift_username}}:{{redshift_password}}@{{redshift_url}}:{{redshift_port}}/{{redshift_db_name}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add an Amazon Redshift resource to the Meroxa Platform",
+                    "description": "Add an Amazon Redshift resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type s3 --url \"s3://{{aws_access_key}}:{{aws_access_secret}}@{{aws_region}}/{{aws_s3_bucket}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add an Amazon S3 resource to the Meroxa Platform",
+                    "description": "Add an Amazon S3 resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resource create {{resource_name}} --type snowflakedb --url \"snowflake://{{snowflake_url}}/meroxa_db/stream_data\" --username meroxa_user --password {{snowflake_private_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a Snowflake resource to the Meroxa Platform",
+                    "description": "Add a Snowflake resource to the Meroxa Platform"
+                },
+                {
+                    "command": {
+                        "input": "meroxa resources create {{resource_name}} --type sqlserver --url \"sqlserver://{{mssql_username}}:{{mssql_password}}@{{mssql_url}}:{{mssql_port}}/{{mssql_database_name}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Add a Microsoft SQL Server resource to the Meroxa Platform",
+                    "description": "Add a Microsoft SQL Server resource to the Meroxa Platform"
+                }
+            ]
+        },
+        {
+            "name": "nativescript...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "ns platform add {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Configure your current NativeScript project to target the selected platform.",
+                    "description": "Configures the current NativeScript project to target the selected platform. When you add a target platform, the NativeScript CLI creates a corresponding platform-specific subdirectory under the platforms directory. This platform-specific directory contains the necessary files to let you build your project for the target platform."
+                },
+                {
+                    "command": {
+                        "input": "ns build {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Build your NativeScript project for Android or iOS.",
+                    "description": "Builds your NativeScript project for Android or iOS and produces an application package that you can manually deploy on a device or native emulator."
+                },
+                {
+                    "command": {
+                        "input": "ns doctor {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Check Nativescript system's configuration.",
+                    "description": "Checks your system for configuration problems which might prevent the NativeScript CLI from working properly for the specified platform, if configured."
+                },
+                {
+                    "command": {
+                        "input": "ns clean",
+                        "action": "sendInput"
+                    },
+                    "name": "Clean your NativeScript project artifacts.",
+                    "description": "Cleans your NativeScript project artifacts."
+                },
+                {
+                    "command": {
+                        "input": "ns error-reporting",
+                        "action": "sendInput"
+                    },
+                    "name": "Configure NativeScript CLI error reporting.",
+                    "description": "Configures anonymous error reporting for the NativeScript CLI."
+                },
+                {
+                    "command": {
+                        "input": "ns autocomplete {{command}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Configure NativeScript command-line autocompletion.",
+                    "description": "Prints your current NativeScript command-line completion settings. If disabled, prompts you to enable it."
+                },
+                {
+                    "command": {
+                        "input": "ns test init {{framework}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Configures your NativeScript project for unit testing with a selected framework.",
+                    "description": "Configures your NativeScript project for unit testing with a selected framework. This operation installs the @nativescript/unit-test-runner npm module and its dependencies and creates a tests folder in the app directory."
+                },
+                {
+                    "command": {
+                        "input": "ns usage-reporting",
+                        "action": "sendInput"
+                    },
+                    "name": "Configure NativeScript CLI usage reporting.",
+                    "description": "Configures anonymous usage reporting for the NativeScript CLI."
+                },
+                {
+                    "command": {
+                        "input": "ns create {{app_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a NativeScript app.",
+                    "description": "Interactively creates a new NativeScript app based on a predefined template."
+                },
+                {
+                    "command": {
+                        "input": "ns debug {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Initiate a debugging session for your NativeScript project.",
+                    "description": "Initiates a debugging session for your NativeScript project on a connected device or native emulator. The command will prepare, build, deploy and launch the app before starting the debug session."
+                },
+                {
+                    "command": {
+                        "input": "ns deploy {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Prepare, build and deploy your NativeScript project to a connected device or native emulator.",
+                    "description": "Prepares, builds and deploys your NativeScript project to a connected device or native emulator. It will deploy the app on all connected devices targeting the selected platform."
+                },
+                {
+                    "command": {
+                        "input": "ns proxy",
+                        "action": "sendInput"
+                    },
+                    "name": "Display proxy settings of the NativeScript CLI.",
+                    "description": "Displays the current proxy settings of the NativeScript CLI."
+                },
+                {
+                    "command": {
+                        "input": "ns info",
+                        "action": "sendInput"
+                    },
+                    "name": "Display version information about NativeScript.",
+                    "description": "Displays version information about the NativeScript CLI, core modules, and runtimes."
+                },
+                {
+                    "command": {
+                        "input": "ns resources generate icons {{path_to_image}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate all icons for Android and iOS platforms for your NativeScript project.",
+                    "description": "Generates all icons for Android and iOS platforms for your NativeScript. It places the generated images in the correct directories under App_Resources/<platform> directory."
+                },
+                {
+                    "command": {
+                        "input": "ns typings {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate platform's (iOS and/or Android) typings for your NativeScript project.",
+                    "description": "Generate iOS & Android typings for your NativeScript project. By default respecting platform support, so no iOS typings generated on Windows/Linux machines."
+                },
+                {
+                    "command": {
+                        "input": "ns resources generate splashes {{path_to_image}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate all splashscreens for Android and iOS platforms for your NativeScript project.",
+                    "description": "Generates all splashscreens for Android and iOS platforms for your NativeScript project. It places the generated images in the correct directories under App_Resources/<platform> directory."
+                },
+                {
+                    "command": {
+                        "input": "ns install {{module}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Install dependencies for your NativeScript project.",
+                    "description": "Installs all dependencies described in a valid package.json or installs a selected NativeScript development module as a dev dependency."
+                },
+                {
+                    "command": {
+                        "input": "ns device list-applications",
+                        "action": "sendInput"
+                    },
+                    "name": "List applications installed on a device using NativeScript CLI.",
+                    "description": "NativeScript lists the installed applications on all connected Android and iOS devices."
+                },
+                {
+                    "command": {
+                        "input": "ns appstore {{apple_id}} {{password}}",
+                        "action": "sendInput"
+                    },
+                    "name": "List all application records in iTunes Connect using NativeScript CLI.",
+                    "description": "NativeScript lists all application records in iTunes Connect. The list contains name, version and bundle ID for each application record."
+                },
+                {
+                    "command": {
+                        "input": "ns device {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "List all recognized connected devices using NativeScript CLI.",
+                    "description": "NativeScript lists all recognized connected Android or iOS devices with serial number and index, grouped by platform."
+                },
+                {
+                    "command": {
+                        "input": "ns platform list",
+                        "action": "sendInput"
+                    },
+                    "name": "Lists all platforms that your NativeScript project currently targets.",
+                    "description": "Lists all platforms that your NativeScript project currently targets. You can build and deploy your project only for these target platforms."
+                },
+                {
+                    "command": {
+                        "input": "ns plugin {{command}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Manage Plugins in your NativeScript project.",
+                    "description": "Lets you manage the plugins for your NativeScript project."
+                },
+                {
+                    "command": {
+                        "input": "ns migrate",
+                        "action": "sendInput"
+                    },
+                    "name": "Migrate Nativescript dependencies to the latest version.",
+                    "description": "Migrates the app dependencies to a form compatible with the latest NativeScript. Running this command will not affect the codebase of the application and you might need to do additional changes manually."
+                },
+                {
+                    "command": {
+                        "input": "ns device log",
+                        "action": "sendInput"
+                    },
+                    "name": "Open the device log stream using NativeScript CLI.",
+                    "description": "NativeScript opens the device log stream for a selected connected Android or iOS device."
+                },
+                {
+                    "command": {
+                        "input": "ns prepare {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Prepare the app's App_Resources and the plugins platforms directories in your NativeScript project.",
+                    "description": "Starts a Webpack compilation and prepares the app's App_Resources and the plugins platforms directories in your NativeScript project. The output is generated in a subdirectory for the selected target platform in the platforms directory. This lets you build the project for the selected platform."
+                },
+                {
+                    "command": {
+                        "input": "ns platform remove {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove the selected platform from your NativeScript project.",
+                    "description": "Removes the selected platform from the platforms that your NativeScript project currently targets. After removing the target platform, you can no longer build and deploy your app on devices which run on the platform."
+                },
+                {
+                    "command": {
+                        "input": "ns run {{application_id}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run the selected NativeScript application on a connected device.",
+                    "description": "Runs the selected NativeScript application on a connected Android or iOS device."
+                },
+                {
+                    "command": {
+                        "input": "ns run {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run the NativeScript project for Android or iOS.",
+                    "description": "Runs your NativeScript project on all connected devices or in native emulators for the selected platform. The command will work with all currently running Android devices and emulators. The command will prepare, build and deploy the app when necessary. By default listens for changes in your code, synchronizes those changes and refreshes all selected devices."
+                },
+                {
+                    "command": {
+                        "input": "ns test {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run unit tests on your NativeScript project.",
+                    "description": "Runs unit tests on the selected mobile platform. Your NativeScript project must already be configured for unit testing by running $ ns test init."
+                },
+                {
+                    "command": {
+                        "input": "ns package-manager",
+                        "action": "sendInput"
+                    },
+                    "name": "Show current package manager using NativeScript CLI.",
+                    "description": "NativeScript prints the value of the current package manager."
+                },
+                {
+                    "command": {
+                        "input": "ns help {{command}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Show information about the NativeScript CLI commands in the browser.",
+                    "description": "Shows additional information about the NativeScript CLI commands in this list in the browser."
+                },
+                {
+                    "command": {
+                        "input": "ns update {{version}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Update Nativescript dependencies to the latest version.",
+                    "description": "Updates your NativeScript project with the latest versions of iOS/Android runtimes, cross-platform modules and @nativescript/webpack."
+                },
+                {
+                    "command": {
+                        "input": "ns platform update {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Update the NativeScript runtime for the specified platform.",
+                    "description": "Updates the NativeScript runtime for the specified platform."
+                },
+                {
+                    "command": {
+                        "input": "ns resources update {{platform}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Update the App_Resources's folder structure in your NativeScript project.",
+                    "description": "Updates the App_Resources/'s internal folder structure in your NativeScript project to conform to that of an Android Studio project."
+                },
+                {
+                    "command": {
+                        "input": "ns appstore upload {{apple_id}} {{password}} {{mobile_provisioning_profile_identifier}} {{code_sign_identity}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Upload NativeScript project to iTunes Connect.",
+                    "description": "Uploads your NativeScript project to iTunes Connect. The command either issues a production build and uploads it to iTunes Connect, or uses an already built package to upload."
+                }
+            ]
+        },
+        {
+            "name": "nest_cli...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "nest g co {{appName}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate an app using Nest.js",
+                    "description": "Generate a app with the given name."
+                },
+                {
+                    "command": {
+                        "input": "nest g cl {{className}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a class using Nest.js",
+                    "description": "Generate a class with the given name."
+                },
+                {
+                    "command": {
+                        "input": "nest g co {{controllerName}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a controller using Nest.js",
+                    "description": "Generate a controller with the given name."
+                },
+                {
+                    "command": {
+                        "input": "nest g itf {{interfaceName}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a interface using Nest.js",
+                    "description": "Generate a interface with the given name."
+                },
+                {
+                    "command": {
+                        "input": "nest g s {{serviceName}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a service using Nest.js",
+                    "description": "Generate a service with the given name."
+                }
+            ]
+        },
+        {
+            "name": "nextjs...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx create-next-app {{project_name}} --use-{{package_manager}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create Next.js App",
+                    "description": "Create a new Next.js application"
+                }
+            ]
+        },
+        {
+            "name": "npm...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \\;",
+                        "action": "sendInput"
+                    },
+                    "name": "Find and delete node_modules in a folder",
+                    "description": "Finds and deletes all node_modules in a folder"
+                },
+                {
+                    "command": {
+                        "input": "npx depcheck",
+                        "action": "sendInput"
+                    },
+                    "name": "Find unused npm packages in package.json",
+                    "description": "Runs depcheck to find all unused packages listed in package.json"
+                },
+                {
+                    "command": {
+                        "input": "npm list {{package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Find version of an installed npm package",
+                    "description": "Lists the version name of an installed package. To see the versions of all installed packages, run `npm list` without passing a package name."
+                },
+                {
+                    "command": {
+                        "input": "npm install {{repo}}#{{branch}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Install npm package from GitHub directly",
+                    "description": "Installs an NPM package from GitHub by specifying the repo and branch. For example, if the repo was `warpdotdev/warp`. the command would be `npm install warpdotdev/warp#main`."
+                },
+                {
+                    "command": {
+                        "input": "npm list -g --depth=0",
+                        "action": "sendInput"
+                    },
+                    "name": "List all globally installed NPM packages",
+                    "description": "Lists all globally installed NPM packages, avoiding including any package's dependencies in the view."
+                },
+                {
+                    "command": {
+                        "input": "find . -name \"node_modules\" -type d -prune -print | xargs du -chs",
+                        "action": "sendInput"
+                    },
+                    "name": "Finds all node_modules in a folder",
+                    "description": "Finds and all node_modules in a folder and displays information about them"
+                },
+                {
+                    "command": {
+                        "input": "rm -rf node_modules && npm install",
+                        "action": "sendInput"
+                    },
+                    "name": "Reinstall all NPM dependencies",
+                    "description": "Reinstalls all dependencies by removing the node_modules folder and then reinstalling."
+                },
+                {
+                    "command": {
+                        "input": "npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\\/npm$/ {print $NF}' | xargs npm -g rm",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove all global npm modules",
+                    "description": "Removes all global NPM modules by listing all the global top level modules, and removing all modules that are not actually NPM itself (i.e. don't end with \"/NPM\")"
+                },
+                {
+                    "command": {
+                        "input": "npm uninstall {{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Uninstall a local NPM package",
+                    "description": "Removes a module from `node_modules` but does not update `package.json`. To also remove the package from the list of dependencies in `package.json`, add the `--save` flag."
+                },
+                {
+                    "command": {
+                        "input": "npm i -g npm-check-updates\nncu -u\nnpm install",
+                        "action": "sendInput"
+                    },
+                    "name": "Update each dependency in package.json to the latest version (NPM)",
+                    "description": "Installs the `npm-check-updates` tool, and runs it to update every package to the latest version."
+                },
+                {
+                    "command": {
+                        "input": "npm update -g npm",
+                        "action": "sendInput"
+                    },
+                    "name": "Update NPM to the latest version",
+                    "description": "Updates npm to the latest version ."
+                }
+            ]
+        },
+        {
+            "name": "nuxtjs...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx nuxi init {{project_name}} --use-{{package_manager}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create Nuxt app",
+                    "description": "Create Nuxt application"
+                }
+            ]
+        },
+        {
+            "name": "nx...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx create-nx-workspace@latest {{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a new Nx workspace",
+                    "description": "Create a new Nx workspace using the latest version of Nx."
+                },
+                {
+                    "command": {
+                        "input": "npx create-nx-workspace@latest {{name}} --preset=react",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a new Nx workspace with a React application",
+                    "description": "Create a new Nx workspace with a React application using the latest version of Nx."
+                },
+                {
+                    "command": {
+                        "input": "npx nx g @nrwl/{{framework}}:application --name={{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a new application in your Nx workspace",
+                    "description": "This command generates a new application in your existing Nx workspace."
+                },
+                {
+                    "command": {
+                        "input": "npx nx g @nrwl/{{framework}}:library --name={{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a new library in your Nx workspace",
+                    "description": "This command generates a new library in your existing Nx workspace."
+                },
+                {
+                    "command": {
+                        "input": "npx add-nx-to-monorepo",
+                        "action": "sendInput"
+                    },
+                    "name": "Add Nx to an Existing Project",
+                    "description": "If you have an existing Lerna or Yarn monorepo, you can gain the benefits of Nx's computation cache and distributed task execution without modifying the file structure by running this command"
+                },
+                {
+                    "command": {
+                        "input": "npx cra-to-nx",
+                        "action": "sendInput"
+                    },
+                    "name": "Migrate Create-React-App project into a Nx Workspace",
+                    "description": "If you have an existing Create-React-App project, you can gain the benefits of Nx's computation cache and distributed task execution by running this command"
+                },
+                {
+                    "command": {
+                        "input": "npx nx graph",
+                        "action": "sendInput"
+                    },
+                    "name": "View the project graph",
+                    "description": "Start the project graph for the current Nx workspace. This will graph the dependencies within your workspace."
+                },
+                {
+                    "command": {
+                        "input": "npx nx generate @nrwl/workspace:remove --projectName={{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove project from Nx workspace",
+                    "description": "Remove a project from your Nx workspace."
+                },
+                {
+                    "command": {
+                        "input": "npx nx affected:test",
+                        "action": "sendInput"
+                    },
+                    "name": "Test only the affected code in your Nx workspace",
+                    "description": "Test only those projects that are affected by the changes in the current Nx workspace."
+                }
+            ]
+        },
+        {
+            "name": "openfortivpn...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "sudo openfortivpn -o {{otp}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Connect to openfortivpn with one time password",
+                    "description": "Uses one time password to connect to openfortivpn."
+                }
+            ]
+        },
+        {
+            "name": "php...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "php -S localhost:{{port}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Start a local PHP server",
+                    "description": "A command that starts a PHP server in the current directory."
+                },
+                {
+                    "command": {
+                        "input": "php -S localhost:{{port}} -t {{directory}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Start a local PHP server with a specific document root directory",
+                    "description": "A command that starts a PHP server in the specified directory."
+                }
+            ]
+        },
+        {
+            "name": "playwright...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx playwright codegen {{url}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Auto-generate Playwright tests with Codegen",
+                    "description": "Auto-generates Playwright tests with Codegen."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test --project={{projectName}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a single Playwright project",
+                    "description": "Run Playwright tests in a project."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test {{pathToFile}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a single Playwright test file",
+                    "description": "Runs a single Playwright test file."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test",
+                        "action": "sendInput"
+                    },
+                    "name": "Run all Playwright tests",
+                    "description": "Runs all Playwright tests"
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test --browser={{browser}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Playwright test in a specific browser",
+                    "description": "Runs Playwright tests in a specific browser."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test --debug",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Playwright tests in debug mode",
+                    "description": "Runs Playwright tests in debug mode."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test --g \"{{testTitle}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Playwright test with the title",
+                    "description": "Runs Playwright test with the title."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright test --headed",
+                        "action": "sendInput"
+                    },
+                    "name": "Run Playwright tests in headed mode",
+                    "description": "Runs Playwright tests in headed mode."
+                },
+                {
+                    "command": {
+                        "input": "npx playwright show-report",
+                        "action": "sendInput"
+                    },
+                    "name": "Show report on Playwright tests",
+                    "description": "Opens a webpage showing a report on your Playwright tests."
+                }
+            ]
+        },
+        {
+            "name": "pnpm...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "pnpm list {{package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Find version of an installed pnpm package",
+                    "description": "Lists the version name of an installed package. To see the versions of all installed packages, run `pnpm list` without passing a package name."
+                },
+                {
+                    "command": {
+                        "input": "pnpm ls --depth 0",
+                        "action": "sendInput"
+                    },
+                    "name": "List all globally installed PNPM packages",
+                    "description": "Lists all globally installed PNPM packages, avoiding including any package's dependencies in the view."
+                },
+                {
+                    "command": {
+                        "input": "rm -rf node_modules && pnpm install",
+                        "action": "sendInput"
+                    },
+                    "name": "Reinstall all PNPM dependencies",
+                    "description": "Reinstalls all dependencies by removing the node_modules folder and then reinstalling."
+                },
+                {
+                    "command": {
+                        "input": "rm -rf ~/.pnpm-store",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove all global pnpm modules",
+                    "description": "Removes all global pnpm modules by removing the `~/.pnpm-store` folder."
+                },
+                {
+                    "command": {
+                        "input": "pnpm uninstall {{name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Uninstall a local PNPM package",
+                    "description": "Removes a module from `node_modules` and from `package.json`."
+                },
+                {
+                    "command": {
+                        "input": "npm config --global set strict-peer-dependencies=false && pnpm update --latest",
+                        "action": "sendInput"
+                    },
+                    "name": "Update each dependency in package.json to the latest version (PNPM)",
+                    "description": "Sets strict-peer-dependencies to false globally and updates each dependency in package.json to the latest version."
+                },
+                {
+                    "command": {
+                        "input": "pnpm update -g pnpm",
+                        "action": "sendInput"
+                    },
+                    "name": "Update PNPM to the latest version",
+                    "description": "Updates pnpm to the latest version."
+                }
+            ]
+        },
+        {
+            "name": "python...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "python3 -m http.server {{port}} -d {{directory}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Start a simple HTTP server using Python",
+                    "description": "Start a simple HTTP server using Python 3, using the in-built http.server module."
+                },
+                {
+                    "command": {
+                        "input": "pip3 list --outdated --format=columns | tail -n +3 | awk '{print $1}' | xargs -n1 pip3 install -U",
+                        "action": "sendInput"
+                    },
+                    "name": "Update all pip3 packages",
+                    "description": "Update all your pip3 packages in one go."
+                }
+            ]
+        },
+        {
+            "name": "shell...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "{{array_name}}+=({{values}})",
+                        "action": "sendInput"
+                    },
+                    "name": "Append value(s) to an array",
+                    "description": "Loops through an array, running a command on each value."
+                },
+                {
+                    "command": {
+                        "input": "{{array_name}}=()",
+                        "action": "sendInput"
+                    },
+                    "name": "Make a new, empty array",
+                    "description": "Makes an empty array and assigns it to variable \"array_name\""
+                },
+                {
+                    "command": {
+                        "input": "echo ${#{{array_name}}[@]}",
+                        "action": "sendInput"
+                    },
+                    "name": "Get number of elements in an array",
+                    "description": "Gets the number of elements in an array, and prints it to stdout."
+                },
+                {
+                    "command": {
+                        "input": "echo ${{{array_name}}[{{index}}]}",
+                        "action": "sendInput"
+                    },
+                    "name": "Get a value from an array",
+                    "description": "Gets a value from an array and prints it to stdout."
+                },
+                {
+                    "command": {
+                        "input": "for i in ${{{array_name}}[@]}; do {{command}}; done",
+                        "action": "sendInput"
+                    },
+                    "name": "Loop through an array and run a command on each value",
+                    "description": "Loops through an array, running a command on each value."
+                },
+                {
+                    "command": {
+                        "input": "{{array_name}}[{{index}}]={{value}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Set an index in an array to a value",
+                    "description": "Makes an empty array and assigns it to variable \"array_name\""
+                },
+                {
+                    "command": {
+                        "input": "{{command_1}} | {{command_2}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Chain commands together by forwarding output as input to the next command (pipe)",
+                    "description": "Executes command_1 and passes the output as input to command_2"
+                },
+                {
+                    "command": {
+                        "input": "[[ -e {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a file exists",
+                    "description": "Returns an exit code of 0 if the file exists."
+                },
+                {
+                    "command": {
+                        "input": "[[ -f {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a file exists and is a regular file",
+                    "description": "Returns an exit code of 0 if the file exists and is a regular file (i.e. is not a directory or a symbolic link)."
+                },
+                {
+                    "command": {
+                        "input": "[[ -d {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a file exists and is directory",
+                    "description": "Returns an exit code of 0 if the file exists and is a directory."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -gt {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a number is greater than another number",
+                    "description": "Returns an exit code of 0 if integer_a is greater than integer_b."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -ge {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a number is greater than or equal to another number",
+                    "description": "Returns an exit code of 0 if integer_a is greater than or equal to integer_b."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -lt {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a number is less than another number",
+                    "description": "Returns an exit code of 0 if integer_a is less than or equal to integer_b."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -le {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if a number is less than or equal to another number",
+                    "description": "Returns an exit code of 0 if integer_a is less than or equal to integer_b."
+                },
+                {
+                    "command": {
+                        "input": "[[ -s {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if file exists and has a size greater than zero",
+                    "description": "Returns an exit code of 0 if the file exists and has a size greater than zero."
+                },
+                {
+                    "command": {
+                        "input": "[[ -x {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if file exists and is executable by the current process",
+                    "description": "Returns an exit code of 0 if the file is executable by the current process."
+                },
+                {
+                    "command": {
+                        "input": "[[ -r {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if file exists and is readable by the current process",
+                    "description": "Returns an exit code of 0 if the file is readable by the current process."
+                },
+                {
+                    "command": {
+                        "input": "[[ -w {{file}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if file exists and is writable by the current process",
+                    "description": "Returns an exit code of 0 if the file is writable by the current process."
+                },
+                {
+                    "command": {
+                        "input": "[[ -z {{string}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if string length is non-zero",
+                    "description": "Returns an exit code of 0 if the length of the string is non-zero."
+                },
+                {
+                    "command": {
+                        "input": "[[ -n {{string}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if string length is zero",
+                    "description": "Returns an exit code of 0 if the length of the string is zero."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -eq {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if two numbers are equal",
+                    "description": "Returns an exit code of 0 if the two integers are equal to each other."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{integer_a}} -ne {{integer_b}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if two numbers are not equal to each other",
+                    "description": "Returns an exit code of 0 if the two integers are not equal to each other."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{string_1}} = {{string_2}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if two strings are equal to each other",
+                    "description": "Tests if two strings are equal and returns an exit code of 0 if so."
+                },
+                {
+                    "command": {
+                        "input": "[[ {{string_1}} != {{string_2}} ]]",
+                        "action": "sendInput"
+                    },
+                    "name": "Check if two strings are not equal to each other",
+                    "description": "Tests if two strings are not equal and returns an exit code of 0 if so."
+                },
+                {
+                    "command": {
+                        "input": "kill $(lsof -t -i:{{port}})",
+                        "action": "sendInput"
+                    },
+                    "name": "Kill processes at port",
+                    "description": "Kill processes at a port."
+                },
+                {
+                    "command": {
+                        "input": "pbpaste | xargs -n1 -I{} open {}",
+                        "action": "sendInput"
+                    },
+                    "name": "Launch tabs with clipboard URLs",
+                    "description": "Launch all URLs (arranged in a list in the clipboard buffer). Will be launched using default browser and tab creation preference. Useful for copying a column of URLs from a spreadsheet and visiting them all at once."
+                },
+                {
+                    "command": {
+                        "input": "lsof -i:{{port}}",
+                        "action": "sendInput"
+                    },
+                    "name": "List processes at port",
+                    "description": "List processes at a port to see if there are running processes."
+                },
+                {
+                    "command": {
+                        "input": "mkdir {{dirname}} && cd $_",
+                        "action": "sendInput"
+                    },
+                    "name": "Make a directory and change into it",
+                    "description": "Runs `mkdir` followed by `cd`. Generated by Warp AI."
+                },
+                {
+                    "command": {
+                        "input": "{{command}} < {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Read file contents as input to another command",
+                    "description": "Reads the contents within file and passes it as input to the command."
+                },
+                {
+                    "command": {
+                        "input": "{{command}} > {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Redirect output of command to a file",
+                    "description": "Writes the output of a command to a file, overwriting anything that was already in the file."
+                },
+                {
+                    "command": {
+                        "input": "{{command}} >> {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Redirect output of command to a file by appending",
+                    "description": "Redirects the output of the command to a file. Creates the file if not present, otherwise appends to it."
+                },
+                {
+                    "command": {
+                        "input": "{{command}} 2> {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Redirect stderr",
+                    "description": "Executes the command, redirecting stderr to a file. Specify `/dev/null` to ignore stderr completely."
+                },
+                {
+                    "command": {
+                        "input": "{{command}} 1> {{file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Redirect stdout",
+                    "description": "Executes the command, redirecting stdout to a file. Specify `/dev/null` to ignore stdout completely."
+                },
+                {
+                    "command": {
+                        "input": "find -E {{path}} -iregex \".*\\.({{extensions}})\" -print | xargs -n1 -I _item {{command}} _item",
+                        "action": "sendInput"
+                    },
+                    "name": "Search for specified file types and run a certain command for each file",
+                    "description": "Use the Find command to search for specified file types and run a certain command for each file"
+                },
+                {
+                    "command": {
+                        "input": "for {{variable}} in {{sequence}}; do\n      {{command}}\ndone",
+                        "action": "sendInput"
+                    },
+                    "name": "Shell for-loop",
+                    "description": "A for loop that iterates through a sequence. A common example of this is to iterate through words in in a string, for example:\n\nfor i in $( ls ); do\n     echo item: $i\ndone"
+                },
+                {
+                    "command": {
+                        "input": "while {{condition}} do\n     {{command}}\ndone",
+                        "action": "sendInput"
+                    },
+                    "name": "Shell while-loop",
+                    "description": "A while loop, similar to one in other programming languages."
+                }
+            ]
+        },
+        {
+            "name": "sql...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "sqlite3 {db_filepath} \"VACUUM;\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Create an empty sqlite db",
+                    "description": "Uses the VACUUM command to create a valid empty SQLite database file."
+                },
+                {
+                    "command": {
+                        "input": "createdb -O {{owner_name}} -T {{original_db}} {{new_db}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a copy of a PostgreSQL database",
+                    "description": "Creates a new Postgres database, using an existing database as a template for which to build the database."
+                },
+                {
+                    "command": {
+                        "input": "mysqldump -u {{user_name}} -p {{db_name}} > {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Dump a MySQL database into a file",
+                    "description": "Dump a MySQL database, including its data, into a file."
+                },
+                {
+                    "command": {
+                        "input": "sqlite3 {{db_filepath}} .schema > {{output_sql_filename}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Dump sqlite schema into a .sql file",
+                    "description": "Dumbs the entire schema of a given SQLite database into a new file."
+                },
+                {
+                    "command": {
+                        "input": "psql -U {{user_name}} -d {{database_name}} -a -f {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Execute a .sql file against a PostgreSQL database",
+                    "description": "Runs .sql file against a Postgres database, while also handling authentication."
+                },
+                {
+                    "command": {
+                        "input": "mysqldump -h {{host_name_or_ip}} -u {{username}} -p --no-data dbname > {{output_sql_file_path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Export MySQL database schema without exporting its data",
+                    "description": "Exports a MySQL database schema to a file without exporting its underlying data."
+                },
+                {
+                    "command": {
+                        "input": "sqlite3 -header -csv {{db_filepath}}  {{sql_query}} > {{output_filepath}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Export SQLite query to a CSV file",
+                    "description": "Executes a sql query against the given SQLite database and outputs the the results to a CSV file."
+                },
+                {
+                    "command": {
+                        "input": "mysql -u {{username}} -p {{database_name}} < {{sql_filepath}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Import a SQL file into a MySQL server",
+                    "description": "Imports an exported SQL dump into a MySQL server"
+                },
+                {
+                    "command": {
+                        "input": "pv {{mysql_dump_path}} | mysql -u {{username}} -p {{database_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Import a MySQL dump with progress bar into a MySQL server",
+                    "description": "Import a mysqldump file into a MySQL server with a progress bar indicating time remaining"
+                },
+                {
+                    "command": {
+                        "input": "psql {{database_name}} < {{database_dump}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Import SQL dump into a PostgreSQL database",
+                    "description": "Imports a SQL dump into an existing database. Note the database must already be created for this to work."
+                },
+                {
+                    "command": {
+                        "input": "pgloader mysql://{{mysql_username}}:{{mysql_password}}@{{mysql_hostname}}:{{mysql_port}}/{{mysql_database_name}} postgresql://{{postgres_username}}:{{postgres_password}}@{{postgres_hostname}}:{{postgres_port}}/{{postgres_database_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Migrate from MySQL Database to PostgresSQL Database",
+                    "description": "Loads data from the MySQL database, transforms it to PostgreSQL compatible format and uploads it to the PostgreSQL database. Note -  it requires pgloader to be installed and both PostgreSQL and MySQL hosts are accessible from the machine running this script."
+                },
+                {
+                    "command": {
+                        "input": "mysql -u {{user}} -p < {{dump_filepath}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Restore a dump file from a mysqldump",
+                    "description": null
+                },
+                {
+                    "command": {
+                        "input": "psql -d dbname -t -A -F\",\" -c \"{{query}}\" > {{file_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Store result of a PostgreSQL query as a CSV file",
+                    "description": "Executes a query against a Postgres database and writes the output to a new file"
+                }
+            ]
+        },
+        {
+            "name": "ssh...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "pbcopy < ~/.ssh/id_ed25519.pub",
+                        "action": "sendInput"
+                    },
+                    "name": "Copy SSH key for GitHub",
+                    "description": "Copies the SSH key for GitHub to the clipboard. This is useful for adding the SSH key to GitHub."
+                },
+                {
+                    "command": {
+                        "input": "ssh-keygen -t ed25519 -C \"{{email}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate new SSH key for GitHub",
+                    "description": "Generates a new SSH key for GitHub. The email address is optional. If you don't specify an email address, you'll be prompted to enter one."
+                }
+            ]
+        },
+        {
+            "name": "ssl...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "openssl rsa -aes256 -in {{in_key}} -out {{out_pass_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Add password to private RSA key using AES256",
+                    "description": "Add password to private RSA key using AES256."
+                },
+                {
+                    "command": {
+                        "input": "ssh-keygen -c -C \"{{new_comment}}\" -f {{ssh_key_path}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Change an SSH key comment",
+                    "description": "Change the comment stored in the public key of a pub/priv key pair."
+                },
+                {
+                    "command": {
+                        "input": "openssl s_client -connect {{url}}:443 -showcerts",
+                        "action": "sendInput"
+                    },
+                    "name": "Check website certificate",
+                    "description": "Check certificate of specific web site or URL."
+                },
+                {
+                    "command": {
+                        "input": "openssl x509 -inform der -outform pem -in {{in_der_cert}} -out {{out_pem_cert}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Convert certificate from DER to PEM",
+                    "description": "Convert certificate in DER binary encoding to PEM format (base64)"
+                },
+                {
+                    "command": {
+                        "input": "openssl x509 -inform pem -outform der -in {{in_pem_cert}} -out {{out_der_cert}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Convert certificate from PEM to DER",
+                    "description": "Convert certificate in PEM format (base64) to DER binary encoding"
+                },
+                {
+                    "command": {
+                        "input": "openssl pkcs12 -export -out {{out_pkcs12_cert}} -in {{in_pem_cert}} -inkey {{in_pem_private_key}} -certfile {{in_pem_cacert}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Convert certificate from PEM to PKCS#12",
+                    "description": "Convert certificate in PKCS#12 container format (private key included) to PEM format (base64)"
+                },
+                {
+                    "command": {
+                        "input": "openssl pkcs12 -in {{in_pkcs12_cert}} -out {{out_pem_cert}} -nodes",
+                        "action": "sendInput"
+                    },
+                    "name": "Convert certificate from PKCS#12 to PEM",
+                    "description": "Convert certificate in PKCS#12 container format (private key included) to PEM format (base64)"
+                },
+                {
+                    "command": {
+                        "input": "openssl rsa -in {{in_key}} -pubout -out {{out_pub_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Export public key from private RSA key",
+                    "description": "Export public part of the key from private RSA key."
+                },
+                {
+                    "command": {
+                        "input": "openssl req -x509 -newkey rsa:4096 -keyout {{key_file}} -out {{cert_file}} -sha256 -days {{expiration_days}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a self-signed SSL certificate",
+                    "description": "Generates a self-signed SSL certificate using OpenSSL. Beware, self-signed certificates are typically not validated with any third party. It's recommended to use a certificate signed by a certificate authority."
+                },
+                {
+                    "command": {
+                        "input": "openssl req -new -config {{conf_file}} -out {{csr_file}} -verbose",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate a CSR from configuration/template",
+                    "description": "Generates a Certificate Signing Request (CSR) from configuration (template) file. This CSR is needs to be signed by Certification Authority."
+                },
+                {
+                    "command": {
+                        "input": "ssh-keygen -t {{key_type}} -b {{key_size}} -o -a 100 -C \"{{key_comment}}\" -f \"{{key_file_name}}\"",
+                        "action": "sendInput"
+                    },
+                    "name": "Generate RSA key",
+                    "description": "Generate new RSA key with 100 KDF rounds."
+                },
+                {
+                    "command": {
+                        "input": "openssl rsa -in {{in_pass_key}} -out {{out_key}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Remove password from private RSA key",
+                    "description": "Remove password from private RSA key."
+                },
+                {
+                    "command": {
+                        "input": "openssl x509 -enddate -noout -in {{cert_file}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Show SSL certificate expiration date from an encoded certificate",
+                    "description": "Prints the SSL cert expiration date from a PEM encoded certificate. The output is of the form `notAfter=Nov  3 22:23:50 2014 GMT`."
+                }
+            ]
+        },
+        {
+            "name": "symfony...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "symfony check:requirements",
+                        "action": "sendInput"
+                    },
+                    "name": "Check all the requirements to develop and run Symfony application locally",
+                    "description": "Check all the tools you need to develop and run your Symfony application locally"
+                },
+                {
+                    "command": {
+                        "input": "symfony check:security",
+                        "action": "sendInput"
+                    },
+                    "name": "Check security issues in Symfony project dependencies",
+                    "description": "Check security issues in Symfony project dependencies"
+                },
+                {
+                    "command": {
+                        "input": "symfony new {{project_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a new Symfony project",
+                    "description": "Create a new Symfony project"
+                },
+                {
+                    "command": {
+                        "input": "symfony server:start",
+                        "action": "sendInput"
+                    },
+                    "name": "Start Symfony local web server",
+                    "description": "Start Symfony local web server"
+                }
+            ]
+        },
+        {
+            "name": "turborepo...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "npx turbo run {{pipelines}} --graph",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a Turborepo dependency graph.",
+                    "description": ""
+                },
+                {
+                    "command": {
+                        "input": "npx -y create-turbo@latest {{directory}} --use-{{package_manager}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Create a new Turborepo",
+                    "description": ""
+                },
+                {
+                    "command": {
+                        "input": "npx turbo run {{pipelines}} --filter={{filter}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a Turborepo pipeline with a package filter",
+                    "description": ""
+                },
+                {
+                    "command": {
+                        "input": "npx turbo run {{pipelines}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a Turborepo pipeline",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "yarn...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "yarn cache clean",
+                        "action": "sendInput"
+                    },
+                    "name": "Clear Yarn cache",
+                    "description": "Clears the global yarn cache directory."
+                },
+                {
+                    "command": {
+                        "input": "yarn upgrade {{package_name}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Force Yarn to reinstall package",
+                    "description": "Force updates a package to the latest version based on the version based on the version range specified in the package.json file."
+                },
+                {
+                    "command": {
+                        "input": "yarn add {{git_remote_url}}#{{branch}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Install package in Yarn from a Git repository",
+                    "description": "Add a git repository as a dependency in Yarn."
+                },
+                {
+                    "command": {
+                        "input": "yarn --cwd {{path}} {{command}}",
+                        "action": "sendInput"
+                    },
+                    "name": "Run a Yarn command in a different directory",
+                    "description": "Specifies the working directory for yarn so that a command can be run in a directory other than the current directory."
+                },
+                {
+                    "command": {
+                        "input": "yarn upgrade-interactive --latest",
+                        "action": "sendInput"
+                    },
+                    "name": "Update each Yarn dependency to the latest version",
+                    "description": "Upgrade each yarn dependency by using the Yarn upgrade tool in interactive mode."
+                },
+                {
+                    "command": {
+                        "input": "npm install --global yarn\nnpm upgrade --global yarn",
+                        "action": "sendInput"
+                    },
+                    "name": "Upgrade Yarn to latest version",
+                    "description": "Upgrades the current yarn version to the latest version using the npm package manager."
+                },
+                {
+                    "command": {
+                        "input": "yarn install --frozen-lockfile",
+                        "action": "sendInput"
+                    },
+                    "name": "Yarn install with reproducible dependencies",
+                    "description": "Install yarn dependencies withuot a lockfile. This is useful if you need reproducible dependencies, which is usually the case with continuous integration systems."
+                }
+            ]
+        },
+        {
+            "name": "zip...",
+            "commands": [
+                {
+                    "command": {
+                        "input": "for dir in $(ls -d {{directory}}*/); do (zip -r {{options}} {{output}}$(basename $dir){{name_with_str}}.zip ${dir}{{zip_pattern}} && echo -e \"Compressed to {{output}}$(basename $dir){{name_with_str}}.zip.\"); done",
+                        "action": "sendInput"
+                    },
+                    "name": "Compression all subdirectories and output each directory as a zip file.",
+                    "description": "Use zip to compress all subdirectories under a folder and output each directory as a zip file."
+                }
+            ]
+        }
+    ]
+}

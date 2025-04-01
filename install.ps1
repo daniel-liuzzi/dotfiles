@@ -32,6 +32,7 @@ Write-Output '- Installing features...'
     'ahk'
     'firefox'
     'keepass'
+    'terminal'
 ) | foreach {
     Write-Output "  $_"
     & "$PSScriptRoot/$_/install"
@@ -50,15 +51,6 @@ Write-Output '- Creating symlinks...'
     @{
         Target = './powershell/profile.ps1'
         Source = $PROFILE.CurrentUserCurrentHost
-    }
-    @{
-        Target = './terminal/settings.json'
-        Source = @(
-            "~/scoop/apps/windows-terminal/current/settings/settings.json"
-            "~/scoop/apps/windows-terminal-preview/current/settings/settings.json"
-            "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-            "$env:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json"
-        )
     }
     @{
         Target = './vscode/keybindings.json'
