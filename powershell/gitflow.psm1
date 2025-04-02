@@ -10,8 +10,7 @@ function gfv { gf version @args }
 # bugfix
 function gfb { gf bugfix @args }
 function gfbc { gfb checkout @args }
-function gfbd { gfb diff @args }
-function gfbdel { gfb delete @args }
+function gfbd { gfb delete @args }
 function gfbf { gfb finish @args }
 function gfbl { gfb list @args }
 function gfbpub { gfb publish @args }
@@ -23,8 +22,7 @@ function gfbt { gfb track @args }
 # feature
 function gff { gf feature @args }
 function gffc { gff checkout @args }
-function gffd { gff diff @args }
-function gffdel { gff delete @args }
+function gffd { gff delete @args }
 function gfff { gff finish @args }
 function gffl { gff list @args }
 function gffpub { gff publish @args }
@@ -35,7 +33,7 @@ function gfft { gff track @args }
 
 # hotfix
 function gfh { gf hotfix @args }
-function gfhdel { gfh delete @args }
+function gfhd { gfh delete @args }
 function gfhf { gfh finish @args }
 function gfhl { gfh list @args }
 function gfhpub { gfh publish @args }
@@ -43,7 +41,7 @@ function gfhs { gfh start @args }
 
 # release
 function gfr { gf release @args }
-function gfrdel { gfr delete @args }
+function gfrd { gfr delete @args }
 function gfrf { gfr finish @args }
 function gfrl { gfr list @args }
 function gfrpub { gfr publish @args }
