@@ -15,6 +15,9 @@ function drrm { dr --rm @args }
 function dps { d_ ps @args }
 function dpsa { dps --all @args }
 
+# docker compose build
+function dcb { dc build @args }
+
 # docker compose up
 function dcu { dc up @args }
 function dcud { dcu --detach @args }
