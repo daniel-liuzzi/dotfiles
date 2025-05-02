@@ -6,6 +6,7 @@ $Global:DotfilesOptions.Search += @{
     'ARIN'                          = 'https://search.arin.net/rdap/?query='
     'Ask Ubuntu'                    = 'https://www.google.com/search?q=site%3Aaskubuntu.com+'
     'Bing'                          = 'https://www.bing.com/search?q='
+    'Copilot'                       = 'https://copilot.microsoft.com/?q='
     'DBA Stack Exchange'            = 'https://www.google.com/search?q=site%3Adba.stackexchange.com+'
     'DevOps Stack Exchange'         = 'https://www.google.com/search?q=site%3Adevops.stackexchange.com+'
     'DuckDuckGo'                    = 'https://duckduckgo.com/?q='
@@ -17,6 +18,7 @@ $Global:DotfilesOptions.Search += @{
     'Google.es'                     = 'https://www.google.es/search?q='
     'Google'                        = 'https://www.google.com/search?q='
     'NuGet'                         = 'https://www.google.com/search?q=site%3Anuget.org+'
+    'Perplexity'                    = 'https://www.perplexity.ai/search?q='
     'Reddit'                        = 'https://www.google.com/search?q=site%3Areddit.com+'
     'Server Fault'                  = 'https://www.google.com/search?q=site%3Aserverfault.com+'
     'Spanish Stack Exchange'        = 'https://www.google.com/search?q=site%3Aspanish.stackexchange.com+'
@@ -73,7 +75,9 @@ function Invoke-Search {
 }
 
 function arin { Invoke-Search -Target 'ARIN' @args }
+function cop { Invoke-Search -Target 'Copilot' @args }
 function eng { Invoke-Search -Target 'English Stack Exchange' @args }
+function ppl { Invoke-Search -Target 'Perplexity' @args }
 function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
 function spa { Invoke-Search -Target 'Spanish Stack Exchange' @args }
