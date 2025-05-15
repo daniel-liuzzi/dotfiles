@@ -15,6 +15,9 @@ function drrm { dr --rm @args }
 function dps { d_ ps @args }
 function dpsa { dps --all @args }
 
+# docker compose pull
+function dcp { dc pull @args }
+
 # docker compose build
 function dcb { dc build @args }
 
