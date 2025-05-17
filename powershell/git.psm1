@@ -225,6 +225,7 @@ function grim {
     )
 }
 function gro { gr --onto @args }
+function grob { gr --onto (Get-GitBranchBase) @args }
 function grp { gr '@{push}' @args }
 function gru { gr '@{upstream}' @args }
 
