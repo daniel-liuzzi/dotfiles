@@ -229,8 +229,7 @@ Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 
 # Editor
 function e. { e . @args }
-Set-Alias -Name 'e' -Value 'edit'
-Set-Alias -Name 'edit' -Value 'code'
+Set-Alias -Name 'e' -Value 'code'
 
 # scoop install vswhere
 # https://github.com/microsoft/vswhere/wiki/Find-MSBuild#powershell
