@@ -27,6 +27,10 @@ function dcud { dcu --detach @args }
 function dcudb { dcud --build @args }
 function dcudbfr { dcudb --force-recreate @args }
 
+# docker compose logs
+function dcl { dc logs @args }
+function dclf { dcl --follow @args }
+
 # docker compose down
 function dcd { dc down @args }
 function dcdv { dcd --volumes @args }
