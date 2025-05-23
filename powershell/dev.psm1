@@ -184,6 +184,10 @@ function dnl($path = '.') { dn list $path @args }
 function dnlp($path = '.') { dnl $path package @args }
 function dnlr($path = '.') { dnl $path reference @args }
 function dnn { dn new @args }
+function dnni { dnn install @args }
+function dnnl { dnn list @args }
+function dnns { dnn search @args }
+function dnnu { dnn uninstall @args }
 function dnr { dn run @args }
 function dnrm($path = '.') { dn remove $path @args }
 function dnrmp($path = '.') { dnrm $path package @args }
