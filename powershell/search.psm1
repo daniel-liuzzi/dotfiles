@@ -17,6 +17,7 @@ $Global:DotfilesOptions.Search += @{
     'Google Shopping'               = 'https://www.google.com/search?tbm=shop&q='
     'Google.es'                     = 'https://www.google.es/search?q='
     'Google'                        = 'https://www.google.com/search?q='
+    'MDN Web Docs'                  = 'https://www.google.com/search?q=site%3Adeveloper.mozilla.org+'
     'NuGet'                         = 'https://www.google.com/search?q=site%3Anuget.org+'
     'Perplexity'                    = 'https://www.perplexity.ai/search?q='
     'Reddit'                        = 'https://www.google.com/search?q=site%3Areddit.com+'
@@ -77,6 +78,7 @@ function Invoke-Search {
 function arin { Invoke-Search -Target 'ARIN' @args }
 function cop { Invoke-Search -Target 'Copilot' @args }
 function eng { Invoke-Search -Target 'English Stack Exchange' @args }
+function mdn { Invoke-Search -Target 'MDN Web Docs' @args }
 function ppl { Invoke-Search -Target 'Perplexity' @args }
 function sf { Invoke-Search -Target 'Server Fault' @args }
 function so { Invoke-Search -Target 'Stack Overflow' @args }
