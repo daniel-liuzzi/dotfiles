@@ -33,6 +33,7 @@
 	verbose = true
 
 [core]
+	abbrev = 10
 	longpaths = true
 
 	# https://github.com/dandavison/delta#configuration
@@ -116,9 +117,9 @@
 	cmd = winmergeu -e -u -fm -dl Ours -dm $MERGED -dr Theirs $LOCAL $BASE $REMOTE -o $MERGED
 
 [pretty]
-	s = "%C(#66334D)%m%C(#55665E) %ad %C(#dddddd italic) %<(050,trunc)%s %C(auto) %h %C(#333366 italic) %aN%C(auto)%w(082,0,33)%+D"
-	m = "%C(#66334D)%m%C(#55665E) %ad %C(#dddddd italic) %<(100,trunc)%s %C(auto) %h %C(#333366 italic) %aN%C(auto)%w(132,0,33)%+D"
-	l = "%C(#66334D)%m%C(#55665E) %ad %C(#dddddd italic) %<(150,trunc)%s %C(auto) %h %C(#333366 italic) %aN%C(auto)%w(182,0,33)%+D"
+	s = "%C(#66334D)%m%C(#55665E) %ad %C(auto) %h %C(#dddddd italic) %<(050,trunc)%s %C(#333366) %aN%C(auto)%w(095,0,45)%+D"
+	m = "%C(#66334D)%m%C(#55665E) %ad %C(auto) %h %C(#dddddd italic) %<(100,trunc)%s %C(#333366) %aN%C(auto)%w(145,0,45)%+D"
+	l = "%C(#66334D)%m%C(#55665E) %ad %C(auto) %h %C(#dddddd italic) %<(150,trunc)%s %C(#333366) %aN%C(auto)%w(195,0,45)%+D"
 
 [pull]
 	rebase = merges
