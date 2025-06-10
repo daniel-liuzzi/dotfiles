@@ -221,12 +221,23 @@ function Start-File($Filter) {
 
 function Start-Project {
     # TODO: check if project already open, if so, focus window (alla vscode)
-    Start-File *.*proj
+    run start (Find-File *.*proj)
 }
 
 function Start-Solution {
     # TODO: check if solution already open, if so, focus window (alla vscode)
-    Start-File *.sln
+    ##run start (Find-File *.sln)
+    run start (Find-File *.slnx, *.sln)
+}
+
+function Find-File($Filter) {
+    $Path = `
+        Get-ChildItem -Path $Filter -Recurse -Depth 1 -File | `
+        Select-Object -First 1 | `
+        Resolve-Path -Relative
+
+    if (!$Path) { return Write-Error "No $Filter files found" }
+    return $Path
 }
 
 Set-Alias -Name 'console' -Value 'New-ConsoleApp'
