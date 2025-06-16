@@ -63,6 +63,9 @@ SetCapsLockState("AlwaysOff")
 
 #HotIf
 
+; Ctrl+Alt+K summons KeePassXC alla KeePass
+^!k:: Run "keepassxc"
+
 ; Alt+= -> Autosize listview columns
 !=::            SendInput "^{NumpadAdd}"
 
