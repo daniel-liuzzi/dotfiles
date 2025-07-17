@@ -188,6 +188,7 @@ function dnni { dnn install @args }
 function dnnl { dnn list @args }
 function dnns { dnn search @args }
 function dnnu { dnn uninstall @args }
+function dnp($path = '.') { dn pack $path @args }
 function dnr { dn run @args }
 function dnrm($path = '.') { dn remove $path @args }
 function dnrmp($path = '.') { dnrm $path package @args }
