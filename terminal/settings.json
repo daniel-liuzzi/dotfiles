@@ -6,41 +6,10 @@
         {
             "command": 
             {
-                "action": "addMark"
-            },
-            "id": "User.addMark.0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "id": "User.switchToTab.D7681B66"
-        },
-        {
-            "command": 
-            {
-                "action": "addMark",
-                "color": "#0000FF"
-            },
-            "id": "User.addMark.6AC409E0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
-            "id": "User.switchToTab.ED268D78"
-        },
-        {
-            "command": 
-            {
                 "action": "scrollToMark",
                 "direction": "previous"
             },
-            "id": "User.scrollToMark.D3F0B923"
+            "id": "User.scrollToMark.previous"
         },
         {
             "command": 
@@ -48,123 +17,7 @@
                 "action": "scrollToMark",
                 "direction": "next"
             },
-            "id": "User.scrollToMark.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 4
-            },
-            "id": "User.switchToTab.F747588A"
-        },
-        {
-            "command": "closePane",
-            "id": "User.closePane"
-        },
-        {
-            "command": 
-            {
-                "action": "addMark",
-                "color": "#FF00FF"
-            },
-            "id": "User.addMark.3650F2D6"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 1
-            },
-            "id": "User.switchToTab.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 0
-            },
-            "id": "User.switchToTab.D3F0B923"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollToMark",
-                "direction": "last"
-            },
-            "id": "User.scrollToMark.6CD791B"
-        },
-        {
-            "command": "clearAllMarks",
-            "id": "User.clearAllMarks"
-        },
-        {
-            "command": 
-            {
-                "action": "openSettings",
-                "target": "settingsUI"
-            },
-            "id": "User.openSettings.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollToMark",
-                "direction": "first"
-            },
-            "id": "User.scrollToMark.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 6
-            },
-            "id": "User.switchToTab.787314EB"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "id": "User.switchToTab.75247157"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "id": "User.switchToTab.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "id": "User.newTab.5DEADB41"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "id": "User.switchToTab.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "id": "User.splitPane.A6751878"
+            "id": "User.scrollToMark.next"
         }
     ],
     "copyFormatting": "none",
@@ -173,75 +26,23 @@
     "keybindings": 
     [
         {
-            "id": "User.switchToTab.75247157",
-            "keys": "ctrl+6"
-        },
-        {
-            "id": "User.scrollToMark.D3F0B923",
-            "keys": "ctrl+up"
-        },
-        {
-            "id": "User.scrollToMark.6CD791B",
-            "keys": "ctrl+pgdn"
-        },
-        {
-            "id": "User.switchToTab.D3F0B923",
-            "keys": "ctrl+1"
-        },
-        {
-            "id": "User.switchToTab.F747588A",
-            "keys": "ctrl+5"
-        },
-        {
-            "id": "User.scrollToMark.2A0DA8E0",
-            "keys": "ctrl+down"
-        },
-        {
-            "id": "User.openSettings.6CD791B",
-            "keys": "ctrl+shift+comma"
-        },
-        {
-            "id": "User.scrollToMark.87C324ED",
-            "keys": "ctrl+pgup"
-        },
-        {
-            "id": "User.switchToTab.787314EB",
-            "keys": "ctrl+7"
-        },
-        {
-            "id": "User.switchToTab.87C324ED",
-            "keys": "ctrl+3"
-        },
-        {
-            "id": "User.closePane",
-            "keys": "ctrl+w"
-        },
-        {
-            "id": "User.switchToTab.2A0DA8E0",
-            "keys": "ctrl+2"
-        },
-        {
-            "id": "User.newTab.5DEADB41",
+            "id": "Terminal.OpenNewTab",
             "keys": "ctrl+t"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "Terminal.ClosePane",
+            "keys": "ctrl+w"
         },
         {
-            "id": "User.switchToTab.6CD791B",
-            "keys": "ctrl+4"
+            "id": "User.scrollToMark.previous",
+            "keys": "ctrl+up"
         },
         {
-            "id": "User.switchToTab.D7681B66",
-            "keys": "ctrl+8"
+            "id": "User.scrollToMark.next",
+            "keys": "ctrl+down"
         },
         {
-            "id": "User.switchToTab.ED268D78",
-            "keys": "ctrl+9"
-        },
-        {
-            "id": "User.splitPane.A6751878",
+            "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
         }
     ],
@@ -267,11 +68,13 @@
         "list": 
         [
             {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
@@ -284,34 +87,40 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{e347c687-5a2d-5217-b474-ddd57a5a7090}",
+                "guid": "{30826106-584e-5c6b-8271-a4f4984db21b}",
                 "hidden": false,
+                "name": "Developer Command Prompt for VS 21",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{5fa9f2d7-1f69-5058-8603-d71bc31e32c3}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 21",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{edd4b5ce-5b4b-51e9-a50a-b6aa5192caec}",
+                "hidden": true,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{0bc99b0f-097b-522e-859a-15686d5c66f0}",
-                "hidden": false,
+                "guid": "{046cda45-6bab-5bd8-80a7-0a2df02df88e}",
+                "hidden": true,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }
         ]
     },
