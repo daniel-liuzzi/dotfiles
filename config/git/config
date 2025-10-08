@@ -147,6 +147,13 @@
 [tag]
 	sort = version:refname
 
+[tig]
+	# Use UTF-8 line graphics
+	line-graphics = utf-8
+
+	# Show commit IDs
+	main-view-id = yes
+
 # Keep this section last so it can override settings above
 [include]
 	path = config.custom
