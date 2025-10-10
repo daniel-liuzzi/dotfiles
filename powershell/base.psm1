@@ -68,7 +68,7 @@ function quietly { $Quiet = $true; run @args }
 function Get-QuotedValues {
     $args | ForEach-Object {
         if ($_ -isnot [string]) { return $_ }
-        if ($_ -notmatch '[^-./\\\w^=~]') { return $_ }
+        if ($_ -notmatch '[^-:./\\\w^=~]') { return $_ }
         return "'$($_.Replace("'", "''"))'"
     }
 }
