@@ -15,4 +15,5 @@ function wgsrc { wg source @args }
 function wgsw { wg show @args }
 function wgu { wg uninstall @args }
 function wgug { wg upgrade @args }
+function wguga { wgug --all @args }
 function wgv { wg validate @args }
