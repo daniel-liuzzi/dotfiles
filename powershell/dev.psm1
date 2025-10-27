@@ -40,6 +40,34 @@ function Get-SlnReferencesGraph($Path = $PWD.ProviderPath) {
 
 <#
 .SYNOPSIS
+    Repeatedly executes a command and displays its output, similar to the Unix 'watch' command.
+#>
+function Invoke-Watch {
+    param(
+        [Parameter(Mandatory = $true, Position = 0)]
+        [object]
+        $Command,
+
+        [int]
+        $Interval = 1
+    )
+
+    while ($true) {
+        Clear-Host
+        Write-Host "$(Get-Date) - every ${Interval}s: $Command`r`n" -ForegroundColor Green
+
+        if ($Command -is [scriptblock]) {
+            & $Command
+        } else {
+            Invoke-Expression $Command
+        }
+
+        Start-Sleep -Seconds $Interval
+    }
+}
+
+<#
+.SYNOPSIS
     Creates a new dotnet console app and opens it in the text editor.
 #>
 function New-ConsoleApp {
@@ -255,4 +283,5 @@ foreach { Set-Alias -Name 'msbuild' -Value $_ }
 
 Set-Alias -Name 'proj' -Value 'Start-Project'
 Set-Alias -Name 'sln' -Value 'Start-Solution'
+Set-Alias -Name 'watch' -Value 'Invoke-Watch'
 Set-Alias -Name 'wm' -Value 'winmergeu'
