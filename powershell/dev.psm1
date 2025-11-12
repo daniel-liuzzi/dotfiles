@@ -273,7 +273,7 @@ Set-Alias -Name 'console' -Value 'New-ConsoleApp'
 
 # Editor
 function e. { e . @args }
-Set-Alias -Name 'e' -Value 'code'
+function e { run code --disable-gpu @args }
 
 # scoop install vswhere
 # https://github.com/microsoft/vswhere/wiki/Find-MSBuild#powershell
