@@ -123,10 +123,11 @@ function New-Solution {
     dotnet new sln
     dotnet new editorconfig
 
+    $Root = Split-Path -Leaf .
     Set-Content Directory.Build.props @(
         "<Project>"
         "    <PropertyGroup>"
-        "        <AssemblyName>$(Split-Path -Leaf .).`$(MSBuildProjectName)</AssemblyName>"
+        "        <AssemblyName>${Root}.`$(MSBuildProjectName)</AssemblyName>"
         "        <RootNamespace>`$(AssemblyName.Replace(`" `", `"_`"))</RootNamespace>"
         "        <Deterministic>true</Deterministic>"
         "    </PropertyGroup>"
@@ -146,8 +147,14 @@ function New-Solution {
     Pop-Location
 
     mkdir Api | Push-Location
-    dotnet new webapi --no-https --use-minimal-apis=false @args
-    "`r`npublic partial class Program { }" >> Program.cs
+    dotnet new webapi --no-https @args
+    Set-Content Program.cs @(
+        "[assembly: System.Runtime.CompilerServices.InternalsVisibleTo(`"${Root}.Api.Tests`")]"
+        ""
+        $(Get-Content Program.cs)
+        ""
+        "public partial class Program { }"
+    )
     dotnet add reference ../Core
     dotnet sln .. add .
     Pop-Location
@@ -157,10 +164,9 @@ function New-Solution {
     Remove-Item UnitTest1.cs
 @"
 using System.Net.Http.Json;
-
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace Api.Tests;
+namespace ${Root}.Api.Tests;
 
 public class WeatherForecastControllerTests
 {
@@ -195,7 +201,7 @@ public class WeatherForecastControllerTests
     git add --all
     git commit --message Initial
 
-    edit . Api.Tests/WeatherForecastControllerTests.cs Api/Controllers/WeatherForecastController.cs
+    code . Api.Tests/WeatherForecastControllerTests.cs Api/Program.cs
 
     Pop-Location
 }
