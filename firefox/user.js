@@ -38,6 +38,14 @@ user_pref("devtools.webconsole.timestampMessages", true);
 // Don't save or fill payment methods
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
+// The browser imposes a limit on the number of simultaneous connections that
+// can be made to a single server. In Firefox this defaults to 6, but can be
+// changed using the network.http.max-persistent-connections-per-server
+// preference. If all connections are in use, the browser can’t download more
+// resources until a connection is released.
+// https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_details/#request-timing
+user_pref("network.http.max-persistent-connections-per-server", 10);
+
 // Allow Windows single sign-on for Microsoft, work, and school accounts
 // https://support.mozilla.org/en-US/kb/windows-sso
 user_pref("network.http.windows-sso.enabled", true);
