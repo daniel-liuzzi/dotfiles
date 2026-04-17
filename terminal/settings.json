@@ -26,14 +26,6 @@
     "keybindings": 
     [
         {
-            "id": "Terminal.OpenNewTab",
-            "keys": "ctrl+t"
-        },
-        {
-            "id": "Terminal.ClosePane",
-            "keys": "ctrl+w"
-        },
-        {
             "id": "User.scrollToMark.previous",
             "keys": "ctrl+up"
         },
