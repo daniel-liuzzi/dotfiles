@@ -32,6 +32,7 @@ Write-Output '- Installing features...'
     'ahk'
     'firefox'
     'keepass'
+    'television'
     'terminal'
 ) | foreach {
     Write-Output "  $_"
