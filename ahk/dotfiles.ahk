@@ -19,3 +19,5 @@
 #Include hotstrings.sql.ansi.ahk
 #Include hotstrings.sql.mssql.ahk
 #Include hotstrings.sql.oracle.ahk
+
+#Include chrome.ahk
