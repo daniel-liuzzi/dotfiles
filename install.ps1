@@ -58,6 +58,8 @@ Write-Output '- Creating symlinks...'
         Source = @(
             "~/scoop/persist/vscode/data/user-data/User/keybindings.json"
             "~/scoop/persist/vscode-insiders/data/user-data/User/keybindings.json"
+            "$env:APPDATA/Code/User/keybindings.json"
+            "$env:APPDATA/Code - Insiders/User/keybindings.json"
         )
     }
     @{
@@ -65,6 +67,8 @@ Write-Output '- Creating symlinks...'
         Source = @(
             "~/scoop/persist/vscode/data/user-data/User/settings.json"
             "~/scoop/persist/vscode-insiders/data/user-data/User/settings.json"
+            "$env:APPDATA/Code/User/settings.json"
+            "$env:APPDATA/Code - Insiders/User/settings.json"
         )
     }
     @{
@@ -72,6 +76,8 @@ Write-Output '- Creating symlinks...'
         Source = @(
             "~/scoop/persist/vscode/data/user-data/User/tasks.json"
             "~/scoop/persist/vscode-insiders/data/user-data/User/tasks.json"
+            "$env:APPDATA/Code/User/tasks.json"
+            "$env:APPDATA/Code - Insiders/User/tasks.json"
         )
     }
     @{
