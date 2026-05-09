@@ -31,6 +31,8 @@ Write-Output '- Installing features...'
 @(
     'ahk'
     'firefox'
+    'git'
+    'jrnl'
     'keepass'
     'television'
     'terminal'
@@ -41,10 +43,6 @@ Write-Output '- Installing features...'
 
 Write-Output '- Creating symlinks...'
 @(
-    @{
-        Target = './config'
-        Source = '~/.config'
-    }
     @{
         Target = './espanso'
         Source = '~/scoop/persist/espanso/.espanso'
