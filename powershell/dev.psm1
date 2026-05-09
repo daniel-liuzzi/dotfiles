@@ -201,7 +201,7 @@ public class WeatherForecastControllerTests
     git add --all
     git commit --message Initial
 
-    code . Api.Tests/WeatherForecastControllerTests.cs Api/Program.cs
+    e . Api.Tests/WeatherForecastControllerTests.cs Api/Program.cs
 
     Pop-Location
 }
