@@ -88,6 +88,7 @@ wsl bash -c @"
     echo '[ -t 1 ] && exec nu' >> ~/.bashrc
 "@
 
+# TODO: move config into a new nu/ directory and symlink
 wsl nu --login -c @'
     # scaffold Nu config files
     config reset --without-backup
