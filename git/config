@@ -36,9 +36,6 @@
 	abbrev = 10
 	longpaths = true
 
-	# https://github.com/dandavison/delta#configuration
-	pager = delta
-
 [credential]
 	helper =
 	helper = manager
@@ -46,39 +43,20 @@
 [credential "helperselector"]
 	selected = manager
 
-[delta]
-	file-decoration-style = "#333333" ul box
-	file-style = "#ffffff"
-	hunk-header-decoration-style = none
-	hyperlinks = true
-	line-numbers = true
-	line-numbers-left-format = "{nm:>3} ⋮ "
-	line-numbers-left-style = "#333333"
-	line-numbers-minus-style = "#80312f"
-	line-numbers-plus-style = "#1d572d"
-	line-numbers-right-format = "{np:>3} │ "
-	line-numbers-right-style = "#333333"
-	line-numbers-zero-style = "#666666"
-	max-line-length = 0
-	minus-emph-style = syntax "#80312f"
-	minus-style = syntax "#301b1e"
-	navigate = true
-	paging = always
-	plus-emph-style = syntax "#1d572d"
-	plus-style = syntax "#12261e"
-	relative-paths = true
-	syntax-theme = Dracula
-
 [diff]
 	algorithm = histogram
 	colorMoved = blocks
 	colorMovedWS = allow-indentation-change
+	external = difft
 	renameLimit = 9999
 	statGraphWidth = 10
-	tool = vscode
+	tool = difftastic
 
 [difftool]
 	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 
 [difftool "vscode"]
 	cmd = code-insiders --new-window --wait --diff $LOCAL $REMOTE
@@ -115,6 +93,9 @@
 [mergetool "wm"]
 	# WinMerge w/ 3-way merge support; install with `scoop install winmerge`
 	cmd = winmergeu -e -u -fm -dl Ours -dm $MERGED -dr Theirs $LOCAL $BASE $REMOTE -o $MERGED
+
+[pager]
+	difftool = true
 
 [pretty]
 	s = "%C(#66334D)%m%C(#55665E) %ad %C(auto) %h %C(#dddddd italic) %<(050,trunc)%s %C(#333366) %aN%C(auto)%w(095,0,45)%+D"
