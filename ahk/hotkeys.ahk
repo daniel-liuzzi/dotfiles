@@ -38,15 +38,6 @@ SetCapsLockState("AlwaysOff")
     ; Connected Devices (alla Windows 10's Win+K)
     k::Run "ms-settings:connecteddevices"
 
-    ; Caps + L = Turn monitor off and lock PC
-    ; https://gist.github.com/davejamesmiller/1965854
-    l::
-    {
-        Run("rundll32.exe user32.dll,LockWorkStation")
-        Sleep(1000)
-        SendMessage(0x112, 0xF170, 2,, "Program Manager")
-    }
-
     ; Misc.
     `::         Esc
     Esc::       `

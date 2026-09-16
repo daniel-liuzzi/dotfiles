@@ -1,0 +1,72 @@
+;; Global hotkeys. App-specific and character-output hotkeys live in ahk/.
+;;
+;; Ctrl+B isn't special-cased: Ctrl passes through untouched here and
+;; combines naturally with the Pause output from `b` below.
+
+;; Disabled: Kanata's Windows keystate sync (GetAsyncKeyState-based) doesn't
+;; reliably track consumer/media keys (e.g. play/pause) or ralt, and its
+;; default self-correction logs "Unexpected keycode is pressed..." and
+;; force-clears state when it can't confirm a key via that API.
+;; https://github.com/jtroo/kanata/issues/55
+(defcfg
+  process-unmapped-keys yes
+  windows-sync-keystates no
+)
+
+(defsrc)
+
+(deflayermap (base-layer)
+  caps    (layer-while-held caps-layer)
+
+  ;; Alt+= -> Ctrl+NumpadAdd (autosize listview columns); plain = otherwise
+  ;; Global (not Caps-conditional), matching the AHK original.
+  =       (switch
+            ((input real lalt)) C-kp+ break
+            ()                  =     break
+          )
+)
+
+(deflayermap (caps-layer)
+
+  ;; Function row
+  1       f1
+  2       f2
+  3       f3
+  4       f4
+  5       f5
+  6       f6
+  7       f7
+  8       f8
+  9       f9
+  0       f10
+  -       f11
+  =       f12
+
+  ;; MacBook-style navigation keys
+  left    home
+  rght    end
+  up      pgup
+  down    pgdn
+
+  ;; Media controls
+  [       voldwn
+  ]       volu
+  \       mute
+  ,       prev
+  .       next
+  spc     pp
+
+  ;; Misc.
+  `       esc
+  esc     `
+  bspc    del
+  b       pause
+  c       caps
+  i       ins
+  n       nlck
+  p       prtsc
+  q       A-f4
+  s       scrlck
+  w       C-f4
+
+)

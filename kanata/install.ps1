@@ -1,4 +1,4 @@
-# scoop install kanata-cmd
+# winget install --id jtroo.kanata_gui --exact
 
 Register-ScheduledTask `
     -TaskName 'Kanata' `
@@ -6,8 +6,7 @@ Register-ScheduledTask `
         -AtLogOn `
         -User $env:USERNAME) `
     -Action (New-ScheduledTaskAction `
-        -Execute 'conhost' `
-        -Argument '--headless kanata-cmd' `
+        -Execute '%LOCALAPPDATA%\Microsoft\WinGet\Links\kanata_windows_gui_winIOv2_x64.exe' `
         -WorkingDirectory $PSScriptRoot) `
     -Settings (New-ScheduledTaskSettingsSet `
         -DontStopOnIdleEnd `
@@ -16,5 +15,3 @@ Register-ScheduledTask `
         -ExecutionTimeLimit 0) `
     -RunLevel Highest `
     -Force
-
-# conhost trick credit: https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
