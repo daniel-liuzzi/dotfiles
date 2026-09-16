@@ -1,0 +1,75 @@
+;; Kanata port of ahk/hotkeys.ahk — GLOBAL hotkeys only.
+;;
+;; Not ported: the four VSCode-style, app-scoped remaps (Visual Studio, SSMS,
+;; LINQPad, Oracle SQL Developer) — Kanata has no per-application conditional
+;; hotkeys like AHK's #HotIf WinActive.
+;;
+;; Not ported: Caps+K (open ms-settings:connecteddevices), Caps+L (lock +
+;; monitor off), and Ctrl+Alt+K (launch keepassxc) — these would need
+;; Kanata's `cmd` action plus `danger-enable-cmd yes` in defcfg. Left out
+;; by choice to keep this config to pure key remapping. (Note: the `cmd`
+;; action requires a cmd_allowed build — e.g. `kanata-cmd.exe` from Scoop
+;; has it, but the winget `jtroo.kanata_gui` package does not.) These 3
+;; remain in ahk/hotkeys.ahk.
+;;
+;; Ctrl+B (AHK's explicit CtrlBreak) isn't special-cased: Ctrl isn't
+;; intercepted here, so it passes through untouched and combines naturally
+;; with the Pause output from `b` below.
+;;
+;; Not ported: the AltGr accented-character combos (hotkeys.ahk lines
+;; 98-124, e.g. RAlt+a -> á). That's character-output/hotstring-style
+;; functionality, not a key remap, so it stays in AHK alongside
+;; hotstrings.chars.ahk rather than being ported here.
+
+;; Disabled: Kanata's Windows keystate sync (GetAsyncKeyState-based) doesn't
+;; reliably track consumer/media keys (e.g. play/pause) or ralt, and its
+;; default self-correction logs "Unexpected keycode is pressed..." and
+;; force-clears state when it can't confirm a key via that API.
+;; https://github.com/jtroo/kanata/issues/55
+(defcfg
+  windows-sync-keystates no
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =
+  bspc esc
+  left rght up   down
+  [    ]    \    ,    .    spc
+  b    c    i    n    p    q    s    w
+  a    e    o    u    /
+  lalt ralt lsft rsft
+  caps
+)
+
+(defalias
+  ;; Hold Caps = nav/media/misc layer (mirrors AHK's #HotIf CapsLock-held block)
+  caps-hold (layer-while-held capsnav)
+
+  ;; Alt+= -> Ctrl+NumpadAdd (autosize listview columns); plain = otherwise
+  alt-eq (switch
+    ((input real lalt)) C-kp+ break
+    ()                  =     break
+  )
+)
+
+(deflayer base
+  grv    1    2     3     4    5    6    7    8    9    0   -   @alt-eq
+  bspc   esc
+  left   rght     up    down
+  [      ]        \     ,     .    spc
+  b      c        i     n     p    q    s    w
+  a      e        o     u     /
+  lalt   ralt     lsft  rsft
+  @caps-hold
+)
+
+(deflayer capsnav
+  esc   f1   f2  f3  f4   f5    f6   f7   f8   f9   f10  f11  f12
+  del   grv
+  home  end  pgup pgdn
+  vold  volu mute prev next pp
+  pause caps ins  nlck prnt A-f4 slck C-f4
+  _     _    _    _    _
+  _     _    _    _
+  _
+)
