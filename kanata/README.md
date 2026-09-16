@@ -20,6 +20,7 @@
 |                    |       <kbd>\\</kbd>       |           🔇           |     |
 | **Home row**       |                           |                        |     |
 |                    |       <kbd>S</kbd>        | <kbd>Scroll Lock</kbd> |     |
+|                    |       <kbd>K</kbd>        |   Connected Devices    |     |
 | **Bottom row**     |                           |                        |     |
 |                    |       <kbd>B</kbd>        | <kbd>Pause/Break</kbd> | [1] |
 |                    |       <kbd>N</kbd>        |   <kbd>Num Lock</kbd>  |     |

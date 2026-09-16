@@ -67,6 +67,7 @@
   bspc    del
   b       pause
   i       ins
+  k       f24 ;; AHK binds bare f24 -> Connected Devices; see ahk/hotkeys.ahk
   n       nlck
   p       prtsc
   q       A-f4

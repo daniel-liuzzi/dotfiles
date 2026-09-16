@@ -4,12 +4,10 @@
 #UseHook
 SetTitleMatchMode("RegEx")
 
-#HotIf GetKeyState("CapsLock", "P")
-
-    ; Connected Devices (alla Windows 10's Win+K)
-    k::Run "ms-settings:connecteddevices"
-
-#HotIf
+; Caps+K (Connected Devices, alla Windows 10's Win+K): kanata emits F24 for
+; Caps+K, since it owns the physical CapsLock key and AHK can no longer
+; detect it as held via GetKeyState.
+F24:: Run "ms-settings:connecteddevices"
 
 ; Ctrl+Alt+K summons KeePassXC alla KeePass
 ^!k:: Run "keepassxc"
