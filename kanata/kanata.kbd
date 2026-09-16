@@ -16,7 +16,12 @@
 (defsrc)
 
 (deflayermap (base-layer)
-  caps    (layer-while-held caps-layer)
+  ;; Tap = normal CapsLock; hold = nav/media/misc layer. Decided purely by
+  ;; whether another key is pressed before Caps is released (tap-hold-press),
+  ;; not by timing: tap-repress-timeout 0 skips the double-tap-to-repeat
+  ;; quirk, and the huge hold-timeout means holding Caps alone never times
+  ;; out into a hold on its own.
+  caps    (tap-hold-press 0 65535 caps (layer-while-held caps-layer))
 
   ;; Alt+= -> Ctrl+NumpadAdd (autosize listview columns); plain = otherwise
   ;; Global (not Caps-conditional), matching the AHK original.
