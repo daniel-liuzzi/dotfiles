@@ -3,7 +3,6 @@
 
 #UseHook
 SetTitleMatchMode("RegEx")
-SetCapsLockState("AlwaysOff")
 
 #HotIf GetKeyState("CapsLock", "P")
 
