@@ -1,4 +1,9 @@
-# winget install --id jtroo.kanata_gui --exact
+# winget install --id jtroo.kanata_gui --exact --version 1.11.0
+# winget pin add --id jtroo.kanata_gui --exact --version 1.11.0
+#
+# Pinned below 1.12.0, which made keystate sync ignore windows-sync-keystates
+# no and desync real keys. Fix is on main (windows-sync-keystates none,
+# commit def6432c79) but unreleased as of 2026-09-16 -- unpin once it ships.
 
 Register-ScheduledTask `
     -TaskName 'Kanata' `
