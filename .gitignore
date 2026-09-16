@@ -1,3 +1,6 @@
 *.custom
 *.custom.*
 !*.sample
+
+# Per-machine Claude Code tool-permission approvals, not shared project config
+.claude/settings.local.json
