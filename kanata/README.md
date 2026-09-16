@@ -19,7 +19,6 @@
 |                    |       <kbd>]</kbd>        |           🔊           |     |
 |                    |       <kbd>\\</kbd>       |           🔇           |     |
 | **Home row**       |                           |                        |     |
-|                    |       <kbd>C</kbd>        |   <kbd>Caps Lock</kbd> |     |
 |                    |       <kbd>S</kbd>        | <kbd>Scroll Lock</kbd> |     |
 | **Bottom row**     |                           |                        |     |
 |                    |       <kbd>B</kbd>        | <kbd>Pause/Break</kbd> | [1] |
