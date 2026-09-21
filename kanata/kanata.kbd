@@ -8,6 +8,11 @@
 ;; default self-correction logs "Unexpected keycode is pressed..." and
 ;; force-clears state when it can't confirm a key via that API.
 ;; https://github.com/jtroo/kanata/issues/55
+;; process-unmapped-keys yes breaks AHK's hotstring text matching for every
+;; key it relays via SendInput (character translation fails on the relayed
+;; side), so hotstrings are unreliable while this is on. Accepted for now;
+;; see git history for the explicit-defsrc alternative that traded that off
+;; for narrower breakage instead of losing hotstrings entirely.
 (defcfg
   process-unmapped-keys yes
   windows-sync-keystates no
