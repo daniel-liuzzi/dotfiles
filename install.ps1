@@ -37,6 +37,7 @@ Write-Output '- Installing features...'
     'keepass'
     'television'
     'terminal'
+    'wezterm'
 ) | foreach {
     Write-Output "  $_"
     & "$PSScriptRoot/$_/install"
