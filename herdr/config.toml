@@ -1,0 +1,4 @@
+onboarding = false
+
+[experimental]
+pane_history = true
