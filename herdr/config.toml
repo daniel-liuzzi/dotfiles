@@ -2,3 +2,9 @@ onboarding = false
 
 [experimental]
 pane_history = true
+
+[keys]
+new_tab = "ctrl+shift+t"
+close_tab = "ctrl+shift+w"
+next_tab = "ctrl+tab"
+previous_tab = "ctrl+shift+tab"
